@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="65F7FEDE-90E7-1B6B-89C6-CE2F8D266896" name="Produkty">
+<createdBy>karnu</createdBy>
+<createdTime>2025-05-25 20:43:23 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_prod" id="922E641D-821F-AB7E-052D-92DAD6F707E9">
+<createdBy>karnu</createdBy>
+<createdTime>2025-05-25 20:44:28 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazwa" id="0F6A3B5A-60CF-7658-0CA5-ADE05F601A4B">
+<createdBy>karnu</createdBy>
+<createdTime>2025-05-25 20:50:09 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<ownDataTypeParameters>128,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="typ" id="A2179F05-678C-5DE9-0691-23FF3C2E9C50">
+<createdBy>karnu</createdBy>
+<createdTime>2025-05-25 20:52:32 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cena" id="0BB0B0FC-75CD-5117-3EE8-B8BF555DF116">
+<createdBy>karnu</createdBy>
+<createdTime>2025-05-25 20:52:32 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3066711E-2160-1A53-250F-3C6A5FEB1194" name="Produkty_PK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-05-25 20:44:28 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="922E641D-821F-AB7E-052D-92DAD6F707E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
