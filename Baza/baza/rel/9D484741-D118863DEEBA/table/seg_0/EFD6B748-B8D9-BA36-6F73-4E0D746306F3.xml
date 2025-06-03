@@ -8,15 +8,19 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="id_MOBO" id="D8A4C725-EE2E-5C80-DDCC-4E26E727161B">
+<Column name="id_MOBO" id="00F66B3B-2825-1B76-1C67-4684DDC31843">
 <createdBy>karnu</createdBy>
-<createdTime>2025-06-02 20:20:35 UTC</createdTime>
+<createdTime>2025-06-02 22:49:58 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT027</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="271ABF8C-214D-1737-DF2E-26D4B96ACA5C" referredColumn="922E641D-821F-AB7E-052D-92DAD6F707E9"/>
+</associations>
 </Column>
 <Column name="socket" id="98AC6020-5A2F-4314-D949-490463D13791">
 <createdBy>karnu</createdBy>
@@ -42,30 +46,6 @@
 <ownDataTypeParameters>4,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="ilosc_slotow_ram" id="21851243-7DC5-A1C2-066A-9589DDC71CE3">
-<createdBy>karnu</createdBy>
-<createdTime>2025-06-02 20:35:01 UTC</createdTime>
-<ownerDesignName>baza</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="max_ram" id="5A194DA7-7FC5-4B53-0185-FDDE57B84309">
-<createdBy>karnu</createdBy>
-<createdTime>2025-06-02 20:35:01 UTC</createdTime>
-<ownerDesignName>baza</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>3</dataTypeSize>
-<ownDataTypeParameters>3,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="format" id="AB8F306C-DA0B-9FB6-C6FA-D33C076B4B0D">
 <createdBy>karnu</createdBy>
 <createdTime>2025-06-02 20:35:01 UTC</createdTime>
@@ -78,6 +58,28 @@
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="max_ram" id="5A194DA7-7FC5-4B53-0185-FDDE57B84309">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 20:35:01 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ilosc_slotow_ram" id="21851243-7DC5-A1C2-066A-9589DDC71CE3">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 20:35:01 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="ilosc_slotow_m2" id="DA8E5532-F605-3312-16AF-FEE7DD271A1B">
 <createdBy>karnu</createdBy>
 <createdTime>2025-06-02 20:35:01 UTC</createdTime>
@@ -85,9 +87,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ilosc_pcie_x16" id="2DFECF51-786D-7544-EAC9-7F20188B782D">
@@ -97,9 +98,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ilosc_pcie_x1" id="D8ACF6FC-8E8C-1C02-96B3-6AA299350B97">
@@ -109,9 +109,19 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ilosc_usb_3.0" id="B2B706CC-1EE1-217C-F6D6-408469FFE8E1">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 20:42:03 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="wifi" id="679BF047-1D4D-55D6-3AC4-A6CC3D2E1584">
@@ -126,16 +136,15 @@
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="bluetooth" id="18CC9CB0-EBE8-C2FB-404B-59CB93779B68">
+<Column name="ilosc_usb_2.0" id="D9900E92-7CA0-5ED1-B616-FB4967413E09">
 <createdBy>karnu</createdBy>
 <createdTime>2025-06-02 20:42:03 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT006</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ilosc_usb_c" id="A2263E10-C895-1650-2BB6-D2F09CB9B1B3">
@@ -145,31 +154,18 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="ilosc_usb_2.0" id="D9900E92-7CA0-5ED1-B616-FB4967413E09">
+<Column name="bluetooth" id="18CC9CB0-EBE8-C2FB-404B-59CB93779B68">
 <createdBy>karnu</createdBy>
 <createdTime>2025-06-02 20:42:03 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="ilosc_usb_3.0" id="B2B706CC-1EE1-217C-F6D6-408469FFE8E1">
-<createdBy>karnu</createdBy>
-<createdTime>2025-06-02 20:42:03 UTC</createdTime>
-<ownerDesignName>baza</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
+<logicalDatatype>LOGDT006</logicalDatatype>
 <dataTypeSize>1</dataTypeSize>
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -208,7 +204,17 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="D8A4C725-EE2E-5C80-DDCC-4E26E727161B"/>
+<colUsage columnID="00F66B3B-2825-1B76-1C67-4684DDC31843"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A8A33C9-C1C2-5908-9906-88C2B369AC39" name="id_MOBO">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 22:49:58 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00F66B3B-2825-1B76-1C67-4684DDC31843"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

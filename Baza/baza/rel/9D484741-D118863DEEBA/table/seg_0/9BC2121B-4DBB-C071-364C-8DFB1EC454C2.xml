@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9BC2121B-4DBB-C071-364C-8DFB1EC454C2" name="Koszyk_Produkty">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:03:55 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<ordsAlias>table_17</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Koszyk_id_koszyka" id="7972AAC4-E735-10AA-6C71-4D60467C4BBB">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:05:29 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2A8D45D9-B148-16C7-28DA-7FF0E5F34911" referredColumn="F7AEED52-BFC2-84A9-8E5B-F4E17116F952"/>
+</associations>
+</Column>
+<Column name="Produkty_id_prod" id="6E5191A0-6B27-0B8B-B05D-55E7161F89C4">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:05:43 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9CF989F2-44E4-C90C-036E-71CDDE0A2A2B" referredColumn="922E641D-821F-AB7E-052D-92DAD6F707E9"/>
+</associations>
+</Column>
+<Column name="ilosc" id="F277255B-6F0D-8455-F673-5C78CB736421">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:09:29 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6EF008CB-27F3-4534-AD7C-AAD67C9EBADE" name="Koszyk_Produkty_PK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:05:54 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7972AAC4-E735-10AA-6C71-4D60467C4BBB"/>
+<colUsage columnID="6E5191A0-6B27-0B8B-B05D-55E7161F89C4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E442B2AE-8406-F243-09D2-8A0E0F4CE2E8" name="Koszyk_Produkty_Koszyk_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:05:29 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7972AAC4-E735-10AA-6C71-4D60467C4BBB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EE478F8E-A129-96D5-B413-59A8330DACDC" name="Koszyk_Produkty_Produkty_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:05:43 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6E5191A0-6B27-0B8B-B05D-55E7161F89C4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

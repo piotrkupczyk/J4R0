@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BB26B7D0-B15D-3C32-F142-90598B4101BC" containerWithKeyObject="4445C637-9D2A-22A4-693D-0074599937D2" localFKIndex="85030106-A1E1-B77A-6F12-589D069FA367" name="Zest_Prod_Zestawy_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:20:55 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<referredTableLongName>Zestawy</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2049B62C-90AC-A580-EC5F-156ADFE9C4C9</referredTableID>
+<keyObject>CF0514D3-AEA7-804C-311C-58C0C3C27BEF</keyObject>
+<referredKeyID>CF0514D3-AEA7-804C-311C-58C0C3C27BEF</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_zestawu</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

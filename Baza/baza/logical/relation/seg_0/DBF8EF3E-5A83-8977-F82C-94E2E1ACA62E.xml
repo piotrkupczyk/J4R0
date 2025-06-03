@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="GPU_Produkty_FK" directorySegmentName="seg_0" id="DBF8EF3E-5A83-8977-F82C-94E2E1ACA62E">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>9CA0D093-7674-8E08-1ABB-39A342946EB3</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<sourcePk>1DD61B5D-158A-4220-C7D7-1F1824074ADF</sourcePk>
+<dominantRole>5649A7A2-43D7-645D-1912-B09956CA31BB</dominantRole>
+<identifying>true</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5649A7A2-43D7-645D-1912-B09956CA31BB</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>B6822111-B161-BD4E-D3E8-6722689F063B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

@@ -1,0 +1,194 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B6822111-B161-BD4E-D3E8-6722689F063B" name="GPU">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>4AE96ECA-CCC8-4E83-0932-06075B112797</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id GPU" id="5E6110EB-F2DE-DF9F-C341-0C6230459B6D">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>DBF8EF3E-5A83-8977-F82C-94E2E1ACA62E</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<referedAttribute>A35AD72F-F976-8AFC-A6B5-5EE0DB4449E0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="chipset" id="75A67B6E-3498-C349-8B57-12F84161B049">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>BF3CE544-682F-9DE1-A4CB-57AA24B8CFFC</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VRAM" id="84C2318F-CEB0-B9D6-20D0-5D9728E45965">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>7D43EA49-2280-E8E5-5D89-A8A96828B04F</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="GDDR" id="F2474DA3-A6F3-BAE5-3C7D-F33388F3CC56">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>8679A65D-0CB7-B1A1-093B-225E90B213A0</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TDP" id="4A103A0C-9F2E-5722-DCDB-9FE131595C09">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>B8822D98-055B-CC74-D10C-7502A658E972</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sloty obudowy" id="C9B8D764-9E27-3C2F-64CB-AC7C24A031AA">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>302C6B7B-010E-7823-A80E-AF389B6BAAF6</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,2,1</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ilosc wiatrakow" id="70D544C2-4860-D2FD-76EE-71464018E535">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>5700B024-BEF8-1A3A-F9EB-7EADEC2E2632</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dlugosc" id="54C80A6C-60A9-97B6-0BF0-6361EA7550A8">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>BC10BED6-7890-15C1-A053-FB66A52405BC</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dual bios" id="903EE760-30C0-A85D-7D63-D72D8C176E6D">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>461AD4B5-1B81-F25B-6EA7-91A100B9EA10</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ilosc hdmi" id="9985B60B-5D83-232B-6171-DC540FDB94DF">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>AB80E804-7D07-8607-6D46-2F8B58362CBB</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ilosc dp" id="9B477637-7679-E708-1879-B963C61CD9F7">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>BB06E4BB-EBDD-B4EB-07E1-EB3A64ECD97D</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="FA68B0C1-A20C-4F90-E9CB-9D083CC2F126" name="GPU PK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>3F16EE18-473C-A6F1-C5EF-AEA50241DD32</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5E6110EB-F2DE-DF9F-C341-0C6230459B6D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

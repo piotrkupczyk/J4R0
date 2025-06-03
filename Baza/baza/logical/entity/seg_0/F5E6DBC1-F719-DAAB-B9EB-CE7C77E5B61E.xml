@@ -1,0 +1,266 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F5E6DBC1-F719-DAAB-B9EB-CE7C77E5B61E" name="MOBO">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>EFD6B748-B8D9-BA36-6F73-4E0D746306F3</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id MOBO" id="8EBC6B8F-40C7-C452-3FD3-4548E862F455">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>D83339E9-8894-3013-7430-C6553C6E8D9A</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<referedAttribute>A35AD72F-F976-8AFC-A6B5-5EE0DB4449E0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="socket" id="EC256B33-59DA-BF09-5217-3E7213375774">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>98AC6020-5A2F-4314-D949-490463D13791</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
+<ownDataTypeParameters>8,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DDR" id="E8D9D595-1103-06EA-B5CF-BA99E1BB4694">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>B3B15E17-FE06-2CB9-B4B7-DE1BA800F031</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="format" id="86D50120-6FF5-3A9E-10EB-C7876E5F945D">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>AB8F306C-DA0B-9FB6-C6FA-D33C076B4B0D</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="max ram" id="E38977B9-71C0-EF40-FE09-636EC2BC2317">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>5A194DA7-7FC5-4B53-0185-FDDE57B84309</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ilosc slotow ram" id="CC184CCD-AE67-E3C0-6610-BF31EF30D380">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>21851243-7DC5-A1C2-066A-9589DDC71CE3</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ilosc slotow m2" id="2769B1B6-4248-22AB-7169-8FCBEF082190">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>DA8E5532-F605-3312-16AF-FEE7DD271A1B</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ilosc pcie x16" id="B20AC7EB-C23F-BBE8-2355-CB22C4CDA760">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>2DFECF51-786D-7544-EAC9-7F20188B782D</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ilosc pcie x1" id="4D2DB18A-F9DD-8848-E49C-2FCA901F019E">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>D8ACF6FC-8E8C-1C02-96B3-6AA299350B97</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ilosc usb 3.0" id="FE450CF4-46D4-4F90-953B-3F032A0F5C55">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>B2B706CC-1EE1-217C-F6D6-408469FFE8E1</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="wifi" id="209CF438-B78A-0BEF-7229-3DCFF78CFDEE">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>679BF047-1D4D-55D6-3AC4-A6CC3D2E1584</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ilosc usb 2.0" id="7B113679-17DD-E1AD-FD69-27A9DCE4FA44">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>D9900E92-7CA0-5ED1-B616-FB4967413E09</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ilosc usb c" id="D43B36A5-2355-9E42-C011-7A1319D76E9E">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>A2263E10-C895-1650-2BB6-D2F09CB9B1B3</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="bluetooth" id="EFEB8388-7D19-D781-EBBE-6020A0BDAF14">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>18CC9CB0-EBE8-C2FB-404B-59CB93779B68</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="bios typ" id="DC394621-EB0B-CD83-20EF-E08D002160FE">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>F65BAFF3-49C1-0628-FC54-1DF685BBE1F6</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="podkrecanie" id="CA0DA6A5-2E1C-4DC7-F74A-973BF04D9F3D">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>29196E51-D423-5DF2-5D74-69BCABA78C3B</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1F54C80A-3859-FBAD-CF0B-6EDEE628FEB4" name="MOBO PK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>800AE62E-7F2D-B444-0414-A0978D14C440</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8EBC6B8F-40C7-C452-3FD3-4548E862F455</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

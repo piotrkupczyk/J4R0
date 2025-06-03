@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="DYSK_Produkty_FK" directorySegmentName="seg_0" id="FDB35E07-7FE8-42DD-7637-ED6FBFF9D446">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>ADFAB534-59C8-F2FC-9C7D-F9A4457E53F2</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<sourcePk>1DD61B5D-158A-4220-C7D7-1F1824074ADF</sourcePk>
+<dominantRole>5649A7A2-43D7-645D-1912-B09956CA31BB</dominantRole>
+<identifying>true</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5649A7A2-43D7-645D-1912-B09956CA31BB</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>4F8593F5-E949-C8F7-F2D1-DB0374A46E53</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

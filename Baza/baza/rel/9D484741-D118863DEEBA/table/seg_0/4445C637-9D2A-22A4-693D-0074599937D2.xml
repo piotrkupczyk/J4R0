@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4445C637-9D2A-22A4-693D-0074599937D2" name="Zestawy_Produkty">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:17:15 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<ordsAlias>table_18</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_prod" id="7072D58F-DC7A-3A5E-5174-9A95513AE2FD">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:20:51 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E37FB830-D6DD-04BE-A880-2A0480A5F11B" referredColumn="922E641D-821F-AB7E-052D-92DAD6F707E9"/>
+</associations>
+</Column>
+<Column name="id_zestawu" id="4617555F-0F06-5A33-1DFA-FB0F86DEF6ED">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:20:55 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BB26B7D0-B15D-3C32-F142-90598B4101BC" referredColumn="8EDE1048-50EA-1ACF-A511-A5E7E41FCCA6"/>
+</associations>
+</Column>
+<Column name="ilosc" id="49202BCB-D086-AE59-158D-0331D80D073C">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:21:35 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3C61A6EE-4CD1-2F6D-EB61-E8E9A1C84CD4" name="Zestawy_Produkty_PK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:21:02 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7072D58F-DC7A-3A5E-5174-9A95513AE2FD"/>
+<colUsage columnID="4617555F-0F06-5A33-1DFA-FB0F86DEF6ED"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FC5994DB-5289-65BF-D966-4487052BEBEF" name="Zest_Prod_Produkty_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:20:51 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7072D58F-DC7A-3A5E-5174-9A95513AE2FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="85030106-A1E1-B77A-6F12-589D069FA367" name="Zest_Prod_Zestawy_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:20:55 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4617555F-0F06-5A33-1DFA-FB0F86DEF6ED"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="id_MOBO" directorySegmentName="seg_0" id="D83339E9-8894-3013-7430-C6553C6E8D9A">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>271ABF8C-214D-1737-DF2E-26D4B96ACA5C</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<sourcePk>1DD61B5D-158A-4220-C7D7-1F1824074ADF</sourcePk>
+<dominantRole>5649A7A2-43D7-645D-1912-B09956CA31BB</dominantRole>
+<identifying>true</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5649A7A2-43D7-645D-1912-B09956CA31BB</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>F5E6DBC1-F719-DAAB-B9EB-CE7C77E5B61E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FC4C959E-A507-E61A-9642-B3465440EDAB" name="Klienci">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:29:51 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_klienta" id="B8A04467-43AB-6531-A9AD-4FC98C301692">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:51:15 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="imie" id="D2B99749-A841-FCE9-167C-AF9455184644">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:57:29 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64</dataTypeSize>
+<ownDataTypeParameters>64,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazwisko" id="3EA2001B-1427-0C76-1B6C-68C1339019D5">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:57:29 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64</dataTypeSize>
+<ownDataTypeParameters>64,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="EF9F430A-D4DF-F35A-69DE-22380B5D58E3">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:57:29 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>128</dataTypeSize>
+<ownDataTypeParameters>128,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefon" id="882D7986-5359-8743-4A6B-E9920B411900">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:57:29 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="adres" id="4FA73DDF-80BC-09A9-0C44-4DB6EAEE2EE1">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:57:29 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data_dolaczenia" id="041BD87E-BA07-5774-F2EC-019DA5787555">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:57:29 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="haslo" id="349C4E70-3507-365A-958F-35ACF96AB65F">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:57:29 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B53DF3FA-2369-A243-AB2F-4AB89D3FE39C" name="Klienci_PK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:51:26 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B8A04467-43AB-6531-A9AD-4FC98C301692"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

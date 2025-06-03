@@ -8,14 +8,19 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="id_PSU" id="DDFF62BD-B561-0DCA-C0E0-82CA84A0C4EE">
+<Column name="id_PSU" id="FCF203BC-C6A8-1298-C3D3-A347006A1F09">
 <createdBy>karnu</createdBy>
-<createdTime>2025-05-25 21:59:43 UTC</createdTime>
+<createdTime>2025-06-02 22:52:28 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E9DAC1FA-EF7A-F5FB-00EC-E7760CB5E7E2" referredColumn="922E641D-821F-AB7E-052D-92DAD6F707E9"/>
+</associations>
 </Column>
 <Column name="moc" id="67EB4BA0-41B2-BD13-EA44-91A59D432D1E">
 <createdBy>karnu</createdBy>
@@ -24,9 +29,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>4</dataTypeSize>
-<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="format" id="609050E2-3BA8-1867-5A54-E5EC6DA1D0AC">
@@ -66,4 +70,27 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4A92AD6A-579D-C648-0C75-817C9E10DAF8" name="PSU_PK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 22:33:44 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FCF203BC-C6A8-1298-C3D3-A347006A1F09"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AEE7EA52-6396-3E18-8748-28221EF42DCE" name="PSU_Produkty_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 22:52:28 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FCF203BC-C6A8-1298-C3D3-A347006A1F09"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
 </Table>

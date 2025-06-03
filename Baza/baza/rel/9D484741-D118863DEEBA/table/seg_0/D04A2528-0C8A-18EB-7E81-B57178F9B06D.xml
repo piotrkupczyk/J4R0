@@ -1,16 +1,26 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="96A7222C-B781-71B5-66EF-076EB546DC96" name="CASE">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D04A2528-0C8A-18EB-7E81-B57178F9B06D" name="Zamowienia">
 <createdBy>karnu</createdBy>
-<createdTime>2025-05-25 21:26:46 UTC</createdTime>
+<createdTime>2025-06-02 23:29:41 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
-<ordsAlias>table_7</ordsAlias>
+<ordsAlias>table_10</ordsAlias>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="id_CASE" id="77986784-2A96-89FA-EAC2-496A738EA292">
+<Column name="id_zamowienia" id="513CA317-D6EC-0ABF-C0A9-E0E69699D77B">
 <createdBy>karnu</createdBy>
-<createdTime>2025-06-02 22:51:41 UTC</createdTime>
+<createdTime>2025-06-02 23:39:25 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_klienta" id="89A5085B-61D4-62C1-7F6C-599A2234AD9E">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:51:34 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -19,86 +29,87 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="C963390C-D328-1AE5-73D5-19C07E2F95B8" referredColumn="922E641D-821F-AB7E-052D-92DAD6F707E9"/>
+<colAssociation fkAssociation="9EED1D1A-7228-FB7D-2579-C15C57FF63AB" referredColumn="B8A04467-43AB-6531-A9AD-4FC98C301692"/>
 </associations>
 </Column>
-<Column name="format" id="3D217D7D-D364-500A-4EC0-BE3FA76944F9">
+<Column name="data_zlozenia" id="95CB158A-443F-43C5-5AA2-60C91CF064CC">
 <createdBy>karnu</createdBy>
-<createdTime>2025-06-02 22:37:22 UTC</createdTime>
+<createdTime>2025-06-02 23:51:04 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data_zakonczenia" id="C22E1CD1-07B8-D3B7-D335-26D1A8D9D3A7">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:51:04 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="status" id="37100456-4FB6-1BB5-3A2B-DAC0B8E381E5">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:51:04 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="wysokosc" id="416420A5-3E27-C5CB-BF21-4ABAAB3D53A8">
+<Column name="adres_dostawy" id="BA9C3918-BFE5-2CF8-0F09-3E71853439FF">
 <createdBy>karnu</createdBy>
-<createdTime>2025-06-02 22:37:22 UTC</createdTime>
+<createdTime>2025-06-02 23:51:04 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT018</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="dlugosc" id="0090995E-106E-4407-444C-84364CE4D63D">
+<Column name="uwagi" id="D5A05474-EB38-1CF8-3F5F-75998C0199DB">
 <createdBy>karnu</createdBy>
-<createdTime>2025-06-02 22:37:22 UTC</createdTime>
+<createdTime>2025-06-02 23:51:04 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT018</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="szerokosc" id="40350F01-08DD-992B-1AA3-21B5817FFB9E">
-<createdBy>karnu</createdBy>
-<createdTime>2025-06-02 22:37:22 UTC</createdTime>
-<ownerDesignName>baza</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT018</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="ilosc_wentylatorow" id="78280E59-7C03-2A1C-954D-36010ECC4F1F">
-<createdBy>karnu</createdBy>
-<createdTime>2025-06-02 22:40:52 UTC</createdTime>
-<ownerDesignName>baza</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT042</logicalDatatype>
+<logicalDatatype>LOGDT040</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="2CFA6ED4-C175-233A-6317-9DE0E416849B" name="obudowa_PK">
+<ind_PK_UK id="53814DC3-CA61-DC8F-202B-B31BE6E87233" name="Zamowienia_PK">
 <createdBy>karnu</createdBy>
-<createdTime>2025-06-02 22:37:22 UTC</createdTime>
+<createdTime>2025-06-02 23:39:25 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="77986784-2A96-89FA-EAC2-496A738EA292"/>
+<colUsage columnID="513CA317-D6EC-0ABF-C0A9-E0E69699D77B"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="9B197C0E-701F-7C42-93C1-7BCE11F1C56C" name="obudowa_Produkty_FK">
+<ind_PK_UK id="EA1E734A-544A-D1FF-45FA-755C3E2C26B6" name="id_klienta">
 <createdBy>karnu</createdBy>
-<createdTime>2025-06-02 22:51:41 UTC</createdTime>
+<createdTime>2025-06-02 23:51:34 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="77986784-2A96-89FA-EAC2-496A738EA292"/>
+<colUsage columnID="89A5085B-61D4-62C1-7F6C-599A2234AD9E"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
