@@ -131,7 +131,7 @@ CREATE TABLE produkty (
     id_prod INTEGER NOT NULL,
     nazwa   VARCHAR2(128),
     typ     VARCHAR2(32),
-    cena    NUMBER(5, 2)
+    cena    NUMERIC(10, 2)
 );
 
 ALTER TABLE produkty ADD CONSTRAINT produkty_pk PRIMARY KEY ( id_prod );
