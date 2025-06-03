@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="COOLER_Produkty_FK" directorySegmentName="seg_0" id="A2A1B3AF-431F-23B4-CB52-CE39C6B677DF">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>E1B8842D-437E-42B3-67FC-508DB19BBD63</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<sourcePk>1DD61B5D-158A-4220-C7D7-1F1824074ADF</sourcePk>
+<dominantRole>5649A7A2-43D7-645D-1912-B09956CA31BB</dominantRole>
+<identifying>true</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5649A7A2-43D7-645D-1912-B09956CA31BB</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>A6F890F3-6002-C0ED-78C0-2480C6E3C355</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

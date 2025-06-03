@@ -8,15 +8,19 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="id_CPU" id="68AFC4F7-B45F-5D55-7D74-6806E0C98018">
+<Column name="id_CPU" id="057E1FAE-6B7A-B532-4525-E2F6CC4DED3C">
 <createdBy>karnu</createdBy>
-<createdTime>2025-05-25 21:05:25 UTC</createdTime>
+<createdTime>2025-06-02 22:47:41 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT027</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="355CAB08-5A0A-D48D-ACC2-7FACD760A557" referredColumn="922E641D-821F-AB7E-052D-92DAD6F707E9"/>
+</associations>
 </Column>
 <Column name="socket" id="78298357-2764-68CD-FB0B-B2365F424083">
 <createdBy>karnu</createdBy>
@@ -37,9 +41,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>3</dataTypeSize>
-<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="watki" id="4C2B8D23-6297-3981-2EDD-190F537BA4B9">
@@ -49,9 +52,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>3</dataTypeSize>
-<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="zegar" id="729A360D-0187-C1E4-512B-AB7CEC2D1F47">
@@ -86,9 +88,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>3</dataTypeSize>
-<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ma_cooler" id="4F7358C7-ED3E-E6C0-C0F0-2838B94B0125">
@@ -125,7 +126,17 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="68AFC4F7-B45F-5D55-7D74-6806E0C98018"/>
+<colUsage columnID="057E1FAE-6B7A-B532-4525-E2F6CC4DED3C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="34BDA15D-C489-2D6E-94FC-92930BBE4EE7" name="id_CPU">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 22:47:41 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="057E1FAE-6B7A-B532-4525-E2F6CC4DED3C"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

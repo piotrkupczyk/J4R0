@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="75F3A917-353C-6EFA-8293-5CB1C35DEFE5" name="Zamowienia_Produkty">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:41:30 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_prod" id="12F520FD-BE3E-CCC2-1241-1CDD26F4EEA5">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:41:58 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CA2353DC-9EB8-AAD6-D175-E3068EE5B23A" referredColumn="922E641D-821F-AB7E-052D-92DAD6F707E9"/>
+</associations>
+</Column>
+<Column name="id_zamowienia" id="F5AF8BEC-FB51-8C39-9FFE-77058911F2EC">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:42:04 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0F96C564-3592-1556-4ED2-33AF265F6791" referredColumn="513CA317-D6EC-0ABF-C0A9-E0E69699D77B"/>
+</associations>
+</Column>
+<Column name="ilosc" id="8DF7F2A0-C660-9695-7911-5EF402537CA8">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:44:21 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="247156CA-0471-803F-0010-7E80C7AF2661" name="Zamowienia_Produkty_PK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:43:06 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F5AF8BEC-FB51-8C39-9FFE-77058911F2EC"/>
+<colUsage columnID="12F520FD-BE3E-CCC2-1241-1CDD26F4EEA5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="88E2FE5A-9E68-1B18-64A3-44468A6E578A" name="Zam_Prod_Produkty_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:41:58 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="12F520FD-BE3E-CCC2-1241-1CDD26F4EEA5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="494BAA52-38FB-7EB2-FEAC-1CC57B0F00F3" name="Zam_Prod_Zamowienia_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:42:04 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F5AF8BEC-FB51-8C39-9FFE-77058911F2EC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -8,15 +8,19 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="id_GPU" id="601A80F6-24B2-5ABC-45AC-2D685569B3F7">
+<Column name="id_GPU" id="18D5489E-D8E3-CF8D-7C0E-986A55C85716">
 <createdBy>karnu</createdBy>
-<createdTime>2025-05-25 20:57:57 UTC</createdTime>
+<createdTime>2025-06-02 22:42:25 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT027</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9CA0D093-7674-8E08-1ABB-39A342946EB3" referredColumn="922E641D-821F-AB7E-052D-92DAD6F707E9"/>
+</associations>
 </Column>
 <Column name="chipset" id="BF3CE544-682F-9DE1-A4CB-57AA24B8CFFC">
 <createdBy>karnu</createdBy>
@@ -37,9 +41,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>3</dataTypeSize>
-<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="GDDR" id="8679A65D-0CB7-B1A1-093B-225E90B213A0">
@@ -61,9 +64,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>4</dataTypeSize>
-<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="sloty_obudowy" id="302C6B7B-010E-7823-A80E-AF389B6BAAF6">
@@ -79,16 +81,15 @@
 <ownDataTypeParameters>,2,1</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="wiatraki" id="5700B024-BEF8-1A3A-F9EB-7EADEC2E2632">
+<Column name="ilosc_wiatrakow" id="5700B024-BEF8-1A3A-F9EB-7EADEC2E2632">
 <createdBy>karnu</createdBy>
 <createdTime>2025-05-25 21:24:48 UTC</createdTime>
 <ownerDesignName>baza</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="dlugosc" id="BC10BED6-7890-15C1-A053-FB66A52405BC">
@@ -98,9 +99,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>4</dataTypeSize>
-<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="dual_bios" id="461AD4B5-1B81-F25B-6EA7-91A100B9EA10">
@@ -122,9 +122,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ilosc_dp" id="BB06E4BB-EBDD-B4EB-07E1-EB3A64ECD97D">
@@ -134,9 +133,8 @@
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT042</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
@@ -149,7 +147,17 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="601A80F6-24B2-5ABC-45AC-2D685569B3F7"/>
+<colUsage columnID="18D5489E-D8E3-CF8D-7C0E-986A55C85716"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7B610141-A702-135D-A191-081CF7004713" name="GPU_Produkty_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 22:42:25 UTC</createdTime>
+<ownerDesignName>baza</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="18D5489E-D8E3-CF8D-7C0E-986A55C85716"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Zestawy_Klienci_FK" directorySegmentName="seg_0" id="B1B72F00-BFBA-CFFA-5E75-77C54FD98C3C">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:40:43 UTC</createdTime>
+<generatorID>7FA2DEF3-0CBE-6ADC-15BD-3717964E5B5F</generatorID>
+<ownerDesignName>baza</ownerDesignName>
+<engineerTo>
+<item key="9D484741-FDC7-A95A-8C1F-D118863DEEBA" value="true"/>
+</engineerTo>
+<sourcePk>3C100106-4AA6-FA58-74BD-43EB5A7CD520</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>0850C859-B783-2438-8CF5-C8960DA75213</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>635068CB-0E77-F5DB-CDD5-6438C0D4021D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>
