@@ -1,0 +1,276 @@
+CREATE TABLE pc_case (
+    id_case            INTEGER NOT NULL,
+    format             VARCHAR(10),
+    wysokosc           SMALLINT,
+    dlugosc            SMALLINT,
+    szerokosc          SMALLINT,
+    ilosc_wentylatorow SMALLINT,
+    PRIMARY KEY (id_case)
+);
+
+CREATE TABLE cooler (
+    id_cooler            INTEGER NOT NULL,
+    wysokosc             SMALLINT,
+    typ                  VARCHAR(16),
+    ilosc_wentylatorow   SMALLINT,
+    kompatybilne_sockety TEXT,
+    rgb                  CHAR(1),
+    profil               CHAR(1),
+    PRIMARY KEY (id_cooler)
+);
+
+CREATE TABLE cpu (
+    id_cpu      INTEGER NOT NULL,
+    socket      VARCHAR(8),
+    rdzenie     SMALLINT,
+    watki       SMALLINT,
+    zegar       NUMERIC(3, 2),
+    ddr         VARCHAR(4),
+    tdp         SMALLINT,
+    ma_cooler   CHAR(1),
+    podkrecanie CHAR(1),
+    PRIMARY KEY (id_cpu)
+);
+
+CREATE TABLE dysk (
+    id_dysk          INTEGER NOT NULL,
+    typ              VARCHAR(5),
+    interfejs        VARCHAR(12),
+    format           VARCHAR(12),
+    pojemnosc_gb     SMALLINT,
+    predkosc_zapisu  SMALLINT,
+    predkosc_odczytu SMALLINT,
+    PRIMARY KEY (id_dysk)
+);
+
+CREATE TABLE gpu (
+    id_gpu          INTEGER NOT NULL,
+    chipset         VARCHAR(6),
+    vram            SMALLINT,
+    gddr            VARCHAR(5),
+    tdp             SMALLINT,
+    sloty_obudowy   NUMERIC(2, 1),
+    ilosc_wiatrakow SMALLINT,
+    dlugosc         SMALLINT,
+    dual_bios       CHAR(1),
+    ilosc_hdmi      SMALLINT,
+    ilosc_dp        SMALLINT,
+    PRIMARY KEY (id_gpu)
+);
+
+CREATE TABLE klienci (
+    id_klienta      INTEGER NOT NULL,
+    imie            VARCHAR(64),
+    nazwisko        VARCHAR(64),
+    email           VARCHAR(128),
+    telefon         VARCHAR(20),
+    adres           VARCHAR(255),
+    data_dolaczenia DATE,
+    haslo           VARCHAR(256),
+    PRIMARY KEY (id_klienta)
+);
+
+CREATE TABLE koszyk (
+    id_koszyka        INTEGER NOT NULL,
+    nazwa             VARCHAR(64),
+    id_klienta        INTEGER NOT NULL,
+    data_utworzenia   DATE,
+    data_aktualizacji DATE,
+    PRIMARY KEY (id_koszyka)
+);
+
+CREATE TABLE koszyk_produkty (
+    koszyk_id_koszyka INTEGER NOT NULL,
+    produkty_id_prod  INTEGER NOT NULL,
+    ilosc             SMALLINT,
+    PRIMARY KEY (koszyk_id_koszyka, produkty_id_prod)
+);
+
+CREATE TABLE mobo (
+    id_mobo          INTEGER NOT NULL,
+    socket           VARCHAR(8),
+    ddr              VARCHAR(4),
+    format           VARCHAR(10),
+    max_ram          SMALLINT,
+    ilosc_slotow_ram SMALLINT,
+    ilosc_slotow_m2  SMALLINT,
+    ilosc_pcie_x16   SMALLINT,
+    ilosc_pcie_x1    SMALLINT,
+    ilosc_usb_3_0    SMALLINT,
+    wifi             CHAR(1),
+    ilosc_usb_2_0    SMALLINT,
+    ilosc_usb_c      SMALLINT,
+    bluetooth        CHAR(1),
+    bios_typ         VARCHAR(10),
+    podkrecanie      CHAR(1),
+    PRIMARY KEY (id_mobo)
+);
+
+
+
+CREATE TABLE psu (
+    id_psu      INTEGER NOT NULL,
+    moc         SMALLINT,
+    format      VARCHAR(3),
+    modularnosc CHAR(1),
+    certyfikat  VARCHAR(10),
+    PRIMARY KEY (id_psu)
+);
+
+CREATE TABLE ram (
+    id_ram           INTEGER NOT NULL,
+    pojemnosc_total  SMALLINT,
+    liczba_modulow   SMALLINT,
+    pojemnosc_modulu SMALLINT,
+    taktowanie       SMALLINT,
+    clock_latency    SMALLINT,
+    ddr              VARCHAR(4),
+    profil           CHAR(1),
+    PRIMARY KEY (id_ram)
+);
+
+CREATE TABLE zamowienia (
+    id_zamowienia    INTEGER NOT NULL,
+    id_klienta       INTEGER NOT NULL,
+    data_zlozenia    DATE,
+    data_zakonczenia DATE,
+    status           VARCHAR(20),
+    adres_dostawy    VARCHAR(255),
+    uwagi            TEXT,
+    PRIMARY KEY (id_zamowienia)
+);
+
+CREATE TABLE zamowienia_produkty (
+    id_prod       INTEGER NOT NULL,
+    id_zamowienia INTEGER NOT NULL,
+    ilosc         SMALLINT,
+    PRIMARY KEY (id_zamowienia, id_prod)
+);
+
+CREATE TABLE zestawy (
+    id_zestawu      INTEGER NOT NULL,
+    nazwa           VARCHAR(64),
+    id_klienta      INTEGER NOT NULL,
+    data_utworzenia DATE,
+    PRIMARY KEY (id_zestawu)
+);
+
+CREATE TABLE zestawy_produkty (
+    id_prod    INTEGER NOT NULL,
+    id_zestawu INTEGER NOT NULL,
+    ilosc      SMALLINT,
+    PRIMARY KEY (id_prod, id_zestawu)
+);
+
+CREATE TABLE produkty (
+    id_prod INTEGER NOT NULL,
+    nazwa   VARCHAR(128),
+    typ     VARCHAR(32),
+    cena    NUMERIC(10, 2)
+);
+ALTER TABLE gpu
+ALTER COLUMN dual_bios TYPE boolean
+USING dual_bios = '1';
+
+
+ALTER TABLE produkty ADD CONSTRAINT produkty_pk PRIMARY KEY ( id_prod );
+
+-- FOREIGN KEYS
+
+ALTER TABLE cooler ADD FOREIGN KEY (id_cooler) REFERENCES produkty(id_prod) ON DELETE CASCADE;
+ALTER TABLE dysk ADD FOREIGN KEY (id_dysk) REFERENCES produkty(id_prod) ON DELETE CASCADE;
+ALTER TABLE gpu ADD FOREIGN KEY (id_gpu) REFERENCES produkty(id_prod) ON DELETE CASCADE;
+ALTER TABLE cpu ADD FOREIGN KEY (id_cpu) REFERENCES produkty(id_prod) ON DELETE CASCADE;
+ALTER TABLE mobo ADD FOREIGN KEY (id_mobo) REFERENCES produkty(id_prod) ON DELETE CASCADE;
+ALTER TABLE pc_case ADD FOREIGN KEY (id_case) REFERENCES produkty(id_prod) ON DELETE CASCADE;
+ALTER TABLE psu ADD FOREIGN KEY (id_psu) REFERENCES produkty(id_prod) ON DELETE CASCADE;
+ALTER TABLE ram ADD FOREIGN KEY (id_ram) REFERENCES produkty(id_prod) ON DELETE CASCADE;
+
+ALTER TABLE zamowienia ADD FOREIGN KEY (id_klienta) REFERENCES klienci(id_klienta);
+ALTER TABLE koszyk ADD FOREIGN KEY (id_klienta) REFERENCES klienci(id_klienta);
+ALTER TABLE zestawy ADD FOREIGN KEY (id_klienta) REFERENCES klienci(id_klienta) ON DELETE CASCADE;
+
+ALTER TABLE koszyk_produkty ADD FOREIGN KEY (koszyk_id_koszyka) REFERENCES koszyk(id_koszyka);
+ALTER TABLE koszyk_produkty ADD FOREIGN KEY (produkty_id_prod) REFERENCES produkty(id_prod);
+
+ALTER TABLE zamowienia_produkty ADD FOREIGN KEY (id_prod) REFERENCES produkty(id_prod);
+ALTER TABLE zamowienia_produkty ADD FOREIGN KEY (id_zamowienia) REFERENCES zamowienia(id_zamowienia);
+
+ALTER TABLE zestawy_produkty ADD FOREIGN KEY (id_prod) REFERENCES produkty(id_prod);
+ALTER TABLE zestawy_produkty ADD FOREIGN KEY (id_zestawu) REFERENCES zestawy(id_zestawu);
+
+
+
+INSERT INTO produkty (id_prod, nazwa, typ, cena)
+VALUES (1,'RTX 5070 TUF GAMING', 'gpu', 2799.99);
+
+INSERT INTO produkty (id_prod, nazwa, typ, cena)
+VALUES (2,'Gigabyte Radeon RX 7600 Gaming OC 8GB GDDR6', 'gpu', 1099.99);
+
+ALTER TABLE gpu
+ALTER COLUMN gddr TYPE varchar(6);
+
+INSERT INTO gpu (
+    id_gpu,
+    chipset,
+    vram,
+    gddr,
+    tdp,
+    sloty_obudowy,
+    ilosc_wiatrakow,
+    dlugosc,
+    dual_bios,
+    ilosc_hdmi,
+    ilosc_dp
+)
+VALUES (
+    1,                -- id_gpu = id_prod z 'produkty'
+    'NVIDIA',           -- chipset
+    12,               -- vram w GB
+    'GDDR7',         -- rodzaj pamięci
+    250,              -- tdp w watach
+    3,              -- sloty obudowy
+    3,                -- ilość wentylatorów
+    329,              -- długość w mm
+    'T',              -- dual BIOS (T/F)
+    2,                -- ilość HDMI
+    3                 -- ilość DisplayPort
+);
+
+INSERT INTO gpu (
+    id_gpu,
+    chipset,
+    vram,
+    gddr,
+    tdp,
+    sloty_obudowy,
+    ilosc_wiatrakow,
+    dlugosc,
+    dual_bios,
+    ilosc_hdmi,
+    ilosc_dp
+)
+VALUES (
+    2,                -- id_gpu = id_prod z 'produkty'
+    'AMD',           -- chipset
+    8,               -- vram w GB
+    'GDDR6',         -- rodzaj pamięci
+    165,              -- tdp w watach
+    2,              -- sloty obudowy
+    3,                -- ilość wentylatorów
+    282,              -- długość w mm
+    'T',              -- dual BIOS (T/F)
+    2,                -- ilość HDMI
+    2                 -- ilość DisplayPort
+);
+
+SELECT *
+FROM produkty AS p
+LEFT JOIN gpu AS g ON g.id_gpu = p.id_prod
+WHERE chipset LIKE 'NVIDIA';
+
+SHOW data_directory;
+
+
+SELECT *
+FROM gpu AS g;
