@@ -5,14 +5,15 @@ class ProductBase(BaseModel):
     typ: str
     cena: float
 
+class ProductCreate(ProductBase):
+    pass
+
 class Product(ProductBase):
     id_prod: int
 
     class Config:
         from_attributes = True
 
-
-from pydantic import BaseModel
 
 class GPUBase(BaseModel):
     chipset: str | None = None
@@ -26,7 +27,15 @@ class GPUBase(BaseModel):
     ilosc_hdmi: int | None = None
     ilosc_dp: int | None = None
 
+class GPUCreate(GPUBase):
+    pass
+
 class GPU(GPUBase):
     id_gpu: int
+
     class Config:
         from_attributes = True
+
+
+class ProductWithGPU(Product):
+    gpu: GPU | None = None

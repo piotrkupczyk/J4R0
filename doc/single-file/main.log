@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.17)  16 JUL 2025 11:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.17)  20 AUG 2025 15:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/karnu/Desktop/Inzynierka/szablon-inz-latex/single-file/main
-(c:/Users/karnu/Desktop/Inzynierka/szablon-inz-latex/single-file/main.tex
+**d:/Studia/J4R0/doc/single-file/main
+(d:/Studia/J4R0/doc/single-file/main.tex
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
 (e:/LaTex/texlive/2024/texmf-dist/tex/latex/base/book.cls
@@ -1112,7 +1112,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmss on input line 41
 (e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<politechnika_sl_logo_bw_pion_pl.pdf, id=59, 179.67125pt x 230.8625pt>
+<politechnika_sl_logo_bw_pion_pl.pdf, id=83, 179.67125pt x 230.8625pt>
 File: politechnika_sl_logo_bw_pion_pl.pdf Graphic file (type pdf)
 <use politechnika_sl_logo_bw_pion_pl.pdf>
 Package pdftex.def Info: politechnika_sl_logo_bw_pion_pl.pdf  used on input line 416.
@@ -1134,7 +1134,37 @@ Package pdftex.def Info: politechnika_sl_logo_bw_pion_pl.pdf  used on input line
 
 [4
 
-] (./main.toc)
+] (./main.toc
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 10.
+ (e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 10.
+ (e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 10.
+ (e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 10.
+ (e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 10.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 10.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
+ (e:/LaTex/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
+ (e:/LaTex/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1146,7 +1176,7 @@ Package pdftex.def Info: politechnika_sl_logo_bw_pion_pl.pdf  used on input line
 
 ]
 Rozdzia\l  1.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 528.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 546.
 (e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1163,54 +1193,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[2
-
-]
+[2]
 Rozdzia\l  2.
 
-LaTeX Warning: Citation 'bib:artykul' on page 3 undefined on input line 544.
+LaTeX Warning: Citation 'bib:artykul' on page 3 undefined on input line 573.
 
 
-LaTeX Warning: Citation 'bib:ksiazka' on page 3 undefined on input line 544.
+LaTeX Warning: Citation 'bib:ksiazka' on page 3 undefined on input line 573.
 
 
-LaTeX Warning: Citation 'bib:konferencja' on page 3 undefined on input line 544.
+LaTeX Warning: Citation 'bib:konferencja' on page 3 undefined on input line 573.
 
 
-LaTeX Warning: Citation 'bib:internet' on page 3 undefined on input line 544.
+LaTeX Warning: Citation 'bib:internet' on page 3 undefined on input line 573.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 549.
-(e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 549.
- (e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 549.
- (e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 549.
- (e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 549.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 549.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 549.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 549.
- (e:/LaTex/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 549.
- (e:/LaTex/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 
-[3{e:/LaTex/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{e:/LaTex/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+
+[3
+
+{e:/LaTex/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{e:/LaTex/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1251,7 +1252,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8]
 Rozdzia\l  5.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 701.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 730.
 (e:/LaTex/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1301,7 +1302,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 
-LaTeX Warning: Empty bibliography on input line 802.
+LaTeX Warning: Empty bibliography on input line 831.
 
 
 
@@ -1339,7 +1340,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [20
 
 ]
-Overfull \hbox (2.38579pt too wide) in paragraph at lines 859--860
+Overfull \hbox (2.38579pt too wide) in paragraph at lines 888--889
 []\T1/lmr/m/n/12 film po-ka-zu-j¡cy dzia-ªa-nie opra-co-wa-nego opro-gra-mo-wa-nia lub za-pro-jek-to-wa-nego i wy-
  []
 
@@ -1389,7 +1390,7 @@ L3 programming layer <2024-12-25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E346FDA0D161E2EA45D2FAF87F7BF7D7;2269.
+(rerunfilecheck)             Checksum: A8F6EE1E4F0D4F7E0D8AF8499F33396A;3244.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                main
@@ -1400,18 +1401,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45554 strings out of 473206
- 1002022 string characters out of 5717314
- 1744411 words of memory out of 5000000
- 68044 multiletter control sequences out of 15000+600000
- 608773 words of font info for 68 fonts, out of 8000000 for 9000
+ 45566 strings out of 473206
+ 1002048 string characters out of 5717314
+ 1745414 words of memory out of 5000000
+ 68050 multiletter control sequences out of 15000+600000
+ 614786 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,11n,93p,1931b,3514s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,93p,1898b,3514s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <e:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><e:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><e:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb><e:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb><e:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri12.pfb><e:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/lm/lmss12.pfb><e:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><e:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><e:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><e:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (31 pages, 232823 bytes).
+Output written on main.pdf (31 pages, 237650 bytes).
 PDF statistics:
- 325 PDF objects out of 1000 (max. 8388607)
- 265 compressed objects within 3 object streams
- 74 named destinations out of 1000 (max. 500000)
- 122 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 356 PDF objects out of 1000 (max. 8388607)
+ 296 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

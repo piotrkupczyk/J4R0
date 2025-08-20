@@ -524,16 +524,45 @@ escapeinside={@*}{*@},%
 \chapter{Wstęp}
 \label{ch:wstep}
 
+%%\begin{itemize}
+%%\item wprowadzenie w problem/zagadnienie
+%%\item osadzenie problemu w dziedzinie
+%%\item cel pracy
+%%\item zakres pracy
+%%\item zwięzła charakterystyka rozdziałów
+%%\item jednoznaczne określenie wkładu autora, w przypadku prac wieloosobowych – tabela z autorstwem poszczególnych elementów pracy
+%%\end{itemize}
+
+\section{Wprowadzenie w problem}
+Sklepy komputerowe zazwyczaj posiadają swój własny sklep internetowy, oferujący możliwość zakupów części indywidualnie, jak i gotowych zestawów PC. Odpowiedni dobór komponentów jest najistotniejszą częscią procesu projetkowania własnego stanowiska, a pomimo tego najwięksi sprzedawcy nie oferują możliwości sprawdzania kompatybilności wybranych produktów. Dlatego projekt ma na celu stworzenie prostej i intuicyjnej strony internetowej, która zaoferuje przystępną formę weryfikacji poprawności wyboru komponentów z katalogu oraz finalnie dodanie kompatybilnego zestawu do koszyka użytkownika. 
+
+\section{Osadzenie problemu w dziedzinie}
+Projekt osadzony jest w dziedzinie inżynierii oprogramowania, projektowania baz danych oraz systemów e-commerce. Praca obejmuje zagadnienia relacyjności baz danych, budowy warstwy komunikacyjnej backendu, implementacji logiki aplikacji pod kątem biznesowym oraz wdrożenie interfejsu frontendowego.
+
+\section{Cel pracy}
+
+Celem pracy jest zaprojektowanie i zaimplementowanie aplikacji webowej, która będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwnie realizacji zamównienia. Idące za tym cele to
+\begin{itemize} 
+	\item stworzenie relacyjnej bazy danych, odpowiadającej potrzebom sklepu internetowego
+	\item zaprojektowanie i implementacja backendu, odpowiedzialnego za komunikację i logikę aplkacji  
+	\item wdrożenie przejrzystego frontendu, będącego interfejsem klienta. 
+\end{itemize}
+\section{Zakres pracy}
+Zakres pracy nad projektem obejmuje:
 \begin{itemize}
-\item wprowadzenie w problem/zagadnienie
-\item osadzenie problemu w dziedzinie
-\item cel pracy
-\item zakres pracy
-\item zwięzła charakterystyka rozdziałów
-\item jednoznaczne określenie wkładu autora, w przypadku prac wieloosobowych – tabela z autorstwem poszczególnych elementów pracy
+	\item Projekt relacyjnej bazy danych w Oracle SQL Developer.
+	\item Utworzenie serwera PostgreSQL, wprowadzenie gotowych danych o produktach do bazy danych. \item Stworzenie użytkowników oraz nadanie odpowiednich uprawnień każdemu z nich.
+	\item Implementację backendu w języku Python, implementacja API z wykorzystaniem frameworka FastAPI, umożliwiając integrację z bazą danych w celu zarządzania produktami i zamówieniami.
+	\item Projekt interfejsu użytkownika, stworzenie frontendu używając HTML, CSS oraz JavaScript.
+	
 \end{itemize}
 
 
+
+\section{Zwięzła charakterystyka rozdziałów}
+
+\section{Wkład autora}
+Autor samodzielnie opracował wszystkie elementy projektu, zaczynając od zaplanowania funkcjonalności oraz wyborze technologii. Następnym krokiem było zaprojektowanie relacyjnej bazy danych w Oracle SQL Developer, utworzenie serwera PostgreSQL wraz z użytkownikami oraz nadanie odpowiednich uprawnień każdemu z nich. Przygotowany został backend w języku Python, odpowiadający za komunikację z bazą danych oraz za logikę całej aplikacji, umożliwiając weryfikację kompatybilności zestawów komputerowych, wykorzystano do tego framework FastAPI. Finalnie autor utworzył interaktywny frontend, który umożliwia graficzne korzystanie z aplikacji.
 
 % TODO
 \chapter{[Analiza tematu]}
