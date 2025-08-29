@@ -17,7 +17,7 @@
       <nav class="row-flex">
         <a class="btn ghost" href="index.html">Sklep</a>
         <a class="btn ghost" href="builder.html">Kreator zestawu</a>
-        <a class="btn ghost" href="#about">O projekcie</a>
+        <a class="btn ghost" href="about.html">Projekt Inżynierski - informacje</a>
       </nav>
       <div class="nav-actions">
         <button class="btn" id="themeToggle" title="Przełącz motyw">🌓</button>
@@ -27,10 +27,7 @@
   </header>
 
   <main class="container main-wrap">
-    <!-- spacer on the left so center isn't overlapped by fixed filter -->
     <div class="left-guard" aria-hidden="true"></div>
-
-    <!-- fixed filter near left screen edge -->
     <aside class="left-filter">
       <div class="card" role="region" aria-labelledby="filtersTitle">
         <h3 id="filtersTitle">Filtry</h3>
@@ -56,7 +53,6 @@
       </div>
     </aside>
 
-    <!-- centered product grid area -->
     <section class="products-wrap">
       <div class="card" role="region" aria-labelledby="listTitle">
         <h3 id="listTitle" style="padding:16px">Katalog produktów (demo)</h3>
@@ -65,13 +61,18 @@
     </section>
   </main>
 
-  <!-- Fixed footer -->
   <footer>
-    <button class="footer-toggle" id="aboutToggle">O projekcie <span class="chevron">⌄</span></button>
-    <div class="footer-content" id="aboutContent">
-      <p class="muted">To jest lekki frontend demo dla aplikacji inżynierskiej „Sklep komputerowy z kreatorem zestawów PC”. Kod jest w 100% vanilla HTML/CSS/JS. W miejscu danych użyto mocków – łatwo je zastąpić wywołaniami API (FastAPI).</p>
-    </div>
-  </footer>
+  <button class="footer-toggle" id="aboutToggle">
+    O projekcie <span class="chevron">⌄</span>
+  </button>
+  <div class="footer-content" id="aboutContent">
+    <p class="muted">
+      System wspomagający inteligentne składanie zestawów komputerowych – 
+      Projekt inżynierski Piotr Kupczyk, Teleinformatyka S1
+    </p>
+  </div>
+</footer>
+
 
   <template id="tplProduct">
     <div class="card product">

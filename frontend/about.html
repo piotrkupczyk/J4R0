@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>O projekcie – Kreator Zestawów Komputerowych J4R0 Store</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">⚙️</div>
+        <span>J4R0 PC</span>
+      </div>
+      <nav class="row-flex">
+        <a class="btn ghost" href="index.html">Sklep</a>
+        <a class="btn ghost" href="builder.html">Kreator zestawu</a>
+        <a class="btn ghost" href="about.html">Projekt Inżynierski - informacje</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn" id="themeToggle">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="max-width:900px;">
+    <div class="card" style="padding:24px; margin-top:24px;">
+
+        <h1>J4R0 Store - inteligentny kreator zestawów komputerowych</h1>
+
+      <h2>O projekcie</h2>
+      <p>
+        <strong>Temat projektu inżynierskiego:</strong>
+        System wspomagający inteligentne składanie zestawów komputerowych.<br/>
+        <strong>Autor:</strong>
+        Piotr Kupczyk, Teleinformatyka S1.<br/>
+        <strong>Promotor:</strong>
+        dr hab. inż. Bożena Małysiak-Mrozek. 
+      </p>
+
+      
+
+      <h2>Cel projektu</h2>
+      <p>
+         Celem pracy jest zaprojektowanie i zaimplementowanie aplikacji webowej, która będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwnie realizacji zamównienia.
+      </p>
+
+      <h2>Technologie</h2>
+      <ul>
+        <li><strong>Backend:</strong> FastAPI (Python)</li>
+        <li><strong>Baza danych:</strong> PostgreSQL</li>
+        <li><strong>Frontend:</strong> HTML, CSS, Vanilla JS</li>
+      </ul>
+
+      <h2>Funkcjonalność</h2>
+      <p>
+        Funckje realizowane przez projekt:
+        <ul>
+          <li>Przeglądanie oferty sklepu komputerowego</li>
+          <li>Stworzenie koszyka z dostępnych produktów</li>
+          <li>Weryfikacja poprawności wybranego zestawu elementów</li>
+        </ul>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+  <button class="footer-toggle" id="aboutToggle">
+    O projekcie <span class="chevron">⌄</span>
+  </button>
+  <div class="footer-content" id="aboutContent">
+    <p class="muted">
+      System wspomagający inteligentne składanie zestawów komputerowych – 
+      Projekt inżynierski Piotr Kupczyk, Teleinformatyka S1
+    </p>
+  </div>
+</footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

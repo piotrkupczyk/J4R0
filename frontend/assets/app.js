@@ -65,61 +65,12 @@ function metaFor(p){
 }
 
 /**********************
- * Builder
+ * Builder helpers (link only)
  **********************/
-function mountBuilder(){
-  // wypełnij selecty
-  fillSelect('selCPU', MOCK.CPU);
-  fillSelect('selMB', MOCK.Motherboard);
-  fillSelect('selRAM', MOCK.RAM);
-  fillSelect('selGPU', MOCK.GPU);
-  fillSelect('selPSU', MOCK.PSU);
-  fillSelect('selCase', MOCK.Case);
-  fillSelect('selStorage', MOCK.Storage);
-
-  document.querySelectorAll('[data-add]').forEach(btn=>{
-    btn.addEventListener('click',()=>{ syncFooterHeight(); 
-      const type = btn.getAttribute('data-add');
-      const sel = document.getElementById('sel'+(type==='Motherboard'?'MB':type));
-      const id = sel.value;
-      const item = [...MOCK[type]].find(x=>x.id===id);
-      state.builder[type] = item || null;
-      updateCompatUI();
-    })
-  })
-
-  document.getElementById('addSet').addEventListener('click', ()=>{
-    const parts = Object.values(state.builder).filter(Boolean);
-    if (!parts.length) return;
-    const setItem = { id: 'set-'+Date.now(), type:'SET', name:'Zestaw (kreator)', items:parts, price: parts.reduce((s,x)=>s+x.price,0) };
-    addToCart(setItem);
-  })
-}
-
-function fillSelect(id, items){
-  const sel = document.getElementById(id);
-  sel.innerHTML = items.map(i=>`<option value="${i.id}">${i.name} – ${fmtPL.format(i.price)}</option>`).join('');
-}
-
 function toBuilder(p){
-  state.builder[p.type] = p;
-  const map = {CPU:'selCPU', Motherboard:'selMB', RAM:'selRAM', GPU:'selGPU', PSU:'selPSU', Case:'selCase', Storage:'selStorage'};
-  const selId = map[p.type];
-  if (selId){
-    const sel = document.getElementById(selId);
-    if (sel) sel.value = p.id;
-  }
-  updateCompatUI();
-  document.getElementById('builder').scrollIntoView({behavior:'smooth'});
-}
-
-function updateCompatUI(){
-  const { ok, msgs } = checkCompatibilityState(state.builder);
-  const dot = document.getElementById('compatDot');
-  const text = document.getElementById('compatText');
-  dot.className = 'dot ' + (ok? 'ok' : 'bad');
-  text.textContent = ok ? 'Zestaw kompatybilny ✅' : `Problemy: ${ msgs.join(' • ') }`;
-  return ok;
+  // zapamiętaj wybór w sessionStorage, odbierz na builder.html jeśli chcesz
+  sessionStorage.setItem('preselect', JSON.stringify(p));
+  location.href = 'builder.html';
 }
 
 /**********************
@@ -130,43 +81,55 @@ function addToCart(item){
   saveCart();
   renderCart();
 }
-
 function removeFromCart(index){
   state.cart.splice(index,1);
   saveCart(); renderCart();
 }
-
 function renderCart(){
   const list = document.getElementById('cartList');
+  if (!list) return; // index.html nie ma koszyka
   list.innerHTML='';
   let total = 0;
   state.cart.forEach((it, idx)=>{
     const row = document.createElement('div');
     row.className = 'cart-item';
-    const title = document.createElement('div');
-    title.innerHTML = `<strong>${it.name}</strong> <span class="muted">${it.type}</span>`;
-    if (it.type==='SET'){
-      const ul = document.createElement('ul'); ul.className='muted'; ul.style.margin='6px 0 0 18px';
-      it.items.forEach(p=>{
-        const li=document.createElement('li'); li.textContent = `${p.type}: ${p.name}`; ul.appendChild(li);
-      })
-      title.appendChild(ul);
-    }
-    const price = document.createElement('div'); price.textContent = fmtPL.format(it.price);
-    row.appendChild(title); row.appendChild(price);
+    row.innerHTML = `<div><strong>${it.name}</strong> <span class="muted">${it.type}</span></div><div>${fmtPL.format(it.price)}</div>`;
     row.addEventListener('dblclick', ()=> removeFromCart(idx));
     list.appendChild(row);
     total += it.price;
   })
-  document.getElementById('cartTotal').textContent = fmtPL.format(total);
-  document.getElementById('cartCount').textContent = state.cart.length;
+  const totalEl = document.getElementById('cartTotal');
+  const countEl = document.getElementById('cartCount');
+  if (totalEl) totalEl.textContent = fmtPL.format(total);
+  if (countEl) countEl.textContent = state.cart.length;
 }
 
 /**********************
- * Motyw + Footer + Checkout
+ * Footer (stable)
+ **********************/
+function syncFooterHeight(){
+  const footer = document.querySelector('footer');
+  if (!footer) return;
+  const h = footer.getBoundingClientRect().height;
+  document.documentElement.style.setProperty('--footer-h', Math.ceil(h) + 'px');
+}
+function mountFooter(){
+  const btn = document.getElementById('aboutToggle');
+  const footer = document.querySelector('footer');
+  if (!btn || !footer) return;
+  btn.addEventListener('click', ()=>{
+    footer.classList.toggle('open');
+    btn.classList.toggle('open-btn');
+    syncFooterHeight();
+  });
+}
+
+/**********************
+ * Theme & Start
  **********************/
 function mountThemeToggle(){
   const btn = document.getElementById('themeToggle');
+  if (!btn) return;
   btn.addEventListener('click', ()=>{
     const meta = document.querySelector('meta[name="color-scheme"]');
     const current = meta.getAttribute('content');
@@ -175,47 +138,16 @@ function mountThemeToggle(){
   })
 }
 
-
-function syncFooterHeight(){
-  const footer = document.querySelector('footer');
-  if (!footer) return;
-  const h = footer.getBoundingClientRect().height;
-  document.documentElement.style.setProperty('--footer-h', Math.ceil(h) + 'px');
-}
-
-function mountFooter(){
-  const btn = document.getElementById('aboutToggle');
-  const cont = document.getElementById('aboutContent');
-  const footer = document.querySelector('footer');
-  btn.addEventListener('click',()=>{ syncFooterHeight(); 
-    footer.classList.toggle('open');
-    btn.classList.toggle('open-btn');
-    syncFooterHeight();
-    syncFooterHeight();
-  })
-}
-
-function mountCheckout(){
-  document.getElementById('clearCart').addEventListener('click', ()=>{ state.cart=[]; saveCart(); renderCart(); })
-  document.getElementById('checkout').addEventListener('click', ()=>{
-    alert('Checkout demo. Tu podłączymy endpoint zamówienia.');
-  })
-}
-
-/**********************
- * Start
- **********************/
 function start(){
-  flattenProducts();
-  mountFilters();
-  renderProducts();
-  mountBuilder();
+  if (document.getElementById('products')){
+    flattenProducts();
+    mountFilters();
+    renderProducts();
+  }
   mountThemeToggle();
-  mountCheckout();
-  renderCart();
   mountFooter();
+  syncFooterHeight();
 }
 
-document.addEventListener('DOMContentLoaded', ()=>{ start(); syncFooterHeight(); });
-
+document.addEventListener('DOMContentLoaded', start);
 window.addEventListener('resize', syncFooterHeight);
