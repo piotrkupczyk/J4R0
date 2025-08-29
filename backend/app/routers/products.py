@@ -41,3 +41,26 @@ def gpu_joined(db: Session = Depends(get_db)):
         "dp": g.ilosc_dp,
         "dual_bios": g.dual_bios,
     } for (p, g) in rows]
+
+
+@router.get("/cpu-joined")
+def cpu_joined(db: Session = Depends(get_db)):
+    rows = (
+        db.query(models.Product, models.CPU)
+        .join(models.CPU, models.CPU.id_cpu == models.Product.id_prod)
+        .all()
+    )
+    return [{
+        "id": p.id_prod,
+        "type": "CPU",
+        "name": p.nazwa,
+        "price": float(p.cena),
+        "socket": c.socket,
+        "tdp": c.tdp,
+        "cores": c.rdzenie,
+        "threads": c.watki,
+        "clock": c.zegar,
+        "cooler": c.ma_cooler,
+        "oc": c.podkrecanie,
+        "integra": c.ma_integre,
+    } for (p, c) in rows]

@@ -24,3 +24,17 @@ class GPU(Base):
     dual_bios = Column(CHAR(1))
     ilosc_hdmi = Column(SmallInteger)
     ilosc_dp = Column(SmallInteger)
+
+
+class CPU(Base):
+    __tablename__ = "cpu"
+
+    id_cpu = Column(Integer, primary_key=True, index=True)
+    socket = Column(String(8))
+    rdzenie = Column(SmallInteger)
+    watki = Column(SmallInteger)
+    zegar = Column(SmallInteger)
+    tdp = Column(SmallInteger)
+    ma_cooler = Column(CHAR(1))
+    podkrecanie = Column(CHAR(1))
+    ma_integre = Column(CHAR(1))

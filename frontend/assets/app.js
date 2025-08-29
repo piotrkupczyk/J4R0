@@ -22,6 +22,15 @@ async function fetchJSON(url){
   return r.json();
 }
 
+function yesNo(v){
+  // obsłuż: bool, '1'/'0', 't'/'f', 'y'/'n'
+  if (v === true || v === '1' || v === 't' || v === 'T' || v === 'Y' || v === 'y') return 'Tak';
+  return 'Nie';
+}
+function fmtClock(mhz){
+  if (mhz == null) return null;
+  return mhz >= 1000 ? `${(mhz/1000).toFixed(2)} GHz` : `${mhz} MHz`;
+}
 
 /**********************
  * Inicjalizacja
@@ -29,11 +38,35 @@ async function fetchJSON(url){
 async function flattenProducts(){
   const status = document.getElementById('status');
   if (status) status.textContent = 'Ładowanie...';
+
+  // dopisz/usuń ścieżki zgodnie z tym, co masz już na backendzie
+  const paths = [
+    '/products/gpu-joined',
+    '/products/cpu-joined',
+    // '/products/mobo-joined',
+    // '/products/ram-joined',
+    // '/products/psu-joined',
+    // '/products/case-joined',
+    // '/products/storage-joined',
+  ];
+
   try {
-    const gpu = await fetchJSON(`${API_BASE}/products/gpu-joined`);
-    console.log('gpu-joined ->', gpu.length, gpu); // DEBUG: zobacz w konsoli
-    state.products = gpu;
-    if (status) status.textContent = gpu.length ? '' : 'Brak produktów do wyświetlenia.';
+    const results = await Promise.allSettled(
+      paths.map(p => fetchJSON(`${API_BASE}${p}`))
+    );
+
+    const merged = [];
+    results.forEach((r, i) => {
+      if (r.status === 'fulfilled' && Array.isArray(r.value)) {
+        merged.push(...r.value);
+      } else {
+        console.warn('Endpoint failed/skipped:', paths[i], r.reason?.toString?.());
+      }
+    });
+
+    state.products = merged;
+    if (status) status.textContent = merged.length ? '' : 'Brak produktów do wyświetlenia.';
+    console.log('Loaded products:', merged.length);
   } catch (e) {
     console.warn('Błąd pobierania danych z API:', e);
     state.products = [];
@@ -74,7 +107,18 @@ function renderProducts(){
 
 function metaFor(p){
   switch(p.type){
-    case 'CPU': return `Socket ${p.socket}, TDP ${p.tdp}W`;
+    case 'CPU': {
+      const parts = [];
+      if (p.socket) parts.push(`Socket ${p.socket}`);
+      if (p.cores || p.threads) parts.push(`${p.cores||'?'} Rdzeni/${p.threads||'?'} Wątków`);
+      if (p.clock != null) parts.push(fmtClock(p.clock));
+      if (p.tdp != null) parts.push(`TDP ${p.tdp}W`);
+      // flagi z CHAR(1)/bool
+      if (p.cooler != null) parts.push(`Chłodzenie: ${yesNo(p.cooler)}`);
+      if (p.oc != null) parts.push(`OC: ${yesNo(p.oc)}`);
+      if (p.integra != null) parts.push(`iGPU: ${yesNo(p.integra)}`);
+      return parts.join(', ');
+    }
     case 'Motherboard': return `Socket ${p.socket}, RAM ${p.ramType}`;
     case 'RAM': return `${p.size}GB ${p.ramType}`;
     case 'GPU': {
