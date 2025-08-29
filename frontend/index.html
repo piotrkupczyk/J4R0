@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>J4R0 PC – Sklep</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">⚙️</div>
+        <span>J4R0 PC</span>
+      </div>
+      <nav class="row-flex">
+        <a class="btn ghost" href="index.html">Sklep</a>
+        <a class="btn ghost" href="builder.html">Kreator zestawu</a>
+        <a class="btn ghost" href="#about">O projekcie</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn" id="themeToggle" title="Przełącz motyw">🌓</button>
+        <button class="btn primary" id="openCart">Koszyk (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-wrap">
+    <!-- spacer on the left so center isn't overlapped by fixed filter -->
+    <div class="left-guard" aria-hidden="true"></div>
+
+    <!-- fixed filter near left screen edge -->
+    <aside class="left-filter">
+      <div class="card" role="region" aria-labelledby="filtersTitle">
+        <h3 id="filtersTitle">Filtry</h3>
+        <div class="filters">
+          <div class="field">
+            <label>Typ produktu</label>
+            <div class="chip-row" id="typeChips">
+              <button class="chip active" data-type="all">Wszystko</button>
+              <button class="chip" data-type="CPU">CPU</button>
+              <button class="chip" data-type="GPU">GPU</button>
+              <button class="chip" data-type="Motherboard">Płyty</button>
+              <button class="chip" data-type="RAM">RAM</button>
+              <button class="chip" data-type="PSU">Zasilacze</button>
+              <button class="chip" data-type="Case">Obudowy</button>
+              <button class="chip" data-type="Storage">Dyski</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="q">Szukaj</label>
+            <input id="q" placeholder="np. Ryzen 5, RTX 4060..." />
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- centered product grid area -->
+    <section class="products-wrap">
+      <div class="card" role="region" aria-labelledby="listTitle">
+        <h3 id="listTitle" style="padding:16px">Katalog produktów (demo)</h3>
+        <div class="products" id="products"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fixed footer -->
+  <footer>
+    <button class="footer-toggle" id="aboutToggle">O projekcie <span class="chevron">⌄</span></button>
+    <div class="footer-content" id="aboutContent">
+      <p class="muted">To jest lekki frontend demo dla aplikacji inżynierskiej „Sklep komputerowy z kreatorem zestawów PC”. Kod jest w 100% vanilla HTML/CSS/JS. W miejscu danych użyto mocków – łatwo je zastąpić wywołaniami API (FastAPI).</p>
+    </div>
+  </footer>
+
+  <template id="tplProduct">
+    <div class="card product">
+      <div class="img" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v12H4z" opacity=".2"/><path d="M3 5h18v14H3zM5 8h6v2H5z"/></svg>
+      </div>
+      <div class="body">
+        <div class="row-flex">
+          <strong class="title"></strong>
+          <span class="space"></span>
+          <span class="price"></span>
+        </div>
+        <div class="muted small meta"></div>
+        <div class="row-flex">
+          <button class="btn" data-add-single>Do koszyka</button>
+          <button class="btn" data-to-builder>Do kreatora</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="assets/mock.js" defer></script>
+  <script src="assets/compat.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

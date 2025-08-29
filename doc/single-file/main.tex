@@ -562,23 +562,39 @@ Zakres pracy nad projektem obejmuje:
 \section{Zwięzła charakterystyka rozdziałów}
 
 \section{Wkład autora}
-Autor samodzielnie opracował wszystkie elementy projektu, zaczynając od zaplanowania funkcjonalności oraz wyborze technologii. Następnym krokiem było zaprojektowanie relacyjnej bazy danych w Oracle SQL Developer, utworzenie serwera PostgreSQL wraz z użytkownikami oraz nadanie odpowiednich uprawnień każdemu z nich. Przygotowany został backend w języku Python, odpowiadający za komunikację z bazą danych oraz za logikę całej aplikacji, umożliwiając weryfikację kompatybilności zestawów komputerowych, wykorzystano do tego framework FastAPI. Finalnie autor utworzył interaktywny frontend, który umożliwia graficzne korzystanie z aplikacji.
+Autor samodzielnie opracował wszystkie elementy projektu, zaczynając od zaplanowania funkcjonalności oraz wyborze technologii. Następnym krokiem było zaprojektowanie relacyjnej bazy danych w Oracle SQL Developer, utworzenie serwera PostgreSQL wraz z użytkownikami oraz nadanie odpowiednich uprawnień każdemu z nich. Przy użyciu frameworku FastAPI przygotowany został backend w języku Python, odpowiadający za komunikację z bazą danych oraz za logikę całej aplikacji, umożliwiając weryfikację kompatybilności zestawów komputerowych. Finalnie autor utworzył interaktywny frontend, który umożliwia graficzne korzystanie z aplikacji.
 
 % TODO
 \chapter{[Analiza tematu]}
 
-\begin{itemize}
-\item sformułowanie problemu
-\item osadzenie tematu w kontekście aktualnego stanu wiedzy (\english{state of the art}) o poruszanym problemie
-\item  studia literaturowe \cite{bib:artykul,bib:ksiazka,bib:konferencja,bib:internet} -  opis znanych rozwiązań (także opisanych naukowo, jeżeli problem jest poruszany w publikacjach naukowych), algorytmów, 
-\end{itemize}
+%%\begin{itemize}
+%%\item sformułowanie problemu
+%%\item osadzenie tematu w kontekście aktualnego stanu wiedzy (\english{state of the art}) o poruszanym problemie
+%%\item  studia literaturowe \cite{bib:artykul,bib:ksiazka,bib:konferencja,bib:internet} -  opis znanych rozwiązań (także opisanych naukowo, jeżeli problem jest poruszany w publikacjach naukowych), algorytmów, 
+%%%\end{itemize}
 
 
-Wzory  
-\begin{align}
-y = \frac{\partial x}{\partial t}
-\end{align}
-jak i pojedyncze symbole $x$ i $y$  składa się w trybie matematycznym.
+%%Wzory  
+%%\begin{align}
+%%y = \frac{\partial x}{\partial t}
+%%\end{align}
+%%jak i pojedyncze symbole $x$ i $y$  składa się w trybie matematycznym.
+
+\section{Sformułowanie problemu}
+\subsection{Istota kompatybilności}
+Na rynku znajduje się szeroka gama komponentów komputerowych, która nieustannie poszerza się o nowe produkty. Różnice pomiędzy poszczególnymi modelami dotyczą chociażby wymiarów fizycznych, dostępnych złączy, technologi socketów, minimalnej mocy zasilacza, aż do wymogów software'owych. Odpowiedni dobór części jest pierwszym krokiem do realizacji poprawnie funkcjonującego stanowiska komputerowego, gdyż dowolna pomyłka może prowadzić do braku możliwości fizycznego montażu lub niewłaściwej i nieciągłej pracy urządzenia. Nawet minimalne niezgodności mogą być przyczyną poważnej awarii, która może przyczynić się do strat finansowych, spowodowanych utratą danych, przerwaniem trwałości usług lub całkowitym uszkodzeniem sprzętu.
+
+\subsection{Niska dostępność do weryfikacji kompatybilności}
+
+Aktualnie na polskim rynku sklepów komputerowych brakuje narzędzi do samodzielnej weryfikacji kompatybilności wybranych części. Większość sprzedawców oferuje swoje gotowe zestawy, które zapewniają pełną funkcjonalność, jednak często nie posiadają one możiwości rozbudowania stanowiska o nowe komponenty, jak również wymiany już zamontowanych elementów na nowsze modele. Zaprojektowanie stanowiska w pełni odpowiadającego potrzebom klienta jest wówczas stanowczo utrudnione i może potencjalnie wymagać kontaktu ze specjalistą, co bezpośrednio przekłada się na dodatkowe koszty oraz wydłużenie czasu realizacji zamówienia.
+
+\section{Analiza istniejących rozwiązań w najpopularniejszych sklepach na polskim rynku}
+\subsection{Morele.net}
+Po wnikliwej analizie dostępnych platform sprzedażowych polskich sprzedawców, najlepiej zaprojektowanym rozwiązaniem okazał się konfigurator zestawów PC sklepu Morele. Wyposażony w intuicyjny interfejs, umożliwia on wybranie wszystkich dostępnych komponentów, jednak kluczowym problemem jest brak możliwości weryfikacji kompatybilności w sposób automatyczny, w przypadku błędnie zaprojektowanego zestawu komputerowego, użytkownik może liczyć na ewentualny kontakt ze strony pracownika, co w praktyce znacząco opóźnia realizację zamówienia i realnie zagraża realizacji zamówienia, które zawiera wzajemnie niepasujące produkty.
+\subsection{X-kom.pl}
+\subsection{Komputronik.pl}
+\section{Analiza istniejących rozwiązań w najpopularniejszych sklepach na zagranicznym rynku}
+
 
 
 %\begin{Definition}\label{def:1}

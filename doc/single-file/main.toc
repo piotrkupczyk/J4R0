@@ -14,8 +14,14 @@
 \contentsline {section}{\numberline {1.5}Zwięzła charakterystyka rozdziałów}{2}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Wkład autora}{2}{section.1.6}%
 \contentsline {chapter}{\numberline {2}[Analiza tematu]}{3}{chapter.2}%
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
+\contentsline {section}{\numberline {2.1}Sformułowanie problemu}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Istota kompatybilności}{3}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Niska dostępność do weryfikacji kompatybilności}{3}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Analiza istniejących rozwiązań w najpopularniejszych sklepach na polskim rynku}{4}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Morele.net}{4}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}X-kom.pl}{4}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Komputronik.pl}{4}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Analiza istniejących rozwiązań w najpopularniejszych sklepach na zagranicznym rynku}{4}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Wymagania i narzędzia}{5}{chapter.3}%
 \contentsline {chapter}{\numberline {4}[Właściwy dla kierunku -- np. Specyfikacja zewnętrzna]}{7}{chapter.4}%
 \contentsline {chapter}{\numberline {5}[Właściwy dla kierunku -- np. Specyfikacja wewnętrzna]}{9}{chapter.5}%

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>J4R0 PC – Kreator zestawu</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">⚙️</div>
+        <span>J4R0 PC</span>
+      </div>
+      <nav class="row-flex">
+        <a class="btn ghost" href="index.html">Sklep</a>
+        <a class="btn ghost" href="builder.html">Kreator zestawu</a>
+        <a class="btn ghost" href="#about">O projekcie</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn" id="themeToggle" title="Przełącz motyw">🌓</button>
+        <button class="btn primary" id="openCart">Koszyk (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="max-width:1100px;">
+    <div class="card" id="builder" role="region" aria-labelledby="builderTitle" style="margin-bottom:16px;">
+      <h3 id="builderTitle">Kreator zestawu</h3>
+      <div class="builder">
+        <div class="row"><select id="selCPU"></select><button class="btn" data-add="CPU">Dodaj CPU</button></div>
+        <div class="row"><select id="selMB"></select><button class="btn" data-add="Motherboard">Dodaj Płytę</button></div>
+        <div class="row"><select id="selRAM"></select><button class="btn" data-add="RAM">Dodaj RAM</button></div>
+        <div class="row"><select id="selGPU"></select><button class="btn" data-add="GPU">Dodaj GPU</button></div>
+        <div class="row"><select id="selPSU"></select><button class="btn" data-add="PSU">Dodaj PSU</button></div>
+        <div class="row"><select id="selCase"></select><button class="btn" data-add="Case">Dodaj Obudowę</button></div>
+        <div class="row"><select id="selStorage"></select><button class="btn" data-add="Storage">Dodaj Dysk</button></div>
+        <div class="status" id="compatStatus">
+          <span class="dot" id="compatDot"></span>
+          <span id="compatText" class="muted">Brak zestawu — dobierz części.</span>
+          <span class="space"></span>
+          <button class="btn primary" id="addSet">Dodaj zestaw do koszyka</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card cart" aria-live="polite">
+      <div style="padding:16px; display:flex; align-items:center; gap:10px">
+        <strong>Twój koszyk</strong>
+        <span class="muted">(podgląd)</span>
+        <span class="space"></span>
+        <button class="btn" id="clearCart">Wyczyść</button>
+      </div>
+      <div class="cart-list" id="cartList"></div>
+      <div class="cart-footer">
+        <div class="row-flex"><span class="muted">Suma</span><span class="space"></span><strong id="cartTotal">0 zł</strong></div>
+        <button class="btn primary" id="checkout">Przejdź do zamówienia</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <button class="footer-toggle" id="aboutToggle">O projekcie <span class="chevron">⌄</span></button>
+    <div class="footer-content" id="aboutContent">
+      <p class="muted">Kreator przeniesiony na osobną stronę – możesz rozszerzać reguły kompatybilności bez mieszania ze sklepem.</p>
+    </div>
+  </footer>
+
+  <script src="assets/mock.js" defer></script>
+  <script src="assets/compat.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
