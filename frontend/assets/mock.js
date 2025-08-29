@@ -14,12 +14,10 @@ const MOCK = {
     { id:'ram2', type:'RAM', name:'Corsair Vengeance 32GB (2x16) 3600 DDR4', ramType:'DDR4', sticks:2, size:32, price:349 },
   ],
   GPU: [
-    { id:'gpu1', type:'GPU', name:'NVIDIA GeForce RTX 4060 8GB', length:242, tdp:115, price:1499 },
-    { id:'gpu2', type:'GPU', name:'AMD Radeon RX 6700 XT 12GB', length:267, tdp:230, price:1699 },
+  
   ],
   PSU: [
-    { id:'psu1', type:'PSU', name:'Seasonic Focus 650W 80+ Gold', watt:650, price:449 },
-    { id:'psu2', type:'PSU', name:'be quiet! Pure Power 550W 80+ Gold', watt:550, price:349 },
+    
   ],
   Case: [
     { id:'case1', type:'Case', name:'NZXT H5 Flow', gpuMax:365, price:399 },

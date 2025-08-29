@@ -10,14 +10,35 @@ const state = {
   query:''
 };
 
+const API_BASE = localStorage.getItem('API_BASE') || 'http://127.0.0.1:8000';
+// Przykład zmiany na szybko w konsoli przeglądarki:
+// localStorage.setItem('API_BASE', 'http://localhost:8000'); location.reload();
 const fmtPL = new Intl.NumberFormat('pl-PL', { style:'currency', currency:'PLN' });
 function saveCart(){ localStorage.setItem('cart', JSON.stringify(state.cart)); }
+
+async function fetchJSON(url){
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`${url} -> ${r.status}`);
+  return r.json();
+}
+
 
 /**********************
  * Inicjalizacja
  **********************/
-function flattenProducts(){
-  state.products = Object.values(MOCK).flat();
+async function flattenProducts(){
+  const status = document.getElementById('status');
+  if (status) status.textContent = 'Ładowanie...';
+  try {
+    const gpu = await fetchJSON(`${API_BASE}/products/gpu-joined`);
+    console.log('gpu-joined ->', gpu.length, gpu); // DEBUG: zobacz w konsoli
+    state.products = gpu;
+    if (status) status.textContent = gpu.length ? '' : 'Brak produktów do wyświetlenia.';
+  } catch (e) {
+    console.warn('Błąd pobierania danych z API:', e);
+    state.products = [];
+    if (status) status.textContent = 'Nie udało się pobrać danych z API.';
+  }
 }
 
 function mountFilters(){
@@ -56,7 +77,17 @@ function metaFor(p){
     case 'CPU': return `Socket ${p.socket}, TDP ${p.tdp}W`;
     case 'Motherboard': return `Socket ${p.socket}, RAM ${p.ramType}`;
     case 'RAM': return `${p.size}GB ${p.ramType}`;
-    case 'GPU': return `TDP ${p.tdp}W, długość ${p.length}mm`;
+    case 'GPU': {
+      const parts = [];
+      if (p.chipset) parts.push(p.chipset);
+      if (p.vram) parts.push(`${p.vram}GB`);
+      if (p.gddr) parts.push(p.gddr);
+      if (p.tdp) parts.push(`TDP ${p.tdp}W`);
+      if (p.length) parts.push(`${p.length}mm`);
+      if (p.hdmi != null) parts.push(`HDMI x${p.hdmi}`);
+      if (p.dp != null) parts.push(`DP x${p.dp}`);
+      return parts.join(', ');
+}
     case 'PSU': return `${p.watt}W`;
     case 'Case': return `GPU max ${p.gpuMax}mm`;
     case 'Storage': return p.iface;
@@ -138,16 +169,18 @@ function mountThemeToggle(){
   })
 }
 
-function start(){
+async function start(){
   if (document.getElementById('products')){
-    flattenProducts();
+    await flattenProducts();
     mountFilters();
     renderProducts();
   }
+  renderCart();        
   mountThemeToggle();
   mountFooter();
   syncFooterHeight();
 }
+
 
 document.addEventListener('DOMContentLoaded', start);
 window.addEventListener('resize', syncFooterHeight);
