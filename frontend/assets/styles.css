@@ -40,13 +40,44 @@ header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(6p
 .main-wrap{ display:flex; justify-content:center; gap:24px; align-items:flex-start; }
 .left-filter{ position:fixed; left:16px; top:86px; width:280px; z-index:30; }
 .left-guard{ width:312px; flex:0 0 312px; }
-.products-wrap{ width:min(1600px, 80vw); }
-@media (max-width:1200px){
-  .left-filter{ position:static; width:auto; }
-  .left-guard{ display:none; }
-  .products-wrap{ width:min(1100px, 96vw); }
-  .container{ padding-top:8px; }
+.products-wrap{
+  display: block;
+  grid-template-columns: 1fr 3fr; /* lewa wąska, prawa szeroka */
+  gap: 20px;
+  width: min(1800px, 90vw);
+  margin-inline: auto;
+  align-items: start; /* ważne: lewa karta NIE rozciąga się w dół */
 }
+
+.featured-card-block,
+.product-list-block{
+  /* gdy wcześniej nadaliśmy grid-column – zerujemy */
+  grid-column: auto !important;
+}
+
+.container{ max-width: 1900px; }              /* sufit kontenera, żeby 90vw miało sens */
+
+/* --- 6 kart w rzędzie na dużych ekranach --- */
+@media (min-width: 1500px){
+  .products{
+    grid-template-columns: repeat(6, minmax(0, 1fr)); /* dokładnie 6 kolumn */
+    gap: 16px;
+  }
+}
+
+/* Fallback na mniejszych: 3–4 kolumny jak wcześniej (opcjonalnie dopnij progi) */
+@media (max-width: 1499px) and (min-width: 1100px){
+  .products{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 1099px) and (min-width: 700px){
+  .products{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 699px){
+  .products{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* (opcjonalnie) ciut ciaśniejsze karty, żeby 6 wyglądało lekko */
+.product .body{ padding: 12px; gap: 6px; }
 
 
 .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); contain: layout paint}
@@ -92,3 +123,78 @@ footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
 .products { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
 .title { font-size: 14px; line-height: 1.2; }
 .meta  { font-size: 12px; line-height: 1.3; }
+
+.featured-grid{
+  display:grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-areas:
+    "big s1 s2"
+    "big s3 s4";
+  gap:16px;
+  padding:0 16px 16px;
+}
+
+.featured-card{
+  position:relative;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  background:var(--card);
+  box-shadow:var(--shadow);
+  padding:16px;
+  display:flex; flex-direction:column; gap:8px;
+}
+.featured-card.big{ grid-area: big; padding:20px; }
+.featured-card.s1{ grid-area: s1; }
+.featured-card.s2{ grid-area: s2; }
+.featured-card.s3{ grid-area: s3; }
+.featured-card.s4{ grid-area: s4; }
+
+.featured-title{ font-weight:700; }
+.featured-meta{ color:var(--muted); font-size:12px; }
+.featured-actions{ margin-top:auto; display:flex; gap:8px; }
+
+
+@media (max-width: 1100px){
+  .featured-grid{
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "big big"
+      "s1 s2"
+      "s3 s4";
+  }
+}
+@media (max-width: 640px){
+  .featured-grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "big"
+      "s1"
+      "s2"
+      "s3"
+      "s4";
+  }
+}
+
+.products{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* Wymuś dokładnie 5 kolumn przy szerokich ekranach */
+@media (min-width: 1500px){
+  .products{
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Mniejsze ekrany: 3–4 w rzędzie */
+@media (max-width: 1499px) and (min-width: 1000px){
+  .products{ grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 999px) and (min-width: 600px){
+  .products{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 599px){
+  .products{ grid-template-columns: repeat(2, 1fr); }
+}
