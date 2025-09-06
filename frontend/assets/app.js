@@ -19,7 +19,7 @@ async function fetchJSON(url){
 }
 
 function yesNo(v){
-  // obsłuż: bool, '1'/'0', 't'/'f', 'y'/'n'
+  // '1'/'0', 't'/'f', 'y'/'n'
   if (v === true || v === '1' || v === 't' || v === 'T' || v === 'Y' || v === 'y') return 'Tak';
   return 'Nie';
 }
@@ -39,9 +39,9 @@ async function flattenProducts(){
     '/products/cpu-joined',
     '/products/mobo-joined',
     '/products/ram-joined',
-    // '/products/psu-joined',
-    // '/products/case-joined',
-    // '/products/storage-joined',
+    '/products/psu-joined',
+    '/products/case-joined',
+    '/products/storage-joined',
   ];
 
   try {
@@ -115,18 +115,18 @@ function metaFor(p){
     }
       case 'Motherboard': {
         const parts = [];
-        if (p.socket) parts.push(`Socket ${p.socket}`);
-        if (p.ramType) parts.push(`RAM ${p.ramType}`);
-        if (p.formFactor) parts.push(p.formFactor);
-        if (p.ramSlots != null) parts.push(`RAM slots x${p.ramSlots}`);
-        if (p.m2 != null) parts.push(`M.2 x${p.m2}`);
-        if (p.pcie16 != null) parts.push(`PCIe x16 x${p.pcie16}`);
-        if (p.usb3 != null) parts.push(`USB 3.0 x${p.usb3}`);
-        if (p.usbC != null) parts.push(`USB-C x${p.usbC}`);
-        if (p.wifi != null) parts.push(`Wi-Fi: ${p.wifi?'tak':'nie'}`);
-        if (p.oc != null) parts.push(`OC: ${p.oc?'tak':'nie'}`);
-        return parts.join(', ');
-  }
+            if (p.socket) parts.push(`Socket ${p.socket}`);
+            if (p.ramType) parts.push(`RAM ${p.ramType}`);
+            if (p.formFactor) parts.push(p.formFactor);
+            if (p.ramSlots != null) parts.push(`RAM slots x${p.ramSlots}`);
+            if (p.m2 != null) parts.push(`M.2 x${p.m2}`);
+            if (p.pcie16 != null) parts.push(`PCIe x16 x${p.pcie16}`);
+            if (p.usb3 != null) parts.push(`USB 3.0 x${p.usb3}`);
+            if (p.usbC != null) parts.push(`USB-C x${p.usbC}`);
+            if (p.wifi != null) parts.push(`Wi-Fi: ${p.wifi?'tak':'nie'}`);
+            if (p.oc != null) parts.push(`OC: ${p.oc?'tak':'nie'}`);
+            return parts.join(', ');
+            }
         case 'RAM': {
           const parts = [];
           if (p.size) parts.push(`${p.size}GB`);
@@ -135,7 +135,7 @@ function metaFor(p){
           if (p.mhz) parts.push(`${p.mhz}MHz`);
           if (p.cl) parts.push(`CL${p.cl}`);
           return parts.join(', ');
-  }
+          }
 
         case 'GPU': {
           const parts = [];
@@ -147,10 +147,33 @@ function metaFor(p){
           if (p.hdmi != null) parts.push(`HDMI x${p.hdmi}`);
           if (p.dp != null) parts.push(`DP x${p.dp}`);
           return parts.join(', ');
+          }
+        case 'PSU': {
+          const parts = [];
+          if (p.watt) parts.push(`${p.watt}W`);
+          if (p.modular) parts.push(p.modular);   
+          if (p.cert) parts.push(p.cert);
+          return parts.join(', ');
+        }
+
+        case 'Case': {
+          const parts = [];
+          if (p.gpuMax) parts.push(`GPU max ${p.gpuMax}mm`);
+          if (p.formFactor) parts.push(p.formFactor);
+          if (p.fans != null) parts.push(`went. x${p.fans}`);
+          return parts.join(', ');
+        }
+
+          case 'Storage': {
+            const parts = [];
+            if (p.medium) parts.push(p.medium);
+            if (p.formFactor) parts.push(p.formFactor);
+            if (p.iface) parts.push(p.iface);
+            if (p.sizeGB) parts.push(`${p.sizeGB}GB`);
+            if (p.readMBs && p.writeMBs) parts.push(`${p.readMBs}/${p.writeMBs} Mb/s`);
+            return parts.join(', ');
     }
-    case 'PSU': return `${p.watt}W`;
-    case 'Case': return `GPU max ${p.gpuMax}mm`;
-    case 'Storage': return p.iface;
+
     default: return '';
   }
 }

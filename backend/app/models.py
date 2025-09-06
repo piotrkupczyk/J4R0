@@ -73,3 +73,34 @@ class Ram(Base):
     ddr = Column(String(4))
     profil = Column(SmallInteger)   # 0/1 
 
+class Psu(Base):
+    __tablename__ = "psu"
+
+    id_psu = Column(Integer, primary_key=True, index=True)
+    moc = Column(SmallInteger)
+    format = Column(String(3))
+    modularnosc = Column(SmallInteger)   # albo Boolean, jeśli przerobisz
+    certyfikat = Column(String(10))
+
+
+class PCCase(Base):
+    __tablename__ = "pc_case"  
+
+    id_case = Column(Integer, primary_key=True, index=True)
+    format = Column(String(10))
+    wysokosc = Column(SmallInteger)
+    dlugosc = Column(SmallInteger)      
+    szerokosc = Column(SmallInteger)
+    ilosc_wentylatorow = Column(SmallInteger)
+
+
+class Dysk(Base):
+    __tablename__ = "dysk"
+
+    id_dysk = Column(Integer, primary_key=True, index=True)
+    typ = Column(String(5))             
+    interfejs = Column(String(12))     
+    format = Column(String(12))         
+    pojemnosc_gb = Column(SmallInteger)
+    predkosc_zapisu = Column(SmallInteger)   
+    predkosc_odczytu = Column(SmallInteger)  

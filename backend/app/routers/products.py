@@ -117,14 +117,91 @@ def ram_joined(db: Session = Depends(get_db)):
         "name": p.nazwa,
         "price": float(p.cena),
 
-        # pod metaFor
-        "size": r.pojemnosc_total,      # total GB
+        
+        "size": r.pojemnosc_total,      
         "ramType": r.ddr,
 
-        # extra info
+        
         "modules": r.liczba_modulow,
         "perModule": r.pojemnosc_modulu,
         "mhz": r.taktowanie,
         "cl": r.clock_latency,
         "profile": r.profil
     } for (p, r) in rows]
+
+
+
+@router.get("/psu-joined")
+def psu_joined(db: Session = Depends(get_db)):
+    rows = (
+        db.query(models.Product, models.Psu)
+        .join(models.Psu, models.Psu.id_psu == models.Product.id_prod)
+        .all()
+    )
+
+    def mod_desc(v: int | None):
+        if v is None: return None
+        return {0: "niemodularny", 1: "pół-modularny", 2: "w pełni modularny"}.get(v, str(v))
+
+    return [{
+        "id": p.id_prod,
+        "type": "PSU",
+        "name": p.nazwa,
+        "price": float(p.cena),
+
+        # pola pod frontend
+        "watt": s.moc,
+        "formFactor": s.format,
+        "modular": mod_desc(s.modularnosc),
+        "cert": s.certyfikat
+    } for (p, s) in rows]
+
+
+@router.get("/case-joined")
+def case_joined(db: Session = Depends(get_db)):
+    rows = (
+        db.query(models.Product, models.PCCase)
+        .join(models.PCCase, models.PCCase.id_case == models.Product.id_prod)
+        .all()
+    )
+    return [{
+        "id": p.id_prod,
+        "type": "Case",
+        "name": p.nazwa,
+        "price": float(p.cena),
+
+        
+        "gpuMax": c.dlugosc,
+
+        
+        "formFactor": c.format,
+        "fans": c.ilosc_wentylatorow,
+        "height": c.wysokosc,
+        "width": c.szerokosc,
+        "lengthOuter": c.dlugosc,  
+    } for (p, c) in rows]
+
+
+@router.get("/storage-joined")
+def storage_joined(db: Session = Depends(get_db)):
+    rows = (
+        db.query(models.Product, models.Dysk)
+        .join(models.Dysk, models.Dysk.id_dysk == models.Product.id_prod)
+        .all()
+    )
+    return [{
+        "id": p.id_prod,
+        "type": "Storage",
+        "name": p.nazwa,
+        "price": float(p.cena),
+
+        
+        "iface": d.interfejs,
+
+        
+        "medium": d.typ,                      
+        "formFactor": d.format,               
+        "sizeGB": d.pojemnosc_gb,
+        "readMBs": d.predkosc_odczytu,
+        "writeMBs": d.predkosc_zapisu,
+    } for (p, d) in rows]
