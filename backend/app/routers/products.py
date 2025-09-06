@@ -20,11 +20,9 @@ def get_products(db: Session = Depends(get_db)):
 
 @router.get("/gpu-joined")
 def gpu_joined(db: Session = Depends(get_db)):
-    # product p  ⟂  gpu g  (p.id_prod == g.id_gpu)
     rows = (
         db.query(models.Product, models.GPU)
-        .join(models.GPU, models.GPU.id_gpu == models.Product.id_prod)  # INNER JOIN – wystarczy ten
-        # .outerjoin(...) gdybyś chciał też produkty bez wpisu w gpu
+        .join(models.GPU, models.GPU.id_gpu == models.Product.id_prod)  
         .all()
     )
     return [{
@@ -64,3 +62,69 @@ def cpu_joined(db: Session = Depends(get_db)):
         "oc": c.podkrecanie,
         "integra": c.ma_integre,
     } for (p, c) in rows]
+
+@router.get("/mobo-joined")
+def mobo_joined(db: Session = Depends(get_db)):
+    rows = (
+        db.query(models.Product, models.Mobo)
+        .join(models.Mobo, models.Mobo.id_mobo == models.Product.id_prod)
+        .all()
+    )
+    def b2(v):  
+        if v is None: return None
+        return bool(v)
+
+    return [{
+        "id": p.id_prod,
+        "type": "Motherboard",
+        "name": p.nazwa,
+        "price": float(p.cena),
+
+        
+        "socket": m.socket,
+        "ramType": m.ddr,
+
+        
+        "formFactor": m.format,
+        "maxRam": m.max_ram,
+        "ramSlots": m.ilosc_slotow_ram,
+        "m2": m.ilosc_slotow_m2,
+        "pcie16": m.ilosc_pcie_x16,
+        "pcie1": m.ilosc_pcie_x1,
+        "usb3": m.ilosc_usb_3_0,
+        "usb2": m.ilosc_usb_2_0,
+        "usbC": m.ilosc_usb_c,
+        "wifi": b2(m.wifi),
+        "bluetooth": b2(m.bluetooth),
+        "bios": m.bios_typ,
+        "oc": b2(m.podkrecanie),
+    } for (p, m) in rows]
+
+
+
+
+
+@router.get("/ram-joined")
+def ram_joined(db: Session = Depends(get_db)):
+    rows = (
+        db.query(models.Product, models.Ram)
+        .join(models.Ram, models.Ram.id_ram == models.Product.id_prod)
+        .all()
+    )
+    return [{
+        "id": p.id_prod,
+        "type": "RAM",
+        "name": p.nazwa,
+        "price": float(p.cena),
+
+        # pod metaFor
+        "size": r.pojemnosc_total,      # total GB
+        "ramType": r.ddr,
+
+        # extra info
+        "modules": r.liczba_modulow,
+        "perModule": r.pojemnosc_modulu,
+        "mhz": r.taktowanie,
+        "cl": r.clock_latency,
+        "profile": r.profil
+    } for (p, r) in rows]

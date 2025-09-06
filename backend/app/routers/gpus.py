@@ -80,13 +80,7 @@ def delete_gpu(id_gpu: int, db: Session = Depends(get_db)):
 
 @router.post("/with-product", response_model=schemas.ProductWithGPU, status_code=status.HTTP_201_CREATED)
 def create_product_with_gpu(payload: ProductGPUCreate, db: Session = Depends(get_db)):
-    """
-    Jednym requestem tworzy:
-      1) rekord w 'produkty' (typ = 'gpu')
-      2) powiązany rekord w 'gpu' (id_gpu = id_prod)
-
-    Wszystko w jednej transakcji; jeśli coś pójdzie nie tak – rollback.
-    """
+ 
     # sprawdź kolizję ID
     if db.get(models.Product, payload.id_prod) is not None:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Product with this id_prod already exists")

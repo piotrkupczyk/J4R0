@@ -1,7 +1,3 @@
-
-/**********************
- * Prosty store
- **********************/
 const state = {
   products: [], // spłaszczone
   cart: JSON.parse(localStorage.getItem('cart')||'[]'),
@@ -32,19 +28,17 @@ function fmtClock(mhz){
   return mhz >= 1000 ? `${(mhz/1000).toFixed(2)} GHz` : `${mhz} MHz`;
 }
 
-/**********************
- * Inicjalizacja
- **********************/
+
 async function flattenProducts(){
   const status = document.getElementById('status');
   if (status) status.textContent = 'Ładowanie...';
 
-  // dopisz/usuń ścieżki zgodnie z tym, co masz już na backendzie
+ 
   const paths = [
     '/products/gpu-joined',
     '/products/cpu-joined',
-    // '/products/mobo-joined',
-    // '/products/ram-joined',
+    '/products/mobo-joined',
+    '/products/ram-joined',
     // '/products/psu-joined',
     // '/products/case-joined',
     // '/products/storage-joined',
@@ -119,19 +113,41 @@ function metaFor(p){
       if (p.integra != null) parts.push(`iGPU: ${yesNo(p.integra)}`);
       return parts.join(', ');
     }
-    case 'Motherboard': return `Socket ${p.socket}, RAM ${p.ramType}`;
-    case 'RAM': return `${p.size}GB ${p.ramType}`;
-    case 'GPU': {
-      const parts = [];
-      if (p.chipset) parts.push(p.chipset);
-      if (p.vram) parts.push(`${p.vram}GB`);
-      if (p.gddr) parts.push(p.gddr);
-      if (p.tdp) parts.push(`TDP ${p.tdp}W`);
-      if (p.length) parts.push(`${p.length}mm`);
-      if (p.hdmi != null) parts.push(`HDMI x${p.hdmi}`);
-      if (p.dp != null) parts.push(`DP x${p.dp}`);
-      return parts.join(', ');
-}
+      case 'Motherboard': {
+        const parts = [];
+        if (p.socket) parts.push(`Socket ${p.socket}`);
+        if (p.ramType) parts.push(`RAM ${p.ramType}`);
+        if (p.formFactor) parts.push(p.formFactor);
+        if (p.ramSlots != null) parts.push(`RAM slots x${p.ramSlots}`);
+        if (p.m2 != null) parts.push(`M.2 x${p.m2}`);
+        if (p.pcie16 != null) parts.push(`PCIe x16 x${p.pcie16}`);
+        if (p.usb3 != null) parts.push(`USB 3.0 x${p.usb3}`);
+        if (p.usbC != null) parts.push(`USB-C x${p.usbC}`);
+        if (p.wifi != null) parts.push(`Wi-Fi: ${p.wifi?'tak':'nie'}`);
+        if (p.oc != null) parts.push(`OC: ${p.oc?'tak':'nie'}`);
+        return parts.join(', ');
+  }
+        case 'RAM': {
+          const parts = [];
+          if (p.size) parts.push(`${p.size}GB`);
+          if (p.modules) parts.push(`${p.modules}x${p.perModule||'?'}GB`);
+          if (p.ramType) parts.push(p.ramType);
+          if (p.mhz) parts.push(`${p.mhz}MHz`);
+          if (p.cl) parts.push(`CL${p.cl}`);
+          return parts.join(', ');
+  }
+
+        case 'GPU': {
+          const parts = [];
+          if (p.chipset) parts.push(p.chipset);
+          if (p.vram) parts.push(`${p.vram}GB`);
+          if (p.gddr) parts.push(p.gddr);
+          if (p.tdp) parts.push(`TDP ${p.tdp}W`);
+          if (p.length) parts.push(`${p.length}mm`);
+          if (p.hdmi != null) parts.push(`HDMI x${p.hdmi}`);
+          if (p.dp != null) parts.push(`DP x${p.dp}`);
+          return parts.join(', ');
+    }
     case 'PSU': return `${p.watt}W`;
     case 'Case': return `GPU max ${p.gpuMax}mm`;
     case 'Storage': return p.iface;
