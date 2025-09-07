@@ -42,41 +42,15 @@ header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(6p
 .left-guard{ width:312px; flex:0 0 312px; }
 .products-wrap{
   display: block;
-  grid-template-columns: 1fr 3fr; /* lewa wąska, prawa szeroka */
+  grid-template-columns: 1fr 3fr; 
   gap: 20px;
   width: min(1800px, 90vw);
   margin-inline: auto;
-  align-items: start; /* ważne: lewa karta NIE rozciąga się w dół */
+  align-items: start; 
 }
 
-.featured-card-block,
-.product-list-block{
-  /* gdy wcześniej nadaliśmy grid-column – zerujemy */
-  grid-column: auto !important;
-}
+.container{ max-width: 80%; }              
 
-.container{ max-width: 1900px; }              /* sufit kontenera, żeby 90vw miało sens */
-
-/* --- 6 kart w rzędzie na dużych ekranach --- */
-@media (min-width: 1500px){
-  .products{
-    grid-template-columns: repeat(6, minmax(0, 1fr)); /* dokładnie 6 kolumn */
-    gap: 16px;
-  }
-}
-
-/* Fallback na mniejszych: 3–4 kolumny jak wcześniej (opcjonalnie dopnij progi) */
-@media (max-width: 1499px) and (min-width: 1100px){
-  .products{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
-@media (max-width: 1099px) and (min-width: 700px){
-  .products{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 699px){
-  .products{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-/* (opcjonalnie) ciut ciaśniejsze karty, żeby 6 wyglądało lekko */
 .product .body{ padding: 12px; gap: 6px; }
 
 
@@ -116,8 +90,8 @@ footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
 .open-btn .chevron{ transform: rotate(180deg); }
 
 .product .img { display: none; }
-.product { display: block; }                 /* karta tylko z treścią */
-.product .body { padding: 16px; gap: 6px; }  /* ciaśniejsze odstępy */
+.product { display: block; }                 
+.product .body { padding: 16px; gap: 6px; }  
 
 
 .products { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
@@ -181,14 +155,14 @@ footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
   gap: 18px;
 }
 
-/* Wymuś dokładnie 5 kolumn przy szerokich ekranach */
+/*ilosc kafelkow*/
 @media (min-width: 1500px){
   .products{
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Mniejsze ekrany: 3–4 w rzędzie */
+/* Wielkosc listy pod polecanymi */
 @media (max-width: 1499px) and (min-width: 1000px){
   .products{ grid-template-columns: repeat(4, 1fr); }
 }
@@ -198,3 +172,6 @@ footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
 @media (max-width: 599px){
   .products{ grid-template-columns: repeat(2, 1fr); }
 }
+
+
+

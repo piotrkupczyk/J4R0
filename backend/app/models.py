@@ -1,6 +1,10 @@
-from sqlalchemy import Column, Integer, String, SmallInteger, Numeric, CHAR
-
+from sqlalchemy import Column, Integer, String, SmallInteger, Numeric, Date, ForeignKey, UniqueConstraint
+from sqlalchemy.orm import relationship
 from app.database import Base
+
+from datetime import datetime
+from datetime import date
+
 
 class Product(Base):
     __tablename__ = "produkty"
@@ -104,3 +108,26 @@ class Dysk(Base):
     pojemnosc_gb = Column(SmallInteger)
     predkosc_zapisu = Column(SmallInteger)   
     predkosc_odczytu = Column(SmallInteger)  
+
+
+
+class Koszyk(Base):
+    __tablename__ = "koszyk"
+    id_koszyka        = Column(Integer, primary_key=True, index=True)
+    nazwa             = Column(String(64), nullable=False, default="Koszyk")
+    id_klienta        = Column(Integer, nullable=True)  # <— ważne: nullable
+    data_utworzenia   = Column(Date, default=date.today)
+    data_aktualizacji = Column(Date, default=date.today, onupdate=date.today)
+
+    pozycje = relationship("KoszykPozycja",
+                           back_populates="koszyk",
+                           cascade="all, delete-orphan")
+
+class KoszykPozycja(Base):
+    __tablename__ = "koszyk_produkty"
+    koszyk_id_koszyka = Column(Integer, ForeignKey("koszyk.id_koszyka"), primary_key=True)
+    produkty_id_prod  = Column(Integer, ForeignKey("produkty.id_prod"), primary_key=True)
+    ilosc = Column(SmallInteger, nullable=False, default=1)
+
+    koszyk   = relationship("Koszyk", back_populates="pozycje")
+    produkt  = relationship("Product")  # tylko do podglądu danych

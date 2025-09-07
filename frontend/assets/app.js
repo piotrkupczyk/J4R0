@@ -16,10 +16,11 @@ const API_BASE = localStorage.getItem('API_BASE') || 'http://127.0.0.1:8000';
 const fmtPL = new Intl.NumberFormat('pl-PL', { style:'currency', currency:'PLN' });
 function saveCart(){ localStorage.setItem('cart', JSON.stringify(state.cart)); }
 
-async function fetchJSON(url){
-  const r = await fetch(url);
-  if (!r.ok) throw new Error(`${url} -> ${r.status}`);
-  return r.json();
+async function fetchJSON(url, opts){
+  const r = await fetch(url, {headers:{'Content-Type':'application/json'}, ...opts});
+  const text = await r.text();
+  if (!r.ok) throw new Error(`${r.status} ${r.statusText}: ${text}`);
+  return text ? JSON.parse(text) : null;
 }
 
 function yesNo(v){
@@ -124,8 +125,8 @@ function renderProducts(){
 });
 
 
-  // paginacja: po 8 wszędzie
-  const end = state.page * state.pageSize;     // 8, 16, 24...
+  
+  const end = state.page * state.pageSize;     
   const slice = base;
 
   const tpl = document.getElementById('tplProduct');
@@ -139,8 +140,7 @@ function renderProducts(){
     grid.appendChild(node);
   }
 
-  // pokaż/ukryj przycisk „Pokaż więcej”
-  mountShowMore(base.length);
+
 
 
 
@@ -217,7 +217,6 @@ function metaFor(p){
       if (p.cores || p.threads) parts.push(`${p.cores||'?'} Rdzeni/${p.threads||'?'} Wątków`);
       if (p.clock != null) parts.push(fmtClock(p.clock));
       if (p.tdp != null) parts.push(`TDP ${p.tdp}W`);
-      // flagi z CHAR(1)/bool
       if (p.cooler != null) parts.push(`Chłodzenie: ${yesNo(p.cooler)}`);
       if (p.oc != null) parts.push(`OC: ${yesNo(p.oc)}`);
       if (p.integra != null) parts.push(`iGPU: ${yesNo(p.integra)}`);
@@ -300,33 +299,86 @@ function toBuilder(p){
 /**********************
  * Koszyk
  **********************/
-function addToCart(item){
-  state.cart.push(item);
-  saveCart();
-  renderCart();
+async function ensureCartId(){
+  let id = localStorage.getItem('cartId');
+  if (id) return +id;
+  const data = await fetchJSON(`${API_BASE}/carts/`, { method:'POST', body: JSON.stringify({}) });
+  localStorage.setItem('cartId', data.id_koszyka);
+  return data.id_koszyka;
 }
+
 function removeFromCart(index){
   state.cart.splice(index,1);
   saveCart(); renderCart();
 }
-function renderCart(){
+
+async function ensureCartId(){
+  let id = localStorage.getItem('cart_id');
+  if (!id){
+    const cart = await fetchJSON(`${API_BASE}/carts/`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ nazwa: 'Koszyk' })
+    });
+    id = cart.id_koszyka;
+    localStorage.setItem('cart_id', id);
+  }
+  return id;
+}
+
+async function addToCart(p){
+  try{
+    const cartId = await ensureCartId();
+    await fetchJSON(`${API_BASE}/carts/${cartId}/items`, {
+      method:'POST',
+      body: JSON.stringify({ produkty_id_prod: p.id, ilosc: 1 })
+    });
+    // opcjonalnie: pokaż powiadomienie
+  }catch(e){
+    console.error('addToCart failed:', e);
+    alert('Nie udało się dodać do koszyka:\n' + e.message);
+  }
+}
+
+async function renderCart(){
   const list = document.getElementById('cartList');
-  if (!list) return; // index.html nie ma koszyka
-  list.innerHTML='';
-  let total = 0;
-  state.cart.forEach((it, idx)=>{
-    const row = document.createElement('div');
-    row.className = 'cart-item';
-    row.innerHTML = `<div><strong>${it.name}</strong> <span class="muted">${it.type}</span></div><div>${fmtPL.format(it.price)}</div>`;
-    row.addEventListener('dblclick', ()=> removeFromCart(idx));
-    list.appendChild(row);
-    total += it.price;
-  })
   const totalEl = document.getElementById('cartTotal');
   const countEl = document.getElementById('cartCount');
-  if (totalEl) totalEl.textContent = fmtPL.format(total);
-  if (countEl) countEl.textContent = state.cart.length;
+  if (!list) return;
+
+  try {
+    const cartId = await ensureCartId();
+    const cart = await fetchJSON(`${API_BASE}/carts/${cartId}`);
+
+    list.innerHTML = '';
+    let count = 0;
+
+    cart.items.forEach(it=>{
+      count += it.ilosc;
+      const row = document.createElement('div');
+      row.className = 'cart-item';
+      row.innerHTML = `
+        <div>
+          <strong>${it.nazwa}</strong> <span class="muted">${it.typ}</span>
+        </div>
+        <div>${fmtPL.format(it.cena)} × ${it.ilosc} = ${fmtPL.format(it.suma)}</div>
+      `;
+      // szybkie usuwanie pozycji (double click)
+      row.addEventListener('dblclick', async ()=>{
+        await fetchJSON(`${API_BASE}/carts/${cartId}/items/${it.product_id}`, { method:'DELETE' });
+        renderCart();
+      });
+      list.appendChild(row);
+    });
+
+    if (totalEl) totalEl.textContent = fmtPL.format(cart.total);
+    if (countEl) countEl.textContent = count;
+
+  } catch (e) {
+    console.error('renderCart failed:', e);
+  }
 }
+
 
 /**********************
  * Footer (stable)
@@ -368,11 +420,10 @@ async function start(){
     mountFilters();
     renderProducts();
   }
-  renderCart();        
+  await renderCart(); 
   mountThemeToggle();
   mountFooter();
   syncFooterHeight();
-  renderFeatured();
 }
 
 
