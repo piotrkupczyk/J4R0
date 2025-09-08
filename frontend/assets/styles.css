@@ -77,17 +77,71 @@ header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(6p
 footer{
   position: fixed;
   left:0; right:0; bottom:0;
-  z-index: 1000;
+  z-index: 10000;
   width:100%;
   box-shadow: 0 -8px 30px rgba(0,0,0,.25);
   backdrop-filter: saturate(1.2) blur(6px);
   background: var(--card);
   border-top:1px solid var(--border);
+  
 }
+
+.footer-toggle { position: relative; z-index: 10001; }  /* przycisk zawsze klikalny */
+
+/* Płynne rozwijanie – nic nie musi przykrywać */
+.footer-content { padding: 0 16px 0; }
+footer.open .footer-content { max-height: 60vh; padding: 0 16px 16px; }
+
+
 .footer-toggle{ width:100%; text-align:left; padding:16px; cursor:pointer; border:none; background:none; color:var(--text); font-weight:600; display:flex; align-items:center; gap:8px }
 .footer-content{ max-height:0; overflow:hidden; transition:max-height .35s ease, padding .35s ease; }
 footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
 .open-btn .chevron{ transform: rotate(180deg); }
+
+/* === Fixed footer na details/summary === */
+.foot{
+  position: fixed; left:0; right:0; bottom:0; width:100%;
+  z-index: 10000;
+  box-shadow: 0 -8px 30px rgba(0,0,0,.25);
+  backdrop-filter: saturate(1.2) blur(6px);
+  background: var(--card);
+  border-top: 1px solid var(--border);
+}
+
+/* summary → nasz przycisk */
+.foot summary.footer-toggle{
+  list-style: none;           /* ukrywa trójkąt przeglądarki */
+  cursor: pointer;
+  width: 100%;
+  padding: 16px;
+  color: var(--text); font-weight: 600;
+  display: flex; align-items: center; gap: 8px;
+}
+.foot summary::-webkit-details-marker{ display:none; } /* Safari/Chrome */
+
+/* rozwijana treść z animacją wysokości */
+.foot .footer-content{
+  max-height: 0; overflow: hidden;
+  transition: max-height .35s ease, padding .35s ease;
+  padding: 0 16px 0;
+}
+.foot details[open] .footer-content{
+  max-height: 60vh; padding: 0 16px 16px;
+}
+
+/* obrót strzałki */
+.foot details[open] .chevron{ transform: rotate(180deg); transition: transform .25s; }
+
+/* wysoka na tyle, ile ma stopka */
+:root { --footer-h: 64px; } /* startowo zamknięta stopka ~64px */
+.products-wrap { padding-bottom: calc(var(--footer-h) + 24px); } /* rezerwa pod kafelki */
+.card:last-child { margin-bottom: 8px; } 
+
+
+/* odstęp na body, żeby nic nie nachodziło na stopkę */
+html, body { height: 100%; }
+body{ padding-bottom: var(--footer-h); }
+:root{ --footer-h: 64px; } /* złożona stopka jest wyższa – patrz JS poniżej (opcjonalny) */
 
 .product .img { display: none; }
 .product { display: block; }                 

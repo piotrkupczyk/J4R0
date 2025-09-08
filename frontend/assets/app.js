@@ -403,7 +403,7 @@ function mountCartActions(){
 
 /* funkcja odpowiedzialna za synchronizację wysokości stopki w CSS */
 function syncFooterHeight(){
-  const footer = document.querySelector('footer');
+  const footer = document.getElementById('siteFooter') || document.querySelector('footer');
   if (!footer) return;
   const h = footer.getBoundingClientRect().height;
   document.documentElement.style.setProperty('--footer-h', Math.ceil(h) + 'px');
@@ -411,13 +411,14 @@ function syncFooterHeight(){
 
 /* funkcja odpowiedzialna za obsługę przycisku rozwijania stopki */
 function mountFooter(){
+  const footer = document.getElementById('siteFooter') || document.querySelector('footer');
   const btn = document.getElementById('aboutToggle');
-  const footer = document.querySelector('footer');
-  if (!btn || !footer) return;
-  btn.addEventListener('click', ()=>{
+  if (!footer || !btn) return;
+
+  btn.addEventListener('click', () => {
     footer.classList.toggle('open');
     btn.classList.toggle('open-btn');
-    syncFooterHeight();
+    requestAnimationFrame(syncFooterHeight);
   });
 }
 
