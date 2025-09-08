@@ -83,7 +83,7 @@ class Psu(Base):
     id_psu = Column(Integer, primary_key=True, index=True)
     moc = Column(SmallInteger)
     format = Column(String(3))
-    modularnosc = Column(SmallInteger)   # albo Boolean, jeśli przerobisz
+    modularnosc = Column(SmallInteger)  # 0/1
     certyfikat = Column(String(10))
 
 
@@ -115,7 +115,7 @@ class Koszyk(Base):
     __tablename__ = "koszyk"
     id_koszyka        = Column(Integer, primary_key=True, index=True)
     nazwa             = Column(String(64), nullable=False, default="Koszyk")
-    id_klienta        = Column(Integer, nullable=True)  # <— ważne: nullable
+    id_klienta        = Column(Integer, nullable=True)  # nullable dopoki nie bedzie userow
     data_utworzenia   = Column(Date, default=date.today)
     data_aktualizacji = Column(Date, default=date.today, onupdate=date.today)
 

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Koszyk – J4R0 PC</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><div class="brand-logo">🛒</div><span>Koszyk</span></div>
+      <nav class="row-flex">
+        <a class="btn ghost" href="index.html">Sklep</a>
+        <a class="btn ghost" href="builder.html">Kreator zestawu</a>
+        <a class="btn ghost" href="about.html">Projekt Inżynierski - informacje</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn primary" href="cart.html">Koszyk (<span id="cartCount">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="max-width:900px;">
+    <div class="card" style="margin-top:16px;">
+      <div style="padding:16px; display:flex; align-items:center; gap:10px">
+        <strong>Twój koszyk</strong>
+        <span class="space"></span>
+        <button id="clearCartBtn" type="button">Wyczyść</button>
+
+      </div>
+
+      <div id="cartList"></div>
+
+      <div class="cart-footer">
+        <div class="row-flex"><span class="muted">Suma</span><span class="space"></span><strong id="cartTotal">0,00 zł</strong></div>
+        <button class="btn primary" id="checkout">Przejdź do zamówienia</button>
+      </div>
+    </div>
+  </main>
+
+  <footer id="siteFooter">
+    <button class="footer-toggle" id="aboutToggle">O projekcie <span class="chevron">⌄</span></button>
+    <div class="footer-content" id="aboutContent">
+      <p class="muted">Tu potwierdzisz zamówienie. Przejdź do <a href="index.html">Sklepu</a> lub <a href="builder.html">Kreatora</a>.</p>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    
+    renderCart?.();
+
+    
+    const btn = document.getElementById('clearCartBtn');
+    if (btn) {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        try {
+          await onClearCart();   // to wywoła DELETE na backendzie i wyzeruje stan
+          await renderCart();    // odśwież listę NA TEJ STRONIE (cart.html)
+        } catch (err) {
+          console.error(err);
+          alert('Nie udało się wyczyścić koszyka.');
+        }
+      });
+    }
+  });
+  </script>
+</body>
+</html>

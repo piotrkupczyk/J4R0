@@ -11,11 +11,14 @@ const state = {
 };
 
 const API_BASE = localStorage.getItem('API_BASE') || 'http://127.0.0.1:8000';
-// Przykład zmiany na szybko w konsoli przeglądarki:
+
 // localStorage.setItem('API_BASE', 'http://localhost:8000'); location.reload();
 const fmtPL = new Intl.NumberFormat('pl-PL', { style:'currency', currency:'PLN' });
+
+/* funkcja odpowiedzialna za zapisanie koszyka w localStorage */
 function saveCart(){ localStorage.setItem('cart', JSON.stringify(state.cart)); }
 
+/* funkcja odpowiedzialna za pobranie danych JSON z API */
 async function fetchJSON(url, opts){
   const r = await fetch(url, {headers:{'Content-Type':'application/json'}, ...opts});
   const text = await r.text();
@@ -23,17 +26,20 @@ async function fetchJSON(url, opts){
   return text ? JSON.parse(text) : null;
 }
 
+/* funkcja odpowiedzialna za konwersję wartości na Tak/Nie */
 function yesNo(v){
   // '1'/'0', 't'/'f', 'y'/'n'
   if (v === true || v === '1' || v === 't' || v === 'T' || v === 'Y' || v === 'y') return 'Tak';
   return 'Nie';
 }
+
+/* funkcja odpowiedzialna za formatowanie częstotliwości w GHz/MHz */
 function fmtClock(mhz){
   if (mhz == null) return null;
   return mhz >= 1000 ? `${(mhz/1000).toFixed(2)} GHz` : `${mhz} MHz`;
 }
 
-
+/* funkcja odpowiedzialna za pobranie i scalenie list produktów z API */
 async function flattenProducts(){
   const status = document.getElementById('status');
   if (status) status.textContent = 'Ładowanie...';
@@ -73,6 +79,7 @@ async function flattenProducts(){
   }
 }
 
+/* funkcja odpowiedzialna za podłączenie filtrów i wyszukiwarki */
 function mountFilters(){
   const chips = document.querySelectorAll('#typeChips .chip');
 
@@ -81,17 +88,17 @@ function mountFilters(){
     chips.forEach(c => c.classList.remove('active'));
     ch.classList.add('active');
 
-    // zmiana filtra + RESET paginacji
+    // zmiana filtra + RESET 
     state.filterType = ch.dataset.type;
     state.page = 1; // <= ważne!
 
-    // PRZED listą zdecyduj, czy pokazywać sekcję "Teraz na topie"
+    // przed lista decyzja czy pokazywać sekcję "Teraz na topie"
     renderFeatured();
 
-    // odśwież produkty (paginacja wykorzysta state.page)
+    // refresh produkty 
     renderProducts();
 
-    // opcjonalnie przewiń do katalogu, gdy to nie jest "Wszystko"
+    // opcjonalnie do katalogu, gdy to nie jest "Wszystko"
     if (state.filterType !== 'all'){
       document.getElementById('listTitle')?.scrollIntoView({ behavior:'smooth', block:'start' });
     }
@@ -109,6 +116,7 @@ function mountFilters(){
   }
 }
 
+/* funkcja odpowiedzialna za renderowanie listy produktów (z filtrami/paginacją) */
 function renderProducts(){
   // sekcja featured ma własną logikę widoczności
   renderFeatured();
@@ -127,18 +135,18 @@ function renderProducts(){
 
   
   const end = state.page * state.pageSize;     
-  const slice = base;
+ const slice = base; // (na razie bez paginacji)
 
-  const tpl = document.getElementById('tplProduct');
-  for (const p of slice){
-    const node = tpl.content.cloneNode(true);
-    node.querySelector('.title').textContent = p.name;
-    node.querySelector('.price').textContent = fmtPL.format(p.price || 0);
-    node.querySelector('.meta').textContent = metaFor(p);
-    node.querySelector('[data-add-single]').addEventListener('click', ()=> addToCart(p));
-    node.querySelector('[data-to-builder]').addEventListener('click', ()=> toBuilder(p));
-    grid.appendChild(node);
-  }
+const tpl = document.getElementById('tplProduct');
+for (const p of slice){
+  const node = tpl.content.cloneNode(true);
+  node.querySelector('.title').textContent = p.name;
+  node.querySelector('.price').textContent = fmtPL.format(p.price || 0);
+  node.querySelector('.meta').textContent = metaFor(p);
+  node.querySelector('[data-add-single]').addEventListener('click', ()=> addToCart(p));
+  node.querySelector('[data-to-builder]').addEventListener('click', ()=> toBuilder(p));
+  grid.appendChild(node);
+}
 
 
 
@@ -158,6 +166,7 @@ if (state.filterType !== 'all'){
   }
 }
 
+/* funkcja odpowiedzialna za wytypowanie pozycji "na topie" */
 function computeFeatured(){
   // Preferuj GPU; gdyby było ich mało, bierz cały pool
   let pool = state.products.filter(p => p.type === 'GPU');
@@ -170,7 +179,7 @@ function computeFeatured(){
   return picks;
 }
 
-
+/* funkcja odpowiedzialna za render sekcji "Teraz na topie" */
 function renderFeatured(){
   const wrap = document.getElementById('featuredGrid');
   const section = wrap?.closest('.card');
@@ -208,7 +217,7 @@ function renderFeatured(){
   });
 }
 
-
+/* funkcja odpowiedzialna za generowanie opisu (meta) produktów do listy */
 function metaFor(p){
   switch(p.type){
     case 'CPU': {
@@ -287,9 +296,8 @@ function metaFor(p){
   }
 }
 
-/**********************
- * Builder helpers (link only)
- **********************/
+
+/* funkcja odpowiedzialna za przekierowanie produktu do kreatora */
 function toBuilder(p){
   // zapamiętaj wybór w sessionStorage, odbierz na builder.html jeśli chcesz
   sessionStorage.setItem('preselect', JSON.stringify(p));
@@ -299,19 +307,15 @@ function toBuilder(p){
 /**********************
  * Koszyk
  **********************/
-async function ensureCartId(){
-  let id = localStorage.getItem('cartId');
-  if (id) return +id;
-  const data = await fetchJSON(`${API_BASE}/carts/`, { method:'POST', body: JSON.stringify({}) });
-  localStorage.setItem('cartId', data.id_koszyka);
-  return data.id_koszyka;
-}
 
+
+/* funkcja odpowiedzialna za usuwanie pozycji z koszyka po indeksie (frontend) */
 function removeFromCart(index){
   state.cart.splice(index,1);
   saveCart(); renderCart();
 }
 
+/* funkcja odpowiedzialna za uzyskanie/utworzenie ID koszyka (wersja 2) */
 async function ensureCartId(){
   let id = localStorage.getItem('cart_id');
   if (!id){
@@ -323,9 +327,10 @@ async function ensureCartId(){
     id = cart.id_koszyka;
     localStorage.setItem('cart_id', id);
   }
-  return id;
+  return +id;
 }
 
+/* funkcja odpowiedzialna za dodanie produktu do koszyka (backend) */
 async function addToCart(p){
   try{
     const cartId = await ensureCartId();
@@ -340,6 +345,7 @@ async function addToCart(p){
   }
 }
 
+/* funkcja odpowiedzialna za wyrenderowanie koszyka (pobranie z backendu) */
 async function renderCart(){
   const list = document.getElementById('cartList');
   const totalEl = document.getElementById('cartTotal');
@@ -353,25 +359,24 @@ async function renderCart(){
     list.innerHTML = '';
     let count = 0;
 
-    cart.items.forEach(it=>{
+    (cart.items || []).forEach(it => {
       count += it.ilosc;
+
       const row = document.createElement('div');
       row.className = 'cart-item';
+      
       row.innerHTML = `
-        <div>
-          <strong>${it.nazwa}</strong> <span class="muted">${it.typ}</span>
+        <div class="cart-left">
+          <strong>${it.nazwa}</strong> <span class="muted">${(it.typ||'').toUpperCase()}</span><br/>
+          <span class="muted">${fmtPL.format(it.cena)} × ${it.ilosc} = ${fmtPL.format(it.suma)}</span>
         </div>
-        <div>${fmtPL.format(it.cena)} × ${it.ilosc} = ${fmtPL.format(it.suma)}</div>
+        <button class="btn danger cart-remove" data-rm data-pid="${it.product_id}">Usuń</button>
       `;
-      // szybkie usuwanie pozycji (double click)
-      row.addEventListener('dblclick', async ()=>{
-        await fetchJSON(`${API_BASE}/carts/${cartId}/items/${it.product_id}`, { method:'DELETE' });
-        renderCart();
-      });
+
       list.appendChild(row);
     });
 
-    if (totalEl) totalEl.textContent = fmtPL.format(cart.total);
+    if (totalEl) totalEl.textContent = fmtPL.format(cart.total || 0);
     if (countEl) countEl.textContent = count;
 
   } catch (e) {
@@ -380,15 +385,31 @@ async function renderCart(){
 }
 
 
-/**********************
- * Footer (stable)
- **********************/
+/* funkcja monitorująca koszyk*/
+
+function mountCartActions(){
+  const clearBtn = document.getElementById('clearCartBtn')
+               || document.querySelector('[data-clear-cart]');
+  if (clearBtn) {
+    
+    clearBtn.replaceWith(clearBtn.cloneNode(true));
+    const fresh = document.getElementById('clearCartBtn')
+               || document.querySelector('[data-clear-cart]');
+    fresh.addEventListener('click', onClearCart);
+  }
+}
+
+
+
+/* funkcja odpowiedzialna za synchronizację wysokości stopki w CSS */
 function syncFooterHeight(){
   const footer = document.querySelector('footer');
   if (!footer) return;
   const h = footer.getBoundingClientRect().height;
   document.documentElement.style.setProperty('--footer-h', Math.ceil(h) + 'px');
 }
+
+/* funkcja odpowiedzialna za obsługę przycisku rozwijania stopki */
 function mountFooter(){
   const btn = document.getElementById('aboutToggle');
   const footer = document.querySelector('footer');
@@ -400,9 +421,8 @@ function mountFooter(){
   });
 }
 
-/**********************
- * Theme & Start
- **********************/
+
+/* funkcja odpowiedzialna za przełączanie motywu (light/dark) */
 function mountThemeToggle(){
   const btn = document.getElementById('themeToggle');
   if (!btn) return;
@@ -414,19 +434,101 @@ function mountThemeToggle(){
   })
 }
 
+/*funkcja odpowiedzialna za guzik wyczysc koszyk */
+
+async function clearCartServer(){
+  const cartId = await ensureCartId();
+  const r = await fetch(`${API_BASE}/carts/${cartId}/items`, { method: 'DELETE' });
+  if (!r.ok) throw new Error(`clearCart failed: ${r.status}`);
+}
+
+
+async function onClearCart(){
+  try {
+    await clearCartServer();
+    state.cart = [];           // zeruj podgląd
+    saveCart();
+    renderCart();
+  } catch (e) {
+    console.warn(e); alert('Nie udało się wyczyścić koszyka.');
+  }
+}
+(document.getElementById('clearCartBtn') || document.querySelector('[data-clear-cart]'))
+  ?.addEventListener('click', onClearCart);
+
+
+
+function wireCartItemActions(){
+  document.addEventListener('click', async (e)=>{
+    const btn = e.target.closest('[data-rm]');
+    if (!btn) return;
+
+    e.preventDefault();
+    try {
+      const cartId = await ensureCartId();
+      const pid = +btn.dataset.pid;
+      await fetchJSON(`${API_BASE}/carts/${cartId}/items/${pid}`, { method:'DELETE' });
+      await renderCart();
+    } catch (err) {
+      console.error(err);
+      alert('Nie udało się usunąć pozycji z koszyka.');
+    }
+  });
+}
+
+
+
+function wireClearCartButton(){
+  // delegacja – zadziała nawet jeśli koszyk renderujesz/odświeżasz dynamicznie
+  document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('#clearCartBtn,[data-clear-cart]');
+    if (!btn) return;
+
+    e.preventDefault(); // na wszelki wypadek
+    console.log('[UI] clear clicked');
+
+    try {
+      const cartId = await ensureCartId();
+      console.log('[UI] clearing cart', cartId);
+      const r = await fetch(`${API_BASE}/carts/${cartId}/items`, { method: 'DELETE' });
+      console.log('[HTTP] DELETE /carts/:id/items ->', r.status);
+      if (!r.ok) throw new Error(`clearCart failed: ${r.status}`);
+
+      // loklany stan + UI
+      state.cart = [];
+      saveCart();
+      renderCart();
+    } catch (err) {
+      console.error(err);
+      alert('Nie udało się wyczyścić koszyka.');
+    }
+  });
+}
+
+async function removeCartItem(productId){
+  const cartId = await ensureCartId();
+  const r = await fetch(`${API_BASE}/carts/${cartId}/items/${productId}`, { method: 'DELETE' });
+  if (!r.ok) throw new Error(`removeCartItem failed: ${r.status}`);
+}
+
+/* funkcja odpowiedzialna za inicjalizację aplikacji po załadowaniu DOM */
 async function start(){
   if (document.getElementById('products')){
     await flattenProducts();
     mountFilters();
     renderProducts();
   }
-  await renderCart(); 
+   await renderCart();
+   wireCartItemActions();   
+   wireClearCartButton();   
+  
   mountThemeToggle();
   mountFooter();
   syncFooterHeight();
 }
 
-
-
 document.addEventListener('DOMContentLoaded', start);
 window.addEventListener('resize', syncFooterHeight);
+
+
+

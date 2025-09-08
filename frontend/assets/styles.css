@@ -155,6 +155,31 @@ footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
   gap: 18px;
 }
 
+#cartList{ padding: 0 16px; }
+
+.cart-item{
+  display: grid;
+  grid-template-columns: 1fr auto; /* lewa część + prawa kolumna */
+  align-items: center;
+  column-gap: 16px;
+  width: 100%;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.cart-left{
+  min-width: 0;              /* pozwala zawijać długie tytuły */
+}
+
+.cart-remove{
+  justify-self: end;         /* przyklej do prawej kolumny */
+  flex-shrink: 0;            /* bez kurczenia */
+}
+
+
+
+
+
 /*ilosc kafelkow*/
 @media (min-width: 1500px){
   .products{

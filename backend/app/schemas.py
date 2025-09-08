@@ -66,6 +66,7 @@ class CartOut(BaseModel):
     nazwa: str
     items: list[CartItemOut]
     total: float
+    class Config: from_attributes = True
 
 class Cart(BaseModel):
     id_koszyka: int

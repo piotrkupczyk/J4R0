@@ -21,7 +21,7 @@
       </nav>
       <div class="nav-actions">
         <button class="btn" id="themeToggle" title="Przełącz motyw">🌓</button>
-        <button class="btn primary" id="openCart">Koszyk (<span id="cartCount">0</span>)</button>
+        <a class="btn primary" href="cart.html">Koszyk (<span id="cartCount">0</span>)</a>
       </div>
     </div>
   </header>
@@ -46,19 +46,7 @@
       </div>
     </div>
 
-    <div class="card cart" aria-live="polite">
-      <div style="padding:16px; display:flex; align-items:center; gap:10px">
-        <strong>Twój koszyk</strong>
-        <span class="muted">(podgląd)</span>
-        <span class="space"></span>
-        <button class="btn" id="clearCart">Wyczyść</button>
-      </div>
-      <div class="cart-list" id="cartList"></div>
-      <div class="cart-footer">
-        <div class="row-flex"><span class="muted">Suma</span><span class="space"></span><strong id="cartTotal">0 zł</strong></div>
-        <button class="btn primary" id="checkout">Przejdź do zamówienia</button>
-      </div>
-    </div>
+    
   </main>
 
     <footer>
@@ -75,6 +63,8 @@
 
   <script src="assets/mock.js" defer></script>
   <script src="assets/compat.js" defer></script>
+  <script src="assets/cart.js" defer></script>
   <script src="assets/app.js" defer></script>
+
 </body>
 </html>
