@@ -205,3 +205,31 @@ def storage_joined(db: Session = Depends(get_db)):
         "readMBs": d.predkosc_odczytu,
         "writeMBs": d.predkosc_zapisu,
     } for (p, d) in rows]
+
+
+
+###########################################################################
+
+@router.get("/cooler-joined")
+def cooler_joined(db: Session = Depends(get_db)):
+    rows = (
+        db.query(models.Product, models.Cooler)
+        .join(models.Cooler, models.Cooler.id_cooler == models.Product.id_prod)
+        .filter(models.Product.typ.ilike("cooler"))      # typ w tabeli 'produkty' = 'cooler'
+        .all()
+    )
+    return [
+        {
+            "id": p.id_prod,
+            "type": "Cooler",
+            "name": p.nazwa,
+            "price": float(p.cena),
+            "height": c.wysokosc,
+            "fans": c.ilosc_wentylatorow,
+            "cooler_type": c.typ,         # typu „tower”, „aio” itd. – jeśli tak to zapisujesz
+            "rgb": c.rgb,                  # 0/1 lub inny drobny enum
+            "profile": c.profil,           # np. 0/1 – jeśli używasz
+            "sockets": [s.kod for s in c.sockets],   # <- lista kodów gniazd, np. ["AM5","LGA1700"]
+        }
+        for (p, c) in rows
+    ]

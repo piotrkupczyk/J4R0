@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 from datetime import date
+from typing import List, Optional
 
 class ProductBase(BaseModel):
     nazwa: str
@@ -15,6 +16,9 @@ class Product(ProductBase):
     class Config:
         from_attributes = True
 
+###########################
+#gpu
+###########################
 
 class GPUBase(BaseModel):
     chipset: str | None = None
@@ -41,9 +45,39 @@ class GPU(GPUBase):
 class ProductWithGPU(Product):
     gpu: GPU | None = None
 
+###########################
+#cooler
+###########################
+class SocketOut(BaseModel):
+    id_socket: int
+    kod: str
+    vendor: Optional[str] = None
+    class Config:
+        from_attributes = True  
+
+class SocketBase(BaseModel):
+    kod: str
+    vendor: str | None = None
 
 
+class CoolerOut(BaseModel):
+    id_cooler: int
+    wysokosc: Optional[int] = None
+    typ: Optional[str] = None
+    ilosc_wentylatorow: Optional[int] = None
+    rgb: Optional[str] = None
+    profil: Optional[str] = None
+    sockets: Optional[List[SocketOut]] = None
+    class Config: from_attributes = True
+
+
+class SocketCreate(SocketBase):
+    pass
+
+
+###########################
 #koszyk
+###########################
 
 class CartCreate(BaseModel):
     nazwa: str = "Koszyk"

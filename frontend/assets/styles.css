@@ -108,7 +108,7 @@ footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
   border-top: 1px solid var(--border);
 }
 
-/* summary → nasz przycisk */
+/* summary na przycisk */
 .foot summary.footer-toggle{
   list-style: none;           /* ukrywa trójkąt przeglądarki */
   cursor: pointer;
@@ -141,7 +141,7 @@ footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
 /* odstęp na body, żeby nic nie nachodziło na stopkę */
 html, body { height: 100%; }
 body{ padding-bottom: var(--footer-h); }
-:root{ --footer-h: 64px; } /* złożona stopka jest wyższa – patrz JS poniżej (opcjonalny) */
+:root{ --footer-h: 64px; } /* złożona stopka jest wyższa */
 
 .product .img { display: none; }
 .product { display: block; }                 
@@ -181,6 +181,24 @@ body{ padding-bottom: var(--footer-h); }
 .featured-meta{ color:var(--muted); font-size:12px; }
 .featured-actions{ margin-top:auto; display:flex; gap:8px; }
 
+.featured-card .row-flex {
+  flex-wrap: wrap; /* tytuł + cena w jednej linii, mogą się zawinąć */
+}
+
+.featured-meta {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* przyciski na dół i w prawy róg */
+.featured-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end; /* prawy dolny róg */
+  gap: 8px;
+}
 
 @media (max-width: 1100px){
   .featured-grid{
@@ -231,8 +249,26 @@ body{ padding-bottom: var(--footer-h); }
 }
 
 
+.meta div { line-height: 1.4; margin: 2px 0; }
 
+/* karty jako kolumny, żeby można było dopychać akcje na dół */
+.card.product{ display:flex; flex-direction:column; }
+.card.product .body{ display:flex; flex-direction:column; flex:1; }
 
+/* ostatni wiersz w .body (z przyciskami) dopychamy na dół */
+.card.product .body > .row-flex:last-child{
+  margin-top:auto;
+  justify-content:flex-end;    /* -> w prawy róg; zmień na flex-start jeśli ma być lewy */
+  gap: 8px;
+}
+
+/* (opcjonalnie) to samo dla kart w sekcji "Teraz na topie", jeśli mają taki sam układ */
+.featured-grid .card .body{ display:flex; flex-direction:column; flex:1; }
+.featured-grid .card .body > .row-flex:last-child{
+  margin-top:auto;
+  justify-content:flex-end;
+  gap: 8px;
+}
 
 /*ilosc kafelkow*/
 @media (min-width: 1500px){

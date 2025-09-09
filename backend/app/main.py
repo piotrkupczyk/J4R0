@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import products,gpus,cart
+from app.routers import products,gpus,cart,coolers,sockets
 from app.database import engine
 from app import models
 from fastapi.middleware.cors import CORSMiddleware
@@ -30,6 +30,8 @@ models.Base.metadata.create_all(bind=engine)
 app.include_router(products.router)
 app.include_router(gpus.router)
 app.include_router(cart.router)
+app.include_router(coolers.router)  # opcjonalnie, jeśli masz
+app.include_router(sockets.router)  # opcjonalnie
 
 @app.get("/")
 def root():

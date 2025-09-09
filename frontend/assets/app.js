@@ -53,6 +53,7 @@ async function flattenProducts(){
     '/products/psu-joined',
     '/products/case-joined',
     '/products/storage-joined',
+    '/products/cooler-joined',
   ];
 
   try {
@@ -116,53 +117,43 @@ function mountFilters(){
   }
 }
 
-/* funkcja odpowiedzialna za renderowanie listy produktów (z filtrami/paginacją) */
 function renderProducts(){
-  // sekcja featured ma własną logikę widoczności
   renderFeatured();
 
   const grid = document.getElementById('products');
-  grid.innerHTML='';
+  grid.innerHTML = '';
 
   // filtrowanie
-  const base = state.products.filter(p=>{
-  const typeOk = state.filterType==='all' || p.type===state.filterType;
-  const qOk = !state.query || `${p.name} ${p.type}`.toLowerCase().includes(state.query);
-  const notFeatured = state.filterType !== 'all' || !(state.featuredIds||[]).includes(p.id);
-  return typeOk && qOk && notFeatured;
-});
-
+  const base = state.products.filter(p => {
+    const typeOk = state.filterType === 'all' || p.type === state.filterType;
+    const qOk = !state.query || `${p.name} ${p.type}`.toLowerCase().includes(state.query);
+    const notFeatured = state.filterType !== 'all' || !(state.featuredIds || []).includes(p.id);
+    return typeOk && qOk && notFeatured;
+  });
 
   
-  const end = state.page * state.pageSize;     
- const slice = base; // (na razie bez paginacji)
+  const slice = base; 
 
-const tpl = document.getElementById('tplProduct');
-for (const p of slice){
-  const node = tpl.content.cloneNode(true);
-  node.querySelector('.title').textContent = p.name;
-  node.querySelector('.price').textContent = fmtPL.format(p.price || 0);
-  node.querySelector('.meta').textContent = metaFor(p);
-  node.querySelector('[data-add-single]').addEventListener('click', ()=> addToCart(p));
-  node.querySelector('[data-to-builder]').addEventListener('click', ()=> toBuilder(p));
-  grid.appendChild(node);
-}
-
-
-
-
-
-if (state.filterType !== 'all'){
-  document.getElementById('listTitle')?.scrollIntoView({behavior:'smooth', block:'start'});
-}
-  for (const p of filtered){
+  const tpl = document.getElementById('tplProduct');
+  for (const p of slice){
     const node = tpl.content.cloneNode(true);
     node.querySelector('.title').textContent = p.name;
-    node.querySelector('.price').textContent = fmtPL.format(p.price);
-    node.querySelector('.meta').textContent = metaFor(p);
+    node.querySelector('.price').textContent = fmtPL.format(p.price || 0);
+
+    
+    const metaEl = node.querySelector('.meta');
+    const meta = metaFor(p);
+    if (meta && meta.includes('<')) metaEl.innerHTML = meta;
+    else metaEl.textContent = meta;
+
     node.querySelector('[data-add-single]').addEventListener('click', ()=> addToCart(p));
     node.querySelector('[data-to-builder]').addEventListener('click', ()=> toBuilder(p));
     grid.appendChild(node);
+  }
+
+  
+  if (state.filterType !== 'all'){
+    document.getElementById('listTitle')?.scrollIntoView({ behavior:'smooth', block:'start' });
   }
 }
 
@@ -217,82 +208,129 @@ function renderFeatured(){
   });
 }
 
-/* funkcja odpowiedzialna za generowanie opisu (meta) produktów do listy */
+
+// ===== Pomocniki
+const line = (label, value) =>
+  (value !== undefined && value !== null && value !== '')
+    ? `<div>${label}: ${value}</div>` : '';
+
+const xqty = (label, n) =>
+  (n !== undefined && n !== null) ? `<div>${label}: x${n}</div>` : '';
+
+// ===== Opisy
 function metaFor(p){
-  switch(p.type){
+  switch (p.type) {
+
     case 'CPU': {
       const parts = [];
-      if (p.socket) parts.push(`Socket ${p.socket}`);
-      if (p.cores || p.threads) parts.push(`${p.cores||'?'} Rdzeni/${p.threads||'?'} Wątków`);
-      if (p.clock != null) parts.push(fmtClock(p.clock));
-      if (p.tdp != null) parts.push(`TDP ${p.tdp}W`);
-      if (p.cooler != null) parts.push(`Chłodzenie: ${yesNo(p.cooler)}`);
-      if (p.oc != null) parts.push(`OC: ${yesNo(p.oc)}`);
-      if (p.integra != null) parts.push(`iGPU: ${yesNo(p.integra)}`);
-      return parts.join(', ');
-    }
-      case 'Motherboard': {
-        const parts = [];
-            if (p.socket) parts.push(`Socket ${p.socket}`);
-            if (p.ramType) parts.push(`RAM ${p.ramType}`);
-            if (p.formFactor) parts.push(p.formFactor);
-            if (p.ramSlots != null) parts.push(`RAM slots x${p.ramSlots}`);
-            if (p.m2 != null) parts.push(`M.2 x${p.m2}`);
-            if (p.pcie16 != null) parts.push(`PCIe x16 x${p.pcie16}`);
-            if (p.usb3 != null) parts.push(`USB 3.0 x${p.usb3}`);
-            if (p.usbC != null) parts.push(`USB-C x${p.usbC}`);
-            if (p.wifi != null) parts.push(`Wi-Fi: ${p.wifi?'tak':'nie'}`);
-            if (p.oc != null) parts.push(`OC: ${p.oc?'tak':'nie'}`);
-            return parts.join(', ');
-            }
-        case 'RAM': {
-          const parts = [];
-          if (p.size) parts.push(`${p.size}GB`);
-          if (p.modules) parts.push(`${p.modules}x${p.perModule||'?'}GB`);
-          if (p.ramType) parts.push(p.ramType);
-          if (p.mhz) parts.push(`${p.mhz}MHz`);
-          if (p.cl) parts.push(`CL${p.cl}`);
-          return parts.join(', ');
-          }
-
-        case 'GPU': {
-          const parts = [];
-          if (p.chipset) parts.push(p.chipset);
-          if (p.vram) parts.push(`${p.vram}GB`);
-          if (p.gddr) parts.push(p.gddr);
-          if (p.tdp) parts.push(`TDP ${p.tdp}W`);
-          if (p.length) parts.push(`${p.length}mm`);
-          if (p.hdmi != null) parts.push(`HDMI x${p.hdmi}`);
-          if (p.dp != null) parts.push(`DP x${p.dp}`);
-          return parts.join(', ');
-          }
-        case 'PSU': {
-          const parts = [];
-          if (p.watt) parts.push(`${p.watt}W`);
-          if (p.modular) parts.push(p.modular);   
-          if (p.cert) parts.push(p.cert);
-          return parts.join(', ');
-        }
-
-        case 'Case': {
-          const parts = [];
-          if (p.gpuMax) parts.push(`GPU max ${p.gpuMax}mm`);
-          if (p.formFactor) parts.push(p.formFactor);
-          if (p.fans != null) parts.push(`went. x${p.fans}`);
-          return parts.join(', ');
-        }
-
-          case 'Storage': {
-            const parts = [];
-            if (p.medium) parts.push(p.medium);
-            if (p.formFactor) parts.push(p.formFactor);
-            if (p.iface) parts.push(p.iface);
-            if (p.sizeGB) parts.push(`${p.sizeGB}GB`);
-            if (p.readMBs && p.writeMBs) parts.push(`${p.readMBs}/${p.writeMBs} Mb/s`);
-            return parts.join(', ');
+      parts.push(line('Socket', p.socket));
+      if (p.cores || p.threads) parts.push(line('Rdzenie/Wątki', `${p.cores ?? '?'}/${p.threads ?? '?'}`));
+      if (p.clock != null)      parts.push(line('Taktowanie', fmtClock(p.clock)));
+      if (p.tdp != null)        parts.push(line('TDP', `${p.tdp} W`));
+      if (p.cooler != null)     parts.push(line('Chłodzenie', yesNo(p.cooler)));
+      if (p.oc != null)         parts.push(line('OC', yesNo(p.oc)));
+      if (p.integra != null)    parts.push(line('iGPU', yesNo(p.integra)));
+      return parts.join('');
     }
 
-    default: return '';
+    case 'Motherboard': {
+      const parts = [];
+      parts.push(line('Socket', p.socket));
+      parts.push(line('Format', p.formFactor));
+      parts.push(line('Pamięć RAM', p.ramType));
+      parts.push(xqty('Sloty RAM', p.ramSlots));
+      parts.push(xqty('M.2', p.m2));
+      parts.push(xqty('PCIe x16', p.pcie16));
+      parts.push(xqty('USB 3.0', p.usb3));
+      parts.push(xqty('USB-C', p.usbC));
+      if (p.wifi != null) parts.push(line('Wi-Fi', p.wifi ? 'tak' : 'nie'));
+      if (p.oc != null)   parts.push(line('OC', p.oc ? 'tak' : 'nie'));
+      return parts.join('');
+    }
+
+    case 'RAM': {
+      const parts = [];
+      if (p.size)               parts.push(line('Pojemność', `${p.size} GB`));
+      if (p.modules && p.perModule)
+                                parts.push(line('Konfiguracja', `${p.modules}×${p.perModule} GB`));
+      else                      parts.push(xqty('Moduły', p.modules));
+      parts.push(line('Typ', p.ramType));
+      if (p.mhz)                parts.push(line('Taktowanie', `${p.mhz} MHz`));
+      if (p.cl)                 parts.push(line('Opóźnienie', `CL${p.cl}`));
+      return parts.join('');
+    }
+
+    case 'GPU': {
+      const parts = [];
+      parts.push(line('Chipset', p.chipset));
+      if (p.vram)               parts.push(line('VRAM', `${p.vram} GB`));
+      parts.push(line('Pamięć', p.gddr));
+      if (p.tdp != null)        parts.push(line('TDP', `${p.tdp} W`));
+      if (p.length)             parts.push(line('Długość', `${p.length} mm`));
+      parts.push(xqty('HDMI', p.hdmi));
+      parts.push(xqty('DisplayPort', p.dp));
+      return parts.join('');
+    }
+
+    case 'PSU': {
+      const parts = [];
+      if (p.watt)               parts.push(line('Moc', `${p.watt} W`));
+      // próbujemy ładnie nazwać modularność; jeśli masz inne wartości – zostawimy surową
+      let modular = p.modular;
+      if (typeof modular === 'string') {
+        const m = modular.toLowerCase();
+        if (m.includes('full')) modular = 'W pełni modularny';
+        else if (m.includes('semi')) modular = 'Pół-modularny';
+        else if (m.includes('non') || m.includes('fixed')) modular = 'Niemodularny';
+      }
+      parts.push(line('Modularność', modular));
+      parts.push(line('Certyfikat', p.cert)); // np. 80+ Gold
+      return parts.join('');
+    }
+
+    case 'Case': {
+      const parts = [];
+      if (p.gpuMax)             parts.push(line('Maks. długość GPU', `${p.gpuMax} mm`));
+      parts.push(line('Format', p.formFactor));
+      parts.push(xqty('Wentylatory', p.fans));
+      return parts.join('');
+    }
+
+    case 'Storage': {
+      const parts = [];
+      parts.push(line('Nośnik', p.medium));         // SSD/HDD
+      parts.push(line('Format', p.formFactor));     // 2.5", M.2, 3.5"
+      parts.push(line('Interfejs', p.iface));       // SATA/NVMe/PCIe
+      if (p.sizeGB)             parts.push(line('Pojemność', `${p.sizeGB} GB`));
+      if (p.readMBs && p.writeMBs)
+                                parts.push(line('Odczyt/Zapis', `${p.readMBs}/${p.writeMBs} MB/s`));
+      return parts.join('');
+    }
+
+    case 'Cooler': {
+      const parts = [];
+      // Rodzaj
+      if (p.cooler_type){
+        let rodzaj;
+        switch (String(p.cooler_type).toLowerCase()){
+          case 'powietrze': rodzaj = 'Chłodzenie powietrzem'; break;
+          case 'aio':       rodzaj = 'Chłodzenie all in one'; break;
+          case 'wodne':     rodzaj = 'Chłodzenie wodne'; break;
+          default:          rodzaj = p.cooler_type;
+        }
+        parts.push(line('Rodzaj', rodzaj));
+      }
+      if (p.height)             parts.push(line('Wysokość', `${p.height} mm`));
+      parts.push(xqty('Wentylatory', p.fans));
+      if (Array.isArray(p.sockets) && p.sockets.length)
+                                parts.push(line('Wspierane sockety', p.sockets.join('/')));
+      if (p.rgb)                parts.push(line('RGB', 'tak'));
+      if (p.profile != null)    parts.push(line('Profil', Number(p.profile) === 0 ? 'low profile' : 'high profile'));
+      return parts.join('');
+    }
+
+    default:
+      return '';
   }
 }
 

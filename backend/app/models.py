@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, SmallInteger, Numeric, Date, ForeignKey, UniqueConstraint
+from sqlalchemy import Column, Integer, String, SmallInteger, Numeric, Date, ForeignKey, UniqueConstraint, Table
 from sqlalchemy.orm import relationship
 from app.database import Base
 
@@ -76,6 +76,45 @@ class Ram(Base):
     clock_latency = Column(SmallInteger)
     ddr = Column(String(4))
     profil = Column(SmallInteger)   # 0/1 
+
+##############################################################
+
+cooler_socket = Table(
+    "cooler_socket",
+    Base.metadata,
+    Column("id_cooler", Integer, ForeignKey("cooler.id_cooler", ondelete="CASCADE"), primary_key=True),
+    Column("id_socket", Integer, ForeignKey("socket.id_socket", ondelete="CASCADE"), primary_key=True),
+)
+
+class Socket(Base):
+    __tablename__ = "socket"
+
+    id_socket = Column(Integer, primary_key=True, index=True)
+    kod = Column(String(16), unique=True, nullable=False)   # <-- teraz 'kod'
+    vendor = Column(String(16))
+
+    coolers = relationship(
+        "Cooler",
+        secondary=cooler_socket,
+        back_populates="sockets",
+    )
+
+class Cooler(Base):
+    __tablename__ = "cooler"
+
+    id_cooler = Column(Integer, primary_key=True, index=True)
+    wysokosc = Column(SmallInteger)
+    typ = Column(String(16))
+    ilosc_wentylatorow = Column(SmallInteger)
+    rgb = Column(SmallInteger)
+    profil = Column(SmallInteger)
+
+    sockets = relationship(
+        "Socket",
+        secondary=cooler_socket,
+        back_populates="coolers",
+    )
+########################################################################
 
 class Psu(Base):
     __tablename__ = "psu"
