@@ -243,8 +243,8 @@ function metaFor(p){
       parts.push(xqty('PCIe x16', p.pcie16));
       parts.push(xqty('USB 3.0', p.usb3));
       parts.push(xqty('USB-C', p.usbC));
-      if (p.wifi != null) parts.push(line('Wi-Fi', p.wifi ? 'tak' : 'nie'));
-      if (p.oc != null)   parts.push(line('OC', p.oc ? 'tak' : 'nie'));
+      if (p.wifi != null) parts.push(line('Wi-Fi', p.wifi ? 'Tak' : 'Nie'));
+      if (p.oc != null)   parts.push(line('OC', p.oc ? 'Tak' : 'Nie'));
       return parts.join('');
     }
 
@@ -324,15 +324,16 @@ function metaFor(p){
       parts.push(xqty('Wentylatory', p.fans));
       if (Array.isArray(p.sockets) && p.sockets.length)
                                 parts.push(line('Wspierane sockety', p.sockets.join('/')));
-      if (p.rgb)                parts.push(line('RGB', 'tak'));
-      if (p.profile != null)    parts.push(line('Profil', Number(p.profile) === 0 ? 'low profile' : 'high profile'));
+      if (p.rgb != null)        parts.push(line('RGB', p.rgb ? 'Tak' : 'Nie'));
+      if (p.profile != null)    parts.push(line('Profil', Number(p.profile) === 0 ? 'Low profile' : 'High profile'));
       return parts.join('');
     }
-
+    
     default:
       return '';
   }
 }
+
 
 
 /* funkcja odpowiedzialna za przekierowanie produktu do kreatora */
@@ -349,8 +350,18 @@ function toBuilder(p){
 
 /* funkcja odpowiedzialna za usuwanie pozycji z koszyka po indeksie (frontend) */
 function removeFromCart(index){
-  state.cart.splice(index,1);
-  saveCart(); renderCart();
+  try{
+    const removed = state.cart[index];
+    state.cart.splice(index,1);
+    saveCart?.(); 
+    renderCart?.();
+
+    updateCartBadge?.();
+    toast(removed?.nazwa? `Usunięto: ${removed.nazwa} 🗑️` : 'Usunięto z koszyka 🗑️', 'success');
+  }catch(e){
+    console.warn('removeFromCart error:', e);
+    toast('Nie udało się usunąć z koszyka ❌', 'error', 3000);
+  }
 }
 
 /* funkcja odpowiedzialna za uzyskanie/utworzenie ID koszyka (wersja 2) */
@@ -376,10 +387,11 @@ async function addToCart(p){
       method:'POST',
       body: JSON.stringify({ produkty_id_prod: p.id, ilosc: 1 })
     });
-    // opcjonalnie: pokaż powiadomienie
+    updateCartBadge?.();
+    toast('Dodano do koszyka ✅', 'success');
   }catch(e){
     console.error('addToCart failed:', e);
-    alert('Nie udało się dodać do koszyka:\n' + e.message);
+    toast('Nie udało się dodać do koszyka ❌', 'error', 3000);
   }
 }
 
@@ -402,7 +414,9 @@ async function renderCart(){
 
       const row = document.createElement('div');
       row.className = 'cart-item';
-      
+      row.dataset.name = it.nazwa;   
+      row.dataset.pid  = it.product_id; 
+
       row.innerHTML = `
         <div class="cart-left">
           <strong>${it.nazwa}</strong> <span class="muted">${(it.typ||'').toUpperCase()}</span><br/>
@@ -437,6 +451,114 @@ function mountCartActions(){
   }
 }
 
+function toast(message, type='success', timeout=1800){
+  let host = document.getElementById('toastHost');
+  if (!host){
+    host = document.createElement('div');
+    host.id = 'toastHost';
+    document.body.appendChild(host);
+  }
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.innerHTML = `
+    <span class="msg">${message}</span>
+    <button class="close" aria-label="Zamknij">×</button>
+  `;
+  el.querySelector('.close').addEventListener('click', ()=> el.remove());
+  host.appendChild(el);
+  if (timeout){
+    setTimeout(()=> el.remove(), timeout);
+  }
+}
+/*funkcja odpowiedzialna za guzik wyczysc koszyk */
+
+async function clearCartServer(){
+  const cartId = await ensureCartId();
+  const r = await fetch(`${API_BASE}/carts/${cartId}/items`, { method: 'DELETE' });
+  if (!r.ok) throw new Error(`clearCart failed: ${r.status}`);
+}
+
+
+async function onClearCart(){
+  try {
+    await clearCartServer();
+    state.cart = [];           // zeruj podgląd
+    saveCart();
+    renderCart();
+    
+  } catch (e) {
+    console.warn(e); alert('Nie udało się wyczyścić koszyka.');
+  }
+}
+(document.getElementById('clearCartBtn') || document.querySelector('[data-clear-cart]'))
+  ?.addEventListener('click', onClearCart);
+
+
+
+function wireCartItemActions(){
+  document.addEventListener('click', async (e)=>{
+    const btn = e.target.closest('[data-rm]');
+    if (!btn) return;
+
+    e.preventDefault();
+    const row = btn.closest('.cart-item');
+    const name = row?.dataset?.name || 'Pozycja';
+
+    try {
+      const cartId = await ensureCartId();
+      const pid = +btn.dataset.pid;
+      await fetchJSON(`${API_BASE}/carts/${cartId}/items/${pid}`, { method:'DELETE' });
+
+      toast(`Usunięto: ${name} 🗑️`, 'success');   // ⬅️ TOAST
+      await renderCart();
+    } catch (err) {
+      console.error(err);
+      toast('Nie udało się usunąć pozycji ❌', 'error', 3000);  // ⬅️ TOAST (błąd)
+    }
+  });
+}
+
+
+
+function wireClearCartButton(){
+  document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('#clearCartBtn,[data-clear-cart]');
+    if (!btn) return;
+
+    e.preventDefault();
+
+    // 1) najpierw spróbuj wyczyścić po API
+    try {
+      const cartId = await ensureCartId();
+      const r = await fetch(`${API_BASE}/carts/${cartId}/items`, { method: 'DELETE' });
+      if (!r.ok) throw new Error(`clearCart failed: ${r.status}`);
+
+      // lokalny stan
+      state.cart = [];
+      saveCart?.();
+
+      // sukces – pokaż od razu
+      toast('Koszyk wyczyszczony 🧹', 'success');
+    } catch (err) {
+      console.error(err);
+      toast('Nie udało się wyczyścić koszyka ❌', 'error', 3000);
+      return; 
+    }
+
+    
+    try { await renderCart?.(); } catch (e) { console.warn('renderCart() failed:', e); }
+    try { updateCartBadge?.(); } catch (e) { console.warn('updateCartBadge() failed:', e); }
+  });
+}
+
+async function removeCartItem(productId){
+  const cartId = await ensureCartId();
+  const r = await fetch(`${API_BASE}/carts/${cartId}/items/${productId}`, { method: 'DELETE' });
+  if (!r.ok) throw new Error(`removeCartItem failed: ${r.status}`);
+}
+/**********************
+ * Stopka
+ **********************/
 
 
 /* funkcja odpowiedzialna za synchronizację wysokości stopki w CSS */
@@ -473,82 +595,7 @@ function mountThemeToggle(){
   })
 }
 
-/*funkcja odpowiedzialna za guzik wyczysc koszyk */
 
-async function clearCartServer(){
-  const cartId = await ensureCartId();
-  const r = await fetch(`${API_BASE}/carts/${cartId}/items`, { method: 'DELETE' });
-  if (!r.ok) throw new Error(`clearCart failed: ${r.status}`);
-}
-
-
-async function onClearCart(){
-  try {
-    await clearCartServer();
-    state.cart = [];           // zeruj podgląd
-    saveCart();
-    renderCart();
-  } catch (e) {
-    console.warn(e); alert('Nie udało się wyczyścić koszyka.');
-  }
-}
-(document.getElementById('clearCartBtn') || document.querySelector('[data-clear-cart]'))
-  ?.addEventListener('click', onClearCart);
-
-
-
-function wireCartItemActions(){
-  document.addEventListener('click', async (e)=>{
-    const btn = e.target.closest('[data-rm]');
-    if (!btn) return;
-
-    e.preventDefault();
-    try {
-      const cartId = await ensureCartId();
-      const pid = +btn.dataset.pid;
-      await fetchJSON(`${API_BASE}/carts/${cartId}/items/${pid}`, { method:'DELETE' });
-      await renderCart();
-    } catch (err) {
-      console.error(err);
-      alert('Nie udało się usunąć pozycji z koszyka.');
-    }
-  });
-}
-
-
-
-function wireClearCartButton(){
-  // delegacja – zadziała nawet jeśli koszyk renderujesz/odświeżasz dynamicznie
-  document.addEventListener('click', async (e) => {
-    const btn = e.target.closest('#clearCartBtn,[data-clear-cart]');
-    if (!btn) return;
-
-    e.preventDefault(); // na wszelki wypadek
-    console.log('[UI] clear clicked');
-
-    try {
-      const cartId = await ensureCartId();
-      console.log('[UI] clearing cart', cartId);
-      const r = await fetch(`${API_BASE}/carts/${cartId}/items`, { method: 'DELETE' });
-      console.log('[HTTP] DELETE /carts/:id/items ->', r.status);
-      if (!r.ok) throw new Error(`clearCart failed: ${r.status}`);
-
-      // loklany stan + UI
-      state.cart = [];
-      saveCart();
-      renderCart();
-    } catch (err) {
-      console.error(err);
-      alert('Nie udało się wyczyścić koszyka.');
-    }
-  });
-}
-
-async function removeCartItem(productId){
-  const cartId = await ensureCartId();
-  const r = await fetch(`${API_BASE}/carts/${cartId}/items/${productId}`, { method: 'DELETE' });
-  if (!r.ok) throw new Error(`removeCartItem failed: ${r.status}`);
-}
 
 /* funkcja odpowiedzialna za inicjalizację aplikacji po załadowaniu DOM */
 async function start(){
