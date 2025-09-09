@@ -138,9 +138,9 @@ footer{
   
 }
 
-.footer-toggle { position: relative; z-index: 10001; }  /* przycisk zawsze klikalny */
+.footer-toggle { position: relative; z-index: 10001; }  
 
-/* Płynne rozwijanie – nic nie musi przykrywać */
+
 .footer-content { padding: 0 16px 0; }
 footer.open .footer-content { max-height: 60vh; padding: 0 16px 16px; }
 
@@ -150,7 +150,7 @@ footer.open .footer-content { max-height: 60vh; padding: 0 16px 16px; }
 footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
 .open-btn .chevron{ transform: rotate(180deg); }
 
-/* === Fixed footer na details/summary === */
+
 .foot{
   position: fixed; left:0; right:0; bottom:0; width:100%;
   z-index: 10000;
@@ -160,18 +160,18 @@ footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
   border-top: 1px solid var(--border);
 }
 
-/* summary na przycisk */
+
 .foot summary.footer-toggle{
-  list-style: none;           /* ukrywa trójkąt przeglądarki */
+  list-style: none;           
   cursor: pointer;
   width: 100%;
   padding: 16px;
   color: var(--text); font-weight: 600;
   display: flex; align-items: center; gap: 8px;
 }
-.foot summary::-webkit-details-marker{ display:none; } /* Safari/Chrome */
+.foot summary::-webkit-details-marker{ display:none; } 
 
-/* rozwijana treść z animacją wysokości */
+
 .foot .footer-content{
   max-height: 0; overflow: hidden;
   transition: max-height .35s ease, padding .35s ease;
@@ -181,19 +181,19 @@ footer.open .footer-content{ max-height:60vh; padding:0 16px 16px; }
   max-height: 60vh; padding: 0 16px 16px;
 }
 
-/* obrót strzałki */
+
 .foot details[open] .chevron{ transform: rotate(180deg); transition: transform .25s; }
 
-/* wysoka na tyle, ile ma stopka */
-:root { --footer-h: 64px; } /* startowo zamknięta stopka ~64px */
-.products-wrap { padding-bottom: calc(var(--footer-h) + 24px); } /* rezerwa pod kafelki */
+
+:root { --footer-h: 64px; } 
+.products-wrap { padding-bottom: calc(var(--footer-h) + 24px); } 
 .card:last-child { margin-bottom: 8px; } 
 
 
-/* odstęp na body, żeby nic nie nachodziło na stopkę */
+
 html, body { height: 100%; }
 body{ padding-bottom: var(--footer-h); }
-:root{ --footer-h: 64px; } /* złożona stopka jest wyższa */
+:root{ --footer-h: 64px; } 
 
 .product .img { display: none; }
 .product { display: block; }                 
@@ -234,7 +234,7 @@ body{ padding-bottom: var(--footer-h); }
 .featured-actions{ margin-top:auto; display:flex; gap:8px; }
 
 .featured-card .row-flex {
-  flex-wrap: wrap; /* tytuł + cena w jednej linii, mogą się zawinąć */
+  flex-wrap: wrap; 
 }
 
 .featured-meta {
@@ -244,11 +244,11 @@ body{ padding-bottom: var(--footer-h); }
   line-height: 1.4;
 }
 
-/* przyciski na dół i w prawy róg */
+
 .featured-actions {
   margin-top: auto;
   display: flex;
-  justify-content: flex-end; /* prawy dolny róg */
+  justify-content: flex-end; 
   gap: 8px;
 }
 
@@ -283,7 +283,7 @@ body{ padding-bottom: var(--footer-h); }
 
 .cart-item{
   display: grid;
-  grid-template-columns: 1fr auto; /* lewa część + prawa kolumna */
+  grid-template-columns: 1fr auto; 
   align-items: center;
   column-gap: 16px;
   width: 100%;
@@ -292,29 +292,29 @@ body{ padding-bottom: var(--footer-h); }
 }
 
 .cart-left{
-  min-width: 0;              /* pozwala zawijać długie tytuły */
+  min-width: 0;              
 }
 
 .cart-remove{
-  justify-self: end;         /* przyklej do prawej kolumny */
-  flex-shrink: 0;            /* bez kurczenia */
+  justify-self: end;        
+  flex-shrink: 0;           
 }
 
 
 .meta div { line-height: 1.4; margin: 2px 0; }
 
-/* karty jako kolumny, żeby można było dopychać akcje na dół */
+
 .card.product{ display:flex; flex-direction:column; }
 .card.product .body{ display:flex; flex-direction:column; flex:1; }
 
-/* ostatni wiersz w .body (z przyciskami) dopychamy na dół */
+
 .card.product .body > .row-flex:last-child{
   margin-top:auto;
-  justify-content:flex-end;    /* -> w prawy róg; zmień na flex-start jeśli ma być lewy */
+  justify-content:flex-end;   
   gap: 8px;
 }
 
-/* (opcjonalnie) to samo dla kart w sekcji "Teraz na topie", jeśli mają taki sam układ */
+
 .featured-grid .card .body{ display:flex; flex-direction:column; flex:1; }
 .featured-grid .card .body > .row-flex:last-child{
   margin-top:auto;

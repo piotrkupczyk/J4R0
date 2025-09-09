@@ -15,8 +15,8 @@ def _cart_view(cart_id: int, db: Session) -> schemas.CartOut:
 
     items: list[schemas.CartItemOut] = []
     total = 0.0
-    for pos in cart.pozycje:           # wymaga relacji w models.Koszyk.pozycje
-        p = pos.produkt                # i relacji w models.KoszykPozycja.produkt
+    for pos in cart.pozycje:           
+        p = pos.produkt                
         suma = float(p.cena) * pos.ilosc
         items.append(schemas.CartItemOut(
             product_id=p.id_prod,
@@ -35,7 +35,7 @@ def _cart_view(cart_id: int, db: Session) -> schemas.CartOut:
         total=total
     )
 
-# === tworzenie koszyka ===
+#tworzenie koszyka
 @router.post("/", response_model=schemas.Cart, status_code=201)
 def create_cart(body: schemas.CartCreate | None = None, db: Session = Depends(get_db)):
     payload = (body.model_dump() if body else {}) | {
@@ -74,13 +74,13 @@ def get_cart(cart_id: int, db: Session = Depends(get_db)):
     return {"id_koszyka": cart.id_koszyka, "nazwa": cart.nazwa, "items": items, "total": total}
 
 
-# (opcjonalnie) lista pozycji, gdybyś wolał GET /carts/{id}/items
+
 @router.get("/{cart_id}/items", response_model=list[schemas.CartItemOut])
 def list_items(cart_id: int, db: Session = Depends(get_db)):
     out = get_cart(cart_id, db)
     return out.items
 
-# === dodaj / zwiększ ilość (UPsert) ===
+
 @router.post("/{cart_id}/items", response_model=schemas.CartItem, status_code=201)
 def add_or_inc_item(cart_id: int, body: schemas.CartItemCreate, db: Session = Depends(get_db)):
     if not db.get(models.Koszyk, cart_id):
@@ -103,9 +103,9 @@ def add_or_inc_item(cart_id: int, body: schemas.CartItemCreate, db: Session = De
     item = (db.query(models.KoszykPozycja)
               .filter_by(koszyk_id_koszyka=cart_id, produkty_id_prod=body.produkty_id_prod)
               .first())
-    return item  # pasuje do schemas.CartItem
+    return item  
 
-# === usuń jedną pozycję ===
+
 @router.delete("/{cart_id}/items/{product_id}", status_code=204)
 def delete_item(cart_id: int, product_id: int, db: Session = Depends(get_db)):
     row = (db.query(models.KoszykPozycja)
@@ -116,7 +116,7 @@ def delete_item(cart_id: int, product_id: int, db: Session = Depends(get_db)):
     db.delete(row); db.commit()
     return Response(status_code=204)
 
-# === wyczyść koszyk (pozycje) ===
+#wyczyść koszyk 
 @router.delete("/{cart_id}/items", status_code=204)
 def clear_items(cart_id: int, db: Session = Depends(get_db)):
     (db.query(models.KoszykPozycja)

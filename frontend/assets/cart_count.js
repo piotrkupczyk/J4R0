@@ -29,7 +29,6 @@
 
   async function getApiCount(){
     const id = await ensureCartId();
-    // pobierz cały koszyk i policz ilości
     const r = await fetch(`${API_BASE}/carts/${id}`, { headers:{'Accept':'application/json'} });
     if (!r.ok) throw new Error('HTTP '+r.status);
     const data = await r.json();

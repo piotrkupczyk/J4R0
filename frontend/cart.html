@@ -65,8 +65,8 @@
       btn.addEventListener('click', async (e) => {
         e.preventDefault();
         try {
-          await onClearCart();   // to wywoła DELETE na backendzie i wyzeruje stan
-          await renderCart();    // odśwież listę NA TEJ STRONIE (cart.html)
+          await onClearCart();   
+          await renderCart();    
         } catch (err) {
           console.error(err);
           alert('Nie udało się wyczyścić koszyka.');

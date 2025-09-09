@@ -215,7 +215,7 @@ def cooler_joined(db: Session = Depends(get_db)):
     rows = (
         db.query(models.Product, models.Cooler)
         .join(models.Cooler, models.Cooler.id_cooler == models.Product.id_prod)
-        .filter(models.Product.typ.ilike("cooler"))      # typ w tabeli 'produkty' = 'cooler'
+        .filter(models.Product.typ.ilike("cooler"))      
         .all()
     )
     return [
@@ -226,10 +226,10 @@ def cooler_joined(db: Session = Depends(get_db)):
             "price": float(p.cena),
             "height": c.wysokosc,
             "fans": c.ilosc_wentylatorow,
-            "cooler_type": c.typ,         # typu „tower”, „aio” itd. – jeśli tak to zapisujesz
-            "rgb": c.rgb,                  # 0/1 lub inny drobny enum
-            "profile": c.profil,           # np. 0/1 – jeśli używasz
-            "sockets": [s.kod for s in c.sockets],   # <- lista kodów gniazd, np. ["AM5","LGA1700"]
+            "cooler_type": c.typ,         
+            "rgb": c.rgb,                 
+            "profile": c.profil,           
+            "sockets": [s.kod for s in c.sockets],   
         }
         for (p, c) in rows
     ]

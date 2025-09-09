@@ -21,7 +21,7 @@ origins = [
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,     # konkretne originy, nie "*"
-    allow_credentials=True,    # OK, ale wtedy nie można użyć "*"
+    allow_credentials=True,    
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -30,8 +30,8 @@ models.Base.metadata.create_all(bind=engine)
 app.include_router(products.router)
 app.include_router(gpus.router)
 app.include_router(cart.router)
-app.include_router(coolers.router)  # opcjonalnie, jeśli masz
-app.include_router(sockets.router)  # opcjonalnie
+app.include_router(coolers.router)  
+app.include_router(sockets.router)  
 
 @app.get("/")
 def root():
