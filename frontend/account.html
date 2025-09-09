@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moje konto – J4R0 PC</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><div class="brand-logo">👋</div><span>Panel klienta</span></div>
+      <nav class="row-flex">
+        <a class="btn ghost" href="index.html">Sklep</a>
+        <a class="btn ghost" href="builder.html">Kreator zestawu</a>
+        <a class="btn ghost" href="about.html">Projekt Inżynierski - informacje</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn primary" href="cart.html">Koszyk (<span id="cartCount">0</span>)</a>
+        <a class="btn account" href="account.html" id="accountBtn">Moje konto</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="max-width:820px; margin-top:24px;">
+    <div id="accountRoot" class="card" style="overflow:hidden;"></div>
+  </main>
+
+  <script src="assets/compat.js" defer></script>
+  <script src="assets/cart_count.js" defer></script>
+  <script src="assets/auth.js" defer></script>
+</body>
+</html>
