@@ -13,7 +13,7 @@ def list_sockets(db: Session = Depends(get_db)):
 @router.post("/", response_model=schemas.SocketOut, status_code=201)
 def create_socket(body: schemas.SocketCreate, db: Session = Depends(get_db)):
     if db.query(models.Socket).filter(models.Socket.kod == body.kod).first():
-        raise HTTPException(409, "Socket kod already exists")
+        raise HTTPException(409, "Socket juz istnieje")
     obj = models.Socket(kod=body.kod, vendor=body.vendor)
     db.add(obj); db.commit(); db.refresh(obj)
     return obj

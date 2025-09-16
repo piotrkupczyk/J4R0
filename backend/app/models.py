@@ -90,7 +90,7 @@ class Socket(Base):
     __tablename__ = "socket"
 
     id_socket = Column(Integer, primary_key=True, index=True)
-    kod = Column(String(16), unique=True, nullable=False)   # <-- teraz 'kod'
+    kod = Column(String(16), unique=True, nullable=False)   
     vendor = Column(String(16))
 
     coolers = relationship(

@@ -131,9 +131,9 @@ def clear_items(cart_id: int, db: Session = Depends(get_db)):
 def add_or_increment_item(cart_id: int, body: schemas.CartItemCreate, db: Session = Depends(get_db)):
     # walidacje
     if not db.get(models.Koszyk, cart_id):
-        raise HTTPException(404, "Cart not found")
+        raise HTTPException(404, "Koszyk nie istnieje")
     if not db.get(models.Product, body.produkty_id_prod):
-        raise HTTPException(404, "Product not found")
+        raise HTTPException(404, "Produkt nie istnieje")
 
     # UPSERT
     stmt = insert(models.KoszykPozycja).values(

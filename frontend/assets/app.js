@@ -275,7 +275,7 @@ function metaFor(p){
     case 'PSU': {
       const parts = [];
       if (p.watt)               parts.push(line('Moc', `${p.watt} W`));
-      // próbujemy ładnie nazwać modularność; jeśli masz inne wartości – zostawimy surową
+      
       let modular = p.modular;
       if (typeof modular === 'string') {
         const m = modular.toLowerCase();
@@ -284,7 +284,7 @@ function metaFor(p){
         else if (m.includes('non') || m.includes('fixed')) modular = 'Niemodularny';
       }
       parts.push(line('Modularność', modular));
-      parts.push(line('Certyfikat', p.cert)); // np. 80+ Gold
+      parts.push(line('Certyfikat', p.cert));
       return parts.join('');
     }
 
@@ -298,9 +298,9 @@ function metaFor(p){
 
     case 'Storage': {
       const parts = [];
-      parts.push(line('Nośnik', p.medium));         // SSD/HDD
-      parts.push(line('Format', p.formFactor));     // 2.5", M.2, 3.5"
-      parts.push(line('Interfejs', p.iface));       // SATA/NVMe/PCIe
+      parts.push(line('Nośnik', p.medium));         
+      parts.push(line('Format', p.formFactor));    
+      parts.push(line('Interfejs', p.iface));      
       if (p.sizeGB)             parts.push(line('Pojemność', `${p.sizeGB} GB`));
       if (p.readMBs && p.writeMBs)
                                 parts.push(line('Odczyt/Zapis', `${p.readMBs}/${p.writeMBs} MB/s`));
@@ -338,7 +338,7 @@ function metaFor(p){
 
 /* funkcja odpowiedzialna za przekierowanie produktu do kreatora */
 function toBuilder(p){
-  // zapamiętaj wybór w sessionStorage, odbierz na builder.html jeśli chcesz
+  
   sessionStorage.setItem('preselect', JSON.stringify(p));
   location.href = 'builder.html';
 }
@@ -482,7 +482,7 @@ async function clearCartServer(){
 async function onClearCart(){
   try {
     await clearCartServer();
-    state.cart = [];           // zeruj podgląd
+    state.cart = [];           
     saveCart();
     renderCart();
     
@@ -509,11 +509,11 @@ function wireCartItemActions(){
       const pid = +btn.dataset.pid;
       await fetchJSON(`${API_BASE}/carts/${cartId}/items/${pid}`, { method:'DELETE' });
 
-      toast(`Usunięto: ${name} 🗑️`, 'success');   // ⬅️ TOAST
+      toast(`Usunięto: ${name} 🗑️`, 'success');  
       await renderCart();
     } catch (err) {
       console.error(err);
-      toast('Nie udało się usunąć pozycji ❌', 'error', 3000);  // ⬅️ TOAST (błąd)
+      toast('Nie udało się usunąć pozycji ❌', 'error', 3000);  
     }
   });
 }
@@ -527,7 +527,7 @@ function wireClearCartButton(){
 
     e.preventDefault();
 
-    // 1) najpierw spróbuj wyczyścić po API
+    
     try {
       const cartId = await ensureCartId();
       const r = await fetch(`${API_BASE}/carts/${cartId}/items`, { method: 'DELETE' });
@@ -537,7 +537,7 @@ function wireClearCartButton(){
       state.cart = [];
       saveCart?.();
 
-      // sukces – pokaż od razu
+     
       toast('Koszyk wyczyszczony 🧹', 'success');
     } catch (err) {
       console.error(err);

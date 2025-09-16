@@ -322,6 +322,42 @@ body{ padding-bottom: var(--footer-h); }
   gap: 8px;
 }
 
+
+/* builder.html – pełna szerokość */
+.builder-wide .page,
+.builder-wide main,
+.builder-wide .content,
+.builder-wide .container,
+.builder-wide #builder,
+.builder-wide #builder .card {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;            /* usuwa centrowanie auto */
+}
+
+/* jeśli masz layout siatkowy/kolumnowy – spłaszcz na jedną kolumnę */
+.builder-wide .main-grid,
+.builder-wide .grid,
+.builder-wide .wrapper {
+  grid-template-columns: 1fr !important;
+}
+
+/* niech root Reacta i jego pierwszy child rozciągną się na 100% */
+.builder-wide #pc-root,
+.builder-wide #pc-root > * {
+  width: 100% !important;
+}
+
+/* delikatne wewnętrzne odstępy po bokach (opcjonalnie) */
+.builder-wide main { padding-inline: 24px; }
+
+/* kosmetyka karty kreatora, żeby nie wyglądała jak małe pudełko */
+.builder-wide #builder .card {
+  background: transparent;           /* motyw i tak da surface wewnątrz */
+  border-color: var(--border);
+}
+
+
 /*ilosc kafelkow*/
 @media (min-width: 1500px){
   .products{

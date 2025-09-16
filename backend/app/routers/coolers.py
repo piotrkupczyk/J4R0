@@ -15,9 +15,9 @@ def get_cooler(cooler_id: int, db: Session = Depends(get_db)):
 @router.post("/{cooler_id}/sockets/{code}", status_code=204)
 def attach_socket(cooler_id: int, code: str, db: Session = Depends(get_db)):
     c = db.get(models.Cooler, cooler_id)
-    if not c: raise HTTPException(404, "Cooler not found")
+    if not c: raise HTTPException(404, "Nie odnaleziono coolera")
     s = db.query(models.Socket).filter(models.Socket.code == code).first()
-    if not s: raise HTTPException(404, "Socket not found")
+    if not s: raise HTTPException(404, "Nie odnaleziono socketu")
     if s not in c.sockets:
         c.sockets.append(s)
         db.commit()
@@ -26,7 +26,7 @@ def attach_socket(cooler_id: int, code: str, db: Session = Depends(get_db)):
 @router.delete("/{cooler_id}/sockets/{code}", status_code=204)
 def detach_socket(cooler_id: int, code: str, db: Session = Depends(get_db)):
     c = db.get(models.Cooler, cooler_id)
-    if not c: raise HTTPException(404, "Cooler not found")
+    if not c: raise HTTPException(404, "Nie odnaleziono coolera")
     s = db.query(models.Socket).filter(models.Socket.code == code).first()
     if not s: return
     if s in c.sockets:

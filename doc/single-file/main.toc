@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {2.2.1}Morele.net}{4}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}X-kom.pl}{4}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Komputronik.pl}{4}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Analiza istniejących rozwiązań w najpopularniejszych sklepach na zagranicznym rynku}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Porównanie z moim rozwiązaniem czym sie rozni}{4}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Wymagania i narzędzia}{5}{chapter.3}%
 \contentsline {chapter}{\numberline {4}[Właściwy dla kierunku -- np. Specyfikacja zewnętrzna]}{7}{chapter.4}%
 \contentsline {chapter}{\numberline {5}[Właściwy dla kierunku -- np. Specyfikacja wewnętrzna]}{9}{chapter.5}%

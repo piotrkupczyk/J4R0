@@ -19,7 +19,7 @@
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({ nazwa: 'Koszyk' })
       });
-      if (!r.ok) throw new Error('cart create failed');
+      if (!r.ok) throw new Error('Niepowodzenie');
       const cart = await r.json();
       id = cart.id_koszyka;
       localStorage.setItem('cart_id', id);
