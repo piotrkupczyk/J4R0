@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C4839A55-DAE3-68A1-FC42-0E344AFD51F7" name="DYSK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 22:57:37 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_DYSK" id="7C983B5C-21C1-5299-16DF-0FEA8A37A420">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 22:58:03 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ADFAB534-59C8-F2FC-9C7D-F9A4457E53F2" referredColumn="922E641D-821F-AB7E-052D-92DAD6F707E9"/>
+</associations>
+</Column>
+<Column name="typ" id="11807D4B-814F-F4B4-C2DA-8EC0C56FF34D">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:15:35 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="interfejs" id="61B441E5-25FA-F01A-71BA-FD2ABF456D2F">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:15:35 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="format" id="AFD01A6F-0DD1-E2EA-862D-5ADB55A2503C">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:15:35 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pojemnosc_GB" id="424927BB-6230-0714-B139-2C6E4F591BC3">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:15:35 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="predkosc_zapisu" id="5F506CD1-5AC4-A17C-A728-9D6AA5B27064">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:15:35 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="predkosc_odczytu" id="E848833D-6774-3AB3-7406-47D4CDE33C0D">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 23:15:35 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C717A869-784D-477F-ECFB-1D47EC88D8A0" name="DYSK_PK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 22:58:33 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C983B5C-21C1-5299-16DF-0FEA8A37A420"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9AC72B34-94D4-675B-8B82-5E947F8DD077" name="DYSK_Produkty_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-02 22:58:03 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C983B5C-21C1-5299-16DF-0FEA8A37A420"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

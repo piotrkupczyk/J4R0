@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="8231DC57-4C32-0652-196D-D79892E202BB" containerWithKeyObject="7324F730-6498-F1F7-4D3C-5DBEA37B7A27" localFKIndex="BF62F1BA-9FE1-9009-4A47-B754CE68DDFD" name="cooler_socket_COOLER_FK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-09-10 20:04:51 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<referredTableLongName>COOLER</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>6A833C80-E804-2FEB-8FEA-AA259806BA89</referredTableID>
+<keyObject>395B31CA-804B-9480-910D-98E51147FACA</keyObject>
+<referredKeyID>395B31CA-804B-9480-910D-98E51147FACA</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_COOLER</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

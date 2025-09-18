@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="23730204-236D-AA55-1CFD-1D85A50454CC" name="Koszyk">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:03:36 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<ordsAlias>table_16</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_koszyka" id="F7AEED52-BFC2-84A9-8E5B-F4E17116F952">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:05:02 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazwa" id="F52E7325-E52F-0D4B-4EB8-7AFA1BADA374">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:08:27 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64</dataTypeSize>
+<ownDataTypeParameters>64,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_klienta" id="39424551-1071-8333-9D91-1C4E11930D22">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:10:35 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="799F2BBF-9411-A807-6290-D413E42061F8" referredColumn="B8A04467-43AB-6531-A9AD-4FC98C301692"/>
+</associations>
+</Column>
+<Column name="data_utworzenia" id="F229C132-0670-75C3-E209-811489FA4853">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:08:27 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data_aktualizacji" id="0FDEE84D-0FC1-8605-E214-67AACEE6B5C5">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:08:27 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="741A0A3A-FAEF-1C93-A866-D17B4735DE60" name="Koszyk_PK">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:05:24 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F7AEED52-BFC2-84A9-8E5B-F4E17116F952"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="82EDD307-3244-969F-612D-952F8E28AC6D" name="id_klientav2">
+<createdBy>karnu</createdBy>
+<createdTime>2025-06-03 00:10:35 UTC</createdTime>
+<ownerDesignName>baza_nowa</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="39424551-1071-8333-9D91-1C4E11930D22"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
