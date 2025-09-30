@@ -53,8 +53,8 @@
   <script src="assets/compat.js" defer></script>
   <script src="assets/app.js" defer></script>
   <script src="assets/cart_count.js" defer></script>
-  <link rel="stylesheet" href="react-dist/assets/index-D0ijFYFh.css">
-  <script type="module" src="react-dist/assets/index-CBuUX44n.js"></script>
+  <link rel="stylesheet" href="react-dist/assets/index-D2yqw4-d.css">
+  <script type="module" src="react-dist/assets/index-99xt2wor.js"></script>
 
   <script src="assets/react-bridge.js"></script>
 </body>

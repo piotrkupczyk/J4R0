@@ -1,85 +1,124 @@
 import React, { useState } from "react";
-import { Button } from "./components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
-import { Badge } from "./components/ui/badge";
-import { Input } from "./components/ui/input";
+import BuilderRecommendations from "./components/BuilderRecommendations";
 
 const PC_TYPES = [
-  { key: "office", label: "Biurowy", icon: "💼", desc: "Do pracy biurowej i nauki" },
-  { key: "standard", label: "Standardowy", icon: "🧩", desc: "Uniwersalny do codziennych zadań" },
-  { key: "gaming", label: "Gamingowy", icon: "🎮", desc: "Granie i wysoka wydajność" },
+  { key: "office",   label: "Biurowy",    icon: "💼", desc: "Idealny do biura i nauki" },
+  { key: "standard", label: "Standardowy",icon: "🧩", desc: "Niezbędny w codziennym użytkowaniu" },
+  { key: "gaming",   label: "Gamingowy",  icon: "🎮", desc: "Dla wymagających użytkowników" },
 ] as const;
 
 const GPU_FAMILIES = [
-  { key: "nvidia", label: "NVIDIA" },
-  { key: "amd", label: "AMD" },
-  { key: "intel", label: "Intel" },
+  { key: "nvidia", label: "Nvidia" },
+  { key: "amd",    label: "AMD" },
+  { key: "intel",  label: "Intel" },
 ] as const;
 
 const CPU_VENDORS = [
-  { key: "amd", label: "AMD" },
+  { key: "amd",   label: "AMD" },
   { key: "intel", label: "Intel" },
 ] as const;
 
+// dostępne sockety per vendor
+const SOCKETS_BY_VENDOR: Record<string, string[]> = {
+  amd:   ["AM4", "AM5"],
+  intel: ["LGA1700"],
+};
+
+// wybór VRAM (GB); null = dowolny
+const VRAM_CHOICES: (number | null)[] = [null, 6, 8, 12, 16, 24];
+
+/** rekomendowane zakresy RAM/Storage wg typu PC */
+const RAM_BY_TYPE: Record<string, string[]> = {
+  office:   ["8 GB", "16 GB", "32 GB"],
+  standard: ["16 GB", "32 GB", "64 GB"],
+  gaming:   ["32 GB", "64 GB", "128 GB", "256 GB"],
+};
+const STORAGE_BY_TYPE: Record<string, string[]> = {
+  office:   ["256 GB SSD", "512 GB SSD", "1 TB SSD"],
+  standard: ["1 TB SSD", "2 TB SSD"],
+  gaming:   ["1 TB SSD", "2 TB SSD", "4 TB SSD"],
+};
+
 export default function PCBuilderPage() {
   const [step, setStep] = useState<number>(1);
-  const [pcType, setPcType] = useState<string | null>(null);
+  type PcType = 'office' | 'standard' | 'gaming';
+  const [pcType, setPcType] = useState<PcType | null>(null);
+
   const [gpuFamily, setGpuFamily] = useState<string | null>(null);
   const [cpuVendor, setCpuVendor] = useState<string | null>(null);
-  const [query, setQuery] = useState("");
 
-  const resetFrom = (fromStep: number) => {
-    if (fromStep <= 1) { setPcType(null); }
-    if (fromStep <= 2) { setGpuFamily(null); setCpuVendor(null); }
-  };
+  const [socket, setSocket]   = useState<string | null>(null);
+  const [gpuVram, setGpuVram] = useState<number | null>(null);
+
+  const [ram, setRam] = useState<string | null>(null);
+  const [storage, setStorage] = useState<string | null>(null);
+
+  const isOffice   = pcType === "office";
+  const isStandard = pcType === "standard";
+  const isGaming   = pcType === "gaming";
 
   const showVendors = !!pcType;
-  const showParts = !!pcType && (!!gpuFamily || !!cpuVendor);
+  const showMemory =
+    (isOffice && !!cpuVendor) ||
+    ((isStandard || isGaming) && (!!gpuFamily || !!cpuVendor));
+
+  const showParts = isOffice
+    ? !!cpuVendor && !!ram && !!storage
+    : (!!gpuFamily || !!cpuVendor) && !!ram && !!storage;
 
   function scrollTo(id: string) {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  const step2Label = isOffice ? "CPU (iGPU)" : "Preferencje GPU/CPU";
+  const step3Label = "Pamięć";
+  const step4Label = "Podzespoły";
+
+  const RAM_OPTIONS = pcType ? RAM_BY_TYPE[pcType] ?? RAM_BY_TYPE.office : RAM_BY_TYPE.office;
+  const STORAGE_OPTIONS = pcType ? STORAGE_BY_TYPE[pcType] ?? STORAGE_BY_TYPE.office : STORAGE_BY_TYPE.office;
+
   return (
     <div className="w-full min-h-screen bg-[var(--bg)] text-[var(--text)]">
       <div className="mx-auto w-full max-w-7xl px-6">
+        {/* HEADER */}
         <header className="sticky top-0 z-10">
           <div className="px-4 py-3 flex items-center gap-3 bg-transparent">
             <span className="text-lg">🛠️</span>
             <span className="font-semibold tracking-tight">Kreator PC</span>
-            <Badge variant="secondary" className="ml-auto">Wersja: layout</Badge>
           </div>
         </header>
 
+        {/* STEPPER */}
         <nav className="px-4 py-4">
           <ol className="mx-auto max-w-5xl flex items-center gap-4 text-sm justify-center">
             <StepDot active={step >= 1} label="Typ komputera" onClick={() => setStep(1)} />
             <span className="opacity-60">›</span>
-            <StepDot active={step >= 2} label="Preferencje GPU/CPU" onClick={() => step >= 2 && setStep(2)} />
+            <StepDot active={step >= 2 && showVendors} label={step2Label} onClick={() => showVendors && setStep(2)} />
             <span className="opacity-60">›</span>
-            <StepDot active={step >= 3} label="Podzespoły" onClick={() => step >= 3 && setStep(3)} />
+            <StepDot active={step >= 3 && showMemory} label={step3Label} onClick={() => showMemory && setStep(3)} />
             <span className="opacity-60">›</span>
-            <StepDot active={step >= 4} label="Podsumowanie" onClick={() => step >= 4 && setStep(4)} />
+            <StepDot active={step >= 4 && showParts} label={step4Label} onClick={() => showParts && setStep(4)} />
           </ol>
         </nav>
 
         <main className="px-4 pb-8">
-          {/* Sekcja 1 */}
+          {/* 1. Typ komputera */}
           <Section
-            title="1. Wybierz typ komputera"
-            subtitle="Zacznijmy od ogólnego przeznaczenia — to ułatwi dalszy dobór."
-            right={<ResetButton onClick={() => { resetFrom(1); setStep(1); }} disabled={!pcType} />}
+            title="Wybierz spersonalizowany sprzęt do twoich potrzeb"
+            subtitle="Zacznijmy od zastosowania. Do czego planujesz używać swojej maszyny?"
           >
-            <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 justify-items-stretch items-stretch">
+            <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {PC_TYPES.map(({ key, label, icon, desc }) => (
                 <SelectableCard
                   key={key}
                   selected={pcType === key}
                   onClick={() => {
+                    const changed = pcType !== key;
                     setPcType(key);
                     setStep(2);
-                    setTimeout(() => scrollTo("section-vendors"), 0);
+                    if (changed) setTimeout(() => scrollTo("section-step2"), 0);
                   }}
                   icon={icon}
                   title={label}
@@ -89,47 +128,142 @@ export default function PCBuilderPage() {
             </div>
           </Section>
 
-          {/* Sekcja 2 */}
+          {/* 2. Preferencje / CPU-only dla biurowego */}
           {showVendors && (
             <Section
-              title="2. Preferencje producentów"
-              subtitle="Na start wybierz rodzinę GPU i producenta CPU. To tylko preferencje — filtrują listę podzespołów."
-              right={<ResetButton onClick={() => { resetFrom(2); setStep(2); }} disabled={!gpuFamily && !cpuVendor} />}
+              title={`2. ${step2Label}`}
+              subtitle={isOffice
+                ? "Który producent jest bliżej twojego serca? Czerwoni czy Niebiescy?"
+                : "Na początek wybierz producenta CPU i (opcjonalnie) rodzinę GPU."}
             >
-              <div id="section-vendors" className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card>
-                  <CardHeader><CardTitle>GPU</CardTitle></CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {GPU_FAMILIES.map(f => (
-                        <TogglePill key={f.key} label={f.label} active={gpuFamily === f.key}
-                          onClick={() => {
-                            const next = gpuFamily === f.key ? null : f.key;
-                            setGpuFamily(next);
-                            if (pcType && (next || cpuVendor)) {
-                              setStep(3);
-                              setTimeout(() => scrollTo("section-parts"), 0);
-                            }
-                          }} />
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+              <div id="section-step2" className={`mx-auto ${isOffice ? "max-w-3xl" : "max-w-5xl"} grid grid-cols-1 ${isOffice ? "" : "md:grid-cols-2"} gap-6`}>
+                {/* GPU (ukryte dla office) */}
+                {!isOffice && (
+                  <Card>
+                    <CardHeader><CardTitle>GPU</CardTitle></CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {GPU_FAMILIES.map(f => (
+                          <TogglePill
+                            key={f.key}
+                            label={f.label}
+                            active={gpuFamily === f.key}
+                            onClick={() => {
+                              const next = gpuFamily === f.key ? null : f.key;
+                              setGpuFamily(next);
+                              if ((isStandard || isGaming) && (next || cpuVendor)) {
+                                setStep(3);
+                                setTimeout(() => scrollTo("section-step3"), 0);
+                              }
+                            }}
+                          />
+                        ))}
+                      </div>
 
+                      {/* NOWE: VRAM */}
+                      <div className="mt-4">
+                        <div className="text-sm mb-2 opacity-70">Preferowany VRAM</div>
+                        <div className="flex flex-wrap gap-2 justify-center">
+                          {VRAM_CHOICES.map(v => (
+                            <TogglePill
+                              key={String(v)}
+                              label={v === null ? "Dowolny" : `${v} GB`}
+                              active={gpuVram === v}
+                              onClick={() => setGpuVram(gpuVram === v ? null : v)}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {/* CPU */}
                 <Card>
-                  <CardHeader><CardTitle>CPU</CardTitle></CardHeader>
+                  <CardHeader><CardTitle>{isOffice ? "Zintegrowana grafika" : "CPU"}</CardTitle></CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {CPU_VENDORS.map(v => (
-                        <TogglePill key={v.key} label={v.label} active={cpuVendor === v.key}
+                        <TogglePill
+                          key={v.key}
+                          label={v.label}
+                          active={cpuVendor === v.key}
                           onClick={() => {
                             const next = cpuVendor === v.key ? null : v.key;
                             setCpuVendor(next);
-                            if (pcType && (gpuFamily || next)) {
-                              setStep(3);
-                              setTimeout(() => scrollTo("section-parts"), 0);
+                            // reset socketu przy zmianie vendora
+                            setSocket(null);
+                            if (isOffice) {
+                              if (next) { setStep(3); setTimeout(() => scrollTo("section-step3"), 0); }
+                            } else {
+                              if (gpuFamily || next) { setStep(3); setTimeout(() => scrollTo("section-step3"), 0); }
                             }
-                          }} />
+                          }}
+                        />
+                      ))}
+                    </div>
+
+                    {/* NOWE: socket – pojawia się po wyborze vendora */}
+                    {cpuVendor && (
+                      <div className="mt-4">
+                        <div className="text-sm mb-2 opacity-70">Socket</div>
+                        <div className="flex flex-wrap gap-2 justify-center">
+                          {SOCKETS_BY_VENDOR[cpuVendor]?.map(s => (
+                            <TogglePill
+                              key={s}
+                              label={s}
+                              active={socket === s}
+                              onClick={() => setSocket(socket === s ? null : s)}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </div>
+            </Section>
+          )}
+
+          {/* 3. Pamięć */}
+          {showMemory && (
+            <Section title={`3. ${step3Label}`} subtitle="Wybierz ilość RAM i dysk.">
+              <div id="section-step3" className="mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader><CardTitle>Pamięć RAM</CardTitle></CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {RAM_OPTIONS.map(opt => (
+                        <TogglePill
+                          key={opt}
+                          label={opt}
+                          active={ram === opt}
+                          onClick={() => {
+                            const next = ram === opt ? null : opt;
+                            setRam(next);
+                            if (next && storage) { setStep(4); setTimeout(() => scrollTo("section-parts"), 0); }
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader><CardTitle>Dysk / Storage</CardTitle></CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {STORAGE_OPTIONS.map(opt => (
+                        <TogglePill
+                          key={opt}
+                          label={opt}
+                          active={storage === opt}
+                          onClick={() => {
+                            const next = storage === opt ? null : opt;
+                            setStorage(next);
+                            if (ram && next) { setStep(4); setTimeout(() => scrollTo("section-parts"), 0); }
+                          }}
+                        />
                       ))}
                     </div>
                   </CardContent>
@@ -138,43 +272,29 @@ export default function PCBuilderPage() {
             </Section>
           )}
 
-          {/* Sekcja 3 */}
+          {/* 4. Podzespoły */}
           {showParts && (
-            <Section title="3. Podzespoły" subtitle="Placeholder list z filtrami. W kolejnym kroku podepniemy Twoje dane.">
-              <div id="section-parts">
-                <div className="mx-auto max-w-5xl mb-4 flex flex-wrap items-center gap-3 justify-center">
-                  <Input placeholder="Szukaj w podzespołach (np. RTX 4070, B650, 32GB)"
-                    value={query} onChange={e => setQuery(e.target.value)} className="max-w-md" />
-                  <Badge variant="outline" className="capitalize">Typ: {pcType ?? "—"}</Badge>
-                  <Badge variant="outline" className="capitalize">GPU: {gpuFamily ?? "—"}</Badge>
-                  <Badge variant="outline" className="capitalize">CPU: {cpuVendor ?? "—"}</Badge>
-                  <Badge variant="secondary" className="ml-auto">UI demo</Badge>
-                </div>
-
-                <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                  <PartsColumn title="Karty graficzne" hint="Filtrowane po: rodzina GPU" />
-                  <PartsColumn title="Procesory" hint="Filtrowane po: producent CPU" />
-                  <PartsColumn title="Płyty główne" hint="Automatycznie po gnieździe CPU (wkrótce)" />
-                  <PartsColumn title="RAM" hint="Po typie i profilu (wkrótce)" />
-                  <PartsColumn title="Dyski" hint="Po interfejsie (wkrótce)" />
-                  <PartsColumn title="Chłodzenia" hint="Po TDP i sockecie (wkrótce)" />
-                </div>
-              </div>
-
-              <div className="mt-6 flex items-center gap-3 justify-center">
-                <Button variant="secondary" onClick={() => setStep(2)}>Wstecz</Button>
-                <Button disabled>Podsumowanie (wkrótce)</Button>
+            <Section title={`4. Podzespoły`} subtitle="Propozycje dobrane do preferencji:">
+              <div id="section-parts" className="mx-auto max-w-6xl">
+                <BuilderRecommendations
+                  pcType={pcType}
+                  gpuFamily={gpuFamily}
+                  cpuVendor={cpuVendor}
+                  ram={ram}
+                  storage={storage}
+                  socket={socket}
+                  gpuVram={gpuVram}
+                />
               </div>
             </Section>
           )}
-
-          {/* Sekcja 4 – zostaje do zaimplementowania po spięciu koszyka */}
         </main>
       </div>
     </div>
   );
 }
 
+/* --- UI helpers --- */
 function StepDot({ active, label, onClick }:{ active?:boolean; label:string; onClick?: () => void; }){
   return (
     <button onClick={onClick} className={`inline-flex items-center gap-2 ${active ? "" : "opacity-60"}`}>
@@ -183,7 +303,6 @@ function StepDot({ active, label, onClick }:{ active?:boolean; label:string; onC
     </button>
   );
 }
-
 function Section({ title, subtitle, children, right, muted }:{ title:string; subtitle?:string; children:React.ReactNode; right?:React.ReactNode; muted?:boolean }){
   return (
     <section className="mb-8">
@@ -196,7 +315,6 @@ function Section({ title, subtitle, children, right, muted }:{ title:string; sub
     </section>
   );
 }
-
 function SelectableCard({ selected, onClick, icon, title, description }:{ selected?:boolean; onClick?:() => void; icon?:string; title:string; description?:string; }){
   return (
     <button onClick={onClick}
@@ -208,12 +326,10 @@ function SelectableCard({ selected, onClick, icon, title, description }:{ select
           <div className="font-medium">{title}</div>
           {description && <div className="text-sm opacity-70 mt-1">{description}</div>}
         </div>
-        {selected && <Badge className="ml-auto">Wybrane</Badge>}
       </div>
     </button>
   );
 }
-
 function TogglePill({ label, active, onClick }:{ label:string; active?:boolean; onClick?:() => void; }){
   return (
     <button onClick={onClick}
@@ -226,42 +342,4 @@ function TogglePill({ label, active, onClick }:{ label:string; active?:boolean; 
       {label}
     </button>
   );
-}
-
-function PartsColumn({ title, hint }:{ title:string; hint?:string; }){
-  return (
-    <Card>
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-base">{title}</CardTitle>
-          {hint && <span className="text-xs opacity-70">{hint}</span>}
-        </div>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-3">
-          <SkeletonRow title="Przykładowy element 1" subtitle="Specyfikacja • placeholder" />
-          <SkeletonRow title="Przykładowy element 2" subtitle="Specyfikacja • placeholder" />
-          <SkeletonRow title="Przykładowy element 3" subtitle="Specyfikacja • placeholder" />
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
-function SkeletonRow({ title, subtitle }:{ title:string; subtitle?:string; }){
-  return (
-    <div className="flex items-center gap-3 p-3 rounded-xl border hover:opacity-90"
-      style={{ borderColor: "var(--border)", background: "color-mix(in oklab, var(--surface) 85%, transparent)" }}>
-      <div className="h-10 w-10 rounded-lg" style={{ background: "color-mix(in oklab, var(--surface) 60%, transparent)" }} />
-      <div className="flex-1 min-w-0">
-        <div className="text-sm font-medium truncate">{title}</div>
-        <div className="text-xs opacity-70 truncate">{subtitle}</div>
-      </div>
-      <Button size="sm" variant="secondary">Wybierz</Button>
-    </div>
-  );
-}
-
-function ResetButton({ onClick, disabled }:{ onClick?: () => void; disabled?: boolean; }){
-  return <Button size="sm" variant="ghost" onClick={onClick} disabled={disabled}>Reset</Button>;
 }

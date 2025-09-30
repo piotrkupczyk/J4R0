@@ -394,6 +394,7 @@ body{ padding-bottom: var(--footer-h); }
 @keyframes toast-in{ from{ transform: translateY(8px); opacity:0; } to{ transform: translateY(0); opacity:1; } }
 
 
+
 /* Wielkosc listy pod polecanymi */
 @media (max-width: 1499px) and (min-width: 1000px){
   .products{ grid-template-columns: repeat(4, 1fr); }
