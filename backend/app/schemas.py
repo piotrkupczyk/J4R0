@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, EmailStr
 from datetime import date
 from typing import List, Optional
 
@@ -121,3 +121,50 @@ class CartItem(BaseModel):
     ilosc: int
     class Config:
         from_attributes = True
+
+
+
+class KlientBase(BaseModel):
+    imie: str | None = None
+    nazwisko: str | None = None
+    email: EmailStr
+    telefon: str | None = None
+    adres: str | None = None
+
+class KlientCreate(KlientBase):
+    password: str = Field(min_length=8, max_length=512)
+
+class KlientOut(BaseModel):
+    id_klienta: int
+    imie: str | None
+    nazwisko: str | None
+    email: EmailStr
+    telefon: str | None
+    adres: str | None
+    data_dolaczenia: date
+
+    class Config:
+        from_attributes = True 
+
+class LoginIn(BaseModel):
+    email: EmailStr
+    password: str = Field(min_length=8, max_length=128)
+
+
+class RegisterRequest(BaseModel):
+    
+    name: Optional[str] = None
+    imie: Optional[str] = None
+    nazwisko: Optional[str] = None
+    email: EmailStr
+    telefon: Optional[str] = None
+    adres: Optional[str] = None
+    password: str = Field(min_length=8)
+
+class RegisterIn(BaseModel):
+    imie: str | None = None
+    nazwisko: str | None = None
+    email: EmailStr
+    telefon: str | None = Field(default=None, min_length=7, max_length=20)
+    adres: str | None = None
+    password: str = Field(min_length=8, max_length=128)

@@ -1,9 +1,13 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-from app.config import DATABASE_URL
+from sqlalchemy.orm import sessionmaker, declarative_base
+from app.config import DATABASE_URL, SSL_MODE
 
-engine = create_engine(DATABASE_URL)
+connect_args = {}
+if SSL_MODE:
+    connect_args["sslmode"] = SSL_MODE  
+
+engine = create_engine(DATABASE_URL, connect_args=connect_args, pool_pre_ping=True)
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 

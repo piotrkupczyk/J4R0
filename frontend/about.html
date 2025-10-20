@@ -18,9 +18,12 @@
         <a class="btn ghost" href="index.html">Sklep</a>
         <a class="btn ghost" href="builder.html">Kreator zestawu</a>
         <a class="btn ghost" href="about.html">Projekt Inżynierski - informacje</a>
+        
       </nav>
       <div class="nav-actions">
+        <a class="btn ghost" href="https://github.com/piotrkupczyk/J4R0">Repozytorium GitHub</a>
         <button class="btn" id="themeToggle">🌓</button>
+        
         <a class="btn primary" href="cart.html">Koszyk (<span id="cartCount">0</span>)</a>
         <a class="btn account" href="account.html" id="accountBtn">Moje konto</a>
       </div>
@@ -46,23 +49,26 @@
 
       <h2>Cel projektu</h2>
       <p>
-         Celem pracy jest zaprojektowanie i zaimplementowanie aplikacji webowej, która będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwnie realizacji zamównienia.
+         Celem pracy jest zaprojektowanie i zaimplementowanie aplikacji webowej, która będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwi realizacji zamównienia.
       </p>
 
       <h2>Technologie</h2>
       <ul>
         <li><strong>Backend:</strong> FastAPI (Python), SQLAlchemy</li>
-        <li><strong>Baza danych:</strong> PostgreSQL</li>
-        <li><strong>Frontend:</strong> HTML, CSS, Vanilla JS</li>
+        <li><strong>Baza danych:</strong> Oracle (UML), PostgreSQL (lokalna baza danych), Microsoft Azure (chmura bazy danych)</li>
+        <li><strong>Frontend sklepu:</strong> HTML, CSS, Vanilla JavaScript </li>
+        <li><strong>Frontend kreatora:</strong> React, Typesctipt, Tailwind, Vite</li>
       </ul>
 
       <h2>Funkcjonalność</h2>
       <p>
         Funckje realizowane przez projekt:
         <ul>
-          <li>Przeglądanie oferty sklepu komputerowego</li>
-          <li>Stworzenie koszyka z dostępnych produktów</li>
+          <li>Przeglądanie oferty sklepu komputerowego, filtrowanie i wyszukiwanie konkretnej części</li>
+          <li>Utworzenie konta (rejestracja i login)</li>
+          <li>Stworzenie koszyka z dostępnych produktów oraz jego modyfikacja (usuwanie, dodawanie elementów)</li>
           <li>Weryfikacja poprawności wybranego zestawu elementów</li>
+          <li>Utworzenie list zakupowych (zestawów) oraz możliwosć przypisania ich do konta użytkownika</li>     
         </ul>
       </p>
     </div>

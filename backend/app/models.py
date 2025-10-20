@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, SmallInteger, Numeric, Date, ForeignKey, UniqueConstraint, Table
+from sqlalchemy import Column, Integer, String, SmallInteger, Numeric, Date, ForeignKey, UniqueConstraint, Table, DateTime, func
 from sqlalchemy.orm import relationship
 from app.database import Base
 
@@ -169,4 +169,18 @@ class KoszykPozycja(Base):
     ilosc = Column(SmallInteger, nullable=False, default=1)
 
     koszyk   = relationship("Koszyk", back_populates="pozycje")
-    produkt  = relationship("Product")  # tylko do podglądu danych
+    produkt  = relationship("Product")  
+
+
+class Klient(Base):
+    __tablename__ = "klienci"
+
+    id_klienta = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    imie        = Column(String(64), nullable=True)
+    nazwisko    = Column(String(64), nullable=True)
+    email       = Column(String(128), nullable=False, unique=True, index=True)
+    telefon     = Column(String(20), nullable=True)
+    adres       = Column(String(255), nullable=True)
+    data_dolaczenia = Column(Date, server_default=func.current_date())
+    haslo       = Column(String(256), nullable=False)
+
