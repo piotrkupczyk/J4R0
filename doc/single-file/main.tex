@@ -125,6 +125,7 @@
 \usepackage{xurl}
 \usepackage{xstring}
 \usepackage{ifthen}
+\usepackage{float}
 
 
 
@@ -541,31 +542,50 @@ Projekt osadzony jest w dziedzinie inżynierii oprogramowania, projektowania baz
 
 \section{Cel pracy}
 
-Celem pracy jest zaprojektowanie i zaimplementowanie aplikacji webowej, która będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwnie realizacji zamównienia. Idące za tym cele to
+Celem pracy jest zaprojektowanie i zaimplementowanie aplikacji webowej, która będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwi realizację zamównienia. 
+\newpage
+Idące za tym cele to
 \begin{itemize} 
-	\item stworzenie relacyjnej bazy danych, odpowiadającej potrzebom sklepu internetowego
-	\item zaprojektowanie i implementacja backendu, odpowiedzialnego za komunikację i logikę aplkacji  
-	\item wdrożenie przejrzystego frontendu, będącego interfejsem klienta. 
+	\item stworzenie relacyjnej bazy danych, odpowiadającej potrzebom sklepu internetowego,
+	\item zaprojektowanie i implementacja backendu, odpowiedzialnego za komunikację i logikę aplkacji, 
+	\item wdrożenie przejrzystego frontendu, będącego interfejsem klienta,
+	\item stworzenie grupy zasobów w środowisku chmurowym Azure (baza danych jako storage, aplikacja jako kontener).
 \end{itemize}
 \section{Zakres pracy}
 Zakres pracy nad projektem obejmuje:
 \begin{itemize}
 	\item Projekt relacyjnej bazy danych w Oracle SQL Developer.
-	\item Utworzenie serwera PostgreSQL, wprowadzenie gotowych danych o produktach do bazy danych. \item Stworzenie użytkowników oraz nadanie odpowiednich uprawnień każdemu z nich.
-	\item Implementację backendu w języku Python, implementacja API z wykorzystaniem frameworka FastAPI, umożliwiając integrację z bazą danych w celu zarządzania produktami i zamówieniami.
-	\item Projekt interfejsu użytkownika, stworzenie frontendu używając HTML, CSS oraz JavaScript.
+	\item Utworzenie testowego serwera PostgreSQL, wprowadzenie gotowych danych o produktach do bazy danych,
+	\item Stworzenie użytkowników oraz nadanie odpowiednich uprawnień każdemu z nich,
+	\item Implementację backendu w języku Python, implementacja API z wykorzystaniem frameworka FastAPI, umożliwiając integrację z bazą danych w celu zarządzania produktami i zamówieniami,
+	\item Projekt interfejsu użytkownika, stworzenie frontendu używając HTML, CSS oraz JavaScript,
+	\item Projekt kreatora zestawów komputerowych, zaimplementowanego z uwzględnieniem logik rozmytej, używając Reacta, Typescript, Node.js,
+	\item Migrację gotowej aplikacji z lokalnego serwera testowego PostgreSQL do produkcyjnej chmury Azure, utworzenie grupy zasobów.
 	
+\end{itemize}
+\newpage
+\section{Zwięzła charakterystyka rozdziałów}
+
+\begin{itemize}
+    \item \textbf{Rozdział 1} - zawiera wprowadzenie do tematyki pracy, przedstawia problem nieintuicyjnego doboru kompatybilnych podzespołów komputerowych, definiuje cel i zakres pracy oraz opisuje autorski wkład w projekt.
+
+    \item \textbf{Rozdział 2} - obejmuje analizę tematu, w tym istotę kompatybilności sprzętowej, przegląd istniejących rozwiązań wykorzystywanych przez popularne sklepy komputerowe oraz porównanie ich funkcjonalności z zaprojektowanym systemem.
+
+    \item \textbf{Rozdział 3} - przedstawia wymagania funkcjonalne i niefunkcjonalne systemu, przypadki użycia, zastosowane narzędzia i technologie oraz metodykę pracy przyjętą podczas implementacji.
+
+    \item \textbf{Rozdział 4} - stanowi część projektową, zawierającą architekturę systemu, model danych wraz z diagramem ERD, opis struktury bazy danych oraz omówienie kluczowych modułów, takich jak moduł weryfikacji kompatybilności i logiki rozmytej.
+
+    \item \textbf{Rozdział 5} - prezentuje proces weryfikacji i walidacji systemu, zawierając opis sposobu testowania, organizacji eksperymentów, przypadków testowych oraz analizę wykrytych błędów i wyników testów.
+
+    \item \textbf{Rozdział 6} - zawiera podsumowanie uzyskanych rezultatów, ocenę stopnia realizacji celów pracy oraz wskazuje możliwe kierunki dalszego rozwoju systemu.
 \end{itemize}
 
 
-
-\section{Zwięzła charakterystyka rozdziałów}
-
+\newpage
 \section{Wkład autora}
-Autor samodzielnie opracował wszystkie elementy projektu, zaczynając od zaplanowania funkcjonalności oraz wyborze technologii. Następnym krokiem było zaprojektowanie relacyjnej bazy danych w Oracle SQL Developer, utworzenie serwera PostgreSQL wraz z użytkownikami oraz nadanie odpowiednich uprawnień każdemu z nich. Przy użyciu frameworku FastAPI przygotowany został backend w języku Python, odpowiadający za komunikację z bazą danych oraz za logikę całej aplikacji, umożliwiając weryfikację kompatybilności zestawów komputerowych. Finalnie autor utworzył interaktywny frontend, który umożliwia graficzne korzystanie z aplikacji.
+Autor samodzielnie opracował wszystkie elementy projektu, zaczynając od zaplanowania funkcjonalności oraz wyborze technologii. Następnym krokiem było zaprojektowanie relacyjnej bazy danych w Oracle SQL Developer, gdzie utworzył on testowy serwer PostgreSQL wraz z użytkownikami oraz nadał odpowiednie uprawnienia każdemu z nich. Przy użyciu frameworku FastAPI przygotowany został backend w języku Python, odpowiadający za komunikację z bazą danych oraz za logikę całej aplikacji, umożliwiając weryfikację kompatybilności zestawów komputerowych. Autor utworzył interaktywny frontend, który umożliwia graficzne korzystanie z aplikacji, zapewniając łatwość użytkowania zarówno dla doświadczonych, jak i początkujących inżynierów sprzętu, poprzez stosowanie logiki rozmytej. Korzystając z akademickiej subskrypcji Microsoft Azure autor używając otrzymanych kredytów samodzielnie realizuje hosting, administracje, testowanie CI/CD, konteneryzację oraz wirtualizację aplikacji webowej, czyniąc ją w pełni używalną w publicznej sieci internet.
 
-% TODO
-\chapter{[Analiza tematu]}
+\chapter{Analiza problemu oraz przegląd dostępnych rozwiązań}
 
 %%\begin{itemize}
 %%\item sformułowanie problemu
@@ -584,16 +604,36 @@ Autor samodzielnie opracował wszystkie elementy projektu, zaczynając od zaplan
 \subsection{Istota kompatybilności}
 Na rynku znajduje się szeroka gama komponentów komputerowych, która nieustannie poszerza się o nowe produkty. Różnice pomiędzy poszczególnymi modelami dotyczą chociażby wymiarów fizycznych, dostępnych złączy, technologi socketów, minimalnej mocy zasilacza, aż do wymogów software'owych. Odpowiedni dobór części jest pierwszym krokiem do realizacji poprawnie funkcjonującego stanowiska komputerowego, gdyż dowolna pomyłka może prowadzić do braku możliwości fizycznego montażu lub niewłaściwej i nieciągłej pracy urządzenia. Nawet minimalne niezgodności mogą być przyczyną poważnej awarii, która może przyczynić się do strat finansowych, spowodowanych utratą danych, przerwaniem trwałości usług lub całkowitym uszkodzeniem sprzętu.
 
-\subsection{Niska dostępność do weryfikacji kompatybilności}
+\subsection{Niska dostępność narzędzi do weryfikacji kompatybilności}
 
-Aktualnie na polskim rynku sklepów komputerowych brakuje narzędzi do samodzielnej weryfikacji kompatybilności wybranych części. Większość sprzedawców oferuje swoje gotowe zestawy, które zapewniają pełną funkcjonalność, jednak często nie posiadają one możiwości rozbudowania stanowiska o nowe komponenty, jak również wymiany już zamontowanych elementów na nowsze modele. Zaprojektowanie stanowiska w pełni odpowiadającego potrzebom klienta jest wówczas stanowczo utrudnione i może potencjalnie wymagać kontaktu ze specjalistą, co bezpośrednio przekłada się na dodatkowe koszty oraz wydłużenie czasu realizacji zamówienia.
+Aktualnie na polskim rynku sklepów komputerowych brakuje narzędzi umożliwiających użytkownikowi samodzielną i automatyczną weryfikację kompatybilności wybranych podzespołów. Większość sprzedawców oferuje wyłącznie gotowe zestawy komputerowe, które zapewniają pełną funkcjonalność, jednak często nie umożliwiają ich łatwej rozbudowy ani wymiany poszczególnych elementów na nowsze modele. W efekcie zaprojektowanie stanowiska w pełni odpowiadającego potrzebom użytkownika staje się utrudnione i może wymagać konsultacji ze specjalistą, co generuje dodatkowe koszty oraz wydłuża czas realizacji zamówienia.
 
 \section{Analiza istniejących rozwiązań w najpopularniejszych sklepach na polskim rynku}
+
 \subsection{Morele.net}
-Po wnikliwej analizie dostępnych platform sprzedażowych polskich sprzedawców, najlepiej zaprojektowanym rozwiązaniem okazał się konfigurator zestawów PC sklepu Morele. Wyposażony w intuicyjny interfejs, umożliwia on wybranie wszystkich dostępnych komponentów, jednak kluczowym problemem jest brak możliwości weryfikacji kompatybilności w sposób automatyczny, w przypadku błędnie zaprojektowanego zestawu komputerowego, użytkownik może liczyć na ewentualny kontakt ze strony pracownika, co w praktyce znacząco opóźnia realizację zamówienia i realnie zagraża realizacji zamówienia, które zawiera wzajemnie niepasujące produkty.
+
+Spośród przeanalizowanych platform sprzedażowych polskich sprzedawców, pod względem technicznym najlepiej zaprojektowanym rozwiązaniem okazał się konfigurator zestawów PC dostępny w sklepie Morele\cite{morele}. Narzędzie oferuje intuicyjny interfejs oraz możliwość wyboru szerokiej gamy podzespołów. Kluczowym ograniczeniem jest jednak brak automatycznej weryfikacji kompatybilności, gdzie w przypadku błędnie skonfigurowanego zestawu jedynie pracownik sklepu może ewentualnie skontaktować się z użytkownikiem. W praktyce znacząco opóźnia to proces realizacji zamówienia i niesie ryzyko zakupu podzespołów, które nie będą ze sobą wzajemnie kompatybilne. Dodatkowo konfigurator nie wykorzystuje logiki rozmytej przy sugerowaniu komponentów.
+
 \subsection{X-kom.pl}
-\subsection{Komputronik.pl}
-\section{Porównanie z moim rozwiązaniem czym sie rozni}
+
+Drugim pod względem funkcjonalności rozwiązaniem jest konfigurator oraz oferta gotowych zestawów sklepu X-kom\cite{xkom}. Platforma udostępnia czytelny interfejs oraz rekomendowane zestawy komputerowe, które zazwyczaj umożliwiają późniejszą rozbudowę. W porównaniu do Morele\cite{morele}, użytkownik ma tutaj jeszcze mniejszą możliwość samodzielnego projektowania konfiguracji, ponieważ wybór ogranicza się do kilku lub kilkunastu proponowanych zestawów. Brak szczegółowej analizy potrzeb użytkownika oraz ograniczona liczba wariantów utrudniają złożenie w pełni dostosowanego zamówienia. Podobnie jak w przypadku Morele, sklep nie wykorzystuje logiki rozmytej w mechanizmach komponowania zestawów.
+
+
+\section{Porównanie istniejących rozwiązań z rozwiązaniem inżynierkim autora}
+
+Pierwszą i najważniejszą funkcjonalnością wyróżniającą opracowane rozwiązanie jest zastosowanie rozszerzonych mechanizmów weryfikacji kompatybilności podzespołów, których brakuje w analizowanych sklepach internetowych. System wykorzystuje nie tylko klasyczne metody porównywania parametrów technicznych, lecz również elementy logiki rozmytej pozwalającej na bardziej elastyczną ocenę dopasowania podzespołów do oczekiwań użytkownika.
+\newpage
+Aplikacja dokonuje szczegółowej analizy technicznej wszystkich wybranych komponentów, co przekłada się na sprawdzanie i weryfikowanie:
+\begin{itemize}
+    \item zgodności procesora i płyty głównej pod względem zastosowanego gniazda socket'u,
+    \item typu pamięci RAM oraz jej zgodności ze standardem płyty głównej,
+    \item maksymalnej obsługiwanej częstotliwość i pojemność modułów pamięci,
+    \item parametrów energetycznych, takich jak zapotrzebowanie na moc (TDP) oraz wydajności i maksymalnej dostarczanej mocy zasilacza,
+    \item wymiarów i formatów kart graficznych oraz obudowy,
+    \item zgodności chłodzenia procesora z wybranym gniazdem i limitem wysokości w obudowie.
+\end{itemize}
+
+W odróżnieniu od popularnych serwisów takich jak Morele.net\cite{morele} czy X-kom\cite{xkom}, które nie oferują pełnej automatycznej weryfikacji kompatybilności, system analizuje wszystkie istotne zależności pomiędzy podzespołami. Dzięki temu użytkownik nie jest narażony na ryzyko zakupu części wzajemnie niekompatybilnych, a proces konfiguracji zestawu przebiega szybciej, sprawniej i bez konieczności konsultacji ze specjalistą. Zastosowanie logiki rozmytej pozwala ponadto na ocenę zestawów zarazem pod kątem poprawności technicznej, lecz także ich dopasowania do ogólnych kategorii takich jak budżet, wydajność czy energooszczędność.
 
 
 
@@ -618,30 +658,120 @@ Po wnikliwej analizie dostępnych platform sprzedażowych polskich sprzedawców,
 \chapter{Wymagania i narzędzia}
 \label{ch:wymagania-i-narzedzia}
 
+%\begin{itemize}
+%\item wymagania funkcjonalne i niefunkcjonalne
+% \item przypadki użycia (diagramy UML) -- dla prac, w których mają zastosowanie
+%\item opis narzędzi, metod eksperymentalnych, metod modelowania itp.
+%\item metodyka pracy nad projektowaniem i implementacją -- dla prac, w których ma to zastosowanie
+%\end{itemize}
+
+Celem niniejszego rozdziału jest przedstawienie zestawu wymagań funkcjonalnych i niefunkcjonalnych projektowanego systemu, omówienie narzędzi oraz technologii wykorzystanych podczas implementacji, a także zaprezentowanie metodyki pracy przyjętej podczas realizacji projektu inżynierskiego. Rozdział stanowi podstawę do dalszych etapów projektowania, implementacji oraz testowania aplikacji.
+
+\newpage
+\section{Wymagania funkcjonalne}
+
+Wymagania funkcjonalne określają zachowania oraz funkcje, jakie system powinien realizować. Na podstawie analizy problemu oraz specyficznych potrzeb użytkowników wyodrębniono następujący zbiór wymagań:
+
 \begin{itemize}
-\item wymagania funkcjonalne i niefunkcjonalne
-\item przypadki użycia (diagramy UML) -- dla prac, w których mają zastosowanie
-\item opis narzędzi, metod eksperymentalnych, metod modelowania itp.
-\item metodyka pracy nad projektowaniem i implementacją -- dla prac, w których ma to zastosowanie
+    \item Rejestracja oraz logowanie użytkowników.
+    \item Przeglądanie katalogu produktów sklepu komputerowego.
+    \item Dodawanie wybranych komponentów do kreatora zestawu PC.
+    \item Automatyczna weryfikacja kompatybilności podzespołów, obejmująca między innymi:
+    \begin{itemize}
+        \item zgodność gniazda procesora,
+        \item typ pamięci RAM,
+        \item kompatybilność częstotliwości i pojemności pamięci,
+        \item TDP procesora oraz wymagania energetyczne,
+        \item dopasowanie komponentów do obudowy,
+        \item kompatybilność układów chłodzenia.
+    \end{itemize}
+    \item Wykorzystanie logiki rozmytej do klasyfikacji zestawów pod konkretne kategorie (np. budżetowy, wydajny, energooszczędny).
+    \item Generowanie gotowych konfiguracji na podstawie wybranych komponentów.
+    \item Dodawanie produktów oraz pełnych zestawów do koszyka.
+    \item Modyfikacja zawartości koszyka oraz finalizacja zamówienia.
+\end{itemize}
+\newpage
+\section{Wymagania niefunkcjonalne}
+
+Wymagania niefunkcjonalne opisują właściwości jakościowe systemu, które wpływają na komfort użytkowania, bezpieczeństwo oraz niezawodność.
+
+\begin{itemize}
+    \item \textbf{Wydajność}: czas odpowiedzi API nie powinien przekraczać 1 sekundy przy standardowym obciążeniu.
+    \item \textbf{Skalowalność}: system powinien umożliwiać uruchomienie w środowisku chmurowym Microsoft Azure.
+    \item \textbf{Bezpieczeństwo}: hasła użytkowników muszą być przechowywane w formie zaszyfrowanej (bcrypt).
+    \item \textbf{Niezawodność}: system powinien obsługiwać błędy kompatybilności w sposób kontrolowany i komunikatywny.
+    \item \textbf{Użyteczność}: interfejs użytkownika powinien być przejrzysty, responsywny i intuicyjny.
+    \item \textbf{Przenośność}: frontend uruchamiany w dowolnej nowoczesnej przeglądarce; backend kompatybilny z systemami Linux i Windows.
+\end{itemize}
+\newpage
+\section{Przypadki użycia}
+
+Najważniejsze przypadki użycia systemu obejmują:
+
+\begin{itemize}
+    \item „Użytkownik rejestruje nowe konto"
+    \item „Użytkownik loguje się do systemu"
+    \item „Użytkownik przegląda dostępne komponenty”
+    \item „Użytkownik buduje własny zestaw PC”
+    \item „System sprawdza kompatybilność elementów”
+    \item „Użytkownik dodaje zestaw do koszyka”
+    \item „Użytkownik realizuje zamówienie”
 \end{itemize}
 
+Diagramy przypadków użycia UML:
+\newpage
+\section{Narzędzia i technologie}
 
-% TODO
-\chapter{[Właściwy dla kierunku -- np. Specyfikacja zewnętrzna]}
-\label{ch:04}
+Realizacja systemu wymagała zastosowania nowoczesnych technologii backendowych, frontendowych oraz narzędzi modelowania. Wszystkie przedstawiono poniżej.
 
-Jeśli „Specyfikacja zewnętrzna”:
+\subsection{Backend}
+
 \begin{itemize}
-\item  wymagania sprzętowe i programowe
-\item  sposób instalacji
-\item  sposób aktywacji
-\item  kategorie użytkowników
-\item  sposób obsługi
-\item  administracja systemem
-\item  kwestie bezpieczeństwa
-\item  przykład działania
-\item  scenariusze korzystania z systemu (ilustrowane zrzutami z ekranu lub generowanymi dokumentami)
+    \item \textbf{Python 3} - język implementacji warstwy serwerowej.
+    \item \textbf{FastAPI} - framework umożliwiający tworzenie wydajnego REST API.
+    \item \textbf{SQLAlchemy} - ORM realizujący komunikację z bazą danych.
+    \item \textbf{PostgreSQL} - relacyjna baza danych przechowująca informacje o produktach i zamówieniach.
+    \item \textbf{psycopg2} - sterownik PostgreSQL wykorzystywany do komunikacji z bazą.
+    \item \textbf{Pydantic} - walidacja modeli danych wykorzystywana przez FastAPI.
+    \item \textbf{Uvicorn} - serwer ASGI obsługujący zapytania HTTP.
 \end{itemize}
+
+\subsection{Frontend}
+
+\begin{itemize}
+    \item \textbf{React} - biblioteka wykorzystywana do tworzenia interaktywnych interfejsów użytkownika.
+    \item \textbf{TypeScript} - rozszerzenie JavaScript umożliwiające statyczne typowanie.
+    \item \textbf{Vite} - bundler odpowiedzialny za budowanie i szybkie uruchamianie aplikacji.
+    \item \textbf{Tailwind CSS} - framework ułatwiający projektowanie responsywnego interfejsu.
+    \item \textbf{Node.js} - środowisko wykonawcze dla narzędzi JavaScript.
+    \item \textbf{npm} - menedżer pakietów odpowiedzialny za instalację zależności.
+    \item \textbf{ESLint} - narzędzie do analizy i kontroli jakości kodu TypeScript i JavaScript.
+\end{itemize}
+
+\subsection{Modelowanie i narzędzia wspomagające}
+
+\begin{itemize}
+    \item \textbf{Oracle SQL Developer Data Modeler} - narzędzie użyte do projektowania modelu ERD bazy danych.
+    \item \textbf{Git} - system kontroli wersji.
+    \item \textbf{GitHub} - repozytorium kodu oraz platforma do zarządzania wersjami projektu.
+    \item \textbf{Microsoft Azure} - środowisko do wdrożenia i hostowania bazy danych.
+\end{itemize}
+
+\section{Metodyka pracy}
+
+Prace nad projektem realizowano iteracyjnie, zgodnie z podejściem zbliżonym do metodyki Agile. Każda iteracja obejmowała:
+
+\begin{itemize}
+    \item analizę oraz doprecyzowanie wymagań,
+    \item projekt części funkcjonalnych systemu,
+    \item implementację nowych modułów backendu i frontendu,
+    \item testy poprawności działania,
+    \item refaktoryzację oraz optymalizację kodu.
+\end{itemize}
+
+Podejście iteracyjne pozwoliło na równoległe rozwijanie bazy danych, backendu oraz interfejsu użytkownika, a także na bieżącą reakcję na problemy i dopasowywanie projektu do napotkanych wyzwań.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%
 %% RYSUNEK Z PLIKU
@@ -691,50 +821,23 @@ Jeśli „Specyfikacja zewnętrzna”:
 %%%%%%%%%%%%%%%%%%%%%
 
 
- 
-\begin{figure}
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    y tick label style={
-        /pgf/number format/.cd,
-            fixed,   % po zakomentowaniu os rzednych jest indeksowana wykladniczo
-            fixed zerofill, % 1.0 zamiast 1
-            precision=1,
-        /tikz/.cd
-    },
-    x tick label style={
-        /pgf/number format/.cd,
-            fixed,
-            fixed zerofill,
-            precision=2,
-        /tikz/.cd
-    }
-]
-\addplot [domain=0.0:0.1] {rnd};
-\end{axis} 
-\end{tikzpicture}
-\caption{Podpis rysunku po rysunkiem.}
-\label{fig:2}
-\end{figure}
-
 
 
 % TODO
-\chapter{[Właściwy dla kierunku -- np. Specyfikacja wewnętrzna]}
+\chapter{Specyfikacja wewnętrzna}
 \label{ch:05}
 
 
-Jeśli „Specyfikacja wewnętrzna”:
-\begin{itemize}
-\item przedstawienie idei
-\item architektura systemu
-\item opis struktur danych (i organizacji baz danych)
-\item komponenty, moduły, biblioteki, przegląd ważniejszych klas (jeśli występują)
-\item przegląd ważniejszych algorytmów (jeśli występują)
-\item szczegóły implementacji wybranych fragmentów, zastosowane wzorce projektowe
-\item diagramy UML
-\end{itemize}
+% Jeśli „Specyfikacja wewnętrzna”:
+% \begin{itemize}
+% \item przedstawienie idei
+% \item architektura systemu
+% \item opis struktur danych (i organizacji baz danych)
+% \item komponenty, moduły, biblioteki, przegląd ważniejszych klas (jeśli występują)
+% \item przegląd ważniejszych algorytmów (jeśli występują)
+% \item szczegóły implementacji wybranych fragmentów, zastosowane wzorce projektowe
+% \item diagramy UML
+% \end{itemize}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % Pakiet minted wymaga importu: \usepackage{minted}                 %
@@ -743,29 +846,12 @@ Jeśli „Specyfikacja wewnętrzna”:
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 
 
-Krótka wstawka kodu w linii tekstu jest możliwa, np.  \lstinline|int a;| (biblioteka \texttt{listings})% lub  \mintinline{C++}|int a;| (biblioteka \texttt{minted})
-. 
-Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fig:pseudokod:listings}% i rys. \ref{fig:pseudokod:minted}
-, a naprawdę długie fragmenty – w załączniku.
+%Krótka wstawka kodu w linii tekstu jest możliwa, np.  \lstinline|int a;| (biblioteka \texttt{listings})% lub  \mintinline{C++}|int a;| (biblioteka \texttt{minted})
+%. 
+%Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fig:pseudokod:listings}% i rys. \ref{fig:pseudokod:minted}
+%, a naprawdę długie fragmenty – w załączniku.
 
 
-\begin{figure}
-\centering
-\begin{lstlisting}
-class test : public basic
-{
-    public:
-      test (int a);
-      friend std::ostream operator<<(std::ostream & s, 
-                                     const test & t);
-    protected:
-      int _a;  
-      
-};
-\end{lstlisting}
-\caption{Pseudokod w \texttt{listings}.}
-\label{fig:pseudokod:listings}
-\end{figure}
 
 %\begin{figure}
 %\centering
@@ -784,58 +870,243 @@ class test : public basic
 %\caption{Pseudokod w \texttt{minted}.}
 %\label{fig:pseudokod:minted}
 %\end{figure}
+\section{Przedstawienie idei systemu}
+% Ogólna idea działania – logika rozmyta, weryfikacja kompatybilności,
+% wspieranie użytkownika w budowie zestawów PC.
+% Cel modułów, przepływ danych w systemie.
 
+\section{Architektura systemu}
+% Diagram architektury (rysunek).
+% Opis warstw: frontend, backend, baza danych.
+% Komunikacja: REST API, JSON.
+% Wdrożenie: Azure (baza, hosting).
 
+\subsection{Warstwa frontendowa}
+% React + TypeScript, komponenty UI,
+% kreator zestawów, interakcje z API.
+
+\subsection{Warstwa backendowa}
+% FastAPI – struktura endpointów
+% Moduł produktu
+% Moduł użytkownika
+% Moduł kompatybilności
+% Moduł koszyka / zamówień
+
+\subsection{Warstwa danych i infrastruktury}
+% PostgreSQL – organizacja danych
+% Tabele i relacje w bazie
+% Hosting w Microsoft Azure
+
+\section{Opis struktur danych}
+% Opis danych wykorzystywanych w systemie
+% Główne encje: procesory, płyty główne, GPU, RAM, zasilacze...
+\newpage
+\subsection{Model danych - ERD}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{erd.jpg} % tu ścieżka do Twojego pliku
+    \caption{Diagram ERD bazy danych}
+    \label{fig:erd}
+\end{figure}
+\ref{fig:etykieta-rysunku} przestawia …
+% omówienie kluczowych relacji.
+
+\subsection{Opis najważniejszych encji}
+% Każda encja w 2–3 zdaniach:
+% Produkty, Kategorie, Użytkownicy, Zamówienia, Parametry techniczne.
+
+\section{Komponenty i moduły systemu}
+
+\subsection{Moduł kompatybilności podzespołów}
+% Jak sprawdzana jest zgodność: socket, DDR, TDP, format, VRM, chłodzenie.
+% Kolejność weryfikacji.
+
+\subsection{Moduł logiki rozmytej}
+% Opis funkcji przynależności,
+% Kategorie: budżetowy / wydajny / energooszczędny,
+% Zastosowanie logiki rozmytej do klasyfikacji zestawu.
+
+\subsection{Moduł zarządzania koszykiem i zamówieniami}
+% Dodawanie, modyfikacja, finalizacja,
+% przepływ danych.
+
+\section{Najważniejsze algorytmy}
+% Algorytm sprawdzania kompatybilności (pseudokod / schemat blokowy)
+% Algorytm klasyfikacji logiką rozmytą
+
+\section{Diagramy UML}
+% Use Case (opcjonalnie – masz już w R3)
+% Sequence diagram (np. „budowa zestawu i weryfikacja”)
+% Class diagram (opcjonalnie)
+
+\section{Szczegóły implementacji wybranych elementów}
+% Kod / fragmenty implementacji (krótko)
+% Architektura folderów backendu i frontendu
+% Wzorce projektowe (jeśli używasz np. repository pattern)
+
+\newpage
 
 
 % TODO
 \chapter{Weryfikacja i walidacja}
 \label{ch:06}
-\begin{itemize}
-\item sposób testowania w ramach pracy (np. odniesienie do modelu V)
-\item organizacja eksperymentów
-\item przypadki testowe zakres testowania (pełny/niepełny)
-\item wykryte i usunięte błędy
-\item opcjonalnie wyniki badań eksperymentalnych
-\end{itemize}
+% \begin{itemize}
+% \item sposób testowania w ramach pracy (np. odniesienie do modelu V)
+% \item organizacja eksperymentów
+% \item przypadki testowe zakres testowania (pełny/niepełny)
+% \item wykryte i usunięte błędy
+% \item opcjonalnie wyniki badań eksperymentalnych
+% \end{itemize}
 
-\begin{table}
+
+
+
+
+
+\section{Cel weryfikacji systemu}
+% Krótki opis po co testujemy, jakie aspekty miały być zweryfikowane:
+% - poprawność działania,
+% - kompletność funkcjonalności,
+% - zgodność z wymaganiami,
+% - poprawność logiki kompatybilności,
+% - stabilność backendu i frontendu.
+
+\section{Metody testowania}
+% Jak testowałeś system:
+% - testy funkcjonalne,
+% - testy integracyjne (backend + baza),
+% - testy API (np. Postman),
+% - testy walidacyjne dotyczące kompatybilności,
+% - testy manualne frontendu.
+% Opcjonalnie model V lub diagram procesu testowania.
+
+\section{Organizacja eksperymentów}
+% Co konkretnie było sprawdzane:
+% - logowanie / rejestracja,
+% - pobieranie danych o produktach,
+% - dodawanie komponentów do zestawu,
+% - działanie algorytmu kompatybilności,
+% - działanie logiki rozmytej,
+% - realizacja zamówienia.
+% Jak wyglądało środowisko testowe:
+% - Azure (baza),
+% - lokalny backend / production build frontendu.
+
+\section{Przypadki testowe}
+% W tej sekcji opisujesz tabelki testów.
+% Minimum 6–10 przypadków.
+% Np.:
+% - Zestaw kompatybilny → wynik pozytywny,
+% - CPU AM5 + Mobo LGA1700 → wynik negatywny,
+% - RAM DDR5 + Mobo DDR4 → negatywny,
+% - GPU za długie do obudowy → negatywny,
+% - Zbyt słaby PSU do CPU/GPU → negatywny,
+% - Poprawna rejestracja,
+% - Błędne logowanie.
+% Można przedstawić jako tabela w LaTeX.
+
+\section{Wyniki testów}
+% Tutaj opisujesz:
+% - ile testów przeszło pozytywnie,
+% - jakie błędy wykryto podczas testów,
+% - które elementy wymagały poprawy,
+% - np. błędne zapytanie SQL, błąd walidacji, źle przekazywany parametr.
+
+\begin{table}[H]
 \centering
-\caption{Nagłówek tabeli jest nad tabelą.}
-\label{id:tab:wyniki}
-\begin{tabular}{rrrrrrrr}
-\toprule
-	         &                                     \multicolumn{7}{c}{metoda}                                      \\
-	         \cmidrule{2-8}
-	         &         &         &        \multicolumn{3}{c}{alg. 3}        & \multicolumn{2}{c}{alg. 4, $\gamma = 2$} \\
-	         \cmidrule(r){4-6}\cmidrule(r){7-8}
-	$\zeta$ &     alg. 1 &   alg. 2 & $\alpha= 1.5$ & $\alpha= 2$ & $\alpha= 3$ &   $\beta = 0.1$  &   $\beta = -0.1$ \\
-\midrule
-	       0 &  8.3250 & 1.45305 &       7.5791 &    14.8517 &    20.0028 & 1.16396 &                       1.1365 \\
-	       5 &  0.6111 & 2.27126 &       6.9952 &    13.8560 &    18.6064 & 1.18659 &                       1.1630 \\
-	      10 & 11.6126 & 2.69218 &       6.2520 &    12.5202 &    16.8278 & 1.23180 &                       1.2045 \\
-	      15 &  0.5665 & 2.95046 &       5.7753 &    11.4588 &    15.4837 & 1.25131 &                       1.2614 \\
-	      20 & 15.8728 & 3.07225 &       5.3071 &    10.3935 &    13.8738 & 1.25307 &                       1.2217 \\
-	      25 &  0.9791 & 3.19034 &       5.4575 &     9.9533 &    13.0721 & 1.27104 &                       1.2640 \\
-	      30 &  2.0228 & 3.27474 &       5.7461 &     9.7164 &    12.2637 & 1.33404 &                       1.3209 \\
-	      35 & 13.4210 & 3.36086 &       6.6735 &    10.0442 &    12.0270 & 1.35385 &                       1.3059 \\
-	      40 & 13.2226 & 3.36420 &       7.7248 &    10.4495 &    12.0379 & 1.34919 &                       1.2768 \\
-	      45 & 12.8445 & 3.47436 &       8.5539 &    10.8552 &    12.2773 & 1.42303 &                       1.4362 \\
-	      50 & 12.9245 & 3.58228 &       9.2702 &    11.2183 &    12.3990 & 1.40922 &                       1.3724 \\
-\bottomrule
+\caption{Przykładowe wyniki testów kompatybilności zestawów komputerowych.}
+\label{tab:kompatybilnosc}
+\begin{tabular}{|p{0.8cm}|p{2.6cm}|p{3.6cm}|p{3.2cm}|p{2.8cm}|}
+\hline
+\textbf{ID} & \textbf{Test} & \textbf{Dane wejściowe} & \textbf{Problem} & \textbf{Wynik} \\
+\hline
+1  & CPU + płyta główna & Ryzen 5 7600 + B650 & Brak & Kompatybilne \\
+\hline
+2  & CPU + płyta główna & i5-12600K + B550 & Różne sockety & Niekompatybilne \\
+\hline
+3  & RAM + płyta główna & DDR5 6000 + B460 & RAM DDR5 + MOBO DDR4 & Niekompatybilne \\
+\hline
+4  & GPU + obudowa & RTX 4070 (330 mm) + obudowa 300 mm & Zbyt długie GPU & Niekompatybilne \\
+\hline
+5  & Zasilacz + CPU/GPU & PSU 400W + RTX 3080 & Zbyt mała moc & Niekompatybilne \\
+\hline
+6  & Chłodzenie + socket & Cooler AM4 + CPU LGA1700 & Niezgodne typy chłodzenia & Niekompatybilne \\
+\hline
+7  & Zestaw kompletny & CPU + GPU + RAM + Mobo + PSU zgodne & Brak & Kompatybilne \\
+\hline
+8  & Zestaw błędny & 3 niezgodności (DDR, TDP, GPU) & Złożona & Niekompatybilne \\
+\hline
 \end{tabular}
-\end{table}  
+\end{table}
+
+\section{Wykryte i usunięte błędy}
+% Wypisz realne rzeczy, które musiałeś naprawić w kodzie:
+% - błędne mapowanie z SQLAlchemy,
+% - literówki w endpointach,
+% - błędy konfiguracji .env,
+% - problemy z CORS,
+% - dane testowe, które łamały algorytm kompatybilności.
+% To zawsze robi super wrażenie na promotorze.
+
+\section{Ocena poprawności działania systemu}
+% Podsumowanie tego, co udało się potwierdzić:
+% - system prawidłowo weryfikuje kompatybilność,
+% - frontend poprawnie prezentuje wyniki,
+% - API działa stabilnie,
+% - dane w bazie zgodne ze strukturą ERD.
+% Wskazujesz tu, że cele pracy zostały potwierdzone.
 
 
+\chapter{Podsumowanie i wnioski}
 
 % TODO
-\chapter{Podsumowanie i wnioski}
-\begin{itemize}
-\item uzyskane wyniki w świetle postawionych celów i zdefiniowanych wyżej wymagań
-\item kierunki ewentualnych danych prac (rozbudowa funkcjonalna …)
-\item problemy napotkane w trakcie pracy
-\end{itemize}
 
+% \begin{itemize}
+% \item uzyskane wyniki w świetle postawionych celów i zdefiniowanych wyżej wymagań
+% \item kierunki ewentualnych danych prac (rozbudowa funkcjonalna …)
+% \item problemy napotkane w trakcie pracy
+% \end{itemize}
+
+Celem niniejszego rozdziału jest podsumowanie rezultatów uzyskanych podczas realizacji projektu oraz ocena stopnia spełnienia celów pracy. Dodatkowo przedstawiono wnioski dotyczące dalszego możliwego rozwoju systemu oraz trudności napotkane w trakcie implementacji.
+
+\section{Realizacja celów pracy}
+% Tutaj wpisz 1–2 akapity o tym:
+% - które cele zostały spełnione (np. baza, backend, weryfikacja kompatybilności, logika rozmyta, frontend)
+% - co działa zgodnie z założeniami
+% - jak system odpowiada na problem przedstawiony w rozdziale 1
+
+\section{Ocena otrzymanych rezultatów}
+% Tutaj wpisz:
+% - ogólną ocenę jakości systemu
+% - jak system sprawdza się w praktyce
+% - jakie funkcje działają najlepiej
+% - jakie są mocne strony rozwiązania (kompatybilność, API, UX, Azure)
+
+\section{Trudności napotkane podczas realizacji}
+% Wypisz, co było trudne:
+% - integracja backendu z bazą
+% - różne typy danych w parametrach sprzętu
+% - projekt logiki kompatybilności
+% - wdrożenie Azure / problemy z konfiguracją
+% - frontend + backend komunikacja, CORS itp.
+
+\section{Możliwe kierunki dalszego rozwoju}
+% Tutaj wpisujesz, co można dodać w przyszłości:
+% - rozbudowa logiki rozmytej (więcej kategorii, bardziej precyzyjne reguły)
+% - automatyczne dobieranie podzespołów pod budżet
+% - integracja z zewnętrznymi API sklepów
+% - rekomendacje AI / ML
+% - wersja mobilna aplikacji
+% - panel administratora i zarządzanie katalogiem
+% - testy automatyczne i CI/CD
+
+\section{Wnioski końcowe}
+% 1–2 akapity:
+% - ogólne podsumowanie
+% - co projekt wnosi
+% - potwierdzenie znaczenia rozwiązania
+% - że system spełnia założenia i jest praktycznie użyteczny
 
 \backmatter
 	
@@ -852,13 +1123,34 @@ class test : public basic
 \chapter{Spis skrótów i symboli}
 
 \begin{itemize}
-\item[DNA] kwas deoksyrybonukleinowy (ang. \english{deoxyribonucleic acid})
-\item[MVC] model -- widok -- kontroler (ang. \english{model--view--controller}) 
-\item[$N$] liczebność zbioru danych
-\item[$\mu$] stopnień przyleżności do zbioru
-\item[$\mathbb{E}$] zbiór krawędzi grafu
-\item[$\mathcal{L}$] transformata Laplace'a 
+
+\item[API] interfejs programistyczny aplikacji (ang. \english{Application Programming Interface})
+\item[ASGI] asynchroniczny interfejs serwera aplikacji (ang. \english{Asynchronous Server Gateway Interface})
+\item[ATX] standard rozmiaru płyt głównych i obudów komputerowych (ang. \english{Advanced Technology eXtended})
+\item[CPU] procesor centralny (ang. \english{Central Processing Unit})
+\item[CRUD] podstawowe operacje na danych: tworzenie, odczyt, modyfikacja, usuwanie (ang. \english{Create, Read, Update, Delete})
+\item[CSS] kaskadowe arkusze stylów (ang. \english{Cascading Style Sheets})
+\item[DDR] standard pamięci RAM \english{(Double Data Rate)}
+\item[ERD] diagram związków encji (ang. \english{Entity–Relationship Diagram})
+\item[GPU] procesor graficzny (ang. \english{Graphics Processing Unit})
+\item[HTML] język znaczników stron WWW (ang. \english{HyperText Markup Language})
+\item[HTTP] protokół komunikacji klient-serwer (ang. \english{HyperText Transfer Protocol})
+\item[JSON] format danych tekstowych (ang. \english{JavaScript Object Notation})
+\item[ORM] mapowanie obiektowo-relacyjne (ang. \english{Object–Relational Mapping})
+\item[PSU] zasilacz komputerowy (ang. \english{Power Supply Unit})
+\item[RAM] pamięć operacyjna (ang. \english{Random Access Memory})
+\item[REST] styl architektury usług sieciowych (ang. \english{Representational State Transfer})
+\item[SQL] język zapytań do baz danych (ang. \english{Structured Query Language})
+\item[SSD] dysk półprzewodnikowy (ang. \english{Solid State Drive})
+\item[TDP] maksymalna ilość ciepła odprowadzana przez układ (ang. \english{Thermal Design Power})
+\item[TS] język programowania TypeScript (ang. \english{TypeScript})
+\item[UI] interfejs użytkownika (ang. \english{User Interface})
+\item[UML] zunifikowany język modelowania (ang. \english{Unified Modeling Language})
+\item[URL] adres zasobu internetowego (ang. \english{Uniform Resource Locator})
+\item[WWW] ogólnoświatowa sieć internetowa (ang. \english{World Wide Web})
+
 \end{itemize}
+
 
 
 % TODO
