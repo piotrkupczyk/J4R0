@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.5)  17 NOV 2025 15:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.5)  18 NOV 2025 01:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -960,7 +960,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'polish'.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 390.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 391.
  (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (./main.aux
@@ -969,24 +969,24 @@ Package babel Info: 'polish' activates 'polish' shorthands.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 390.
-LaTeX Font Info:    ... okay on input line 390.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 390.
-LaTeX Font Info:    ... okay on input line 390.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 390.
-LaTeX Font Info:    ... okay on input line 390.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 390.
-LaTeX Font Info:    ... okay on input line 390.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 390.
-LaTeX Font Info:    ... okay on input line 390.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 390.
-LaTeX Font Info:    ... okay on input line 390.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 390.
-LaTeX Font Info:    ... okay on input line 390.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 390.
-LaTeX Font Info:    ... okay on input line 390.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 390.
-LaTeX Font Info:    ... okay on input line 390.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 391.
+LaTeX Font Info:    ... okay on input line 391.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 391.
+LaTeX Font Info:    ... okay on input line 391.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 391.
+LaTeX Font Info:    ... okay on input line 391.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 391.
+LaTeX Font Info:    ... okay on input line 391.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 391.
+LaTeX Font Info:    ... okay on input line 391.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 391.
+LaTeX Font Info:    ... okay on input line 391.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 391.
+LaTeX Font Info:    ... okay on input line 391.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 391.
+LaTeX Font Info:    ... okay on input line 391.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 391.
+LaTeX Font Info:    ... okay on input line 391.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1041,7 +1041,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (c:/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 390.
+Package hyperref Info: Link coloring OFF on input line 391.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1049,7 +1049,7 @@ Package hyperref Info: Link coloring OFF on input line 390.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 390.
+ on input line 391.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
@@ -1079,8 +1079,8 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 390.
-Package biblatex Info: Reference segment=0 on input line 390.
+Package biblatex Info: Reference section=0 on input line 391.
+Package biblatex Info: Reference segment=0 on input line 391.
 \c@lstlisting=\count510
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
@@ -1114,14 +1114,14 @@ Package biblatex Info: Reference segment=0 on input line 390.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 415.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 416.
  (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<politechnika_sl_logo_bw_pion_pl.pdf, id=248, 179.67125pt x 230.8625pt>
+<politechnika_sl_logo_bw_pion_pl.pdf, id=264, 179.67125pt x 230.8625pt>
 File: politechnika_sl_logo_bw_pion_pl.pdf Graphic file (type pdf)
 <use politechnika_sl_logo_bw_pion_pl.pdf>
-Package pdftex.def Info: politechnika_sl_logo_bw_pion_pl.pdf  used on input line 417.
+Package pdftex.def Info: politechnika_sl_logo_bw_pion_pl.pdf  used on input line 418.
 (pdftex.def)             Requested size: 142.26378pt x 182.80913pt.
 
 
@@ -1172,22 +1172,27 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-[5])
+[5]
+
+[6])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
 
 
-[6]
+[7]
+
+[8
+
+]
 Rozdzia\l  1.
 
 
 [1
 
 
-
 ]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 549.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 550.
  (c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1202,7 +1207,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [2{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 Package babel Info: 'polish' activates 'polish' shorthands.
-(babel)             Reported on input line 584.
+(babel)             Reported on input line 585.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1313,14 +1318,9 @@ Rozdzia\l  4.
 [15
 
 ]
-<erd.jpg, id=422, 1509.64pt x 995.72pt>
-File: erd.jpg Graphic file (type jpg)
-<use erd.jpg>
-Package pdftex.def Info: erd.jpg  used on input line 908.
-(pdftex.def)             Requested size: 455.24411pt x 300.26804pt.
-
-
-LaTeX Warning: Reference `fig:etykieta-rysunku' on page 16 undefined on input line 912.
+Overfull \hbox (6.2003pt too wide) in paragraph at lines 893--894
+[]\T1/lmr/m/n/12 Automatycznej we-ry-fi-ka-cji kom-pa-ty-bil-no-±ci, obej-mu-j¡-cej wszyst-kie po-wszechne znane
+ []
 
 
 
@@ -1331,99 +1331,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[16 <./erd.jpg>]
-Rozdzia\l  5.
-
-Underfull \hbox (badness 4353) in paragraph at lines 1024--1024
-[]\T1/lmr/m/n/12 Ryzen 5 7600 +
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1026--1027
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \hbox (badness 3989) in paragraph at lines 1028--1028
-[]\T1/lmr/m/n/12 RAM DDR5 +
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1028--1029
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1030--1030
-[]\T1/lmr/m/n/12 RTX 4070 (330
- []
-
-
-Underfull \hbox (badness 7151) in paragraph at lines 1030--1030
-\T1/lmr/m/n/12 mm) + obu-dowa
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1030--1031
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1032--1032
-[]\T1/lmr/m/n/12 Zasilacz +
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1032--1033
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1034--1034
-[]\T1/lmr/m/n/12 Niezgodne typy
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1034--1035
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1036
-[]\T1/lmr/m/n/12 Zestaw kom-
- []
-
-
-Underfull \hbox (badness 4634) in paragraph at lines 1036--1036
-[]\T1/lmr/m/n/12 CPU + GPU +
- []
-
-
-Underfull \hbox (badness 1596) in paragraph at lines 1036--1036
-\T1/lmr/m/n/12 RAM + Mobo +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1038--1038
-[]\T1/lmr/m/n/12 3 nie-zgod-no-±ci
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1038--1039
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[16]
+<obrazki/diagram.png, id=455, 654.445pt x 754.82pt>
+File: obrazki/diagram.png Graphic file (type png)
+<use obrazki/diagram.png>
+Package pdftex.def Info: obrazki/diagram.png  used on input line 922.
+(pdftex.def)             Requested size: 455.24411pt x 525.06487pt.
 
 
 
-[17
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-]
-Overfull \vbox (7.96297pt too high) has occurred while \output is active []
-
-
+[17 <./obrazki/diagram.png>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1442,6 +1365,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [19]
+<obrazki/erd.jpg, id=472, 1509.64pt x 995.72pt>
+File: obrazki/erd.jpg Graphic file (type jpg)
+<use obrazki/erd.jpg>
+Package pdftex.def Info: obrazki/erd.jpg  used on input line 977.
+(pdftex.def)             Requested size: 455.24411pt x 300.26804pt.
+
+
+LaTeX Warning: Reference `fig:etykieta-rysunku' on page 20 undefined on input line 981.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1450,38 +1383,117 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[20
+[20 <./obrazki/erd.jpg>]
+Rozdzia\l  5.
 
-]
-Rozdzia\l  6.
-
-
-[21]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[22
-
-]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1118.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Overfull \hbox (3.65848pt too wide) in paragraph at lines 1119--1119
-[]\T1/lmr/m/it/12 X-kom - sklep kom-pu-te-rowy\T1/lmr/m/n/12 . 2025. \T1/lmr/m/sc/12 url\T1/lmr/m/n/12 : []$\T1/lmtt/m/n/12 https : / / www . x -[] kom . pl/$[] \T1/lmr/m/n/12 (do-st¦p 17.11.2025). 
+Underfull \hbox (badness 4353) in paragraph at lines 1088--1088
+[]\T1/lmr/m/n/12 Ryzen 5 7600 +
  []
 
 
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 1090--1091
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
 
-[23
 
+Underfull \hbox (badness 3989) in paragraph at lines 1092--1092
+[]\T1/lmr/m/n/12 RAM DDR5 +
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 1092--1093
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1094
+[]\T1/lmr/m/n/12 RTX 4070 (330
+ []
+
+
+Underfull \hbox (badness 7151) in paragraph at lines 1094--1094
+\T1/lmr/m/n/12 mm) + obu-dowa
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 1094--1095
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1096--1096
+[]\T1/lmr/m/n/12 Zasilacz +
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 1096--1097
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1098--1098
+[]\T1/lmr/m/n/12 Niezgodne typy
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 1098--1099
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1100--1100
+[]\T1/lmr/m/n/12 Zestaw kom-
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 1100--1100
+[]\T1/lmr/m/n/12 CPU + GPU +
+ []
+
+
+Underfull \hbox (badness 1596) in paragraph at lines 1100--1100
+\T1/lmr/m/n/12 RAM + Mobo +
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1102
+[]\T1/lmr/m/n/12 3 nie-zgod-no-±ci
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 1102--1103
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[21
 
 ]
+Overfull \vbox (7.96297pt too high) has occurred while \output is active []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[23]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1493,15 +1505,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [24
 
 ]
+Rozdzia\l  6.
+
 
 [25]
 
-[26]
-
-[27
-
-]
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1509,29 +1517,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[28]
-
-[29
+[26
 
 ]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[30
-
-]
-Overfull \hbox (2.38579pt too wide) in paragraph at lines 1196--1197
-[]\T1/lmr/m/n/12 film po-ka-zu-j¡cy dzia-ªa-nie opra-co-wa-nego opro-gra-mo-wa-nia lub za-pro-jek-to-wa-nego i wy-
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1182.
+ (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Overfull \hbox (3.65848pt too wide) in paragraph at lines 1183--1183
+[]\T1/lmr/m/it/12 X-kom - sklep kom-pu-te-rowy\T1/lmr/m/n/12 . 2025. \T1/lmr/m/sc/12 url\T1/lmr/m/n/12 : []$\T1/lmtt/m/n/12 https : / / www . x -[] kom . pl/$[] \T1/lmr/m/n/12 (do-st¦p 17.11.2025). 
  []
 
 
 
-[31]
+[27
+
+
+]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1540,15 +1542,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32
+[28
 
-] (./main.lof)
-\tf@lof=\write7
-\openout7 = `main.lof'.
+]
+
+[29]
+
+[30]
+
+[31
+
+]
 
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[33]
+[32]
+
+[33
+
+]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1559,13 +1576,48 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [34
 
+]
+Overfull \hbox (2.38579pt too wide) in paragraph at lines 1260--1261
+[]\T1/lmr/m/n/12 film po-ka-zu-j¡cy dzia-ªa-nie opra-co-wa-nego opro-gra-mo-wa-nia lub za-pro-jek-to-wa-nego i wy-
+ []
+
+
+
+[35]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[36
+
+] (./main.lof)
+\tf@lof=\write7
+\openout7 = `main.lof'.
+
+
+
+[37]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[38
+
 ] (./main.lot)
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
 
 
-[35] (./main.aux)
+[39] (./main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
@@ -1575,24 +1627,24 @@ L3 programming layer <2025-08-13>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5873CB4C038698AA4D579D8404028426;11155.
+(rerunfilecheck)             Checksum: C4E950E27989DD9B42CDF5ECAE76884E;11574.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45331 strings out of 467800
- 988934 string characters out of 5436062
- 1760033 words of memory out of 5000000
- 73172 multiletter control sequences out of 15000+600000
+ 45354 strings out of 467800
+ 989379 string characters out of 5436062
+ 1760036 words of memory out of 5000000
+ 73184 multiletter control sequences out of 15000+600000
  691566 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,11n,91p,1902b,3638s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (41 pages, 483356 bytes).
+Output written on main.pdf (47 pages, 517034 bytes).
 PDF statistics:
- 596 PDF objects out of 1000 (max. 8388607)
- 527 compressed objects within 6 object streams
- 121 named destinations out of 1000 (max. 500000)
- 503 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 647 PDF objects out of 1000 (max. 8388607)
+ 570 compressed objects within 6 object streams
+ 132 named destinations out of 1000 (max. 500000)
+ 540 words of extra memory for PDF output out of 10000 (max. 10000000)
 

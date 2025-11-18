@@ -156,6 +156,7 @@
 \renewcommand{\appendixpagename}{Dodatki}
 \renewcommand{\appendixname}{Dodatek}
 
+
 \usepackage{csquotes}
 \usepackage[natbib=true,backend=bibtex,maxbibnames=99]{biblatex}  % kompilacja bibliografii BibTeXem
 %\usepackage[natbib=true,backend=biber,maxbibnames=99]{biblatex}  % kompilacja bibliografii Biberem
@@ -619,7 +620,7 @@ Spośród przeanalizowanych platform sprzedażowych polskich sprzedawców, pod w
 Drugim pod względem funkcjonalności rozwiązaniem jest konfigurator oraz oferta gotowych zestawów sklepu X-kom\cite{xkom}. Platforma udostępnia czytelny interfejs oraz rekomendowane zestawy komputerowe, które zazwyczaj umożliwiają późniejszą rozbudowę. W porównaniu do Morele\cite{morele}, użytkownik ma tutaj jeszcze mniejszą możliwość samodzielnego projektowania konfiguracji, ponieważ wybór ogranicza się do kilku lub kilkunastu proponowanych zestawów. Brak szczegółowej analizy potrzeb użytkownika oraz ograniczona liczba wariantów utrudniają złożenie w pełni dostosowanego zamówienia. Podobnie jak w przypadku Morele, sklep nie wykorzystuje logiki rozmytej w mechanizmach komponowania zestawów.
 
 
-\section{Porównanie istniejących rozwiązań z rozwiązaniem inżynierkim autora}
+\section{Porównanie istniejących rozwiązań z rozwiązaniem inżynierskim}
 
 Pierwszą i najważniejszą funkcjonalnością wyróżniającą opracowane rozwiązanie jest zastosowanie rozszerzonych mechanizmów weryfikacji kompatybilności podzespołów, których brakuje w analizowanych sklepach internetowych. System wykorzystuje nie tylko klasyczne metody porównywania parametrów technicznych, lecz również elementy logiki rozmytej pozwalającej na bardziej elastyczną ocenę dopasowania podzespołów do oczekiwań użytkownika.
 \newpage
@@ -702,6 +703,7 @@ Wymagania niefunkcjonalne opisują właściwości jakościowe systemu, które wp
     \item \textbf{Niezawodność}: system powinien obsługiwać błędy kompatybilności w sposób kontrolowany i komunikatywny.
     \item \textbf{Użyteczność}: interfejs użytkownika powinien być przejrzysty, responsywny i intuicyjny.
     \item \textbf{Przenośność}: frontend uruchamiany w dowolnej nowoczesnej przeglądarce; backend kompatybilny z systemami Linux i Windows.
+    \item \textbf{Wysoka dostępność}: system powinien być dostępny w sposób ciągły i niesustanny.
 \end{itemize}
 \newpage
 \section{Przypadki użycia}
@@ -718,7 +720,7 @@ Najważniejsze przypadki użycia systemu obejmują:
     \item „Użytkownik realizuje zamówienie”
 \end{itemize}
 
-Diagramy przypadków użycia UML:
+
 \newpage
 \section{Narzędzia i technologie}
 
@@ -762,11 +764,11 @@ Realizacja systemu wymagała zastosowania nowoczesnych technologii backendowych,
 Prace nad projektem realizowano iteracyjnie, zgodnie z podejściem zbliżonym do metodyki Agile. Każda iteracja obejmowała:
 
 \begin{itemize}
-    \item analizę oraz doprecyzowanie wymagań,
-    \item projekt części funkcjonalnych systemu,
-    \item implementację nowych modułów backendu i frontendu,
-    \item testy poprawności działania,
-    \item refaktoryzację oraz optymalizację kodu.
+    \item Analizę oraz doprecyzowanie wymagań pod standardy rynkowe,
+    \item Projekt danej części funkcjonalnych systemu,
+    \item Implementację odpowienio nowych modułów backendu i frontendu,
+    \item Testowanie, w przeznaczonym do tego środowsiku, poprawności działania,
+    \item Refaktoryzację oraz optymalizację kodu.
 \end{itemize}
 
 Podejście iteracyjne pozwoliło na równoległe rozwijanie bazy danych, backendu oraz interfejsu użytkownika, a także na bieżącą reakcję na problemy i dopasowywanie projektu do napotkanych wyzwań.
@@ -871,31 +873,98 @@ Podejście iteracyjne pozwoliło na równoległe rozwijanie bazy danych, backend
 %\label{fig:pseudokod:minted}
 %\end{figure}
 \section{Przedstawienie idei systemu}
+
+Aplikacja powstała jako odpowiedź na nieustannie poszerzający się rynek podzespołów komputerowych, pełniąc funkcję inteligentnego asystenta przy kompletowaniu osobistego zestawu PC. Implementacja logiki rozmytej miała na celu ułatwienie nawet początkującym użytkowikom skuteczne przejście przez ten proces, uwzględniając ich potrzeby takie jak wydajność, energooszczędność czy odpowiedni koszt. System łączy intuicyjny interfejs, znany z innych serwisów internetowcyh, z zaawansowanymi mechanizmami wspomagającymi, zaprojektowanymi konkretnie pod potrzeby klientów.
+
+\subsection{Cel powstania aplikacji}
+Celem powstania aplikacji było stworzenie i następne wdrożenie systemu webowego, mającego za zadanie uproszczenie samodzielnego składania zestawów komputerowych poprzez inteligentną asekurację podczas tego procesu. Jego celem jest eliminacja jak potencjalnie jak największej ilości błędów po stronie użytkowików. \\
+Aplikację projektowano z myślą o:
+\begin{itemize}
+    \item Intuicyjnym wyborze komponetów z katalogu,
+    \item Automatycznej weryfikacji kompatybilności,
+    \item Wsparciu w dopasowaniu sprzętu do potrzeb, używając logiki rozmytej,
+    \item Możliwości zapisaniu kompatybilnego zestawu oraz o jego zamówieniu.
+\end{itemize}
+\newpage
+\subsection{Innowacyjność systemu}
+Aplikacja powstała jako inteligenty kreator zestawów komputerowych, składający się z mechanizmów weryfikacji oraz wspomagania decyzji, podczas gdy podobnych rozwiązań nie sposób znaleźć w najpopularniejszych polskich sklepach komputerowych. \\
+Innowacyjność aplikacji wynika z:
+\begin{itemize}
+    \item Automatycznej weryfikacji kompatybilności, obejmującej wszystkie powszechne znane parametry, takie jak:
+    \begin{itemize}
+        \item Socket procesora i płyty głownej,
+        \item typ pamięci RAM,
+        \item format obudowy,
+        \item maksymalna suma obciążenia dla konkretnego zasilania,
+        \item fizyczne wymiary elementów,
+        \item kompatybilność portów, gniazd oraz złącz.
+    \end{itemize}
+    \item Zastosowania logiki rozmytej, umożliwiającej dobranie odpowiedniego zestawu pod indywidualne potrzeby, dzieląc je na:
+    \begin{itemize}
+        \item Budżet,
+        \item wydajność,
+        \item energooszczędność,
+        \item przeznaczenie.
+    \end{itemize}
+    \item Zapewnionego nieustannego monitorowania stanu aplikacji, dbając o wysoką dostępność serwisu i jego wydajność,
+    \item Potencjału rozbudowywania aplikacji w rzeczywistym środowisku produkcyjnym, poprzez dbanie o skalowalność i integralność z najnowszymi technologiami.
+\end{itemize}
+
+
 % Ogólna idea działania – logika rozmyta, weryfikacja kompatybilności,
 % wspieranie użytkownika w budowie zestawów PC.
 % Cel modułów, przepływ danych w systemie.
-
+\newpage
 \section{Architektura systemu}
+\subsection{Schemat ideowy}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/diagram.png}
+    \caption{Schemat działania aplikacji}
+\end{figure}
+
+
 % Diagram architektury (rysunek).
 % Opis warstw: frontend, backend, baza danych.
 % Komunikacja: REST API, JSON.
 % Wdrożenie: Azure (baza, hosting).
+\newpage
+\subsection{Frontend}
+Frontend aplikacji pełni ważną funkcję w funckjonowaniu każdego systemu, ponieważ odpowiada za prezentację danych dostarczonych z backendu. Projekt wykorzystuje nowoczesne technologie React, TypeScript oraz Vite, zapewniając innowacyjność, wydajność oraz skalowalność.
+Inteligentny kreator zestawów komputerowych to jednostronicowy typ aplikacji webowej, dzięki czemu przełączanie widoku następuje dynamicznie bez konieczności ponownego ładowania zasobów. Takie rozwiązanie gwarantuje wysoką wydajność, prostotę oraz komfort użytkowania.
+\\ Zadania realizowane przez interfejs:
+\begin{itemize}
+    \item Prezentacja katalogu produktów, pobieranych dynamicznie z backendu,
+    \item wybranie komponentów do przeniesienia z katalogu do kreatora,
+    \item obsługa koszyka, dodawanie, modyfikowanie i usuwanie elementów,
+    \item reakcja na działania użytkownika wykorzysując React Hooks,
+    \item wyświetlanie aktualnego stanu kompatybilności zestawów,
+    \item wykonywanie zapytań REST API do backendu w celu weryfikacji danych i aktualizacji stanu aplikacji.
+\end{itemize}
 
-\subsection{Warstwa frontendowa}
+Za wygląd zgodny ze standardami rynkowymi odpowiedzialny jest Tailwind CSS, gwarantując responwyność i estetykę rozwiązania. Framework umożliwia konfigurację i nadawanie stylów bezpośrednio w komponentach poprzez gotowe klasy utility. Takie rozwiązanie zapewnia intuicyjne i dynamiczne UI. Za komunikację z backendem odpowiada REST API poprzez zapytania realizowane biblioteką fetch API. Każda interakcja ze stroną powoduje wywołanie właściwego endpoint'u, co dynamicznie aktualizuje stan aplikacji, w tym bazę danych. Projekt wdrożony został w chmurze Microsoft Azure, jako Azure Static Web App, pełniącej rolę hostingu. Takie rozwiązanie umożliwia automatyzację CI/CD, co przekłada się na bezproblemowość i stabilność. Całość stacku techologicznego zapewnia wysoką dostępność aplikacji oraz łatwość korzystania i zarządzania.\\
+Projekt frontendu powstał z myślą o:
+\begin{itemize}
+    \item Przejrzystości interfejsu,
+    \item prostocie korzystania,
+    \item szybkości działania.
+\end{itemize}  
+Takie podejście powoduje, że aplikacja jest łatwa w utrzymaniu, skalowalna, wysoko dostępna oraz przejrzysta zarówno dla początkujących jak i zaawansowanych użytkowników.
 % React + TypeScript, komponenty UI,
 % kreator zestawów, interakcje z API.
 
-\subsection{Warstwa backendowa}
+\subsection{Backend}
 % FastAPI – struktura endpointów
 % Moduł produktu
 % Moduł użytkownika
 % Moduł kompatybilności
 % Moduł koszyka / zamówień
 
-\subsection{Warstwa danych i infrastruktury}
+\subsection{Baza danych}
 % PostgreSQL – organizacja danych
 % Tabele i relacje w bazie
 % Hosting w Microsoft Azure
+\subsection{Infrastruktura chmurowa}
 
 \section{Opis struktur danych}
 % Opis danych wykorzystywanych w systemie
@@ -903,9 +972,9 @@ Podejście iteracyjne pozwoliło na równoległe rozwijanie bazy danych, backend
 \newpage
 \subsection{Model danych - ERD}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{erd.jpg} % tu ścieżka do Twojego pliku
+    \includegraphics[width=\textwidth]{obrazki/erd.jpg} % tu ścieżka do Twojego pliku
     \caption{Diagram ERD bazy danych}
     \label{fig:erd}
 \end{figure}
@@ -958,11 +1027,6 @@ Podejście iteracyjne pozwoliło na równoległe rozwijanie bazy danych, backend
 % \item wykryte i usunięte błędy
 % \item opcjonalnie wyniki badań eksperymentalnych
 % \end{itemize}
-
-
-
-
-
 
 \section{Cel weryfikacji systemu}
 % Krótki opis po co testujemy, jakie aspekty miały być zweryfikowane:
