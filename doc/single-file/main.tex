@@ -525,7 +525,7 @@ escapeinside={@*}{*@},%
 % TODO
 \chapter{Wstęp}
 \label{ch:wstep}
-
+\newpage
 %%\begin{itemize}
 %%\item wprowadzenie w problem/zagadnienie
 %%\item osadzenie problemu w dziedzinie
@@ -545,7 +545,7 @@ Projekt osadzony jest w dziedzinie inżynierii oprogramowania, projektowania baz
 
 Celem pracy jest zaprojektowanie i zaimplementowanie aplikacji webowej, która będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwi realizację zamównienia. 
 \newpage
-Idące za tym cele to
+Idące za tym cele to:
 \begin{itemize} 
 	\item stworzenie relacyjnej bazy danych, odpowiadającej potrzebom sklepu internetowego,
 	\item zaprojektowanie i implementacja backendu, odpowiedzialnego za komunikację i logikę aplkacji, 
@@ -555,13 +555,13 @@ Idące za tym cele to
 \section{Zakres pracy}
 Zakres pracy nad projektem obejmuje:
 \begin{itemize}
-	\item Projekt relacyjnej bazy danych w Oracle SQL Developer.
-	\item Utworzenie testowego serwera PostgreSQL, wprowadzenie gotowych danych o produktach do bazy danych,
-	\item Stworzenie użytkowników oraz nadanie odpowiednich uprawnień każdemu z nich,
-	\item Implementację backendu w języku Python, implementacja API z wykorzystaniem frameworka FastAPI, umożliwiając integrację z bazą danych w celu zarządzania produktami i zamówieniami,
-	\item Projekt interfejsu użytkownika, stworzenie frontendu używając HTML, CSS oraz JavaScript,
-	\item Projekt kreatora zestawów komputerowych, zaimplementowanego z uwzględnieniem logik rozmytej, używając Reacta, Typescript, Node.js,
-	\item Migrację gotowej aplikacji z lokalnego serwera testowego PostgreSQL do produkcyjnej chmury Azure, utworzenie grupy zasobów.
+	\item projekt relacyjnej bazy danych w Oracle SQL Developer.
+	\item utworzenie testowego serwera PostgreSQL, wprowadzenie gotowych danych o produktach do bazy danych,
+	\item stworzenie użytkowników oraz nadanie odpowiednich uprawnień każdemu z nich,
+	\item implementację backendu w języku Python, implementacja API z wykorzystaniem frameworka FastAPI, umożliwiając integrację z bazą danych w celu zarządzania produktami i zamówieniami,
+	\item projekt interfejsu użytkownika, stworzenie frontendu używając HTML, CSS oraz JavaScript,
+	\item projekt kreatora zestawów komputerowych, zaimplementowanego z uwzględnieniem logik rozmytej, używając Reacta, Typescript, Node.js,
+	\item migrację gotowej aplikacji z lokalnego serwera testowego PostgreSQL do produkcyjnej chmury Azure, utworzenie grupy zasobów.
 	
 \end{itemize}
 \newpage
@@ -570,24 +570,24 @@ Zakres pracy nad projektem obejmuje:
 \begin{itemize}
     \item \textbf{Rozdział 1} - zawiera wprowadzenie do tematyki pracy, przedstawia problem nieintuicyjnego doboru kompatybilnych podzespołów komputerowych, definiuje cel i zakres pracy oraz opisuje autorski wkład w projekt.
 
-    \item \textbf{Rozdział 2} - obejmuje analizę tematu, w tym istotę kompatybilności sprzętowej, przegląd istniejących rozwiązań wykorzystywanych przez popularne sklepy komputerowe oraz porównanie ich funkcjonalności z zaprojektowanym systemem.
+    \item \textbf{Rozdział 2} - obejmuje analizę tematu, w tym istotę kompatybilności sprzętowej, przegląd istniejących rozwiązań wykorzystywanych przez popularne sklepy komputerowe oraz porównanie ich funkcjonalności z zaprojektowanym systemem. Przybliża problematykę całej pracy.
 
-    \item \textbf{Rozdział 3} - przedstawia wymagania funkcjonalne i niefunkcjonalne systemu, przypadki użycia, zastosowane narzędzia i technologie oraz metodykę pracy przyjętą podczas implementacji.
+    \item \textbf{Rozdział 3} - przedstawia wymagania funkcjonalne i niefunkcjonalne systemu, przypadki użycia, zastosowane narzędzia i technologie oraz metodykę pracy przyjętą podczas implementacji. Przedstawia kompletną listę dobranych technologii i rozwiązań.
 
-    \item \textbf{Rozdział 4} - stanowi część projektową, zawierającą architekturę systemu, model danych wraz z diagramem ERD, opis struktury bazy danych oraz omówienie kluczowych modułów, takich jak moduł weryfikacji kompatybilności i logiki rozmytej.
+    \item \textbf{Rozdział 4} - stanowi część projektową, zawierającą architekturę systemu, opisanie każdego filaru aplikacji webowej, model danych wraz z diagramem ERD, opis struktury bazy danych, szczegółową analizę encji oraz omówienie kluczowych modułów, takich jak moduł weryfikacji kompatybilności i logiki rozmytej.
 
-    \item \textbf{Rozdział 5} - prezentuje proces weryfikacji i walidacji systemu, zawierając opis sposobu testowania, organizacji eksperymentów, przypadków testowych oraz analizę wykrytych błędów i wyników testów.
+    \item \textbf{Rozdział 5} - prezentuje proces weryfikacji i walidacji systemu, zawierając opis sposobu testowania, organizacji eksperymentów, przypadków testowych oraz analizę wykrytych błędów i wyników testów. Analizuje skuteczność działania oprogramowania, porównując otrzymywane wyniki z założeniami.
 
-    \item \textbf{Rozdział 6} - zawiera podsumowanie uzyskanych rezultatów, ocenę stopnia realizacji celów pracy oraz wskazuje możliwe kierunki dalszego rozwoju systemu.
+    \item \textbf{Rozdział 6} - zawiera podsumowanie uzyskanych rezultatów, ocenę stopnia realizacji celów pracy oraz wskazuje możliwe kierunki dalszego rozwoju systemu. Podsumowuje i ocenia skuteczność podjętych działań, analizuje koszty poniesione poczas realizacji, szczegołowo ocenia dobór technologii.
 \end{itemize}
 
 
 \newpage
 \section{Wkład autora}
-Autor samodzielnie opracował wszystkie elementy projektu, zaczynając od zaplanowania funkcjonalności oraz wyborze technologii. Następnym krokiem było zaprojektowanie relacyjnej bazy danych w Oracle SQL Developer, gdzie utworzył on testowy serwer PostgreSQL wraz z użytkownikami oraz nadał odpowiednie uprawnienia każdemu z nich. Przy użyciu frameworku FastAPI przygotowany został backend w języku Python, odpowiadający za komunikację z bazą danych oraz za logikę całej aplikacji, umożliwiając weryfikację kompatybilności zestawów komputerowych. Autor utworzył interaktywny frontend, który umożliwia graficzne korzystanie z aplikacji, zapewniając łatwość użytkowania zarówno dla doświadczonych, jak i początkujących inżynierów sprzętu, poprzez stosowanie logiki rozmytej. Korzystając z akademickiej subskrypcji Microsoft Azure autor używając otrzymanych kredytów samodzielnie realizuje hosting, administracje, testowanie CI/CD, konteneryzację oraz wirtualizację aplikacji webowej, czyniąc ją w pełni używalną w publicznej sieci internet.
+Autor samodzielnie opracował wszystkie elementy projektu, zaczynając od zaplanowania funkcjonalności oraz wyborze technologii. Następnym krokiem było zaprojektowanie relacyjnej bazy danych w Oracle SQL Developer, gdzie utworzył on testowy serwer PostgreSQL wraz z użytkownikami oraz nadał odpowiednie uprawnienia każdemu z nich. Przy użyciu frameworku FastAPI przygotowany został backend w języku Python, odpowiadający za komunikację z bazą danych oraz za logikę całej aplikacji, umożliwiając weryfikację kompatybilności zestawów komputerowych. Autor utworzył interaktywny frontend, który umożliwia graficzne korzystanie z aplikacji, zapewniając łatwość użytkowania zarówno dla doświadczonych, jak i początkujących inżynierów sprzętu, poprzez stosowanie logiki rozmytej. Korzystając z akademickiej subskrypcji Microsoft Azure autor używając otrzymanych kredytów samodzielnie realizuje hosting, administrację, testowanie CI/CD, konteneryzację oraz wirtualizację aplikacji webowej, czyniąc ją w pełni używalną w publicznej sieci internet. Dokumentacja przygotowana do projektu, dokument inzynierski oraz wszystkie opisy dostępne w projekcie zostały samodzielnie, szczegółowo opracowane w ramach projektu inzynierskiego "System wspomagający inteligentne składanie zestawów komputerowych".
 
 \chapter{Analiza problemu oraz przegląd dostępnych rozwiązań}
-
+\newpage
 %%\begin{itemize}
 %%\item sformułowanie problemu
 %%\item osadzenie tematu w kontekście aktualnego stanu wiedzy (\english{state of the art}) o poruszanym problemie
@@ -666,7 +666,7 @@ W odróżnieniu od popularnych serwisów takich jak Morele.net\cite{morele} czy 
 %\item metodyka pracy nad projektowaniem i implementacją -- dla prac, w których ma to zastosowanie
 %\end{itemize}
 
-Celem niniejszego rozdziału jest przedstawienie zestawu wymagań funkcjonalnych i niefunkcjonalnych projektowanego systemu, omówienie narzędzi oraz technologii wykorzystanych podczas implementacji, a także zaprezentowanie metodyki pracy przyjętej podczas realizacji projektu inżynierskiego. Rozdział stanowi podstawę do dalszych etapów projektowania, implementacji oraz testowania aplikacji.
+% Celem niniejszego rozdziału jest przedstawienie zestawu wymagań funkcjonalnych i niefunkcjonalnych projektowanego systemu, omówienie narzędzi oraz technologii wykorzystanych podczas implementacji, a także zaprezentowanie metodyki pracy przyjętej podczas realizacji projektu inżynierskiego. Rozdział stanowi podstawę do dalszych etapów projektowania, implementacji oraz testowania aplikacji.
 
 \newpage
 \section{Wymagania funkcjonalne}
@@ -674,10 +674,10 @@ Celem niniejszego rozdziału jest przedstawienie zestawu wymagań funkcjonalnych
 Wymagania funkcjonalne określają zachowania oraz funkcje, jakie system powinien realizować. Na podstawie analizy problemu oraz specyficznych potrzeb użytkowników wyodrębniono następujący zbiór wymagań:
 
 \begin{itemize}
-    \item Rejestracja oraz logowanie użytkowników.
-    \item Przeglądanie katalogu produktów sklepu komputerowego.
-    \item Dodawanie wybranych komponentów do kreatora zestawu PC.
-    \item Automatyczna weryfikacja kompatybilności podzespołów, obejmująca między innymi:
+    \item rejestracja oraz logowanie użytkowników,
+    \item przeglądanie katalogu produktów sklepu komputerowego,
+    \item dodawanie wybranych komponentów do kreatora zestawu PC,
+    \item automatyczna weryfikacja kompatybilności podzespołów, obejmująca między innymi:
     \begin{itemize}
         \item zgodność gniazda procesora,
         \item typ pamięci RAM,
@@ -686,10 +686,10 @@ Wymagania funkcjonalne określają zachowania oraz funkcje, jakie system powinie
         \item dopasowanie komponentów do obudowy,
         \item kompatybilność układów chłodzenia.
     \end{itemize}
-    \item Wykorzystanie logiki rozmytej do klasyfikacji zestawów pod konkretne kategorie (np. budżetowy, wydajny, energooszczędny).
-    \item Generowanie gotowych konfiguracji na podstawie wybranych komponentów.
-    \item Dodawanie produktów oraz pełnych zestawów do koszyka.
-    \item Modyfikacja zawartości koszyka oraz finalizacja zamówienia.
+    \item wykorzystanie logiki rozmytej do klasyfikacji zestawów pod konkretne kategorie (np. budżetowy, wydajny, energooszczędny),
+    \item generowanie gotowych konfiguracji na podstawie wybranych komponentów,
+    \item dodawanie produktów oraz pełnych zestawów do koszyka,
+    \item modyfikacja zawartości koszyka oraz finalizacja zamówienia.
 \end{itemize}
 \newpage
 \section{Wymagania niefunkcjonalne}
@@ -705,7 +705,7 @@ Wymagania niefunkcjonalne opisują właściwości jakościowe systemu, które wp
     \item \textbf{Przenośność}: frontend uruchamiany w dowolnej nowoczesnej przeglądarce; backend kompatybilny z systemami Linux i Windows.
     \item \textbf{Wysoka dostępność}: system powinien być dostępny w sposób ciągły i niesustanny.
 \end{itemize}
-\newpage
+
 \section{Przypadki użycia}
 
 Najważniejsze przypadki użycia systemu obejmują:
@@ -725,6 +725,17 @@ Najważniejsze przypadki użycia systemu obejmują:
 \section{Narzędzia i technologie}
 
 Realizacja systemu wymagała zastosowania nowoczesnych technologii backendowych, frontendowych oraz narzędzi modelowania. Wszystkie przedstawiono poniżej.
+\subsection{Frontend}
+
+\begin{itemize}
+    \item \textbf{React} - biblioteka wykorzystywana do tworzenia interaktywnych interfejsów użytkownika.
+    \item \textbf{TypeScript} - rozszerzenie JavaScript umożliwiające statyczne typowanie.
+    \item \textbf{Vite} - bundler odpowiedzialny za budowanie i szybkie uruchamianie aplikacji.
+    \item \textbf{Tailwind CSS} - framework ułatwiający projektowanie responsywnego interfejsu.
+    \item \textbf{Node.js} - środowisko wykonawcze dla narzędzi JavaScript.
+    \item \textbf{npm} - menedżer pakietów odpowiedzialny za instalację zależności.
+    \item \textbf{ESLint} - narzędzie do analizy i kontroli jakości kodu TypeScript i JavaScript.
+\end{itemize}
 
 \subsection{Backend}
 
@@ -738,17 +749,7 @@ Realizacja systemu wymagała zastosowania nowoczesnych technologii backendowych,
     \item \textbf{Uvicorn} - serwer ASGI obsługujący zapytania HTTP.
 \end{itemize}
 
-\subsection{Frontend}
 
-\begin{itemize}
-    \item \textbf{React} - biblioteka wykorzystywana do tworzenia interaktywnych interfejsów użytkownika.
-    \item \textbf{TypeScript} - rozszerzenie JavaScript umożliwiające statyczne typowanie.
-    \item \textbf{Vite} - bundler odpowiedzialny za budowanie i szybkie uruchamianie aplikacji.
-    \item \textbf{Tailwind CSS} - framework ułatwiający projektowanie responsywnego interfejsu.
-    \item \textbf{Node.js} - środowisko wykonawcze dla narzędzi JavaScript.
-    \item \textbf{npm} - menedżer pakietów odpowiedzialny za instalację zależności.
-    \item \textbf{ESLint} - narzędzie do analizy i kontroli jakości kodu TypeScript i JavaScript.
-\end{itemize}
 
 \subsection{Modelowanie i narzędzia wspomagające}
 
@@ -761,17 +762,17 @@ Realizacja systemu wymagała zastosowania nowoczesnych technologii backendowych,
 
 \section{Metodyka pracy}
 
-Prace nad projektem realizowano iteracyjnie, zgodnie z podejściem zbliżonym do metodyki Agile. Każda iteracja obejmowała:
+Prace nad projektem prowadzono w sposób iteracyjny, bazując na podejściu zbliżonym do metodyki Agile. Każdy cykl rozwoju obejmował:
 
 \begin{itemize}
-    \item Analizę oraz doprecyzowanie wymagań pod standardy rynkowe,
-    \item Projekt danej części funkcjonalnych systemu,
-    \item Implementację odpowienio nowych modułów backendu i frontendu,
-    \item Testowanie, w przeznaczonym do tego środowsiku, poprawności działania,
-    \item Refaktoryzację oraz optymalizację kodu.
+    \item analizę oraz doprecyzowanie wymagań pod standardy rynkowe,
+    \item projekt danej części funkcjonalnych systemu,
+    \item implementację odpowienio nowych modułów backendu i frontendu,
+    \item testowanie, w przeznaczonym do tego środowsiku, poprawności działania,
+    \item refaktoryzację oraz optymalizację kodu.
 \end{itemize}
 
-Podejście iteracyjne pozwoliło na równoległe rozwijanie bazy danych, backendu oraz interfejsu użytkownika, a także na bieżącą reakcję na problemy i dopasowywanie projektu do napotkanych wyzwań.
+Takie podejście umożliwiło równoległe rozwijanie bazy danych, logiki serwera i interfejsu użytkownika, a także szybkie reagowanie na pojawiające się problemy i dostosowywanie projektu do bieżących potrzeb oraz wyzwań.
 
 
 
@@ -828,7 +829,7 @@ Podejście iteracyjne pozwoliło na równoległe rozwijanie bazy danych, backend
 % TODO
 \chapter{Specyfikacja wewnętrzna}
 \label{ch:05}
-
+\newpage
 
 % Jeśli „Specyfikacja wewnętrzna”:
 % \begin{itemize}
@@ -880,34 +881,34 @@ Aplikacja powstała jako odpowiedź na nieustannie poszerzający się rynek podz
 Celem powstania aplikacji było stworzenie i następne wdrożenie systemu webowego, mającego za zadanie uproszczenie samodzielnego składania zestawów komputerowych poprzez inteligentną asekurację podczas tego procesu. Jego celem jest eliminacja jak potencjalnie jak największej ilości błędów po stronie użytkowików. \\
 Aplikację projektowano z myślą o:
 \begin{itemize}
-    \item Intuicyjnym wyborze komponetów z katalogu,
-    \item Automatycznej weryfikacji kompatybilności,
-    \item Wsparciu w dopasowaniu sprzętu do potrzeb, używając logiki rozmytej,
-    \item Możliwości zapisaniu kompatybilnego zestawu oraz o jego zamówieniu.
+    \item intuicyjnym wyborze komponetów z katalogu,
+    \item automatycznej weryfikacji kompatybilności,
+    \item wsparciu w dopasowaniu sprzętu do potrzeb, używając logiki rozmytej,
+    \item możliwości zapisaniu kompatybilnego zestawu oraz o jego zamówieniu.
 \end{itemize}
 \newpage
 \subsection{Innowacyjność systemu}
 Aplikacja powstała jako inteligenty kreator zestawów komputerowych, składający się z mechanizmów weryfikacji oraz wspomagania decyzji, podczas gdy podobnych rozwiązań nie sposób znaleźć w najpopularniejszych polskich sklepach komputerowych. \\
 Innowacyjność aplikacji wynika z:
 \begin{itemize}
-    \item Automatycznej weryfikacji kompatybilności, obejmującej wszystkie powszechne znane parametry, takie jak:
+    \item automatycznej weryfikacji kompatybilności, obejmującej wszystkie powszechne znane parametry, takie jak:
     \begin{itemize}
-        \item Socket procesora i płyty głownej,
+        \item socket procesora i płyty głownej,
         \item typ pamięci RAM,
         \item format obudowy,
         \item maksymalna suma obciążenia dla konkretnego zasilania,
         \item fizyczne wymiary elementów,
         \item kompatybilność portów, gniazd oraz złącz.
     \end{itemize}
-    \item Zastosowania logiki rozmytej, umożliwiającej dobranie odpowiedniego zestawu pod indywidualne potrzeby, dzieląc je na:
+    \item zastosowania logiki rozmytej, umożliwiającej dobranie odpowiedniego zestawu pod indywidualne potrzeby, dzieląc je na:
     \begin{itemize}
-        \item Budżet,
+        \item budżet,
         \item wydajność,
         \item energooszczędność,
         \item przeznaczenie.
     \end{itemize}
-    \item Zapewnionego nieustannego monitorowania stanu aplikacji, dbając o wysoką dostępność serwisu i jego wydajność,
-    \item Potencjału rozbudowywania aplikacji w rzeczywistym środowisku produkcyjnym, poprzez dbanie o skalowalność i integralność z najnowszymi technologiami.
+    \item zapewnionego nieustannego monitorowania stanu aplikacji, dbając o wysoką dostępność serwisu i jego wydajność,
+    \item potencjału rozbudowywania aplikacji w rzeczywistym środowisku produkcyjnym, poprzez dbanie o skalowalność i integralność z najnowszymi technologiami.
 \end{itemize}
 
 
@@ -934,7 +935,7 @@ Frontend aplikacji pełni ważną funkcję w funckjonowaniu każdego systemu, po
 Inteligentny kreator zestawów komputerowych to jednostronicowy typ aplikacji webowej, dzięki czemu przełączanie widoku następuje dynamicznie bez konieczności ponownego ładowania zasobów. Takie rozwiązanie gwarantuje wysoką wydajność, prostotę oraz komfort użytkowania.
 \\ Zadania realizowane przez interfejs:
 \begin{itemize}
-    \item Prezentacja katalogu produktów, pobieranych dynamicznie z backendu,
+    \item prezentacja katalogu produktów, pobieranych dynamicznie z backendu,
     \item wybranie komponentów do przeniesienia z katalogu do kreatora,
     \item obsługa koszyka, dodawanie, modyfikowanie i usuwanie elementów,
     \item reakcja na działania użytkownika wykorzysując React Hooks,
@@ -945,7 +946,7 @@ Inteligentny kreator zestawów komputerowych to jednostronicowy typ aplikacji we
 Za wygląd zgodny ze standardami rynkowymi odpowiedzialny jest Tailwind CSS, gwarantując responwyność i estetykę rozwiązania. Framework umożliwia konfigurację i nadawanie stylów bezpośrednio w komponentach poprzez gotowe klasy utility. Takie rozwiązanie zapewnia intuicyjne i dynamiczne UI. Za komunikację z backendem odpowiada REST API poprzez zapytania realizowane biblioteką fetch API. Każda interakcja ze stroną powoduje wywołanie właściwego endpoint'u, co dynamicznie aktualizuje stan aplikacji, w tym bazę danych. Projekt wdrożony został w chmurze Microsoft Azure, jako Azure Static Web App, pełniącej rolę hostingu. Takie rozwiązanie umożliwia automatyzację CI/CD, co przekłada się na bezproblemowość i stabilność. Całość stacku techologicznego zapewnia wysoką dostępność aplikacji oraz łatwość korzystania i zarządzania.\\
 Projekt frontendu powstał z myślą o:
 \begin{itemize}
-    \item Przejrzystości interfejsu,
+    \item przejrzystości interfejsu,
     \item prostocie korzystania,
     \item szybkości działania.
 \end{itemize}  
@@ -959,17 +960,133 @@ Takie podejście powoduje, że aplikacja jest łatwa w utrzymaniu, skalowalna, w
 % Moduł użytkownika
 % Moduł kompatybilności
 % Moduł koszyka / zamówień
+Backend, jako jeden z filarów każdej aplikacji, odpowiada za logikę projektu, przetwarzanie danych oraz za kluczową komunikację kodu z bazą danych. Implementacja w języku Python, z wykorzystaniem frameworka FastAPI zapewnia nowoczesność i wydajność usług sieciowych, gwarantując przejrzystość, skalowalność oraz integralność z frontendem. Backend pełni funckję warstwy pośredniczącej pomiędzy interfejsem a bazą danych, gdzie żądania od strony użytkownika są nieustannie przetwarzane, a następnie przekazywane do odpowiednich modułów. Zwracana odpowiedź, w formacie JSON, umożliwia płynną komunikację w architekturze aplikacji.
+\\
+Struktura omawianej warstwy zawiera następujące moduły funckjonalne:
+\begin{itemize}
+    \item moduł autoryzacji i uwierzytelniania - odpowiada za rejestrację, logowanie i odpowiednie weryfikowanie danych użytkownika. Wykorzystuje algorytm bcrypt do zapewnienia bezpieczeństwa haseł,
+    \item moduł zarządzania użytkownikami - umożliwia monitorowanie historii zamówień,
+    \item moduł katalogu produktów - umożlliwia przeglądanie oferty sklepu, pobieranie listy części, filtrowanie i sortowanie,
+    \item moduł kreatora - zapewnia możliwość zbierania danych o wybranych komponentach, gromadząc je w strukturze lokalnej sesji użytkownika, pozwalając na transport informacji z oferty do kreatora,
+    \item moduł weryfikacji kompatybilności - odpowiada za porówywanie parametrów elementów zestawu, analizując zgodność pomiędzy nimi, stanowiąc rdzeń i główną funckjonalność projektu,
+    \item moduł logiki rozmytej - odpowiedzialny jest za klasyfikację zestawu do jednej z kategorii,
+    \item moduł koszyka i zamówień - zadaniem tego modułu jest dodawanie elementów do koszyka, nieustanne monitorowanie jego stanu i modyfikowanie zawartości.
+\end{itemize}
 
+Komunikacja pomiędzy backendem a bazą danych zaprojektowana została przy pomocy SQLAlchemy, który pełni funckję warstwy ORM. Takie rozwiązanie zapewnia odwzorowanie struktury tabel w postaci obiektów, znacząco ułatwiając implementację logiki, minimalizując ryzyko błędów oraz zwiększająć bezpieczeństwo. Operacje wykonywane w ten sposób określamy jako bezpieczne i atomowe. Wdrożenie w postaci Azure App Service, zapewnia skalowalność, prostotę utrzymania oraz wysoką dostępność, co jest niezwykle istotne podczas projektowania aplikacji przeznaczonej dla klientów. Uruchamianie nowych wersji odbywa się automatycznie poprzez mechanizm stałej implementacji i stałego dostarczania, znanego szerzej jako CI/CD.
+
+\newpage
+
+Backend zaprojektowany został z myślą o:
+\begin{itemize}
+    \item wysokiej wydajności,
+    \item przejrzystości kodu,
+    \item bezpieczeństwie danych,
+    \item skalowalności,
+    \item niezawodności,
+    \item wysokiej dostępności.
+\end{itemize}
+
+Realiazcja tej części projektu w sposób opisany powyżej stanowi stabilną i skalowalną podstawę działania aplikacji, gwarantując poprawne komunikowanie się żądań użytkownika z bazą danych.
 \subsection{Baza danych}
 % PostgreSQL – organizacja danych
 % Tabele i relacje w bazie
 % Hosting w Microsoft Azure
-\subsection{Infrastruktura chmurowa}
 
-\section{Opis struktur danych}
+Baza danych jest fundamentem każdej aplikacji biznesowej, gdyż odpowiedzialna jest za trwałe przechowywanie informacji o użytkownikach, produktach oraz zamówieniach. Zaprojektowana została  w oparciu o zasady normalizacji oraz analizę charakterystycznych właściwości komponentów, zapewniając integralność danych oraz efektywne weryfikowanie kompatybilności elementów.
+\vspace{0.5cm}
+\\
+Model i schemat danych zaprojektowany został przy uzyciu Oracle SQL Developer Data Modeler, co umożliwiło utworzenie diagramu ERD oraz autmatyczne wygenerowanie definicji tabel. Wyeksportowana baza jako plik DDL wdrożona została do środowiska DataGrip, w którym wypełniono ją przygotowanymi INSERT'ami, zaciągniętymi z publicznego repozetorium komponentów\cite{pc_git}, w celu implementacji danych produktów. System operował w oparciu o PostgreSQL, pełniacy funkcję środowiska testowego wykorzystywanego do sprawnego implementowania backendu i modułów logiki. Gdy projekt przeszedł do etapu wdrożenia produkcyjnego, baza danych została zmigrowana do chmury Microsoft Azure, korzystając z gotowych poleceń podanych w dokumentacji Microsoft Azure\cite{azure_mig}. Przeniesiona struktura zaimplementowana została jako Azure PostgreSQL Database, co dzięki funkcjonalności grupowania zasobów Azure zapewnia integrację z produkcyjną wersją backendu uruchomioną w Azure App Service.
+\newpage
+Baza Danych spełnia wymagi trzeciej postaci normalnej (3NF), co oznacza, że nie zawiera redundancji danych, wszystkie atrybuty niekluczowe są w pełni zależne od klucza głównego właściwych tabel. Właściwość ta pozwala na:
+\begin{itemize}
+    \item zminimalizowanie ryzyka niespójnych danych,
+    \item zwiększenie wydajności zapytań,
+    \item eleminację duplikatów.
+\end{itemize}
+\vspace{0.5cm}
+
+Kluczową rolę w bazie danych pełni tabela Produkty, bedąc ogólnym rejestrem wszystkich komponentów dostępnych w ofercie. Przechowuje ona podstawowe informacje o produktach, natomiast szczegółowe parametry znajdują się w dedykowanych tabelach zależnych od typu podzespołu. Takie rozwiązanie eleminuje redundację danych oraz dodaje przejrzystości do przechowywania właśiwości.
+\vspace{0.5cm}
+\\
+W celu przechowywania wielu komponentów w jednym zestawie, koszyku lub zamówieniu zastosowano liczne relacje typu M:N, które zostały zrealizowane przy pomocy tabel łączących. Całość struktury została zabezpieczona kluczami obcymi, co zapewnia pełną integralność referencyjną oraz uniemożliwia tworzenie błędnych powiązań między danymi. Modularny charakter modelu umożliwia jego dalszy rozwój, w tym dodawanie nowych typów komponentów.
+\vspace{0.5cm}
+\\
+Dzięki zastosowaniu odpowiednich narzędzi, normalizacji oraz chmurowej infrastruktury Azure, baza danych stanowi stabilny i skalowalny fundament systemu, wspierający zarówno logikę kompatybilności, jak i zarządzanie koszykami, zamówieniami oraz zestawami użytkowników.
+\subsection{Infrastruktura chmurowa}
+Wybór infranstruktury chmurowej jest podstawowym aspketem każdego nastawionego na wysoką dostepność projektu. Chmura Microsoft Azure gwarantuje skalowalność i bezpieczne środowisko, umożliwiając integrację z poszczególnymi komponentami systemu oraz automatyzację wdrażania kolejnych części aplikacji.
+
+Organizację pracy znacząco upraszcza ulokowanie środowiska produkcyjnego w oparciu o grupę zasobów Azure, która zbiera całość w jednej strukturze administracyjnej. Takie rozwiązanie gwarantuje intuicyjne i kontrolowane zarządzanie usługami, co pozwala nieprzerwanie monitorować zużycie zasobów oraz koszty serwisu.
+\newpage
+Projekt operował na kredytach Azure o równowartości 100 USD, przyznanych przez Microsoft w ramach programu Azure for Students, pozwalając na wdrożenie aplikacji bez generowania dodatkowych kosztów. Środki te umożliwiły
+uruchomienie wszystkich wymaganych usług, takich jak:
+\begin{itemize}
+    \item Azure App Service,
+    \item Azure Static Web App,
+    \item Azure Database for PostgreSQL.
+\end{itemize}
+
+\subsubsection{Azure Static Web App}
+Warstwa frontend'u zaimplementowana została w usłudze Static Web Apps, co umożliwiło prezentowanie strony w sieci Internet. Usługa ta obsługuje:
+\begin{itemize}
+    \item automatyzację CI/CD,
+    \item integrację z backendem.
+\end{itemize}
+\vspace{0.5cm}
+Stanowi to lekkie, skalowalne rozwiązanie, zapewniając obsługę wielu użytkowników jednocześnie.
+\subsubsection{Azure App Service}
+Warstwa backend'u została wdrożona przy użyciu usługi App Service. Oparty na frameworku'u FastAPI i języku Python osadzona została jako aplikacja, działając na serwerze automatyzowanym przez usługi Azure, zapewniając dzięki temu:
+\begin{itemize}
+    \item uproszczone wdrażanie aktualizacji,
+    \item zarządzanie środowiskiem wykonawczym,
+    \item integrację z usługami monitorującymi Azure,
+    \item stabilność,
+    \item wysoką dostępność.
+\end{itemize}
+\vspace{0.5cm}
+Takie rozwiązanie uodparnia backend na obciążenia i znacząco redukuje wkład użytkownika w administrację w czasie rzeczywistym.
+\subsubsection{Azure Database for PostgreSQL}
+Dane o podzespołach przetrzymywane są w usłudze Azure Database for PostgreSQL, zapewniając środowisko do zarządzania relacyjnymi bazami danych. Wdrożenie polegało na zmigrowaniu bazy PostgreSQL do Azure \cite{azure_mig}, obejmując elementy takie jak:
+\begin{itemize}
+    \item eskport struktury i danych,
+    \item dostosowanie typów danych,
+    \item weryfikację integralności.
+\end{itemize}
+
+Rozwiązanie to zapewnia dostęp do bazy z dowolnego urządzenia, gwarantując elastyczność pracy i wysoką niezawodność. Przetrzymywanie danych w chmurze daje możliwość elastycznego dostępu do danych zależnie od potrzeb, redukując koszty utrzymania. 
+
+\subsubsection{Azure Monitor}
+Aplikacja jest monitorowana w czasie rzeczywistym za pomocą usług:
+\begin{itemize}
+    \item Azure Monitor,
+    \item Aplication Insights.
+\end{itemize}
+Takie rozwiązanie umożliwia nieustanne wykrywanie problemów, reagowanie na zwiększony ruch oraz automatyzację dopasowywania zasobów do aktualnych potrzeb.
+
+\subsubsection{Koszty i optymalizacja}
+W trakcie wdrażania przeanalizowany został potencjalny koszt utrzymania aplikacji, dobierając odpowiednie rozwiązania, o możliwie niskich paramterach z uwagi na niski poziom ruchu na stronie. Wprowadzone modyfikacje nie mają wpływu na funkcjonalność, pozwalają one na oszczędność środków, których zużycie nawet na średnich komponentach przekracza założony budżet. Wybrane do tego zostały następujące rozwiązania:
+\begin{itemize}
+    \item wybranie maszyny wirtualnej o najniższych możliwych parametrach,
+    \item ustawienie automatycznego usypiania systemu w przypadku ruchu poniżej progu zdefiniowanego ręcznie,
+    \item ograniczenie ruchu sieciowego do testowej podsieci wirutalnej.
+\end{itemize}
+
+W ten sposób możliwe stało się zmieszczenie w oferowanych przez Microsoft kredytach, ale również przygotowało projekt do ewentualnych przyszłych modyfikacji.
+\subsubsection{Architektura logiczna}
+Infrastruktura została umieszczona w jednej grupie zasobów, umożliwiając spójne zarządzanie, wzajemny dostęp do zasobów oraz przystępną modyfikacje pojedyńczych modułów.
+Działanie infrastruktury przebiega w następujący sposób:
+\begin{itemize}
+    \item połączenie użytkownika z frontendem (Static Web App),
+    \item komunikacja na linii frontend - backend (RestAPI),
+    \item komunikacja na linii backend - Baza PostgreSQL,
+    \item monitorowanie komponentów, zwracanie dedykowanych logów, które analizowane przez Azure Monitor dostosowywują parametry aplikacji.
+\end{itemize}
+Taki sposób implementacji zapewnia wysoką wydajność, stabilność, skalowalność oraz integralność, czyniąc aplikację gotową do działania w produkcyjnym środowisku.
+\newpage
+\section{Baza danych}
 % Opis danych wykorzystywanych w systemie
 % Główne encje: procesory, płyty główne, GPU, RAM, zasilacze...
-\newpage
+
 \subsection{Model danych - ERD}
 
 \begin{figure}[H]
@@ -978,10 +1095,167 @@ Takie podejście powoduje, że aplikacja jest łatwa w utrzymaniu, skalowalna, w
     \caption{Diagram ERD bazy danych}
     \label{fig:erd}
 \end{figure}
-\ref{fig:etykieta-rysunku} przestawia …
-% omówienie kluczowych relacji.
+
+Na rysunku przedstawiono diagram ERD bazy danych systemu sklepu komputerowego 
+z kreatorem zestawów PC. Model odzwierciedla główne obszary funkcjonalne:
+aplikacji
+\begin{itemize}
+    \item zarządzanie klientami,
+    \item zarządzanie produktami,
+    \item zarządzanie koszykami,
+    \item zarządzanie zamówieniami.
+\end{itemize}
+
+Centralne miejsce w diagramie zajmuje tabela Produkty, pełniąca rolę nadrzędnego 
+rejestru wszystkich pozycji dostępnych w systemie. Zawiera ona podstawowe 
+informacje o każdym produkcie, takie jak nazwa, typ oraz cena, natomiast 
+szczegółowe parametry techniczne przechowywane są w dedykowanych tabelach 
+odpowiadających konkretnym kategoriom sprzętu: CPU, GPU, RAM, MOBO, PSU, 
+COOLER, DYSK oraz CASE. Każda z tych tabel posiada klucz obcy wskazujący na 
+rekord w tabeli Produkty, co pozwala uniknąć redundancji danych oraz ułatwia 
+zarządzanie wspólnymi atrybutami produktów.
+\newpage 
+Relacje związane z procesem zakupowym odwzorowane są poprzez tabele Klienci, 
+Koszyk, Zamówienia oraz Zestawy. Każdy klient może posiadać wiele koszyków, 
+zamówień oraz zapisanych zestawów, co odzwierciedlono relacjami 1:N. 
+Zawartość koszyka, zamówienia oraz zestawu została zrealizowana za pomocą tabel 
+łączących Koszyk\_Produkty, Zamówienia\_Produkty oraz Zestawy\_Produkty, które 
+przechowują pary identyfikatorów produktu i obiektu nadrzędnego wraz z 
+informacją o liczbie sztuk. Umożliwia to poprawne odwzorowanie relacji 
+wiele-do-wielu pomiędzy produktami a koszykami, zamówieniami i zestawami.
+\vspace{0.5cm}
+\\
+Istotnym elementem modelu są tabele socket oraz cooler\_socket, pełniące rolę 
+słowników technicznych wykorzystywanych w logice kompatybilności. Tabela 
+socket przechowuje informacje o typach gniazd procesorów, natomiast tabela 
+cooler\_socket łączy coolery z obsługiwanymi przez nie socketami. Rozwiązanie to 
+umożliwia powiązanie procesorów, płyt głównych oraz systemów chłodzenia oraz 
+ułatwia implementację reguł sprawdzających zgodność komponentów.
+\vspace{0.5cm}
+\\
+Zaprojektowany model danych zachowuje spójność referencyjną dzięki zastosowaniu 
+kluczy głównych i obcych, a rozdzielenie danych ogólnych i szczegółowych na 
+osobne tabele umożliwia utrzymanie bazy w co najmniej trzeciej postaci normalnej. 
+Takie podejście ułatwia dalszą rozbudowę systemu o nowe typy podzespołów oraz 
+dodatkowe funkcje biznesowe, jednocześnie zapewniając integralność i wysoką 
+jakość przechowywanych danych.
+
+
+\newpage 
 
 \subsection{Opis najważniejszych encji}
+
+\subsubsection{Tabela produkty}
+
+Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie danych jest tabela produkty. Kluczem tabeli jest id\_prod, klucz ten podstawą działania aplikacji. Encja produkty zawiera również pełną nazwę produktu w typie varchar, typ produktu, który umożliwia prowadzenie poprawnych operacji w kreatorze zestawów, stanowiąc pole odpowiedzialne za łączenie odpowiednich tabel z dodatkowymi danymi konkrentego produktu, zależnie od jego rodzaju. Tabela zawiera również kolumnę cena w typie numeric, który wybrano w celu zachowania spójności działania programu.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_produkty.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela Produkty w programie DataGrip}
+    \label{fig:tabela_produkty}
+\end{figure}
+
+\newpage 
+
+\subsubsection{Tabela Klienci}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_klienci.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela Klienci w programie DataGrip}
+    \label{fig:tabela_klienci}
+\end{figure}
+
+\newpage 
+\subsubsection{Tabela Koszyk}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_koszyk.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela Koszyk w programie DataGrip}
+    \label{fig:tabela_koszyk}
+\end{figure}
+
+\newpage 
+\subsubsection{Tabela Zamówienia}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_zamowienia.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela Zamówienia w programie DataGrip}
+    \label{fig:tabela_zamowienia}
+\end{figure}
+
+\newpage 
+\subsubsection{Tabela Zestawy}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_zestawy.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela Zestawy w programie DataGrip}
+    \label{fig:tabela_zestawy}
+\end{figure}
+\newpage 
+\subsubsection{Tabela GPU}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_gpu.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela GPU w programie DataGrip}
+    \label{fig:tabela_gpu}
+\end{figure}
+
+\newpage 
+\subsubsection{Tabela CPU}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_cpu.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela CPU w programie DataGrip}
+    \label{fig:tabela_cpu}
+\end{figure}
+
+\newpage 
+\subsubsection{Tabela MOBO}
+\newpage 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_mobo.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela MOBO w programie DataGrip}
+    \label{fig:tabela_mobo}
+\end{figure}
+
+\newpage 
+\subsubsection{Tabela RAM}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_ram.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela RAM w programie DataGrip}
+    \label{fig:tabela_ram}
+\end{figure}
+
+\newpage 
+\subsubsection{Tabela PSU}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_psu.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela PSU w programie DataGrip}
+    \label{fig:tabela_psu}
+\end{figure}
+
+\newpage 
+\subsubsection{Tabela Cooler}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_cooler.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela Cooler w programie DataGrip}
+    \label{fig:tabela_cooler}
+\end{figure}
+
+\newpage 
+\subsubsection{Tabela Dysk}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/tabela_dysk.png} % tu ścieżka do Twojego pliku
+    \caption{Tabela Dysk w programie DataGrip}
+    \label{fig:tabela_dysk}
+\end{figure}
+
+
 % Każda encja w 2–3 zdaniach:
 % Produkty, Kategorie, Użytkownicy, Zamówienia, Parametry techniczne.
 

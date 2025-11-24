@@ -17,6 +17,21 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global/global}
+  \entry{azure_mig}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{Migrate PostgreSQL to Azure Database for PostgreSQL using Azure Database Migration Service}
+    \verb{url}
+    \verb https://learn.microsoft.com/en-us/azure/dms/tutorial-postgresql-azure
+    \verb -postgresql-online-portal
+    \endverb
+    \field{year}{2025}
+    \field{urlday}{12}
+    \field{urlmonth}{10}
+    \field{urlyear}{2025}
+  \endentry
+
   \entry{morele}{online}{}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{M}
@@ -28,6 +43,20 @@
     \field{year}{2025}
     \field{urlday}{17}
     \field{urlmonth}{11}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{pc_git}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{PC Part Dataset - Public Hardware Dataset for Computer Components}
+    \verb{url}
+    \verb https://github.com/docyx/pc-part-dataset
+    \endverb
+    \field{year}{2025}
+    \field{urlday}{11}
+    \field{urlmonth}{09}
     \field{urlyear}{2025}
   \endentry
 
