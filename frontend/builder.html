@@ -53,8 +53,48 @@
   <script src="assets/compat.js" defer></script>
   <script src="assets/app.js" defer></script>
   <script src="assets/cart_count.js" defer></script>
-  <link rel="stylesheet" href="react-dist/assets/index-D9gpYFuC.css">
-  <script type="module" src="react-dist/assets/index-7vr8oEBF.js"></script>
+  <link rel="stylesheet" href="react-dist/assets/index-XXXXX.css">
+  <script type="module" src="react-dist/assets/index-YYYYY.js"></script>
+  <script>
+(async () => {
+  const base = 'react-dist/';
+  try {
+    // pobierz wygenerowany przez Vite plik HTML z aktualnymi hashami
+    const res = await fetch(base + 'index.html', { cache: 'no-store' });
+    if (!res.ok) throw new Error('fetch failed: ' + res.status);
+    const html = await res.text();
+
+    // wyciągnij <link rel="stylesheet" href="assets/index-*.css">
+    const cssLinks = [...html.matchAll(/<link[^>]+rel=["']stylesheet["'][^>]+href=["']([^"']+)["']/gi)]
+      .map(m => m[1]);
+
+    // wyciągnij <script type="module" src="assets/index-*.js">
+    const jsMatch = html.match(/<script[^>]+type=["']module["'][^>]+src=["']([^"']+)["']/i);
+    const jsSrc = jsMatch && jsMatch[1];
+
+    // dołącz CSS-y
+    cssLinks.forEach(href => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      // dopnij do ścieżki bazowej react-dist/ (gdyby href był względny)
+      link.href = href.startsWith('http') ? href : (base + href.replace(/^\.?\/*/, ''));
+      document.head.appendChild(link);
+    });
+
+    // dołącz JS (module)
+    if (jsSrc) {
+      const s = document.createElement('script');
+      s.type = 'module';
+      s.src = jsSrc.startsWith('http') ? jsSrc : (base + jsSrc.replace(/^\.?\/*/, ''));
+      document.body.appendChild(s);
+    } else {
+      console.error('Nie znaleziono <script type="module"> w react-dist/index.html');
+    }
+  } catch (e) {
+    console.error('React loader error:', e);
+  }
+})();
+</script>
 
   <script src="assets/react-bridge.js"></script>
 </body>

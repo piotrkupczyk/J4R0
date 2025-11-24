@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends
-from app.routers import products,gpus,cart,coolers,sockets,auth
+from app.routers import products,gpus,cart,coolers,sockets,auth,builder
 from app.database import engine
 from app import models
 from fastapi.middleware.cors import CORSMiddleware
@@ -39,6 +39,7 @@ app.include_router(sockets.router)
 app.include_router(auth.router)
 app.include_router(auth_router.router)
 app.include_router(orders_router.router)
+app.include_router(builder.router)
 
 @app.get("/")
 def root():

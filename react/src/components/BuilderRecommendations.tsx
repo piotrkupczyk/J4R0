@@ -1,9 +1,10 @@
 // src/components/BuilderRecommendations.tsx
 import { useEffect, useMemo, useState } from "react";
 import { getCatalog } from "../lib/api";
-import type { Produkt } from "../types";
+import type { Produkt, TypProduktu } from "../types";
 
 type PcKind = "office" | "standard" | "gaming";
+
 type Props = {
   pcType: PcKind | null;
   gpuFamily: string | null;
@@ -12,11 +13,13 @@ type Props = {
   gpuVram: number | null;
   ram: string | null;
   storage: string | null;
+  build: Partial<Record<TypProduktu, Produkt>>;
+  onPickPart?: (type: TypProduktu, produkt: Produkt) => void;
 };
 
-const DEBUG_SHOW_ALL = true; // tryb debug: bez filtrów, pokaż wszystko
+const DEBUG_SHOW_ALL = false; // MUST HAVE: filtry są WŁĄCZONE
 
-// ——— Pomocnicze: liczby z tekstów typu "1 TB", "512GB" — (na razie używane tylko w meta, jak chcesz)
+// ——— pomocnicze: liczba z "32 GB", "1 TB" itp. ———
 function toNum(v: unknown): number | null {
   if (v == null) return null;
   if (typeof v === "number" && !Number.isNaN(v)) return v;
@@ -25,7 +28,7 @@ function toNum(v: unknown): number | null {
   return m ? Number(m[1]) : null;
 }
 
-// ——— Adapter API -> Produkt (polskie klucze + normalizacja typu) ———
+// ——— mapowanie typu z API -> enum typu produktu ———
 function mapType(raw: any): Produkt["typ"] {
   const t = String(raw?.typ ?? raw?.type ?? "").toLowerCase();
   switch (t) {
@@ -45,12 +48,12 @@ function mapType(raw: any): Produkt["typ"] {
     case "cooler":
     case "cooling": return "COOLER";
     default:
-      // spróbuj dopasować po innych polach (awaryjnie)
       if (raw?.sizeGB != null || raw?.readMBs != null || raw?.writeMBs != null) return "DYSK";
       return (t.toUpperCase() as Produkt["typ"]) || "CPU";
   }
 }
 
+// ——— adapter danych API -> Produkt ———
 function adaptToProdukt(api: any): Produkt {
   const typ = mapType(api);
   const wspolne = {
@@ -63,15 +66,14 @@ function adaptToProdukt(api: any): Produkt {
   if (typ === "DYSK") {
     return {
       ...wspolne,
-      interfejs: api.interfejs ?? api.iface ?? null,         // "SATA 6Gb/s", "PCIe x4"
-      format: api.format ?? api.formFactor ?? null,           // "M.2-2280", "2.5", "3.5", "mSATA"
-      pojemnosc_gb: toNum(api.pojemnosc_gb ?? api.sizeGB),    // 128, 512, 1000, 6000...
+      interfejs: api.interfejs ?? api.iface ?? null,
+      format: api.format ?? api.formFactor ?? null,
+      pojemnosc_gb: toNum(api.pojemnosc_gb ?? api.sizeGB),
       predkosc_odczytu: toNum(api.predkosc_odczytu ?? api.readMBs),
       predkosc_zapisu: toNum(api.predkosc_zapisu ?? api.writeMBs),
     } as Produkt;
   }
 
-  // Minimalne mapowanie dla pozostałych (rozszerzysz później)
   if (typ === "CPU") {
     return {
       ...wspolne,
@@ -153,7 +155,110 @@ function adaptToProdukt(api: any): Produkt {
   return wspolne as Produkt;
 }
 
-export default function BuilderRecommendations({ pcType }: Props) {
+// ——— filtrowanie po preferencjach użytkownika ———
+function passesFilters(
+  p: Produkt,
+  opts: Pick<
+    Props,
+    "pcType" | "gpuFamily" | "cpuVendor" | "socket" | "gpuVram" | "ram" | "storage"
+  >
+): boolean {
+  const { pcType, gpuFamily, cpuVendor, socket, gpuVram, ram, storage } = opts;
+
+  // 1) Ogólny filtr zależny od typu komputera
+  if (pcType === "office") {
+    // biurowy – nie pokazujemy dedykowanych GPU
+    if (p.typ === "GPU") {
+      return false;
+    }
+    // CPU raczej chłodne
+    if (p.typ === "CPU" && p.tdp != null && p.tdp > 80) {
+      return false;
+    }
+  }
+
+  if (pcType === "gaming") {
+    // gaming – wymagamy sensownej karty
+    if (p.typ === "GPU" && p.vram != null && p.vram < 8) {
+      return false;
+    }
+    // RAM co najmniej 16 GB
+    if (p.typ === "RAM" && p.pojemnosc_total != null && p.pojemnosc_total < 16) {
+      return false;
+    }
+  }
+
+  // 2) GPU – vendor + minimalny VRAM
+  if (p.typ === "GPU") {
+    if (gpuFamily) {
+      const n = p.nazwa.toLowerCase();
+      if (gpuFamily === "nvidia" && !n.includes("rtx") && !n.includes("gtx") && !n.includes("nvidia")) {
+        return false;
+      }
+      if (gpuFamily === "amd" && !n.includes("rx") && !n.includes("radeon") && !n.includes("amd")) {
+        return false;
+      }
+      if (gpuFamily === "intel" && !n.includes("intel") && !n.includes("arc")) {
+        return false;
+      }
+    }
+    if (gpuVram != null && p.vram != null && p.vram < gpuVram) {
+      return false;
+    }
+  }
+
+  // 3) CPU – vendor + socket
+  if (p.typ === "CPU") {
+    if (cpuVendor && !p.nazwa.toLowerCase().includes(cpuVendor.toLowerCase())) {
+      return false;
+    }
+    if (socket && p.socket && p.socket !== socket) {
+      return false;
+    }
+  }
+
+  // 4) MOBO – socket
+  if (p.typ === "MOBO") {
+    if (socket && p.socket && p.socket !== socket) {
+      return false;
+    }
+  }
+
+  // 5) RAM – minimalna pojemność (32 GB, 16 GB itd.)
+  if (p.typ === "RAM" && ram) {
+    const selected = toNum(ram); // np. 32 z "32 GB"
+    const capacity = p.pojemnosc_total ?? null;
+    if (selected && capacity && capacity < selected) {
+      return false;
+    }
+  }
+
+  // 6) DYSK – minimalna pojemność dysku
+  if (p.typ === "DYSK" && storage) {
+    const selected = toNum(storage); // np. 512 z "512 GB SSD"
+    const capacity = p.pojemnosc_gb ?? null;
+    if (selected && capacity && capacity < selected) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+
+/* === KOMPONENT GŁÓWNY === */
+
+export default function BuilderRecommendations(props: Props) {
+  const {
+    pcType,
+    gpuFamily,
+    cpuVendor,
+    socket,
+    gpuVram,
+    ram,
+    storage,
+  } = props;
+
   const [items, setItems] = useState<Produkt[]>([]);
 
   useEffect(() => {
@@ -164,7 +269,6 @@ export default function BuilderRecommendations({ pcType }: Props) {
         const mapped: Produkt[] = (Array.isArray(raw) ? raw : (raw as any)?.items ?? [])
           .map(adaptToProdukt);
         if (alive) {
-          // Debug: zobacz jakie typy przyszły
           console.debug("Katalog debug (typy):", Array.from(new Set(mapped.map(x => x.typ))));
           setItems(mapped);
         }
@@ -176,43 +280,85 @@ export default function BuilderRecommendations({ pcType }: Props) {
     return () => { alive = false; };
   }, []);
 
-  // Debug: zero filtrów
-  const filtered = useMemo(() => (DEBUG_SHOW_ALL ? items : items), [items]);
+  const filtered = useMemo(
+    () =>
+      DEBUG_SHOW_ALL
+        ? items
+        : items.filter((p) =>
+            passesFilters(p, { pcType, gpuFamily, cpuVendor, socket, gpuVram, ram, storage })
+          ),
+    [items, pcType, gpuFamily, cpuVendor, socket, gpuVram, ram, storage]
+  );
 
   const Section = ({ title, type }: { title: string; type: Produkt["typ"] }) => {
-    const list = filtered.filter(it => it.typ === type);
-    if (!list.length) return null;
-    return (
-      <div className="rounded-2xl border p-4 md:p-5"
-           style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
-        <div className="flex items-center justify-between mb-3">
-          <div className="text-base font-semibold">{title}</div>
-        </div>
-        <div className="space-y-3">
-          {list.map(it => (
-            <div key={`${type}-${it.id}`}
-                 className="flex items-center gap-3 p-3 rounded-xl border"
-                 style={{ borderColor: "var(--border)",
-                          background: "color-mix(in oklab, var(--surface) 85%, transparent)" }}>
-              <div className="h-10 w-10 rounded-lg"
-                   style={{ background: "color-mix(in oklab, var(--surface) 60%, transparent)" }} />
+  const list = filtered.filter((it) => it.typ === type);
+  if (!list.length) return null;
+
+  return (
+    <div
+      className="rounded-2xl border p-4 md:p-5"
+      style={{ borderColor: "var(--border)", background: "var(--surface)" }}
+    >
+      <div className="flex items-center justify-between mb-3">
+        <div className="text-base font-semibold">{title}</div>
+      </div>
+
+      <div className="space-y-3">
+        {list.map((it) => {
+          const selected = props.build?.[type as TypProduktu]?.id === it.id;
+
+          return (
+            <div
+              key={`${type}-${it.id}`}
+              className="flex items-center gap-3 p-3 rounded-xl border"
+              style={{
+                borderColor: selected ? "var(--accent)" : "var(--border)",
+                background: selected
+                  ? "color-mix(in oklab, var(--accent) 10%, var(--surface))"
+                  : "color-mix(in oklab, var(--surface) 85%, transparent)",
+              }}
+            >
+              <div
+                className="h-10 w-10 rounded-lg"
+                style={{
+                  background:
+                    "color-mix(in oklab, var(--surface) 60%, transparent)",
+                }}
+              />
+
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-medium truncate">{it.nazwa}</div>
-                <div className="text-xs opacity-70 truncate">
-                  {metaFor(it)}
-                </div>
+                <div className="text-xs opacity-70 truncate">{metaFor(it)}</div>
               </div>
-              <button className="px-3 py-1.5 text-sm rounded-full border"
-                      style={{ borderColor: "var(--border)" }}
-                      onClick={() => console.log("Wybierz:", it)}>
-                Wybierz
+
+              <div className="text-sm font-semibold whitespace-nowrap">
+                {new Intl.NumberFormat("pl-PL", {
+                  style: "currency",
+                  currency: "PLN",
+                }).format(it.cena ?? 0)}
+              </div>
+
+              <button
+                className={`px-3 py-1.5 text-sm rounded-full border transition ${
+                  selected ? "bg-[var(--accent)] text-white" : ""
+                }`}
+                style={{
+                  borderColor: selected ? "var(--accent)" : "var(--border)",
+                  cursor: selected ? "default" : "pointer",
+                }}
+                disabled={selected}
+                onClick={() => !selected && props.onPickPart?.(type as TypProduktu, it)}
+              >
+                {selected ? "Wybrano ✓" : "Wybierz"}
               </button>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
-    );
-  };
+    </div>
+  );
+};
+
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -245,7 +391,9 @@ function metaFor(p: Produkt) {
         p.socket ? `Socket ${p.socket}` : null,
         p.tdp ? `TDP ${p.tdp}W` : null,
         p.rdzenie && p.watki ? `${p.rdzenie}/${p.watki} rd/wą` : null,
-      ].filter(Boolean).join(", ");
+      ]
+        .filter(Boolean)
+        .join(", ");
 
     case "GPU":
       return [
@@ -253,7 +401,9 @@ function metaFor(p: Produkt) {
         p.vram ? `${p.vram}GB ${p.gddr ?? ""}`.trim() : null,
         p.tdp ? `TDP ${p.tdp}W` : null,
         p.dlugosc ? `${p.dlugosc}mm` : null,
-      ].filter(Boolean).join(", ");
+      ]
+        .filter(Boolean)
+        .join(", ");
 
     case "MOBO":
       return [
@@ -262,52 +412,69 @@ function metaFor(p: Produkt) {
         p.chipset ?? null,
         p.format ?? null,
         p.sloty_m2 ? `M.2 ×${p.sloty_m2}` : null,
-      ].filter(Boolean).join(", ");
+      ]
+        .filter(Boolean)
+        .join(", ");
 
     case "RAM":
       return [
         p.ddr ?? null,
         p.taktowanie ? `${p.taktowanie} MHz` : null,
         p.clock_latency ? `CL${p.clock_latency}` : null,
-        (p.pojemnosc_total && p.liczba_modulow)
-          ? `${p.liczba_modulow}×${Math.round((p.pojemnosc_total / p.liczba_modulow))} GB`
-          : (p.pojemnosc_total ? `${p.pojemnosc_total} GB` : null),
+        p.pojemnosc_total && p.liczba_modulow
+          ? `${p.liczba_modulow}×${Math.round(
+              p.pojemnosc_total / p.liczba_modulow
+            )} GB`
+          : p.pojemnosc_total
+          ? `${p.pojemnosc_total} GB`
+          : null,
         (p as any).rgb ? "RGB" : null,
-        (p as any).profil === 0 ? "Low Profile" : (p as any).profil === 1 ? "High Profile" : null,
-      ].filter(Boolean).join(", ");
+        (p as any).profil === 0
+          ? "Low Profile"
+          : (p as any).profil === 1
+          ? "High Profile"
+          : null,
+      ]
+        .filter(Boolean)
+        .join(", ");
 
     case "PSU":
       return [
         p.moc ? `${p.moc}W` : null,
         p.certyfikat ?? null,
         (p as any).modularny ? "Modularny" : null,
-      ].filter(Boolean).join(", ");
+      ]
+        .filter(Boolean)
+        .join(", ");
 
     case "CASE":
       return [
         p.format ?? null,
         p.ilosc_wentylatorow ? `Wentylatory: ${p.ilosc_wentylatorow}` : null,
-        p.wysokosc ? `${p.wysokosc}×${p.szerokosc ?? ""}×${p.dlugosc ?? ""} mm`.replace(/×( |)mm$/, " mm") : null,
-        (p as any).rgb ? "RGB" : null,
-      ].filter(Boolean).join(", ");
+        p.wysokosc ? `${p.wysokosc}mm` : null,
+      ]
+        .filter(Boolean)
+        .join(", ");
+
+    case "COOLER":
+      return [
+        p.typ_coolera ?? null,
+        p.sockety ?? null,
+        p.wysokosc ? `${p.wysokosc}mm` : null,
+      ]
+        .filter(Boolean)
+        .join(", ");
 
     case "DYSK":
       return [
         p.interfejs ?? null,
         p.format ?? null,
-        (p as any).pojemnosc_gb ? `${(p as any).pojemnosc_gb >= 1000 ? (p as any).pojemnosc_gb / 1000 + " TB" : (p as any).pojemnosc_gb + " GB"}` : null,
-        (p as any).predkosc_odczytu ? `R: ${(p as any).predkosc_odczytu} MB/s` : null,
-        (p as any).predkosc_zapisu ? `W: ${(p as any).predkosc_zapisu} MB/s` : null,
-      ].filter(Boolean).join(", ");
-
-    case "COOLER":
-      return [
-        (p as any).typ_coolera ?? null,
-        p.wysokosc ? `${p.wysokosc}mm` : null,
-        p.ilosc_wentylatorow ? `Wentylatory: ${p.ilosc_wentylatorow}` : null,
-        (p as any).sockety?.length ? `Sockety: ${(p as any).sockety.join("/")}` : null,
-        (p as any).rgb ? "RGB" : null,
-      ].filter(Boolean).join(", ");
+        p.pojemnosc_gb ? `${p.pojemnosc_gb} GB` : null,
+        p.predkosc_odczytu ? `R: ${p.predkosc_odczytu} MB/s` : null,
+        p.predkosc_zapisu ? `W: ${p.predkosc_zapisu} MB/s` : null,
+      ]
+        .filter(Boolean)
+        .join(", ");
 
     default:
       return "";
