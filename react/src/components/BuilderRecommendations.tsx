@@ -13,6 +13,14 @@ type Props = {
   gpuVram: number | null;
   ram: string | null;
   storage: string | null;
+
+  // NOWE filtry
+  
+  ramModules: number | null;
+  moboWifi: boolean | null;
+  psuModular: boolean | null;
+  coolerType: "air" | "aio" | "water" | null;
+
   build: Partial<Record<TypProduktu, Produkt>>;
   onPickPart?: (type: TypProduktu, produkt: Produkt) => void;
 };
@@ -68,7 +76,12 @@ function adaptToProdukt(api: any): Produkt {
       ...wspolne,
       interfejs: api.interfejs ?? api.iface ?? null,
       format: api.format ?? api.formFactor ?? null,
-      pojemnosc_gb: toNum(api.pojemnosc_gb ?? api.sizeGB),
+      pojemnosc_gb: toNum(
+        api.pojemnosc_gb ??
+        api.pojemnosc ??        // jakby backend nazwał inaczej
+        api.capacity_gb ??
+        api.sizeGB
+      ),
       predkosc_odczytu: toNum(api.predkosc_odczytu ?? api.readMBs),
       predkosc_zapisu: toNum(api.predkosc_zapisu ?? api.writeMBs),
     } as Produkt;
@@ -155,15 +168,48 @@ function adaptToProdukt(api: any): Produkt {
   return wspolne as Produkt;
 }
 
+
+function storageStringToGB(s: string): number | null {
+  if (!s) return null;
+  const up = s.toUpperCase();
+  const num = toNum(up); // np. 1, 2, 512
+  if (!num) return null;
+  if (up.includes("TB")) return num * 1000; // 1 TB -> 1000 GB (upraszczamy 1000)
+  // domyślnie GB
+  return num;
+}
+
+type FilterOpts = {
+  pcType: PcKind | null;
+  gpuFamily: string | null;
+  cpuVendor: string | null;
+  socket: string | null;
+  gpuVram: number | null;
+  ram: string | null;
+  storage: string | null;
+  ramModules: number | null;
+  moboWifi: boolean | null;
+  psuModular: boolean | null;
+  coolerType: "air" | "aio" | "water" | null;
+  build: Partial<Record<TypProduktu, Produkt>>;
+};
+
 // ——— filtrowanie po preferencjach użytkownika ———
-function passesFilters(
-  p: Produkt,
-  opts: Pick<
-    Props,
-    "pcType" | "gpuFamily" | "cpuVendor" | "socket" | "gpuVram" | "ram" | "storage"
-  >
-): boolean {
-  const { pcType, gpuFamily, cpuVendor, socket, gpuVram, ram, storage } = opts;
+function passesFilters(p: Produkt, opts: FilterOpts): boolean {
+  const {
+    pcType,
+    gpuFamily,
+    cpuVendor,
+    socket,
+    gpuVram,
+    ram,
+    storage,
+    ramModules,
+    moboWifi,
+    psuModular,
+    coolerType,
+    build,
+  } = opts;
 
   // 1) Ogólny filtr zależny od typu komputera
   if (pcType === "office") {
@@ -217,33 +263,183 @@ function passesFilters(
     }
   }
 
-  // 4) MOBO – socket
+ // 4) MOBO – socket
   if (p.typ === "MOBO") {
-    if (socket && p.socket && p.socket !== socket) {
-      return false;
-    }
+    if (socket && p.socket && p.socket !== socket) return false;
   }
 
-  // 5) RAM – minimalna pojemność (32 GB, 16 GB itd.)
+  // 5) RAM – minimalna pojemność (z wyboru 16/32/64 GB)
   if (p.typ === "RAM" && ram) {
-    const selected = toNum(ram); // np. 32 z "32 GB"
-    const capacity = p.pojemnosc_total ?? null;
-    if (selected && capacity && capacity < selected) {
-      return false;
-    }
+  const wanted = toNum(ram);
+  if (wanted != null && p.pojemnosc_total != null && p.pojemnosc_total !== wanted) {
+    return false;
   }
+}
 
-  // 6) DYSK – minimalna pojemność dysku
+// RAM – dokładna liczba modułów
+if (p.typ === "RAM" && ramModules != null && p.liczba_modulow != null) {
+  if (p.liczba_modulow !== ramModules) return false;
+}
+
+    // 6) DYSK – pojemność + rodzaj (SSD / HDD)
+// 6) DYSK – minimalna pojemność (np. „1 TB SSD”)
   if (p.typ === "DYSK" && storage) {
-    const selected = toNum(storage); // np. 512 z "512 GB SSD"
-    const capacity = p.pojemnosc_gb ?? null;
-    if (selected && capacity && capacity < selected) {
+  const wantedGB = storageStringToGB(storage);
+  const capGB = p.pojemnosc_gb ?? storageStringToGB(p.nazwa) ?? null;
+  if (wantedGB != null && capGB != null) {
+    const tolerance = wantedGB * 0.05;
+    if (Math.abs(capGB - wantedGB) > tolerance) return false;
+  }
+}
+
+
+  // 7) MOBO – Wi-Fi tak/nie
+  if (p.typ === "MOBO" && moboWifi !== null) {
+    const wifi = (p as any).wifi;
+    if (wifi != null && Boolean(wifi) !== moboWifi) return false;
+  }
+
+  // 8) PSU – modularny / niemodularny
+  if (p.typ === "PSU" && psuModular !== null) {
+    const modularny = (p as any).modularny;
+    if (modularny != null && Boolean(modularny) !== psuModular) return false;
+  }
+
+  // 9) COOLER – typ chłodzenia (air / aio / water)
+  if (p.typ === "COOLER" && coolerType) {
+    const kind = (p.typ_coolera ?? "").toString().toLowerCase();
+    if (kind) {
+      if (coolerType === "air" && !kind.includes("air")) return false;
+      if (coolerType === "aio" && !kind.includes("aio")) return false;
+      if (coolerType === "water" && !(kind.includes("water") || kind.includes("liquid"))) {
+        return false;
+      }
+    }
+  }
+
+
+ // 10) Zależności od już wybranych komponentów (build)
+
+  const cpu = build.CPU;
+  const mobo = build.MOBO;
+  const ramSelected = build.RAM;
+  const gpu = build.GPU;
+  //const psu = build.PSU;
+  const obudowa = build.CASE;
+  const cooler = build.COOLER;
+
+  // CPU musi pasować do już wybranej płyty
+  if (p.typ === "CPU" && mobo?.socket && p.socket && p.socket !== mobo.socket) {
+    return false;
+  }
+
+  // MOBO musi pasować do już wybranego CPU
+  if (p.typ === "MOBO" && cpu?.socket && p.socket && p.socket !== cpu.socket) {
+    return false;
+  }
+
+  // RAM musi pasować do wybranej płyty (DDR4/DDR5)
+  if (p.typ === "RAM" && mobo?.ddr && p.ddr && p.ddr !== mobo.ddr) {
+    return false;
+  }
+
+  // MOBO vs RAM (gdy RAM już wybrany)
+  if (p.typ === "MOBO" && ramSelected?.ddr && p.ddr && p.ddr !== ramSelected.ddr) {
+    return false;
+  }
+
+  // CASE – rozmiar pod GPU i cooler
+  if (p.typ === "CASE") {
+    const gpuLength = gpu?.dlugosc;
+    const caseGpuLength = p.dlugosc;
+    if (
+      typeof gpuLength === "number" &&
+      typeof caseGpuLength === "number" &&
+      gpuLength > caseGpuLength
+    ) {
+      return false;
+    }
+
+    const coolerHeight = cooler?.wysokosc;
+    const caseCoolerHeight = p.wysokosc;
+    if (
+      typeof coolerHeight === "number" &&
+      typeof caseCoolerHeight === "number" &&
+      coolerHeight > caseCoolerHeight
+    ) {
+      return false;
+    }
+
+    const moboFormat = mobo?.format ?? null;
+    const caseFormat = p.format ?? null;
+    if (moboFormat && caseFormat && moboFormat !== caseFormat) {
       return false;
     }
   }
 
+  // GPU – długość do już wybranej obudowy
+  if (p.typ === "GPU") {
+    const caseLength = obudowa?.dlugosc;
+    const gpuLength = p.dlugosc;
+    if (
+      typeof caseLength === "number" &&
+      typeof gpuLength === "number" &&
+      gpuLength > caseLength
+    ) {
+      return false;
+    }
+  }
+
+    // COOLER – socket + wysokość vs CASE
+  if (p.typ === "COOLER") {
+    // socket CPU
+    const cpuSocket = cpu?.socket;
+    const socketsStr = p.sockety ? String(p.sockety) : "";
+
+    // tu TS ma już pewność, że cpuSocket to string
+    if (
+      typeof cpuSocket === "string" &&
+      socketsStr &&
+      !socketsStr.includes(cpuSocket)
+    ) {
+      return false;
+    }
+
+    // wysokość coolera vs obudowa
+    const caseHeight = obudowa?.wysokosc;
+    const coolerHeight = p.wysokosc;
+    if (
+      typeof caseHeight === "number" &&
+      typeof coolerHeight === "number" &&
+      coolerHeight > caseHeight
+    ) {
+      return false;
+    }
+  }
+
+
+  // PSU – moc vs TDP CPU+GPU (prosty próg)
+  if (p.typ === "PSU") {
+    const tdpCpu = typeof cpu?.tdp === "number" ? cpu!.tdp! : 0;
+    const tdpGpu = typeof gpu?.tdp === "number" ? gpu!.tdp! : 0;
+    const potrzebnaMoc = tdpCpu + tdpGpu + 150; // zapas
+    if (typeof p.moc === "number" && p.moc < potrzebnaMoc) {
+      return false;
+    }
+  }
+
+  if (p.typ === "DYSK") {
+    console.log("DISK DEBUG", {
+      nazwa: p.nazwa,
+      storage,
+      pojemnosc_gb: p.pojemnosc_gb,
+      rodzaj: (p as any).rodzaj,
+    });
+  }
+  
   return true;
 }
+
 
 
 /* === KOMPONENT GŁÓWNY === */
@@ -280,15 +476,42 @@ export default function BuilderRecommendations(props: Props) {
     return () => { alive = false; };
   }, []);
 
-  const filtered = useMemo(
-    () =>
-      DEBUG_SHOW_ALL
-        ? items
-        : items.filter((p) =>
-            passesFilters(p, { pcType, gpuFamily, cpuVendor, socket, gpuVram, ram, storage })
-          ),
-    [items, pcType, gpuFamily, cpuVendor, socket, gpuVram, ram, storage]
-  );
+ const filtered = useMemo(
+  () =>
+    DEBUG_SHOW_ALL
+      ? items
+      : items.filter((p) =>
+          passesFilters(p, {
+            pcType,
+            gpuFamily,
+            cpuVendor,
+            socket,
+            gpuVram,
+            ram,
+            storage,
+            ramModules: props.ramModules,
+            moboWifi: props.moboWifi,
+            psuModular: props.psuModular,
+            coolerType: props.coolerType,
+            build: props.build,
+          })
+        ),
+  [
+    items,
+    pcType,
+    gpuFamily,
+    cpuVendor,
+    socket,
+    gpuVram,
+    ram,
+    storage,
+    props.ramModules,
+    props.moboWifi,
+    props.psuModular,
+    props.coolerType,
+    props.build,
+  ]
+);
 
   const Section = ({ title, type }: { title: string; type: Produkt["typ"] }) => {
   const list = filtered.filter((it) => it.typ === type);
@@ -349,7 +572,7 @@ export default function BuilderRecommendations(props: Props) {
                 disabled={selected}
                 onClick={() => !selected && props.onPickPart?.(type as TypProduktu, it)}
               >
-                {selected ? "Wybrano ✓" : "Wybierz"}
+                {selected ? "Wybrano" : "Wybierz"}
               </button>
             </div>
           );

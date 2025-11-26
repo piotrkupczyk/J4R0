@@ -51,9 +51,13 @@ export default function PCBuilderPage() {
   const [cpuVendor, setCpuVendor] = useState<string | null>(null);  // 'intel' | 'amd' | null
   const [socket, setSocket] = useState<string | null>(null);        // 'AM4' | 'AM5' | 'LGA1700' | null
   const [gpuVram, setGpuVram] = useState<number | null>(null);      // np. 8, 12
-  const [ram, setRam] = useState<string | null>(null);              // np. '16 GB', '32 GB'
+  const [ram, setRam] = useState<string | null>(null);      
+  const [ramModules, setRamModules] = useState<number | null>(null); // NOWE: liczba kości RAM        // np. '16 GB', '32 GB'
   const [storage, setStorage] = useState<string | null>(null);  
   const [step, setStep] = useState(1);    // np. '512 GB', '1 TB'
+  const [moboWifi, setMoboWifi] = useState<boolean | null>(null);    // NOWE: MOBO WiFi
+  const [psuModular, setPsuModular] = useState<boolean | null>(null); // NOWE: PSU modularny
+  const [coolerType, setCoolerType] = useState<"air" | "aio" | "water" | null>(null);    
 
   /* ==== TWÓJ ZESTAW ==== */
 
@@ -193,7 +197,11 @@ export default function PCBuilderPage() {
                       setSocket(null);
                       setGpuVram(null);
                       setRam(null);
+                      setRamModules(null);   // NOWE
                       setStorage(null);
+                      setMoboWifi(null);     // NOWE
+                      setPsuModular(null);   // NOWE
+                      setCoolerType(null);   // NOWE
                     }
                   }}
                 />
@@ -214,9 +222,14 @@ export default function PCBuilderPage() {
             )}
 
             {showVendors && (
-              <div className="mx-auto max-w-5xl space-y-4">
-                <div>
-                  <div className="text-sm font-medium mb-2">Producent karty graficznej</div>
+            <div className="mx-auto max-w-5xl space-y-4">
+              {/* GPU: producent + VRAM w jednym rzędzie */}
+              <div className="flex flex-col gap-4 md:flex-row">
+                {/* Producent GPU */}
+                <div className="flex-1">
+                  <div className="text-sm font-medium mb-2">
+                    Producent karty graficznej
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {GPU_FAMILIES.map((g) => (
                       <TogglePill
@@ -224,7 +237,9 @@ export default function PCBuilderPage() {
                         label={g.label}
                         active={gpuFamily === g.key}
                         onClick={() => {
-                          setGpuFamily(prev => (prev === g.key ? null : g.key));
+                          setGpuFamily((prev) =>
+                            prev === g.key ? null : g.key
+                          );
                           setStep(3);
                         }}
                       />
@@ -232,138 +247,293 @@ export default function PCBuilderPage() {
                   </div>
                 </div>
 
-                <div>
-                  <div className="text-sm font-medium mb-2">Producent procesora</div>
-                  <div className="flex flex-wrap gap-2">
-                    {CPU_VENDORS.map((c) => (
-                      <TogglePill
-                        key={c.key}
-                        label={c.label}
-                        active={cpuVendor === c.key}
-                        onClick={() => {
-                          const next = cpuVendor === c.key ? null : c.key;
-                          setCpuVendor(next);
-                          setSocket(null);
-                          setStep(3);
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {cpuVendor && (
-                  <div>
-                    <div className="text-sm font-medium mb-2">Socket procesora</div>
-                    <div className="flex flex-wrap gap-2">
-                      {(SOCKETS_BY_VENDOR[cpuVendor] ?? []).map((s) => (
-                        <TogglePill
-                          key={s}
-                          label={s}
-                          active={socket === s}
-                          onClick={() => setSocket(prev => (prev === s ? null : s))}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
-
+                {/* Minimalna pamięć VRAM – OBOK producenta GPU */}
                 {!isOffice && (
-                  <div>
-                    <div className="text-sm font-medium mb-2">Minimalna pamięć VRAM karty graficznej</div>
+                  <div className="flex-1">
+                    <div className="text-sm font-medium mb-2">
+                      Minimalna pamięć VRAM karty graficznej
+                    </div>
                     <div className="flex flex-wrap gap-2">
                       {VRAM_CHOICES.map((v) => (
                         <TogglePill
                           key={v ?? "any"}
                           label={v == null ? "Dowolna" : `${v} GB`}
                           active={gpuVram === v}
-                          onClick={() => setGpuVram(prev => (prev === v ? null : v))}
+                          onClick={() =>
+                            setGpuVram((prev) => (prev === v ? null : v))
+                          }
                         />
                       ))}
                     </div>
                   </div>
                 )}
               </div>
-            )}
-          </Section>
 
-          {/* 3. Pamięć */}
-          <Section
-            title="3. Pamięć (RAM i dysk)"
-            subtitle="Wybierz ilość pamięci RAM oraz pojemność dysku."
-            muted={!showMemory}
-          >
-            {!showMemory && (
-              <p className="text-sm opacity-70">
-                Najpierw określ preferencje CPU/GPU.
-              </p>
-            )}
-
-            {showMemory && (
-              <div className="mx-auto max-w-5xl space-y-4">
-                <div>
-                  <div className="text-sm font-medium mb-2">Pamięć RAM</div>
-                  <div className="flex flex-wrap gap-2">
-                    {RAM_OPTIONS.map((r) => (
-                      <TogglePill
-                        key={r}
-                        label={r}
-                        active={ram === r}
-                        onClick={() => {
-                          setRam(prev => (prev === r ? null : r));
-                          setStep(4);
-                        }}
-                      />
-                    ))}
-                  </div>
+              {/* CPU vendor */}
+              <div>
+                <div className="text-sm font-medium mb-2">
+                  Producent procesora
                 </div>
+                <div className="flex flex-wrap gap-2">
+                  {CPU_VENDORS.map((c) => (
+                    <TogglePill
+                      key={c.key}
+                      label={c.label}
+                      active={cpuVendor === c.key}
+                      onClick={() => {
+                        const next = cpuVendor === c.key ? null : c.key;
+                        setCpuVendor(next);
+                        setSocket(null);
+                        setStep(3);
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Socket – jak było */}
+              {cpuVendor && (
                 <div>
-                  <div className="text-sm font-medium mb-2">Dysk</div>
+                  <div className="text-sm font-medium mb-2">
+                    Socket procesora
+                  </div>
                   <div className="flex flex-wrap gap-2">
-                    {STORAGE_OPTIONS.map((s) => (
+                    {(SOCKETS_BY_VENDOR[cpuVendor] ?? []).map((s) => (
                       <TogglePill
                         key={s}
                         label={s}
-                        active={storage === s}
-                        onClick={() => {
-                          setStorage(prev => (prev === s ? null : s));
-                          setStep(4);
-                        }}
+                        active={socket === s}
+                        onClick={() =>
+                          setSocket((prev) => (prev === s ? null : s))
+                        }
                       />
                     ))}
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
+          )}
+
           </Section>
 
-          {/* 4. Podzespoły (propozycje) */}
-          <Section
-            title="4. Podzespoły"
-            subtitle="Propozycje dobrane do wybranych preferencji."
-            muted={!showParts}
-          >
-            {!showParts && (
-              <p className="text-sm opacity-70">
-                Najpierw wybierz pamięć RAM i dysk.
-              </p>
-            )}
+         {/* 3. Pamięć */}
+<Section
+  title="3. Pamięć (RAM i dysk)"
+  subtitle="Określ pojemność pamięci operacyjnej oraz dysku."
+  muted={!showMemory}
+>
+  {!showMemory && (
+    <p className="text-sm opacity-70">
+      Najpierw określ preferencje CPU/GPU.
+    </p>
+  )}
 
-            {showParts && (
-              <div className="mx-auto max-w-6xl">
-                <BuilderRecommendations
-                  pcType={pcType}
-                  gpuFamily={gpuFamily}
-                  cpuVendor={cpuVendor}
-                  ram={ram}
-                  storage={storage}
-                  socket={socket}
-                  gpuVram={gpuVram}
-                  build={build}
-                  onPickPart={handlePickPart}
+  {showMemory && (
+    <div className="mx-auto max-w-5xl space-y-4">
+      {/* RAM – pojemność + liczba modułów */}
+      {ram ? (
+        // Mamy wybraną pojemność RAM → pokazujemy RAM + moduły w jednym rzędzie
+        <div className="flex flex-col gap-4 md:flex-row">
+          {/* Pojemność RAM */}
+          <div className="flex-1">
+            <div className="text-sm font-medium mb-2">
+              Pamięć RAM (łączna pojemność)
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {RAM_OPTIONS.map((r) => (
+                <TogglePill
+                  key={r}
+                  label={r}
+                  active={ram === r}
+                  onClick={() => {
+                    setRam((prev) => (prev === r ? null : r));
+                    // jak zmieniasz pojemność, to resetujemy liczbę modułów
+                    setRamModules(null);
+                    setStep(4);
+                  }}
                 />
-              </div>
-)}
-          </Section>
+              ))}
+            </div>
+          </div>
+
+          {/* Liczba modułów RAM */}
+          <div className="flex-1">
+            <div className="text-sm font-medium mb-2">
+              Liczba modułów RAM
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {[1, 2, 4].map((count) => (
+                <TogglePill
+                  key={count}
+                  label={`${count} moduł${count > 1 ? "y" : ""}`}
+                  active={ramModules === count}
+                  onClick={() =>
+                    setRamModules((prev) => (prev === count ? null : count))
+                  }
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        // Jeśli jeszcze NIE wybrano pojemności RAM → tylko wybór pojemności
+        <div>
+          <div className="text-sm font-medium mb-2">
+            Pamięć RAM (łączna pojemność)
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {RAM_OPTIONS.map((r) => (
+              <TogglePill
+                key={r}
+                label={r}
+                active={ram === r}
+                onClick={() => {
+                  setRam((prev) => (prev === r ? null : r));
+                  setRamModules(null);
+                  setStep(4);
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* DYSK – na razie klasyczny wybór (pojemność/konfiguracja) */}
+      <div>
+        <div className="text-sm font-medium mb-2">Dysk</div>
+        <div className="flex flex-wrap gap-2">
+          {STORAGE_OPTIONS.map((s) => (
+            <TogglePill
+              key={s}
+              label={s}
+              active={storage === s}
+              onClick={() => {
+                setStorage((prev) => (prev === s ? null : s));
+                setStep(4);
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )}
+</Section>
+
+
+          <Section
+  title="4. Podzespoły"
+  subtitle="Propozycje dobrane do wybranych preferencji."
+  muted={!showParts}
+>
+  {!showParts && (
+    <p className="text-sm opacity-70">
+      Najpierw wybierz pamięć RAM i dysk.
+    </p>
+  )}
+
+  {showParts && (
+    <div className="mx-auto max-w-6xl">
+      {/* DODATKOWE FILTRY: MOBO / PSU / CHŁODZENIE */}
+      <div className="mx-auto max-w-5xl space-y-4 mb-6">
+        {/* MOBO – WiFi */}
+        <div>
+          <div className="text-sm font-medium mb-2">
+            Płyta główna – Wi-Fi
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <TogglePill
+              label="Dowolnie"
+              active={moboWifi === null}
+              onClick={() => setMoboWifi(null)}
+            />
+            <TogglePill
+              label="Z Wi-Fi"
+              active={moboWifi === true}
+              onClick={() =>
+                setMoboWifi((prev) => (prev === true ? null : true))
+              }
+            />
+            <TogglePill
+              label="Bez Wi-Fi"
+              active={moboWifi === false}
+              onClick={() =>
+                setMoboWifi((prev) => (prev === false ? null : false))
+              }
+            />
+          </div>
+        </div>
+
+        {/* PSU – modularny */}
+        <div>
+          <div className="text-sm font-medium mb-2">
+            Zasilacz – modularność
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <TogglePill
+              label="Dowolny"
+              active={psuModular === null}
+              onClick={() => setPsuModular(null)}
+            />
+            <TogglePill
+              label="Modularny"
+              active={psuModular === true}
+              onClick={() =>
+                setPsuModular((prev) => (prev === true ? null : true))
+              }
+            />
+            <TogglePill
+              label="Niemodularny"
+              active={psuModular === false}
+              onClick={() =>
+                setPsuModular((prev) => (prev === false ? null : false))
+              }
+            />
+          </div>
+        </div>
+
+        {/* CHŁODZENIE – typ */}
+        <div>
+          <div className="text-sm font-medium mb-2">
+            Chłodzenie procesora
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { key: "air" as const, label: "Powietrzne" },
+              { key: "aio" as const, label: "AIO" },
+              { key: "water" as const, label: "Wodne (custom)" },
+            ].map((c) => (
+              <TogglePill
+                key={c.key}
+                label={c.label}
+                active={coolerType === c.key}
+                onClick={() =>
+                  setCoolerType((prev) => (prev === c.key ? null : c.key))
+                }
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ISTNIEJĄCE REKOMENDACJE */}
+      <BuilderRecommendations
+        pcType={pcType}
+        gpuFamily={gpuFamily}
+        cpuVendor={cpuVendor}
+        socket={socket}
+        gpuVram={gpuVram}
+        ram={ram}
+        ramModules={ramModules}
+        storage={storage}
+        moboWifi={moboWifi}
+        psuModular={psuModular}
+        coolerType={coolerType}
+        build={build}
+        onPickPart={handlePickPart}
+      />
+    </div>
+  )}
+</Section>
 
           {/* 5. TWÓJ ZESTAW */}
          <Section
