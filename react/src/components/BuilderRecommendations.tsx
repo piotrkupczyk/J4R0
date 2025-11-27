@@ -62,30 +62,16 @@ function mapType(raw: any): Produkt["typ"] {
 }
 
 // ——— adapter danych API -> Produkt ———
+// ——— adapter danych API -> Produkt ———
 function adaptToProdukt(api: any): Produkt {
   const typ = mapType(api);
+
   const wspolne = {
     id: api.id,
     typ,
     nazwa: api.nazwa ?? api.name,
     cena: api.cena ?? api.price ?? 0,
   };
-
-  if (typ === "DYSK") {
-    return {
-      ...wspolne,
-      interfejs: api.interfejs ?? api.iface ?? null,
-      format: api.format ?? api.formFactor ?? null,
-      pojemnosc_gb: toNum(
-        api.pojemnosc_gb ??
-        api.pojemnosc ??        // jakby backend nazwał inaczej
-        api.capacity_gb ??
-        api.sizeGB
-      ),
-      predkosc_odczytu: toNum(api.predkosc_odczytu ?? api.readMBs),
-      predkosc_zapisu: toNum(api.predkosc_zapisu ?? api.writeMBs),
-    } as Produkt;
-  }
 
   if (typ === "CPU") {
     return {
@@ -104,7 +90,7 @@ function adaptToProdukt(api: any): Produkt {
       vram: toNum(api.vram ?? api.vram_gb),
       gddr: api.gddr ?? null,
       tdp: toNum(api.tdp),
-      dlugosc: toNum(api.dlugosc ?? api.length_mm),
+      dlugosc: toNum(api.dlugosc ?? api.length_mm ?? api.length),
     } as Produkt;
   }
 
@@ -112,32 +98,39 @@ function adaptToProdukt(api: any): Produkt {
     return {
       ...wspolne,
       socket: api.socket ?? null,
-      ddr: api.ddr ?? null,
+      ddr: api.ddr ?? api.ramType ?? null,
       chipset: api.chipset ?? null,
-      format: api.format ?? null,
+      format: api.format ?? api.formFactor ?? null,
       sloty_m2: toNum(api.sloty_m2 ?? api.m2_slots),
     } as Produkt;
   }
 
   if (typ === "RAM") {
+    // KLUCZOWE: mapujemy stare pola -> nowe
+    const total = toNum(api.pojemnosc_total ?? api.capacity_gb ?? api.size);
+    const modules = toNum(api.liczba_modulow ?? api.modules);
+    const perModule =
+      toNum(api.pojemnosc_modulu ?? api.perModule) ??
+      (total && modules ? total / modules : null);
+
     return {
       ...wspolne,
-      ddr: api.ddr ?? null,
+      ddr: api.ddr ?? api.ramType ?? null,
       taktowanie: toNum(api.taktowanie ?? api.mhz),
       clock_latency: toNum(api.clock_latency ?? api.cl),
-      pojemnosc_total: toNum(api.pojemnosc_total ?? api.capacity_gb),
-      liczba_modulow: toNum(api.liczba_modulow ?? api.modules),
-      pojemnosc_modulu: toNum(api.pojemnosc_modulu),
+      pojemnosc_total: total,
+      liczba_modulow: modules,
+      pojemnosc_modulu: perModule,
       rgb: api.rgb ?? null,
-      profil: toNum(api.profil) as 0 | 1 | null,
+      profil: (toNum(api.profil) as 0 | 1 | null) ?? null,
     } as Produkt;
   }
 
   if (typ === "PSU") {
     return {
       ...wspolne,
-      moc: toNum(api.moc ?? api.wattage),
-      certyfikat: api.certyfikat ?? api.cert ?? null,
+      moc: toNum(api.moc ?? api.wattage ?? api.power),
+      certyfikat: api.certyfikat ?? api.cert ?? api.certificate ?? null,
       modularny: api.modularny ?? api.modular ?? null,
     } as Produkt;
   }
@@ -145,21 +138,32 @@ function adaptToProdukt(api: any): Produkt {
   if (typ === "CASE") {
     return {
       ...wspolne,
-      wysokosc: toNum(api.wysokosc ?? api.height_mm),
-      dlugosc: toNum(api.dlugosc ?? api.length_mm),
-      szerokosc: toNum(api.szerokosc ?? api.width_mm),
-      ilosc_wentylatorow: toNum(api.ilosc_wentylatorow),
-      format: api.format ?? null,
+      wysokosc: toNum(api.wysokosc ?? api.height_mm ?? api.height),
+      dlugosc: toNum(api.dlugosc ?? api.length_mm ?? api.length ?? api.depth),
+      szerokosc: toNum(api.szerokosc ?? api.width_mm ?? api.width),
+      ilosc_wentylatorow: toNum(api.ilosc_wentylatorow ?? api.fans ?? api.fan_count),
+      format: api.format ?? api.formFactor ?? null,
       rgb: api.rgb ?? null,
+    } as Produkt;
+  }
+
+  if (typ === "DYSK") {
+    return {
+      ...wspolne,
+      interfejs: api.interfejs ?? api.iface ?? api.interface ?? null,
+      format: api.format ?? api.formFactor ?? null,
+      pojemnosc_gb: toNum(api.pojemnosc_gb ?? api.sizeGB ?? api.size),
+      predkosc_odczytu: toNum(api.predkosc_odczytu ?? api.readMBs ?? api.read),
+      predkosc_zapisu: toNum(api.predkosc_zapisu ?? api.writeMBs ?? api.write),
     } as Produkt;
   }
 
   if (typ === "COOLER") {
     return {
       ...wspolne,
-      typ_coolera: api.typ_coolera ?? api.cooler_type ?? null,
-      wysokosc: toNum(api.wysokosc ?? api.height_mm),
-      ilosc_wentylatorow: toNum(api.ilosc_wentylatorow),
+      typ_coolera: api.typ_coolera ?? api.cooler_type ?? api.type ?? null,
+      wysokosc: toNum(api.wysokosc ?? api.height_mm ?? api.height),
+      ilosc_wentylatorow: toNum(api.ilosc_wentylatorow ?? api.fans ?? api.fan_count),
       sockety: api.sockety ?? api.sockets ?? null,
       rgb: api.rgb ?? null,
     } as Produkt;
@@ -167,6 +171,7 @@ function adaptToProdukt(api: any): Produkt {
 
   return wspolne as Produkt;
 }
+
 
 
 function storageStringToGB(s: string): number | null {
@@ -605,101 +610,107 @@ export default function BuilderRecommendations(props: Props) {
     </div>
   );
 }
+function j(...xs: (string | null | undefined | false)[]) {
+  return xs.filter(Boolean).join(', ');
+}
+const flag = (v?: boolean | null, label?: string) => (v ? (label ?? 'Tak') : null);
+const fmtW = (v?: number | null) => v ? `${v}W` : null;
+const fmtMHz = (v?: number | null) => v ? `${v} MHz` : null;
+const fmtMM = (v?: number | null) => v ? `${v}mm` : null;
+const fmtGB = (v?: number | null) => v ? `${v} GB` : null;
+const fmtRW = (r?: number|null, w?: number|null) =>
+  (r || w) ? j(r ? `R: ${r} MB/s` : null, w ? `W: ${w} MB/s` : null) : null;
 
+function ramCapacityLine(total?: number|null, mods?: number|null, perMod?: number|null) {
+  if (mods && perMod) return `${mods}×${perMod} GB`;
+  if (total && mods)   return `${mods}×${Math.round(total / mods)} GB`;
+  if (total)           return `${total} GB`;
+  return null;
+}
 // ——— Meta do podtytułów kart ———
 function metaFor(p: Produkt) {
   switch (p.typ) {
-    case "CPU":
-      return [
+    case 'CPU':
+      return j(
         p.socket ? `Socket ${p.socket}` : null,
-        p.tdp ? `TDP ${p.tdp}W` : null,
-        p.rdzenie && p.watki ? `${p.rdzenie}/${p.watki} rd/wą` : null,
-      ]
-        .filter(Boolean)
-        .join(", ");
+        p.rdzenie && p.watki ? `${p.rdzenie}/${p.watki} rdzenie/watki` : null,
+        fmtW(p.tdp)
+      );
 
-    case "GPU":
-      return [
+    case 'GPU':
+      return j(
+        // vendor zwykle siedzi w nazwie, ale to podbija czytelność
+        // (jeśli nie chcesz – usuń pierwszą linijkę)
+        p.nazwa?.toLowerCase().includes('nvidia') ? 'NVIDIA' :
+        p.nazwa?.toLowerCase().includes('radeon') || p.nazwa?.toLowerCase().includes('amd') ? 'AMD' :
+        p.nazwa?.toLowerCase().includes('intel') ? 'Intel' : null,
         p.chipset ?? null,
-        p.vram ? `${p.vram}GB ${p.gddr ?? ""}`.trim() : null,
-        p.tdp ? `TDP ${p.tdp}W` : null,
-        p.dlugosc ? `${p.dlugosc}mm` : null,
-      ]
-        .filter(Boolean)
-        .join(", ");
+        p.vram ? `${p.vram} GBB ${p.gddr ?? ''}`.trim() : null,
+        fmtW(p.tdp),
+        fmtMM(p.dlugosc)
+      );
 
-    case "MOBO":
-      return [
+    case 'MOBO':
+      return j(
         p.socket ? `Socket ${p.socket}` : null,
-        p.ddr ?? null,
         p.chipset ?? null,
+        p.ddr ? `RAM ${p.ddr}` : null,
         p.format ?? null,
-        p.sloty_m2 ? `M.2 ×${p.sloty_m2}` : null,
-      ]
-        .filter(Boolean)
-        .join(", ");
+        p.sloty_m2 ? `M.2 ×${p.sloty_m2}` : null
+      );
 
-    case "RAM":
-      return [
-        p.ddr ?? null,
-        p.taktowanie ? `${p.taktowanie} MHz` : null,
+    case 'RAM':
+      return j(
+        p.ddr ?? null,                              // DDR4 / DDR5
+        fmtMHz(p.taktowanie),                       // np. 6000 MHz
         p.clock_latency ? `CL${p.clock_latency}` : null,
-        p.pojemnosc_total && p.liczba_modulow
-          ? `${p.liczba_modulow}×${Math.round(
-              p.pojemnosc_total / p.liczba_modulow
-            )} GB`
-          : p.pojemnosc_total
-          ? `${p.pojemnosc_total} GB`
-          : null,
-        (p as any).rgb ? "RGB" : null,
-        (p as any).profil === 0
-          ? "Low Profile"
-          : (p as any).profil === 1
-          ? "High Profile"
-          : null,
-      ]
-        .filter(Boolean)
-        .join(", ");
+        ramCapacityLine(p.pojemnosc_total, p.liczba_modulow, p.pojemnosc_modulu),
+        (p as any).profil === 0 ? 'Low Profile'
+          : (p as any).profil === 1 ? 'High Profile' : null,
+        flag((p as any).rgb, 'RGB')
+      );
 
-    case "PSU":
-      return [
-        p.moc ? `${p.moc}W` : null,
+    case 'PSU':
+      return j(
+        fmtW(p.moc),
         p.certyfikat ?? null,
-        (p as any).modularny ? "Modularny" : null,
-      ]
-        .filter(Boolean)
-        .join(", ");
+        (p as any).modularny ? 'Modularny' : null
+      );
 
-    case "CASE":
-      return [
+    case 'CASE':
+      return j(
         p.format ?? null,
         p.ilosc_wentylatorow ? `Wentylatory: ${p.ilosc_wentylatorow}` : null,
-        p.wysokosc ? `${p.wysokosc}mm` : null,
-      ]
-        .filter(Boolean)
-        .join(", ");
+        // pełne wymiary jeżeli mamy jakiekolwiek 2 z 3
+        (p.szerokosc || p.wysokosc || p.dlugosc)
+          ? j(
+              p.szerokosc ? `Szer ${p.szerokosc}mm` : null,
+              p.wysokosc ? `Wys ${p.wysokosc}mm` : null,
+              p.dlugosc ? `Gł ${p.dlugosc}mm` : null,
+            )
+          : null,
+        flag((p as any).rgb, 'RGB')
+      );
 
-    case "COOLER":
-      return [
+    case 'COOLER':
+      return j(
         p.typ_coolera ?? null,
-        p.sockety ?? null,
-        p.wysokosc ? `${p.wysokosc}mm` : null,
-      ]
-        .filter(Boolean)
-        .join(", ");
+        p.sockety?.length ? `Sockety: ${p.sockety.join('/')}` : null,
+        fmtMM(p.wysokosc),
+        p.ilosc_wentylatorow ? `${p.ilosc_wentylatorow}× fan` : null,
+        flag((p as any).rgb, 'RGB')
+      );
 
-    case "DYSK":
-      return [
-        p.interfejs ?? null,
-        p.format ?? null,
-        p.pojemnosc_gb ? `${p.pojemnosc_gb} GB` : null,
-        p.predkosc_odczytu ? `R: ${p.predkosc_odczytu} MB/s` : null,
-        p.predkosc_zapisu ? `W: ${p.predkosc_zapisu} MB/s` : null,
-      ]
-        .filter(Boolean)
-        .join(", ");
+    case 'DYSK':
+      return j(
+        p.interfejs ?? null,          // NVMe / SATA
+        p.format ?? null,             // M.2 2280 / 2.5"
+        fmtGB(p.pojemnosc_gb),
+        fmtRW(p.predkosc_odczytu, p.predkosc_zapisu)
+      );
 
     default:
-      return "";
+      return '';
   }
 }
+

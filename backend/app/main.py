@@ -6,10 +6,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routers import auth as auth_router
 from app.routers import orders as orders_router
 from app.deps import get_current_user
-
-
-
-
+from app.routers import products, gpus, cart, coolers, sockets, sets
+from app.routers import compatibility
+from app.routers import builder        
 app = FastAPI()
 
 
@@ -35,11 +34,12 @@ app.include_router(gpus.router)
 app.include_router(cart.router)
 app.include_router(coolers.router)
 app.include_router(sockets.router)
-
 app.include_router(auth.router)
 app.include_router(auth_router.router)
 app.include_router(orders_router.router)
 app.include_router(builder.router)
+app.include_router(compatibility.router)
+app.include_router(sets.router)
 
 @app.get("/")
 def root():

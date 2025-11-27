@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field, EmailStr
 from datetime import date
 from typing import List, Optional
+from typing import Literal, Optional
 
 class ProductBase(BaseModel):
     nazwa: str
@@ -168,3 +169,26 @@ class RegisterIn(BaseModel):
     telefon: str | None = Field(default=None, min_length=7, max_length=20)
     adres: str | None = None
     password: str = Field(min_length=8, max_length=128)
+
+
+class BuildItem(BaseModel):
+    typ: Literal['CPU','GPU','MOBO','RAM','PSU','CASE','DYSK','COOLER']
+    id: int
+    ilosc: int = 1
+
+class CompatIssue(BaseModel):
+    level: Literal['error','warn']
+    message: str
+
+class CompatResult(BaseModel):
+    ok: bool
+    issues: List[CompatIssue] = []
+    warnings: List[CompatIssue] = []
+
+class SaveSetIn(BaseModel):
+    items: List[BuildItem]
+    nazwa: Optional[str] = None
+    id_klienta: Optional[int] = None
+
+class SaveSetOut(BaseModel):
+    id_zestawu: int

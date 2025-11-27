@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import BuilderRecommendations from "./components/BuilderRecommendations";
-import type { Produkt, TypProduktu } from "./types";
+import type { Produkt, TypProduktu, CompatResult} from "./types";
+import { checkCompatibility, saveSet } from './lib/api';
+
 
 /* --- DATA --- */
 
@@ -58,6 +60,26 @@ export default function PCBuilderPage() {
   const [moboWifi, setMoboWifi] = useState<boolean | null>(null);    // NOWE: MOBO WiFi
   const [psuModular, setPsuModular] = useState<boolean | null>(null); // NOWE: PSU modularny
   const [coolerType, setCoolerType] = useState<"air" | "aio" | "water" | null>(null);    
+  const [compat, setCompat] = useState<CompatResult | null>(null);
+  const [checking, setChecking] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [savedId, setSavedId] = useState<number | null>(null);
+
+{savedId !== null && (
+  <div className="mt-3 text-sm rounded border px-3 py-2"
+       style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
+    ✅ Zestaw zapisany (ID: <b>{savedId}</b>).
+  </div>
+)}
+
+function buildToPayload(build: Partial<Record<TypProduktu, Produkt>>){
+  return (Object.entries(build) as [TypProduktu, Produkt][])
+    .filter(([, p]) => !!p)
+    .map(([typ, p]) => ({ typ, id: p.id, ilosc: 1 }));
+}
+
+
+
 
   /* ==== TWÓJ ZESTAW ==== */
 
@@ -92,28 +114,7 @@ export default function PCBuilderPage() {
     });
   };
 
-  const handleCheckCompatibility = async () => {
-    try {
-      const res = await fetch("/api/builder/check");
-      if (!res.ok) {
-        setCompatResult({
-          compatible: false,
-          errors: ["Nie udało się sprawdzić kompatybilności (błąd serwera)."],
-        });
-        return;
-      }
-      const data = await res.json();
-      setCompatResult({
-        compatible: !!data.compatible,
-        errors: data.errors ?? [],
-      });
-    } catch (e) {
-      setCompatResult({
-        compatible: false,
-        errors: ["Nie udało się połączyć z backendem."],
-      });
-    }
-  };
+  
 
   const handleClearBuild = async () => {
     setBuild({});
@@ -124,7 +125,39 @@ export default function PCBuilderPage() {
       console.warn("Nie udało się wyczyścić zestawu w backendzie", e);
     }
   };
+  
+const hasAnyPart = Object.keys(build).length > 0;
 
+async function onCheckCompat() {
+  try {
+    if (!hasAnyPart) return;
+    setChecking(true);
+    setSavedId(null);               // reset info o zapisie
+    const items = buildToPayload(build);
+    const res: CompatResult = await checkCompatibility(items);
+    setCompat(res);
+  } catch (e) {
+    setCompat({ ok:false, issues:[{ level:'error', message:'Błąd serwera lub sieci.' }], warnings:[] });
+    console.warn(e);
+  } finally {
+    setChecking(false);
+  }
+}
+
+async function onSaveSet() {
+  if (!compat?.ok) return;          // zapobiegawczo
+  try {
+    setSaving(true);
+    const items = buildToPayload(build);
+    const out = await saveSet(items, `Zestaw ${new Date().toLocaleDateString('pl-PL')}`);
+    setSavedId(out.id_zestawu);
+  } catch (e) {
+    console.warn(e);
+    alert('Nie udało się zapisać zestawu.');
+  } finally {
+    setSaving(false);
+  }
+}
   /* ==== VISIBILITY / KROKI ==== */
 
   const isOffice   = pcType === "office";
@@ -569,25 +602,69 @@ export default function PCBuilderPage() {
               ))}
             </div>
 
-            {Object.keys(build).length > 0 && (
-              <div className="flex gap-3 mt-4">
-                <button
-                  onClick={handleCheckCompatibility}
-                  className="px-4 py-2 rounded text-sm"
-                  style={{ background: "var(--accent)", color: "#fff" }}
-                >
-                  Sprawdź kompatybilność
-                </button>
+  {Object.keys(build).length > 0 && (
+  <div className="flex gap-3 mt-4">
+    <button
+      onClick={onCheckCompat}
+      className="px-4 py-2 rounded text-sm"
+      style={{ background: "var(--accent)", color: "#fff" }}
+      disabled={checking}
+    >
+      {checking ? "Sprawdzam…" : "Sprawdź kompatybilność"}
+    </button>
 
-                <button
-                  onClick={handleClearBuild}
-                  className="px-4 py-2 rounded border text-sm"
-                  style={{ borderColor: "var(--border)" }}
-                >
-                  Wyczyść zestaw
-                </button>
-              </div>
-            )}
+    <button
+      onClick={onSaveSet}
+      className="px-4 py-2 rounded border text-sm"
+      style={{ borderColor: "var(--border)" }}
+      disabled={!compat?.ok || saving}
+    >
+      {saving ? "Zapisuję…" : "Zapisz zestaw"}
+    </button>
+
+    <button
+      onClick={handleClearBuild}
+      className="px-4 py-2 rounded border text-sm"
+      style={{ borderColor: "var(--border)" }}
+    >
+      Wyczyść zestaw
+    </button>
+  </div>
+)}
+
+{compat && (
+  <div className="mt-3 rounded border p-3"
+       style={{ borderColor:'var(--border)', background:'var(--surface)' }}>
+    {compat.ok ? (
+      <div className="text-sm">
+        ✅ Zestaw jest kompatybilny.
+        {compat.warnings?.length ? (
+          <ul className="mt-2 list-disc ml-5 opacity-80">
+            {compat.warnings.map((w, i) => (
+              <li key={i}>⚠️ {w.message}</li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    ) : (
+      <div className="text-sm">
+        ❌ Wykryto problemy z kompatybilnością:
+        <ul className="mt-2 list-disc ml-5 text-red-400">
+          {compat.issues.map((it, i) => (
+            <li key={i}>{it.message}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+)}
+
+{savedId !== null && (
+  <div className="mt-3 text-sm rounded border px-3 py-2"
+       style={{ borderColor:'var(--border)', background:'var(--surface)' }}>
+    ✅ Zestaw zapisany (ID: <b>{savedId}</b>).
+  </div>
+)}
 
             {compatResult && (
               <div className="mt-4">
@@ -738,3 +815,10 @@ function TogglePill({
     </button>
   );
 }
+
+
+
+
+
+
+

@@ -104,6 +104,27 @@ export interface ProduktCOOLER extends ProduktBazowy {
   rgb?: boolean | null;
 }
 
+export type BuildItem = {
+  typ: TypProduktu;
+  id: number;
+  ilosc: number;
+};
+export type CompatLevel = 'error' | 'warn';
+export interface CompatIssue {
+  level: CompatLevel;
+  message: string;
+}
+
+export interface CompatResult {
+  ok: boolean;
+  issues: CompatIssue[];
+  warnings: CompatIssue[];
+}
+
+export interface SaveSetOut {
+  id_zestawu: number;
+}
+
 
 export type Produkt =
   | ProduktCPU
@@ -114,3 +135,9 @@ export type Produkt =
   | ProduktCASE
   | ProduktDYSK
   | ProduktCOOLER;
+
+
+// === kompatybilność / zapisywanie ===
+
+
+

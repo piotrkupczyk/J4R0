@@ -1,4 +1,5 @@
 // src/lib/api.ts
+import type { CompatResult, SaveSetOut } from '../types';
 export const API_BASE =
   import.meta?.env?.VITE_API_BASE ?? 'http://127.0.0.1:8000';
 
@@ -60,3 +61,26 @@ export async function getCatalog(): Promise<CatalogItem[]> {
   });
   return merged;
 }
+
+
+
+// items: [{ typ, id, ilosc }]
+export async function checkCompatibility(
+  items: { typ: string; id: number; ilosc: number }[]
+): Promise<CompatResult> {
+  return fetchJSON<CompatResult>(`${API_BASE}/builder/check`, {
+    method: 'POST',
+    body: JSON.stringify({ items }),
+  });
+}
+
+export async function saveSet(
+  items: { typ: string; id: number; ilosc: number }[],
+  nazwa: string
+): Promise<SaveSetOut> {
+  return fetchJSON<SaveSetOut>(`${API_BASE}/sets`, {
+    method: 'POST',
+    body: JSON.stringify({ items, nazwa, id_klienta: null }),
+  });
+}
+

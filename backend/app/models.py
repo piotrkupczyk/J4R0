@@ -184,3 +184,19 @@ class Klient(Base):
     data_dolaczenia = Column(Date, server_default=func.current_date())
     haslo       = Column(String(256), nullable=False)
 
+
+
+class Zestaw(Base):
+    __tablename__ = "zestawy"
+    id_zestawu = Column(Integer, primary_key=True)
+    nazwa = Column(String(64), nullable=False)
+    id_klienta = Column(Integer, nullable=True)  # na razie NULL
+    data_utworzenia = Column(Date, server_default=func.current_date())
+    produkty = relationship("ZestawProdukt", back_populates="zestaw", cascade="all, delete-orphan")
+
+class ZestawProdukt(Base):
+    __tablename__ = "zestawy_produkty"
+    id_prod = Column(Integer, primary_key=True)
+    id_zestawu = Column(Integer, ForeignKey("zestawy.id_zestawu"), primary_key=True)
+    ilosc = Column(SmallInteger, nullable=False, default=1)
+    zestaw = relationship("Zestaw", back_populates="produkty")
