@@ -9,20 +9,8 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Schemat działania aplikacji}}{20}{figure.caption.8}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Diagram ERD bazy danych}}{28}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Tabela Produkty w programie DataGrip}}{30}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Tabela Klienci w programie DataGrip}}{31}{figure.caption.19}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Tabela Koszyk w programie DataGrip}}{32}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Tabela Zamówienia w programie DataGrip}}{33}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Tabela Zestawy w programie DataGrip}}{34}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Tabela GPU w programie DataGrip}}{35}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Tabela CPU w programie DataGrip}}{36}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Tabela MOBO w programie DataGrip}}{38}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Tabela RAM w programie DataGrip}}{39}{figure.caption.33}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Tabela PSU w programie DataGrip}}{40}{figure.caption.35}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Tabela Cooler w programie DataGrip}}{41}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Tabela Dysk w programie DataGrip}}{42}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Schemat działania aplikacji}}{17}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Diagram ERD bazy danych}}{25}{figure.caption.15}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

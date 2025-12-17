@@ -9,8 +9,21 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Struktura tabeli Produkty}}{28}{table.caption.17}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Struktura tabeli Klienci}}{29}{table.caption.19}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Struktura tabeli Koszyk}}{30}{table.caption.21}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Struktura tabeli Zamówienia}}{31}{table.caption.23}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Struktura tabeli Zestawy}}{32}{table.caption.25}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Struktura tabeli GPU}}{33}{table.caption.27}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Struktura tabeli CPU}}{35}{table.caption.29}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Struktura tabeli MOBO}}{36}{table.caption.31}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Struktura tabeli RAM}}{38}{table.caption.33}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces Struktura tabeli PSU}}{39}{table.caption.35}%
+\contentsline {table}{\numberline {4.11}{\ignorespaces Struktura tabeli COOLER}}{40}{table.caption.37}%
+\contentsline {table}{\numberline {4.12}{\ignorespaces Struktura tabeli DYSK}}{41}{table.caption.39}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Przykładowe wyniki testów kompatybilności zestawów komputerowych.}}{44}{table.caption.40}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Przykładowe przypadki testowe systemu}}{45}{table.caption.40}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Przykładowe wyniki testów kompatybilności zestawów komputerowych.}}{46}{table.caption.41}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \babel@toc {british}{}\relax 

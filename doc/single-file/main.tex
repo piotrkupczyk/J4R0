@@ -525,7 +525,10 @@ escapeinside={@*}{*@},%
 % TODO
 \chapter{Wstęp}
 \label{ch:wstep}
-\newpage
+Celem niniejszego rozdziału jest wprowadzenie do tematyki pracy inżynierskiej, 
+przedstawienie motywacji podjęcia tematu oraz zarysowanie problemu, którego 
+rozwiązanie stanowi przedmiot dalszych rozważań. W rozdziale określono również 
+zakres pracy oraz jej główne cele.
 %%\begin{itemize}
 %%\item wprowadzenie w problem/zagadnienie
 %%\item osadzenie problemu w dziedzinie
@@ -544,7 +547,8 @@ Projekt osadzony jest w dziedzinie inżynierii oprogramowania, projektowania baz
 \section{Cel pracy}
 
 Celem pracy jest zaprojektowanie i zaimplementowanie aplikacji webowej, która będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwi realizację zamównienia. 
-\newpage
+\vspace{0.5cm}
+\\
 Idące za tym cele to:
 \begin{itemize} 
 	\item stworzenie relacyjnej bazy danych, odpowiadającej potrzebom sklepu internetowego,
@@ -587,7 +591,11 @@ Zakres pracy nad projektem obejmuje:
 Autor samodzielnie opracował wszystkie elementy projektu, zaczynając od zaplanowania funkcjonalności oraz wyborze technologii. Następnym krokiem było zaprojektowanie relacyjnej bazy danych w Oracle SQL Developer, gdzie utworzył on testowy serwer PostgreSQL wraz z użytkownikami oraz nadał odpowiednie uprawnienia każdemu z nich. Przy użyciu frameworku FastAPI przygotowany został backend w języku Python, odpowiadający za komunikację z bazą danych oraz za logikę całej aplikacji, umożliwiając weryfikację kompatybilności zestawów komputerowych. Autor utworzył interaktywny frontend, który umożliwia graficzne korzystanie z aplikacji, zapewniając łatwość użytkowania zarówno dla doświadczonych, jak i początkujących inżynierów sprzętu, poprzez stosowanie logiki rozmytej. Korzystając z akademickiej subskrypcji Microsoft Azure autor używając otrzymanych kredytów samodzielnie realizuje hosting, administrację, testowanie CI/CD, konteneryzację oraz wirtualizację aplikacji webowej, czyniąc ją w pełni używalną w publicznej sieci internet. Dokumentacja przygotowana do projektu, dokument inzynierski oraz wszystkie opisy dostępne w projekcie zostały samodzielnie, szczegółowo opracowane w ramach projektu inzynierskiego "System wspomagający inteligentne składanie zestawów komputerowych".
 
 \chapter{Analiza problemu oraz przegląd dostępnych rozwiązań}
-\newpage
+Celem niniejszego rozdziału jest analiza problemu będącego przedmiotem pracy 
+oraz przegląd istniejących rozwiązań stosowanych w podobnych systemach. 
+Przeprowadzono analizę funkcjonalną dostępnych narzędzi oraz wskazano ich 
+ograniczenia, które stanowiły podstawę do zaprojektowania własnego rozwiązania.
+
 %%\begin{itemize}
 %%\item sformułowanie problemu
 %%\item osadzenie tematu w kontekście aktualnego stanu wiedzy (\english{state of the art}) o poruszanym problemie
@@ -623,7 +631,8 @@ Drugim pod względem funkcjonalności rozwiązaniem jest konfigurator oraz ofert
 \section{Porównanie istniejących rozwiązań z rozwiązaniem inżynierskim}
 
 Pierwszą i najważniejszą funkcjonalnością wyróżniającą opracowane rozwiązanie jest zastosowanie rozszerzonych mechanizmów weryfikacji kompatybilności podzespołów, których brakuje w analizowanych sklepach internetowych. System wykorzystuje nie tylko klasyczne metody porównywania parametrów technicznych, lecz również elementy logiki rozmytej pozwalającej na bardziej elastyczną ocenę dopasowania podzespołów do oczekiwań użytkownika.
-\newpage
+\vspace{0.5cm}
+\\
 Aplikacja dokonuje szczegółowej analizy technicznej wszystkich wybranych komponentów, co przekłada się na sprawdzanie i weryfikowanie:
 \begin{itemize}
     \item zgodności procesora i płyty głównej pod względem zastosowanego gniazda socket'u,
@@ -658,6 +667,10 @@ W odróżnieniu od popularnych serwisów takich jak Morele.net\cite{morele} czy 
 % TODO
 \chapter{Wymagania i narzędzia}
 \label{ch:wymagania-i-narzedzia}
+Celem niniejszego rozdziału jest określenie wymagań funkcjonalnych i 
+niefunkcjonalnych projektowanego systemu oraz przedstawienie technologii i 
+narzędzi wykorzystanych podczas realizacji pracy. Zdefiniowane wymagania 
+stanowią podstawę do dalszego projektowania architektury systemu.
 
 %\begin{itemize}
 %\item wymagania funkcjonalne i niefunkcjonalne
@@ -668,7 +681,6 @@ W odróżnieniu od popularnych serwisów takich jak Morele.net\cite{morele} czy 
 
 % Celem niniejszego rozdziału jest przedstawienie zestawu wymagań funkcjonalnych i niefunkcjonalnych projektowanego systemu, omówienie narzędzi oraz technologii wykorzystanych podczas implementacji, a także zaprezentowanie metodyki pracy przyjętej podczas realizacji projektu inżynierskiego. Rozdział stanowi podstawę do dalszych etapów projektowania, implementacji oraz testowania aplikacji.
 
-\newpage
 \section{Wymagania funkcjonalne}
 
 Wymagania funkcjonalne określają zachowania oraz funkcje, jakie system powinien realizować. Na podstawie analizy problemu oraz specyficznych potrzeb użytkowników wyodrębniono następujący zbiór wymagań:
@@ -829,7 +841,11 @@ Takie podejście umożliwiło równoległe rozwijanie bazy danych, logiki serwer
 % TODO
 \chapter{Specyfikacja wewnętrzna}
 \label{ch:05}
-\newpage
+Celem niniejszego rozdziału jest przedstawienie projektu oraz architektury 
+zaprojektowanego systemu. Omówiono strukturę aplikacji, podział na warstwy, 
+model danych, architekturę backendu i frontendu oraz zastosowane rozwiązania 
+techniczne.
+
 
 % Jeśli „Specyfikacja wewnętrzna”:
 % \begin{itemize}
@@ -917,7 +933,9 @@ Innowacyjność aplikacji wynika z:
 % Cel modułów, przepływ danych w systemie.
 \newpage
 \section{Architektura systemu}
+Sekcja ta skupia się na szczegółowej analizie projektu architektury schematu, przedstawiając schemat ideowy, analizując każdy z modułów aplikacji.
 \subsection{Schemat ideowy}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{obrazki/diagram.png}
@@ -1084,6 +1102,8 @@ Działanie infrastruktury przebiega w następujący sposób:
 Taki sposób implementacji zapewnia wysoką wydajność, stabilność, skalowalność oraz integralność, czyniąc aplikację gotową do działania w produkcyjnym środowisku.
 \newpage
 \section{Baza danych}
+
+Sekcja ta przedstawia kompletny opis bazy danych użytej w projekcie, opisując szczegółowo wszystkie jej encje, zależności i logikę.
 % Opis danych wykorzystywanych w systemie
 % Główne encje: procesory, płyty główne, GPU, RAM, zasilacze...
 
@@ -1114,7 +1134,8 @@ odpowiadających konkretnym kategoriom sprzętu: CPU, GPU, RAM, MOBO, PSU,
 COOLER, DYSK oraz CASE. Każda z tych tabel posiada klucz obcy wskazujący na 
 rekord w tabeli Produkty, co pozwala uniknąć redundancji danych oraz ułatwia 
 zarządzanie wspólnymi atrybutami produktów.
-\newpage 
+\vspace{0.5cm}
+\\
 Relacje związane z procesem zakupowym odwzorowane są poprzez tabele Klienci, 
 Koszyk, Zamówienia oraz Zestawy. Każdy klient może posiadać wiele koszyków, 
 zamówień oraz zapisanych zestawów, co odzwierciedlono relacjami 1:N. 
@@ -1139,7 +1160,48 @@ osobne tabele umożliwia utrzymanie bazy w co najmniej trzeciej postaci normalne
 Takie podejście ułatwia dalszą rozbudowę systemu o nowe typy podzespołów oraz 
 dodatkowe funkcje biznesowe, jednocześnie zapewniając integralność i wysoką 
 jakość przechowywanych danych.
+\vspace{0.5cm}
+\\
+Opis przeznaczenia encji:
+\begin{enumerate}
+    \item Tabela Klienci przechowuje dane identyfikacyjne użytkowników systemu.
+    Zawiera informacje takie jak imię, nazwisko, adres e-mail, numer telefonu,
+    adres zamieszkania oraz datę dołączenia do systemu. Tabela ta stanowi
+    podstawę identyfikacji użytkowników i jest powiązana z tabelami Koszyki,
+    Zamówienia oraz Zestawy.
 
+    \item Tabela Koszyki odpowiada za przechowywanie aktualnych koszyków
+    zakupowych użytkowników. Każdy rekord reprezentuje pojedynczy koszyk
+    przypisany do konkretnego klienta. Tabela zawiera informacje o dacie
+    utworzenia oraz ostatniej aktualizacji koszyka i umożliwia przechowywanie
+    tymczasowych konfiguracji produktów przed złożeniem zamówienia.
+
+    \item Tabela Koszyk\_Produkty jest tabelą pośredniczącą realizującą relację
+    wiele-do-wielu pomiędzy tabelami Koszyki oraz Produkty. Przechowuje
+    identyfikatory koszyka i produktu wraz z informacją o aktualnie przechowywanej liczbie sztuk danego
+    produktu . Rozwiązanie to umożliwia elastyczne i dynamiczne zarządzanie zawartością
+    koszyka.
+
+    \item Tabela Zamówienia przechowuje informacje o zamówieniach złożonych przez
+    użytkowników. Zawiera dane takie jak data złożenia zamówienia, data
+    zakończenia realizacji, status zamówienia, adres dostawy oraz dodatkowe
+    uwagi. Każde zamówienie jest przypisane do konkretnego klienta.
+
+    \item Tabela Zamówienia\_Produkty realizuje relację wiele-do-wielu pomiędzy
+    tabelami Zamówienia oraz Produkty. Przechowuje informacje o produktach
+    wchodzących w skład zamówienia oraz ich ilościach, umożliwiając poprawne
+    odwzorowanie struktury zamówienia.
+
+    \item Tabela Zestawy przechowuje konfiguracje zestawów komputerowych tworzone
+    przez użytkowników. Każdy zestaw posiada nazwę, datę utworzenia oraz jest
+    przypisany do konkretnego klienta. Tabela ta umożliwia zapisywanie i
+    ponowne wykorzystanie konfiguracji zestawów.
+
+    \item Tabela Zestawy\_Produkty jest tabelą pośredniczącą odwzorowującą relację
+    wiele-do-wielu pomiędzy tabelami Zestawy oraz Produkty. Przechowuje
+    identyfikatory zestawu i produktu wraz z informacją o liczbie sztuk,
+    co pozwala na budowę pełnej konfiguracji zestawu komputerowego.
+\end{enumerate}
 
 \newpage 
 
@@ -1147,113 +1209,729 @@ jakość przechowywanych danych.
 
 \subsubsection{Tabela produkty}
 
-Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie danych jest tabela produkty. Kluczem tabeli jest id\_prod, klucz ten podstawą działania aplikacji. Encja produkty zawiera również pełną nazwę produktu w typie varchar, typ produktu, który umożliwia prowadzenie poprawnych operacji w kreatorze zestawów, stanowiąc pole odpowiedzialne za łączenie odpowiednich tabel z dodatkowymi danymi konkrentego produktu, zależnie od jego rodzaju. Tabela zawiera również kolumnę cena w typie numeric, który wybrano w celu zachowania spójności działania programu.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_produkty.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela Produkty w programie DataGrip}
-    \label{fig:tabela_produkty}
-\end{figure}
+Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie danych jest tabela produkty. Kluczem tabeli jest id\_prod, klucz ten podstawą działania aplikacji. Encja produkty zawiera również pełną nazwę produktu w typie varchar, typ produktu, który umożliwia prowadzenie poprawnych operacji w kreatorze zestawów, stanowiąc pole odpowiedzialne za łączenie odpowiednich tabel z dodatkowymi danymi konkrentego produktu, zależnie od jego rodzaju. Tabela zawiera również kolumnę cena w typie numeric, który wybrano w celu zachowania spójności działania programu. Strukturę tabeli Zestawy przedstawiono w tabeli~\ref{tab:produkty}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_produkty.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela Produkty w programie DataGrip}
+%     \label{fig:tabela_produkty}
+% \end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli Produkty}
+\label{tab:produkty}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_prod & integer & Klucz główny tabeli \\
+nazwa & varchar(128) & Nazwa produktu \\
+typ & varchar(32) & Typ podzespołu \\
+cena & numeric(10,2) & Cena produktu \\ \hline
+\end{tabular}
+\end{table}
+
+\vspace{0.5cm}
+Poniżej przedstawiono opis poszczególnych pól wchodzących w skład tabeli Produkty:
+\begin{enumerate}
+    \item Pole id\_prod jest kluczem głównym tabeli Produkty. Służy do jednoznacznej
+    identyfikacji każdego produktu w systemie oraz stanowi podstawę powiązań
+    z pozostałymi tabelami bazy danych.
+
+    \item Atrybut nazwa przechowuje pełną nazwę produktu w postaci tekstowej.
+    Wartość ta jest wykorzystywana w warstwie frontendowej do prezentacji
+    informacji użytkownikowi oraz w backendzie podczas obsługi logiki biznesowej.
+
+    \item Pole typ określa kategorię produktu, taką jak procesor, karta graficzna
+    czy pamięć RAM. Atrybut ten umożliwia rozróżnienie rodzaju podzespołu oraz
+    poprawne powiązanie rekordu z odpowiednią tabelą zawierającą szczegółowe
+    parametry techniczne.
+
+    \item Atrybut cena przechowuje aktualną cenę produktu w postaci liczby typu
+    numerycznego. Zastosowanie tego typu danych umożliwia precyzyjne operacje
+    obliczeniowe związane z wyliczaniem wartości koszyka oraz zamówień.
+\end{enumerate}
 
 \newpage 
 
 \subsubsection{Tabela Klienci}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_klienci.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela Klienci w programie DataGrip}
-    \label{fig:tabela_klienci}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_klienci.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela Klienci w programie DataGrip}
+%     \label{fig:tabela_klienci}
+% \end{figure}
+Tabela Klienci przechowuje dane identyfikacyjne użytkowników systemu oraz informacje
+niezbędne do realizacji procesów zakupowych. Encja ta stanowi podstawę obsługi
+użytkowników aplikacji i jest powiązana z tabelami Koszyki, Zamówienia oraz Zestawy.
+Dane zgromadzone w tabeli umożliwiają jednoznaczną identyfikację klienta oraz
+przypisanie mu odpowiednich zasobów systemowych. Strukturę tabeli Zestawy przedstawiono w tabeli~\ref{tab:klienci}.
 
-\newpage 
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli Klienci}
+\label{tab:klienci}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_klienta & integer & Klucz główny tabeli \\
+imie & varchar(64) & Imię klienta \\
+nazwisko & varchar(64) & Nazwisko klienta \\
+email & varchar(128) & Adres poczty elektronicznej \\
+telefon & varchar(20) & Numer telefonu kontaktowego \\
+adres & varchar(255) & Adres zamieszkania klienta \\
+data\_dolaczenia & date & Data rejestracji w systemie \\
+haslo & varchar(256) & Zaszyfrowane hasło użytkownika \\ \hline
+\end{tabular}
+\end{table}
+
+Poniżej przedstawiono opis poszczególnych pól wchodzących w skład tabeli Klienci:
+
+\begin{enumerate}
+    \item Pole id\_klienta jest kluczem głównym tabeli Klienci. Służy do
+    jednoznacznej identyfikacji użytkownika w systemie oraz stanowi podstawę
+    powiązań z innymi tabelami bazy danych.
+
+    \item Atrybut imie przechowuje imię klienta w postaci tekstowej. Informacja
+    ta wykorzystywana jest głównie do celów prezentacyjnych w interfejsie
+    użytkownika.
+
+    \item Pole nazwisko zawiera nazwisko klienta. Wraz z polem imie umożliwia
+    pełną identyfikację użytkownika w systemie.
+
+    \item Atrybut email przechowuje adres poczty elektronicznej klienta, który
+    wykorzystywany jest jako dane kontaktowe oraz może pełnić rolę identyfikatora
+    podczas procesu logowania.
+
+    \item Pole telefon zawiera numer telefonu kontaktowego użytkownika.
+    Pole to umożliwia dodatkową formę kontaktu z klientem w ramach realizacji
+    zamówień.
+
+    \item Atrybut adres przechowuje adres zamieszkania klienta, wykorzystywany
+    w procesie realizacji dostawy zamówionych produktów.
+
+    \item Pole data\_dolaczenia określa datę rejestracji użytkownika w systemie.
+    Domyślna wartość pola ustawiana jest na aktualną datę w momencie utworzenia
+    rekordu.
+
+    \item Atrybut haslo przechowuje hasło użytkownika w postaci zaszyfrowanej.
+    Pole to wykorzystywane jest w procesie uwierzytelniania i zapewnia
+    bezpieczeństwo dostępu do konta użytkownika.
+\end{enumerate}
+
+
 \subsubsection{Tabela Koszyk}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_koszyk.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela Koszyk w programie DataGrip}
-    \label{fig:tabela_koszyk}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_koszyk.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela Koszyk w programie DataGrip}
+%     \label{fig:tabela_koszyk}
+% \end{figure}
+
+Tabela Koszyk przechowuje informacje o koszykach zakupowych użytkowników systemu.
+Każdy koszyk przypisany jest do konkretnego klienta i służy do tymczasowego
+gromadzenia wybranych produktów przed złożeniem zamówienia. Encja ta umożliwia
+zarządzanie zawartością koszyka oraz śledzenie zmian dokonywanych przez użytkownika. Strukturę tabeli Zestawy przedstawiono w tabeli~\ref{tab:koszyk}.
+
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli Koszyk}
+\label{tab:koszyk}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_koszyka & integer & Klucz główny tabeli \\
+nazwa & varchar(64) & Nazwa koszyka \\
+id\_klienta & integer & Identyfikator klienta \\
+data\_utworzenia & date & Data utworzenia koszyka \\
+data\_aktualizacji & date & Data ostatniej aktualizacji koszyka \\ \hline
+\end{tabular}
+\end{table}
+
+Poniżej przedstawiono opis poszczególnych pól wchodzących w skład tabeli Koszyk:
+
+\begin{enumerate}
+    \item Pole id\_koszyka jest kluczem głównym tabeli Koszyk. Służy do
+    jednoznacznej identyfikacji koszyka w systemie oraz stanowi podstawę
+    powiązań z tabelą Koszyk\_Produkty.
+
+    \item Atrybut nazwa przechowuje nazwę koszyka, która może być wykorzystywana
+    do rozróżniania wielu koszyków przypisanych do jednego użytkownika.
+
+    \item Pole id\_klienta jest kluczem obcym wskazującym na tabelę Klienci.
+    Pole to umożliwia jednoznaczne przypisanie koszyka do konkretnego
+    użytkownika systemu.
+
+    \item Atrybut data\_utworzenia określa datę utworzenia koszyka w systemie.
+    Informacja ta może być wykorzystywana do celów analitycznych oraz
+    porządkowych.
+
+    \item Pole data\_aktualizacji przechowuje datę ostatniej modyfikacji
+    koszyka. Pole to pozwala na śledzenie aktywności użytkownika oraz zmian
+    wprowadzanych w zawartości koszyka.
+\end{enumerate}
 
 \newpage 
 \subsubsection{Tabela Zamówienia}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_zamowienia.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela Zamówienia w programie DataGrip}
-    \label{fig:tabela_zamowienia}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_zamowienia.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela Zamówienia w programie DataGrip}
+%     \label{fig:tabela_zamowienia}
+% \end{figure}
+Tabela Zamówienia przechowuje informacje dotyczące zamówień składanych przez
+użytkowników systemu. Każdy rekord reprezentuje pojedyncze zamówienie przypisane
+do konkretnego klienta i stanowi finalny etap procesu zakupowego. Encja ta
+umożliwia śledzenie przebiegu realizacji zamówienia oraz przechowywanie danych
+niezbędnych do jego obsługi. Strukturę tabeli Zestawy przedstawiono w tabeli~\ref{tab:zamowienia}.
 
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli Zamówienia}
+\label{tab:zamowienia}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_zamowienia & integer & Klucz główny tabeli \\
+id\_klienta & integer & Identyfikator klienta \\
+data\_zlozenia & date & Data złożenia zamówienia \\
+data\_zakonczenia & date & Data zakończenia realizacji zamówienia \\
+status & varchar(20) & Status zamówienia \\
+adres\_dostawy & varchar(255) & Adres dostawy \\
+uwagi & text & Dodatkowe uwagi do zamówienia \\ \hline
+\end{tabular}
+\end{table}
+
+Poniżej przedstawiono opis poszczególnych pól tabeli Zamówienia:
+
+\begin{enumerate}
+    \item Pole id\_zamowienia jest kluczem głównym tabeli Zamówienia. Służy do
+    jednoznacznej identyfikacji zamówienia w systemie oraz stanowi podstawę
+    powiązań z tabelą Zamówienia\_Produkty.
+
+    \item Atrybut id\_klienta jest kluczem obcym wskazującym na tabelę Klienci.
+    Umożliwia przypisanie zamówienia do konkretnego użytkownika systemu.
+
+    \item Pole data\_zlozenia określa datę złożenia zamówienia przez klienta.
+    Informacja ta wykorzystywana jest do monitorowania czasu realizacji
+    zamówienia.
+
+    \item Atrybut data\_zakonczenia przechowuje datę zakończenia realizacji
+    zamówienia. Pole to pozwala na określenie momentu finalizacji procesu
+    zakupowego.
+
+    \item Pole status określa aktualny stan zamówienia, na przykład złożone,
+    w trakcie realizacji lub zakończone. Umożliwia to kontrolę przebiegu
+    realizacji zamówień.
+
+    \item Atrybut adres\_dostawy przechowuje adres, na który mają zostać
+    dostarczone zamówione produkty. Informacja ta jest niezbędna do poprawnej
+    realizacji procesu logistycznego.
+
+    \item Pole uwagi umożliwia zapisanie dodatkowych informacji lub komentarzy
+    dotyczących zamówienia, przekazanych przez użytkownika.
+\end{enumerate}
 \newpage 
 \subsubsection{Tabela Zestawy}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_zestawy.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela Zestawy w programie DataGrip}
-    \label{fig:tabela_zestawy}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_zestawy.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela Zestawy w programie DataGrip}
+%     \label{fig:tabela_zestawy}
+% \end{figure}
+Tabela Zestawy przechowuje informacje o zestawach komputerowych tworzonych przez
+użytkowników systemu. Każdy rekord reprezentuje pojedynczy zestaw przypisany do
+konkretnego klienta i umożliwia zapisywanie oraz ponowne wykorzystanie
+konfiguracji podzespołów. Encja ta stanowi element kreatora zestawów
+komputerowych. Strukturę tabeli Zestawy przedstawiono w tabeli~\ref{tab:zestawy}.
+
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli Zestawy}
+\label{tab:zestawy}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_zestawu & integer & Klucz główny tabeli \\
+nazwa & varchar(64) & Nazwa zestawu \\
+id\_klienta & integer & Identyfikator klienta \\
+data\_utworzenia & date & Data utworzenia zestawu \\ \hline
+\end{tabular}
+\end{table}
+
+
+Poniżej przedstawiono opis poszczególnych pól tabeli Zestawy:
+
+\begin{enumerate}
+    \item Atrybut id\_zestawu jest kluczem głównym tabeli Zestawy. Służy do
+    jednoznacznej identyfikacji zestawu w systemie oraz stanowi podstawę
+    powiązań z tabelą Zestawy\_Produkty.
+
+    \item Atrybut nazwa przechowuje nazwę zestawu nadaną przez użytkownika.
+    Umożliwia ona rozróżnienie wielu konfiguracji zapisanych przez tego samego
+    klienta.
+
+    \item Atrybut id\_klienta jest kluczem obcym wskazującym na tabelę Klienci.
+    Pozwala na przypisanie zestawu do konkretnego użytkownika systemu.
+
+    \item Atrybut data\_utworzenia określa datę utworzenia zestawu
+    komputerowego. Informacja ta może być wykorzystywana do celów
+    porządkowych oraz analitycznych.
+\end{enumerate}
+
 \newpage 
 \subsubsection{Tabela GPU}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_gpu.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela GPU w programie DataGrip}
-    \label{fig:tabela_gpu}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_gpu.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela GPU w programie DataGrip}
+%     \label{fig:tabela_gpu}
+% \end{figure}
+Tabela GPU przechowuje szczegółowe informacje techniczne dotyczące kart
+graficznych dostępnych w systemie. Encja ta zawiera parametry istotne z punktu
+widzenia kompatybilności zestawu komputerowego, takie jak zapotrzebowanie
+energetyczne, wymiary fizyczne oraz liczba obsługiwanych interfejsów wyjściowych.
+Tabela GPU jest powiązana z tabelą Produkty i uzupełnia ją o dane specyficzne dla
+kart graficznych. Strukturę tabeli GPU przedstawiono w tabeli~\ref{tab:gpu}.
+
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli GPU}
+\label{tab:gpu}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_gpu & integer & Klucz główny tabeli \\
+chipset & varchar(6) & Rodzina lub seria układu graficznego \\
+vram & smallint & Pojemność pamięci VRAM w gigabajtach \\
+gddr & varchar(6) & Typ zastosowanej pamięci graficznej \\
+tdp & smallint & Zapotrzebowanie energetyczne karty \\
+sloty\_obudowy & numeric(2,1) & Liczba slotów zajmowanych w obudowie \\
+ilosc\_wiatrakow & smallint & Liczba wentylatorów karty graficznej \\
+dlugosc & smallint & Długość karty graficznej \\
+dual\_bios & smallint & Informacja o obsłudze trybu dual BIOS \\
+ilosc\_hdmi & smallint & Liczba wyjść HDMI \\
+ilosc\_dp & smallint & Liczba wyjść DisplayPort \\ \hline
+\end{tabular}
+\end{table}
+
+Poniżej przedstawiono opis poszczególnych pól tabeli GPU:
+
+\begin{enumerate}
+    \item Atrybut id\_gpu jest kluczem głównym tabeli GPU. Służy do jednoznacznej
+    identyfikacji karty graficznej oraz stanowi podstawę powiązań z tabelą
+    Produkty.
+
+    \item Atrybut chipset określa rodzinę lub serię układu graficznego. Informacja
+    ta wykorzystywana jest podczas filtrowania oraz prezentacji produktów.
+
+    \item Atrybut vram przechowuje pojemność pamięci graficznej karty. Parametr ten
+    ma istotne znaczenie przy ocenie wydajności zestawu komputerowego.
+
+    \item Atrybut gddr określa typ zastosowanej pamięci graficznej, na przykład
+    GDDR6 lub GDDR6X.
+
+    \item Atrybut tdp przechowuje informację o zapotrzebowaniu energetycznym karty
+    graficznej. Dane te wykorzystywane są podczas analizy kompatybilności z
+    zasilaczem.
+
+    \item Atrybut sloty\_obudowy określa liczbę slotów zajmowanych przez kartę w
+    obudowie komputera. Parametr ten jest istotny przy weryfikacji zgodności z
+    obudową.
+
+    \item Atrybut ilosc\_wiatrakow przechowuje liczbę wentylatorów zastosowanych w
+    układzie chłodzenia karty graficznej.
+
+    \item Atrybut dlugosc określa długość fizyczną karty graficznej. Wartość ta
+    wykorzystywana jest w procesie sprawdzania kompatybilności z obudową.
+
+    \item Atrybut dual\_bios informuje o obecności trybu podwójnego BIOS-u.
+    Umożliwia to rozróżnienie kart oferujących dodatkowe funkcje konfiguracyjne.
+
+    \item Atrybut ilosc\_hdmi określa liczbę dostępnych wyjść HDMI.
+
+    \item Atrybut ilosc\_dp określa liczbę dostępnych wyjść DisplayPort.
+\end{enumerate}
 
 \newpage 
 \subsubsection{Tabela CPU}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_cpu.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela CPU w programie DataGrip}
-    \label{fig:tabela_cpu}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_cpu.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela CPU w programie DataGrip}
+%     \label{fig:tabela_cpu}
+% \end{figure}
+Tabela CPU przechowuje szczegółowe informacje techniczne dotyczące procesorów
+dostępnych w systemie. Encja ta zawiera parametry istotne z punktu widzenia
+wydajności oraz kompatybilności zestawu komputerowego, takie jak typ gniazda,
+liczba rdzeni i wątków, zapotrzebowanie energetyczne oraz obsługa dodatkowych
+funkcji. Tabela CPU jest powiązana z tabelą Produkty i uzupełnia ją o dane
+specyficzne dla procesorów. Strukturę tabeli CPU przedstawiono w
+tabeli~\ref{tab:cpu}.
 
-\newpage 
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli CPU}
+\label{tab:cpu}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_cpu & integer & Klucz główny tabeli \\
+socket & varchar(8) & Typ gniazda procesora \\
+rdzenie & smallint & Liczba rdzeni procesora \\
+watki & smallint & Liczba wątków procesora \\
+zegar & smallint & Częstotliwość taktowania bazowego \\
+tdp & smallint & Zapotrzebowanie energetyczne procesora \\
+ma\_cooler & smallint & Informacja o dołączonym chłodzeniu \\
+podkrecanie & smallint & Obsługa podkręcania \\
+ma\_integre & smallint & Informacja o zintegrowanym układzie graficznym \\ \hline
+\end{tabular}
+\end{table}
+
+Poniżej przedstawiono opis poszczególnych pól tabeli CPU:
+
+\begin{enumerate}
+    \item Atrybut id\_cpu jest kluczem głównym tabeli CPU. Służy do jednoznacznej
+    identyfikacji procesora oraz stanowi podstawę powiązań z tabelą Produkty.
+
+    \item Atrybut socket określa typ gniazda procesora. Parametr ten jest
+    wykorzystywany podczas sprawdzania kompatybilności procesora z płytą główną
+    oraz systemem chłodzenia.
+
+    \item Atrybut rdzenie przechowuje liczbę fizycznych rdzeni procesora, co ma
+    bezpośredni wpływ na jego wydajność.
+
+    \item Atrybut watki określa liczbę obsługiwanych wątków. Informacja ta
+    wykorzystywana jest do oceny możliwości procesora w zastosowaniach
+    wielowątkowych.
+
+    \item Atrybut zegar przechowuje częstotliwość taktowania bazowego procesora.
+    Parametr ten ma znaczenie przy porównywaniu wydajności jednostek
+    obliczeniowych.
+
+    \item Atrybut tdp określa zapotrzebowanie energetyczne procesora. Dane te
+    wykorzystywane są w procesie doboru odpowiedniego zasilacza oraz systemu
+    chłodzenia.
+
+    \item Atrybut ma\_cooler informuje, czy do procesora dołączone jest fabryczne
+    chłodzenie.
+
+    \item Atrybut podkrecanie określa możliwość podkręcania procesora. Informacja
+    ta pozwala na rozróżnienie modeli oferujących dodatkowe możliwości
+    konfiguracyjne.
+
+    \item Atrybut ma\_integre informuje o obecności zintegrowanego układu
+    graficznego w procesorze.
+\end{enumerate}
 \subsubsection{Tabela MOBO}
-\newpage 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_mobo.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela MOBO w programie DataGrip}
-    \label{fig:tabela_mobo}
-\end{figure}
+% \newpage 
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_mobo.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela MOBO w programie DataGrip}
+%     \label{fig:tabela_mobo}
+% \end{figure}
+Tabela MOBO przechowuje szczegółowe informacje techniczne dotyczące płyt głównych
+dostępnych w systemie. Encja ta stanowi kluczowy element procesu weryfikacji
+kompatybilności, ponieważ łączy parametry procesora, pamięci RAM oraz pozostałych
+podzespołów zestawu komputerowego. Tabela MOBO jest powiązana z tabelą Produkty
+i uzupełnia ją o dane specyficzne dla płyt głównych. Strukturę tabeli MOBO
+przedstawiono w tabeli~\ref{tab:mobo}.
 
-\newpage 
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli MOBO}
+\label{tab:mobo}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_mobo & integer & Klucz główny tabeli \\
+socket & varchar(8) & Typ gniazda procesora \\
+ddr & varchar(4) & Obsługiwany standard pamięci RAM \\
+format & varchar(10) & Format płyty głównej \\
+max\_ram & smallint & Maksymalna obsługiwana ilość pamięci RAM \\
+ilosc\_slotow\_ram & smallint & Liczba slotów pamięci RAM \\
+ilosc\_slotow\_m2 & smallint & Liczba slotów M.2 \\
+ilosc\_pcie\_x16 & smallint & Liczba złączy PCIe x16 \\
+ilosc\_pcie\_x1 & smallint & Liczba złączy PCIe x1 \\
+ilosc\_usb\_3\_0 & smallint & Liczba portów USB 3.0 \\
+wifi & smallint & Informacja o obsłudze Wi-Fi \\
+ilosc\_usb\_2\_0 & smallint & Liczba portów USB 2.0 \\
+ilosc\_usb\_c & smallint & Liczba portów USB typu C \\
+bluetooth & smallint & Informacja o obsłudze Bluetooth \\
+bios\_typ & varchar(10) & Typ BIOS-u \\
+podkrecanie & smallint & Obsługa podkręcania \\ \hline
+\end{tabular}
+\end{table}
+
+Poniżej przedstawiono opis poszczególnych pól tabeli MOBO:
+
+\begin{enumerate}
+    \item Atrybut id\_mobo jest kluczem głównym tabeli MOBO. Służy do jednoznacznej
+    identyfikacji płyty głównej oraz stanowi podstawę powiązań z tabelą Produkty.
+
+    \item Atrybut socket określa typ gniazda procesora. Parametr ten wykorzystywany
+    jest podczas sprawdzania kompatybilności płyty głównej z procesorem.
+
+    \item Atrybut ddr przechowuje informację o obsługiwanym standardzie pamięci RAM,
+    co umożliwia weryfikację zgodności z wybranymi modułami pamięci.
+
+    \item Atrybut format określa format płyty głównej, na przykład ATX lub mATX.
+    Informacja ta jest wykorzystywana przy sprawdzaniu kompatybilności z obudową.
+
+    \item Atrybut max\_ram określa maksymalną ilość pamięci RAM obsługiwaną przez
+    płytę główną.
+
+    \item Atrybut ilosc\_slotow\_ram przechowuje liczbę slotów pamięci RAM dostępnych
+    na płycie głównej.
+
+    \item Atrybut ilosc\_slotow\_m2 określa liczbę dostępnych złączy M.2.
+
+    \item Atrybut ilosc\_pcie\_x16 przechowuje liczbę złączy PCIe x16, wykorzystywanych
+    głównie do podłączania kart graficznych.
+
+    \item Atrybut ilosc\_pcie\_x1 określa liczbę złączy PCIe x1 przeznaczonych dla
+    dodatkowych kart rozszerzeń.
+
+    \item Atrybut ilosc\_usb\_3\_0 przechowuje liczbę portów USB 3.0 dostępnych na
+    płycie głównej.
+
+    \item Atrybut wifi informuje o obecności modułu Wi-Fi na płycie głównej.
+
+    \item Atrybut ilosc\_usb\_2\_0 określa liczbę portów USB 2.0.
+
+    \item Atrybut ilosc\_usb\_c przechowuje liczbę portów USB typu C.
+
+    \item Atrybut bluetooth informuje o obsłudze technologii Bluetooth.
+
+    \item Atrybut bios\_typ określa typ zastosowanego BIOS-u.
+
+    \item Atrybut podkrecanie informuje o możliwości podkręcania podzespołów przy
+    użyciu danej płyty głównej.
+\end{enumerate}
 \subsubsection{Tabela RAM}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_ram.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela RAM w programie DataGrip}
-    \label{fig:tabela_ram}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_ram.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela RAM w programie DataGrip}
+%     \label{fig:tabela_ram}
+% \end{figure}
+Tabela RAM przechowuje szczegółowe informacje techniczne dotyczące pamięci
+operacyjnej wykorzystywanej w zestawach komputerowych. Encja ta zawiera parametry
+istotne z punktu widzenia kompatybilności oraz wydajności systemu, takie jak
+pojemność, taktowanie oraz standard pamięci. Tabela RAM jest powiązana z tabelą
+Produkty i uzupełnia ją o dane specyficzne dla modułów pamięci operacyjnej.
+Strukturę tabeli RAM przedstawiono w tabeli~\ref{tab:ram}.
 
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli RAM}
+\label{tab:ram}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_ram & integer & Klucz główny tabeli \\
+pojemnosc\_total & smallint & Łączna pojemność pamięci RAM \\
+liczba\_modulow & smallint & Liczba modułów pamięci \\
+pojemnosc\_modulu & smallint & Pojemność pojedynczego modułu \\
+taktowanie & smallint & Częstotliwość taktowania pamięci \\
+clock\_latency & smallint & Opóźnienie pamięci (CL) \\
+ddr & varchar(4) & Standard pamięci RAM \\
+profil & char(1) & Informacja o profilu XMP/EXPO \\ \hline
+\end{tabular}
+\end{table}
+
+Poniżej przedstawiono opis poszczególnych pól tabeli RAM:
+
+\begin{enumerate}
+    \item Atrybut id\_ram jest kluczem głównym tabeli RAM. Służy do jednoznacznej
+    identyfikacji modułu pamięci operacyjnej oraz stanowi podstawę powiązań z
+    tabelą Produkty.
+
+    \item Atrybut pojemnosc\_total określa całkowitą pojemność pamięci RAM
+    dostępnej w zestawie.
+
+    \item Atrybut liczba\_modulow przechowuje informację o liczbie modułów pamięci
+    wchodzących w skład zestawu RAM.
+
+    \item Atrybut pojemnosc\_modulu określa pojemność pojedynczego modułu pamięci
+    operacyjnej.
+
+    \item Atrybut taktowanie przechowuje częstotliwość taktowania pamięci RAM.
+    Parametr ten ma istotne znaczenie dla wydajności systemu.
+
+    \item Atrybut clock\_latency określa opóźnienie pamięci RAM, oznaczane jako CL.
+    Informacja ta wykorzystywana jest przy porównywaniu parametrów modułów.
+
+    \item Atrybut ddr określa standard pamięci RAM, na przykład DDR4 lub DDR5.
+    Parametr ten wykorzystywany jest podczas sprawdzania kompatybilności z płytą
+    główną.
+
+    \item Atrybut profil informuje o obsłudze profilu pamięci, takiego jak XMP lub
+    EXPO, umożliwiającego pracę modułów z podwyższonymi parametrami.
+\end{enumerate}
 \newpage 
 \subsubsection{Tabela PSU}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_psu.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela PSU w programie DataGrip}
-    \label{fig:tabela_psu}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_psu.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela PSU w programie DataGrip}
+%     \label{fig:tabela_psu}
+% \end{figure}
+Tabela PSU przechowuje informacje techniczne dotyczące zasilaczy komputerowych
+dostępnych w systemie. Encja ta zawiera parametry istotne z punktu widzenia
+stabilności oraz bezpieczeństwa zestawu komputerowego, w szczególności moc
+zasilacza, jego format oraz certyfikację energetyczną. Tabela PSU jest powiązana
+z tabelą Produkty i uzupełnia ją o dane specyficzne dla zasilaczy. Strukturę
+tabeli PSU przedstawiono w tabeli~\ref{tab:psu}.
+
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli PSU}
+\label{tab:psu}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_psu & integer & Klucz główny tabeli \\
+moc & smallint & Moc znamionowa zasilacza \\
+format & varchar(3) & Format zasilacza \\
+modularnosc & smallint & Informacja o modularności okablowania \\
+certyfikat & varchar(10) & Certyfikat sprawności energetycznej \\ \hline
+\end{tabular}
+\end{table}
+
+Poniżej przedstawiono opis poszczególnych pól tabeli PSU:
+
+\begin{enumerate}
+    \item Atrybut id\_psu jest kluczem głównym tabeli PSU. Służy do jednoznacznej
+    identyfikacji zasilacza oraz stanowi podstawę powiązań z tabelą Produkty.
+
+    \item Atrybut moc określa moc znamionową zasilacza wyrażoną w watach. Parametr
+    ten wykorzystywany jest podczas analizy zapotrzebowania energetycznego
+    zestawu komputerowego.
+
+    \item Atrybut format określa standard obudowy zasilacza, na przykład ATX.
+    Informacja ta ma znaczenie przy sprawdzaniu kompatybilności z obudową
+    komputera.
+
+    \item Atrybut modularnosc informuje, czy zasilacz posiada modularne
+    okablowanie. Parametr ten wpływa na estetykę oraz łatwość zarządzania
+    przewodami w obudowie.
+
+    \item Atrybut certyfikat przechowuje informację o klasie sprawności
+    energetycznej zasilacza, na przykład 80 PLUS Bronze, Gold lub Platinum.
+\end{enumerate}
 
 \newpage 
 \subsubsection{Tabela Cooler}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_cooler.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela Cooler w programie DataGrip}
-    \label{fig:tabela_cooler}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_cooler.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela Cooler w programie DataGrip}
+%     \label{fig:tabela_cooler}
+% \end{figure}
+Tabela COOLER przechowuje informacje techniczne dotyczące systemów chłodzenia
+procesora dostępnych w systemie. Encja ta zawiera parametry istotne z punktu
+widzenia kompatybilności mechanicznej oraz efektywności chłodzenia, takie jak
+wysokość chłodzenia, jego typ oraz liczba wentylatorów. Tabela COOLER jest
+powiązana z tabelą Produkty i uzupełnia ją o dane specyficzne dla systemów
+chłodzenia. Strukturę tabeli COOLER przedstawiono w tabeli~\ref{tab:cooler}.
 
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli COOLER}
+\label{tab:cooler}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_cooler & integer & Klucz główny tabeli \\
+wysokosc & smallint & Wysokość systemu chłodzenia \\
+typ & varchar(16) & Typ chłodzenia \\
+ilosc\_wentylatorow & smallint & Liczba wentylatorów \\
+rgb & smallint & Informacja o podświetleniu RGB \\
+profil & smallint & Profil pracy chłodzenia \\ \hline
+\end{tabular}
+\end{table}
+
+Poniżej przedstawiono opis poszczególnych pól tabeli COOLER:
+
+\begin{enumerate}
+    \item Atrybut id\_cooler jest kluczem głównym tabeli COOLER. Służy do
+    jednoznacznej identyfikacji systemu chłodzenia oraz stanowi podstawę
+    powiązań z tabelą Produkty.
+
+    \item Atrybut wysokosc określa wysokość systemu chłodzenia. Parametr ten
+    wykorzystywany jest podczas sprawdzania kompatybilności chłodzenia z
+    obudową komputera.
+
+    \item Atrybut typ przechowuje informację o rodzaju systemu chłodzenia,
+    na przykład powietrzne lub cieczą.
+
+    \item Atrybut ilosc\_wentylatorow określa liczbę wentylatorów zastosowanych
+    w systemie chłodzenia, co wpływa na jego wydajność.
+
+    \item Atrybut rgb informuje o obecności podświetlenia RGB w systemie
+    chłodzenia.
+
+    \item Atrybut profil określa profil pracy systemu chłodzenia, umożliwiając
+    dostosowanie jego działania do preferencji użytkownika.
+\end{enumerate}
 \newpage 
 \subsubsection{Tabela Dysk}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{obrazki/tabela_dysk.png} % tu ścieżka do Twojego pliku
-    \caption{Tabela Dysk w programie DataGrip}
-    \label{fig:tabela_dysk}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{obrazki/tabela_dysk.png} % tu ścieżka do Twojego pliku
+%     \caption{Tabela Dysk w programie DataGrip}
+%     \label{fig:tabela_dysk}
+% \end{figure}
+
+Tabela DYSK przechowuje informacje techniczne dotyczące nośników danych
+wykorzystywanych w zestawach komputerowych. Encja ta zawiera parametry istotne z
+punktu widzenia wydajności oraz kompatybilności systemu, takie jak typ nośnika,
+zastosowany interfejs, format fizyczny oraz prędkości odczytu i zapisu. Tabela
+DYSK jest powiązana z tabelą Produkty i uzupełnia ją o dane specyficzne dla
+urządzeń pamięci masowej. Strukturę tabeli DYSK przedstawiono w
+tabeli~\ref{tab:dysk}.
+
+\begin{table}[H]
+\centering
+\caption{Struktura tabeli DYSK}
+\label{tab:dysk}
+\begin{tabular}{lll}
+\hline
+Nazwa pola & Typ danych & Opis \\ \hline
+id\_dysk & integer & Klucz główny tabeli \\
+typ & varchar(5) & Typ nośnika danych \\
+interfejs & varchar(12) & Zastosowany interfejs \\
+format & varchar(12) & Format fizyczny nośnika \\
+pojemnosc\_gb & smallint & Pojemność nośnika danych \\
+predkosc\_zapisu & smallint & Prędkość zapisu danych \\
+predkosc\_odczytu & smallint & Prędkość odczytu danych \\ \hline
+\end{tabular}
+\end{table}
+
+Poniżej przedstawiono opis poszczególnych pól tabeli DYSK:
+
+\begin{enumerate}
+    \item Atrybut id\_dysk jest kluczem głównym tabeli DYSK. Służy do jednoznacznej
+    identyfikacji nośnika danych oraz stanowi podstawę powiązań z tabelą Produkty.
+
+    \item Atrybut typ określa rodzaj nośnika danych, na przykład HDD lub SSD.
+
+    \item Atrybut interfejs przechowuje informację o zastosowanym interfejsie,
+    takim jak SATA lub NVMe, co umożliwia sprawdzenie kompatybilności z płytą
+    główną.
+
+    \item Atrybut format określa format fizyczny nośnika danych, na przykład 2.5
+    cala lub M.2.
+
+    \item Atrybut pojemnosc\_gb przechowuje pojemność nośnika danych wyrażoną w
+    gigabajtach.
+
+    \item Atrybut predkosc\_zapisu określa maksymalną prędkość zapisu danych.
+
+    \item Atrybut predkosc\_odczytu określa maksymalną prędkość odczytu danych.
+\end{enumerate}
 
 
 % Każda encja w 2–3 zdaniach:
@@ -1294,6 +1972,10 @@ Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie dan
 % TODO
 \chapter{Weryfikacja i walidacja}
 \label{ch:06}
+Celem niniejszego rozdziału jest weryfikacja poprawności działania 
+zaprojektowanego systemu. Część ta szczegółowo opisuje scenariusze testowe oraz analizuje wyniki testów 
+funkcjonalnych, potwierdzające spełnienie założonych wymagań projektowych.
+
 % \begin{itemize}
 % \item sposób testowania w ramach pracy (np. odniesienie do modelu V)
 % \item organizacja eksperymentów
@@ -1310,6 +1992,25 @@ Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie dan
 % - poprawność logiki kompatybilności,
 % - stabilność backendu i frontendu.
 
+Celem weryfikacji systemu było sprawdzenie poprawności działania zaprojektowanej
+aplikacji oraz ocena stopnia spełnienia założonych wymagań funkcjonalnych.
+Proces testowania miał na celu potwierdzenie, że wszystkie kluczowe moduły
+systemu działają zgodnie z przyjętymi założeniami projektowymi.
+\vspace{0.5cm}
+\\
+W ramach weryfikacji sprawdzono poprawność realizacji podstawowych
+funkcjonalności aplikacji, w tym procesu tworzenia zestawów komputerowych,
+obsługi koszyka oraz składania zamówień. Szczególną uwagę poświęcono
+mechanizmowi weryfikacji kompatybilności podzespołów, którego zadaniem jest
+identyfikacja konfiguracji niezgodnych technicznie.
+\vspace{0.5cm}
+\\
+Dodatkowo weryfikacja obejmowała ocenę stabilności działania warstwy
+backendowej oraz poprawności komunikacji pomiędzy frontendem a backendem.
+Przeprowadzone testy miały potwierdzić, że system reaguje w sposób przewidywalny
+na różne scenariusze użycia oraz zapewnia spójne i poprawne wyniki działania.
+
+
 \section{Metody testowania}
 % Jak testowałeś system:
 % - testy funkcjonalne,
@@ -1318,6 +2019,23 @@ Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie dan
 % - testy walidacyjne dotyczące kompatybilności,
 % - testy manualne frontendu.
 % Opcjonalnie model V lub diagram procesu testowania.
+
+W procesie weryfikacji systemu zastosowano testy funkcjonalne oraz testy
+scenariuszowe. Testy funkcjonalne polegały na sprawdzeniu poprawności działania
+poszczególnych funkcji aplikacji w odpowiedzi na określone dane wejściowe
+wprowadzane przez użytkownika.
+
+Testy scenariuszowe zostały przeprowadzone w oparciu o realistyczne przypadki
+użycia systemu, obejmujące zarówno poprawne, jak i błędne konfiguracje zestawów
+komputerowych. Scenariusze testowe odzwierciedlały rzeczywiste działania
+użytkownika, takie jak dobór podzespołów, modyfikacja zestawu oraz próba
+utworzenia konfiguracji niezgodnej technicznie.
+
+Testowanie realizowane było w sposób manualny poprzez interfejs użytkownika
+aplikacji. Takie podejście pozwoliło na jednoczesną weryfikację poprawności
+logiki biznesowej systemu oraz oceny działania warstwy frontendowej i
+backendowej podczas typowego użytkowania aplikacji.
+
 
 \section{Organizacja eksperymentów}
 % Co konkretnie było sprawdzane:
@@ -1330,6 +2048,39 @@ Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie dan
 % Jak wyglądało środowisko testowe:
 % - Azure (baza),
 % - lokalny backend / production build frontendu.
+Eksperymenty testowe zostały przeprowadzone w kontrolowanym środowisku testowym,
+które umożliwiało weryfikację poprawności działania wszystkich kluczowych
+funkcjonalności systemu. Testy obejmowały zarówno warstwę frontendową, jak i
+backendową aplikacji oraz ich współpracę z bazą danych.
+\vspace{0.5cm}
+\\
+Proces testowania systemu został zorganizowany w sposób uporządkowany i
+powtarzalny, a poszczególne etapy eksperymentów testowych przedstawiono poniżej:
+
+\begin{enumerate}
+    \item Przygotowanie środowiska testowego obejmujące uruchomienie backendu
+    aplikacji oraz bazy danych zawierającej przykładowe dane produktów i
+    użytkowników.
+
+    \item Weryfikacja poprawności procesów logowania i rejestracji użytkowników
+    oraz pobierania danych o dostępnych produktach.
+
+    \item Przeprowadzenie testów funkcjonalnych polegających na dodawaniu
+    komponentów do zestawu, modyfikacji konfiguracji oraz analizie reakcji
+    systemu na zmiany dokonywane przez użytkownika.
+
+    \item Sprawdzenie działania algorytmu weryfikacji kompatybilności oraz logiki
+    rozmytej poprzez tworzenie zarówno poprawnych, jak i niepoprawnych
+    konfiguracji zestawów komputerowych.
+
+    \item Testowanie procesu realizacji zamówienia, obejmujące przejście przez
+    koszyk oraz zapis danych zamówienia w bazie systemu.
+
+    \item Rejestracja wyników testów oraz porównanie uzyskanych rezultatów z
+    oczekiwanym zachowaniem systemu.
+\end{enumerate}
+
+
 
 \section{Przypadki testowe}
 % W tej sekcji opisujesz tabelki testów.
@@ -1343,6 +2094,65 @@ Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie dan
 % - Poprawna rejestracja,
 % - Błędne logowanie.
 % Można przedstawić jako tabela w LaTeX.
+W niniejszym podrozdziale przedstawiono wybrane przypadki testowe wykorzystane
+podczas weryfikacji poprawności działania systemu. Przypadki testowe obejmują
+zarówno konfiguracje poprawne, jak i niepoprawne, w celu sprawdzenia reakcji
+systemu na różne scenariusze użytkowania.
+\vspace{0.5cm}
+\\
+Testy skoncentrowane były głównie na mechanizmie weryfikacji kompatybilności
+podzespołów komputerowych, poprawności obsługi procesów użytkownika oraz
+realizacji podstawowych funkcjonalności aplikacji.
+\begin{table}[H]
+\centering
+\caption{Przykładowe przypadki testowe systemu}
+\label{tab:przypadki_testowe}
+\begin{tabular}{|p{0.8cm}|p{2.8cm}|p{4.0cm}|p{3.6cm}|p{2.6cm}|}
+\hline
+ID & Test & Dane wejściowe & Oczekiwany wynik & Wynik \\
+\hline
+1 & Zestaw kompatybilny &
+CPU AM5 + MOBO AM5 + RAM DDR5 &
+Konfiguracja poprawna &
+Pozytywny \\
+\hline
+2 & Niezgodny socket CPU--MOBO &
+CPU AM5 + MOBO LGA1700 &
+Odrzucenie konfiguracji &
+Negatywny \\
+\hline
+3 & Niezgodny standard RAM &
+RAM DDR5 + MOBO DDR4 &
+Odrzucenie konfiguracji &
+Negatywny \\
+\hline
+4 & Zbyt długa karta graficzna &
+GPU $>$ maks. długość obudowy &
+Odrzucenie konfiguracji &
+Negatywny \\
+\hline
+5 & Zbyt słaby zasilacz &
+PSU $<$ zapotrzebowanie CPU/GPU &
+Odrzucenie konfiguracji &
+Negatywny \\
+\hline
+6 & Zgodne chłodzenie CPU &
+CPU + COOLER zgodny z socketem &
+Konfiguracja poprawna &
+Pozytywny \\
+\hline
+7 & Poprawna rejestracja &
+Poprawne dane użytkownika &
+Rejestracja zakończona sukcesem &
+Pozytywny \\
+\hline
+8 & Błędne logowanie &
+Niepoprawne hasło &
+Odmowa dostępu &
+Negatywny \\
+\hline
+\end{tabular}
+\end{table}
 
 \section{Wyniki testów}
 % Tutaj opisujesz:
@@ -1386,6 +2196,36 @@ Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie dan
 % - problemy z CORS,
 % - dane testowe, które łamały algorytm kompatybilności.
 % To zawsze robi super wrażenie na promotorze.
+W trakcie realizacji projektu oraz procesu testowania systemu wykryto kilka
+nieprawidłowości związanych głównie z obsługą danych oraz komunikacją pomiędzy
+poszczególnymi warstwami aplikacji. Błędy te miały charakter implementacyjny i
+zostały usunięte na etapie prac rozwojowych.
+\vspace{0.5cm}
+\\
+Jednym z napotkanych problemów były nieprawidłowości w przeliczaniu wartości
+cenowych produktów, wynikające z obsługi typu numeric po stronie bazy
+danych oraz jego mapowania w warstwie backendowej. W niektórych przypadkach
+wartości cenowe były błędnie interpretowane lub zaokrąglane. Problem został
+rozwiązany poprzez doprecyzowanie typów danych w modelach oraz ujednolicenie
+sposobu przetwarzania wartości liczbowych w aplikacji.
+\vspace{0.5cm}
+\\
+Dodatkowo wykryto błędy związane z niejednoznacznym mapowaniem typów danych w
+bibliotece ORM, co prowadziło do niepoprawnej walidacji wybranych parametrów
+technicznych podzespołów. Po analizie problemu wprowadzono korekty w definicjach
+modeli danych oraz regułach walidacyjnych.
+\vspace{0.5cm}
+\\
+W początkowej fazie testów pojawiły się również problemy konfiguracyjne związane
+z komunikacją pomiędzy frontendem a backendem, w tym błędy wynikające z
+nieprawidłowych ustawień środowiskowych. Po poprawieniu konfiguracji aplikacji
+oraz ujednoliceniu parametrów połączeń problemy te zostały całkowicie
+wyeliminowane.
+\vspace{0.5cm}
+\\
+Usunięcie wskazanych błędów pozwoliło na uzyskanie stabilnego działania systemu
+oraz poprawne funkcjonowanie mechanizmów walidacji i kompatybilności.
+
 
 \section{Ocena poprawności działania systemu}
 % Podsumowanie tego, co udało się potwierdzić:
@@ -1394,6 +2234,33 @@ Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie dan
 % - API działa stabilnie,
 % - dane w bazie zgodne ze strukturą ERD.
 % Wskazujesz tu, że cele pracy zostały potwierdzone.
+Na podstawie przeprowadzonych testów oraz uzyskanych wyników można stwierdzić,
+że zaprojektowany system działa poprawnie i spełnia założone wymagania
+funkcjonalne. Kluczowe mechanizmy aplikacji, w szczególności proces tworzenia
+zestawów komputerowych oraz weryfikacji kompatybilności podzespołów, funkcjonują
+zgodnie z przyjętymi założeniami projektowymi.
+\vspace{0.5cm}
+\\
+System prawidłowo identyfikuje konfiguracje niezgodne technicznie oraz poprawnie
+obsługuje przypadki poprawnych zestawów, umożliwiając ich dalszą realizację w
+procesie zakupowym. Przeprowadzone testy potwierdziły również stabilność
+działania warstwy backendowej oraz poprawność komunikacji pomiędzy frontendem a
+backendem.
+\vspace{0.5cm}
+\\
+Uzyskane wyniki testów potwierdzają, że działanie systemu jest zgodne z
+wymaganiami funkcjonalnymi oraz niefunkcjonalnymi określonymi w rozdziale trzecim
+pracy. Przeprowadzone przypadki testowe wykazały poprawną realizację kluczowych
+funkcji systemu, takich jak rejestracja i logowanie użytkowników, przeglądanie
+katalogu produktów, tworzenie zestawów komputerowych oraz automatyczna
+weryfikacja kompatybilności podzespołów.
+\vspace{0.5cm}
+\\
+System spełnił również założenia niefunkcjonalne w zakresie stabilności,
+czytelności komunikatów oraz przewidywalności działania. W szczególności
+mechanizm weryfikacji kompatybilności reagował w sposób kontrolowany i
+jednoznaczny na konfiguracje niezgodne technicznie, co potwierdza poprawność
+przyjętych założeń projektowych.
 
 
 \chapter{Podsumowanie i wnioski}
@@ -1406,45 +2273,85 @@ Najbardziej istotną, pełniącą funkcję głównej, tabelą w całej bazie dan
 % \item problemy napotkane w trakcie pracy
 % \end{itemize}
 
-Celem niniejszego rozdziału jest podsumowanie rezultatów uzyskanych podczas realizacji projektu oraz ocena stopnia spełnienia celów pracy. Dodatkowo przedstawiono wnioski dotyczące dalszego możliwego rozwoju systemu oraz trudności napotkane w trakcie implementacji.
+Celem niniejszego rozdziału jest podsumowanie rezultatów uzyskanych podczas 
+realizacji pracy inżynierskiej oraz ocena stopnia spełnienia założonych celów. 
+Przedstawiono również trudności napotkane w trakcie realizacji projektu oraz 
+możliwe kierunki dalszego rozwoju systemu.
 
 \section{Realizacja celów pracy}
-% Tutaj wpisz 1–2 akapity o tym:
-% - które cele zostały spełnione (np. baza, backend, weryfikacja kompatybilności, logika rozmyta, frontend)
-% - co działa zgodnie z założeniami
-% - jak system odpowiada na problem przedstawiony w rozdziale 1
+
+Głównym celem pracy było zaprojektowanie oraz implementacja systemu sklepu 
+komputerowego z kreatorem zestawów PC, umożliwiającego użytkownikowi dobór 
+kompatybilnych podzespołów komputerowych. Cel ten został osiągnięty poprzez 
+opracowanie kompletnej architektury aplikacji obejmującej warstwę 
+frontendową, backendową oraz relacyjną bazę danych.
+
+W ramach realizacji projektu zaprojektowano znormalizowany model danych, 
+zaimplementowano backend odpowiedzialny za logikę biznesową oraz mechanizmy 
+weryfikacji kompatybilności podzespołów, a także przygotowano interfejs 
+użytkownika umożliwiający interaktywne tworzenie zestawów komputerowych. 
+Zrealizowane funkcjonalności odpowiadają na problem przedstawiony w rozdziale 
+pierwszym, polegający na braku narzędzi umożliwiających automatyczną analizę 
+zgodności komponentów w klasycznych sklepach internetowych.
 
 \section{Ocena otrzymanych rezultatów}
-% Tutaj wpisz:
-% - ogólną ocenę jakości systemu
-% - jak system sprawdza się w praktyce
-% - jakie funkcje działają najlepiej
-% - jakie są mocne strony rozwiązania (kompatybilność, API, UX, Azure)
+
+Otrzymane rezultaty należy ocenić pozytywnie. Zaimplementowany system działa 
+zgodnie z przyjętymi założeniami projektowymi i umożliwia poprawne tworzenie 
+zestawów komputerowych wraz z ich weryfikacją pod kątem kompatybilności. 
+Najważniejsze funkcje systemu, takie jak dobór podzespołów, analiza zgodności 
+technicznej oraz obsługa koszyka i zamówień, zostały przetestowane i 
+potwierdziły swoją poprawność.
+
+Do mocnych stron rozwiązania należy zaliczyć przejrzystą architekturę, 
+czytelny interfejs użytkownika oraz elastyczny model danych umożliwiający 
+dalszą rozbudowę systemu. Szczególną wartość stanowi mechanizm sprawdzania 
+kompatybilności, który pozwala na eliminację błędnych konfiguracji już na 
+etapie tworzenia zestawu. System może być z powodzeniem wykorzystywany jako 
+narzędzie wspomagające proces wyboru komponentów komputerowych.
 
 \section{Trudności napotkane podczas realizacji}
-% Wypisz, co było trudne:
-% - integracja backendu z bazą
-% - różne typy danych w parametrach sprzętu
-% - projekt logiki kompatybilności
-% - wdrożenie Azure / problemy z konfiguracją
-% - frontend + backend komunikacja, CORS itp.
+
+Podczas realizacji projektu napotkano szereg trudności natury technicznej. 
+Jednym z głównych wyzwań było zaprojektowanie uniwersalnego modelu danych, 
+który umożliwiłby przechowywanie parametrów technicznych różnych typów 
+podzespołów komputerowych, charakteryzujących się odmiennymi właściwościami.
+
+Trudności pojawiły się również na etapie implementacji logiki weryfikacji 
+kompatybilności, wymagającej uwzględnienia wielu zależności pomiędzy 
+komponentami, takich jak zgodność gniazd procesora, standardów pamięci RAM 
+czy ograniczeń wynikających z obudowy. Dodatkowym wyzwaniem była integracja 
+warstwy frontendowej z backendem oraz zapewnienie poprawnej komunikacji 
+pomiędzy poszczególnymi modułami systemu.
 
 \section{Możliwe kierunki dalszego rozwoju}
-% Tutaj wpisujesz, co można dodać w przyszłości:
-% - rozbudowa logiki rozmytej (więcej kategorii, bardziej precyzyjne reguły)
-% - automatyczne dobieranie podzespołów pod budżet
-% - integracja z zewnętrznymi API sklepów
-% - rekomendacje AI / ML
-% - wersja mobilna aplikacji
-% - panel administratora i zarządzanie katalogiem
-% - testy automatyczne i CI/CD
+
+Zaprojektowany system może stanowić podstawę do dalszego rozwoju. Jednym z 
+możliwych kierunków jest rozbudowa mechanizmów logiki rozmytej poprzez 
+zwiększenie liczby kategorii zestawów oraz bardziej precyzyjne reguły 
+klasyfikacji. Możliwe jest również wprowadzenie automatycznego doboru 
+podzespołów na podstawie zadanego budżetu użytkownika.
+
+Dalszy rozwój systemu mógłby obejmować integrację z zewnętrznymi interfejsami 
+API sklepów internetowych, wprowadzenie panelu administracyjnego do zarządzania 
+katalogiem produktów, a także przygotowanie wersji mobilnej aplikacji. 
+Potencjalnym kierunkiem rozwoju jest również zastosowanie algorytmów 
+uczenia maszynowego w celu generowania bardziej zaawansowanych rekomendacji.
 
 \section{Wnioski końcowe}
-% 1–2 akapity:
-% - ogólne podsumowanie
-% - co projekt wnosi
-% - potwierdzenie znaczenia rozwiązania
-% - że system spełnia założenia i jest praktycznie użyteczny
+
+Zrealizowany projekt potwierdził możliwość stworzenia systemu, który w sposób 
+zautomatyzowany wspiera użytkownika w procesie doboru kompatybilnych 
+podzespołów komputerowych. Opracowane rozwiązanie łączy funkcjonalności 
+typowe dla systemów e-commerce z mechanizmami analizy technicznej zestawów, 
+co stanowi jego istotną wartość użytkową.
+
+Podsumowując, praca spełniła założone cele projektowe i potwierdziła zdobyte 
+w trakcie studiów umiejętności z zakresu projektowania baz danych, tworzenia 
+aplikacji webowych oraz analizy problemów inżynierskich. Zaproponowany system 
+jest rozwiązaniem kompletnym, spójnym i praktycznie użytecznym, mogącym 
+stanowić podstawę do dalszego rozwoju i wdrożeń.
+
 
 \backmatter
 	

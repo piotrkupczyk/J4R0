@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.5)  24 NOV 2025 13:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.16)  17 DEC 2025 15:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/Studia/J4R0/doc/single-file/main.tex
-(d:/Studia/J4R0/doc/single-file/main.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+**c:/Users/p.kupczyk/Desktop/inz/J4R0/doc/single-file/main.tex
+(c:/Users/p.kupczyk/Desktop/inz/J4R0/doc/single-file/main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-14>
 (c:/texlive/2025/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
 (c:/texlive/2025/texmf-dist/tex/latex/base/bk12.clo
@@ -29,9 +29,9 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 ) (c:/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 ) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
+Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
@@ -92,8 +92,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip52
 \multlinetaggap=\skip53
 \mathdisplay@stack=\toks23
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
 ) (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
@@ -115,40 +115,38 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headsep=\skip56
 \dth@everypar=\toks29
 ) (c:/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2025/08/03 v25.12 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+Package: babel 2025/12/11 v25.17 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
 \babel@savecnt=\count296
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2045.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2047.
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2049.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2050.
-LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2051.
-LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2053.
-LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2078.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2068.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2070.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2072.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2073.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2074.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2076.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2101.
 \U@D=\dimen158
 \l@unhyphenated=\language90
  (c:/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count297
+ (c:/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-british.tex) (c:/texlive/2025/texmf-dist/tex/generic/babel/locale/pl/babel-polish.tex)
+Package babel Info: Importing font and identification data for british
+(babel)             from babel-en-GB.ini. Reported on input line 4320.
  (c:/texlive/2025/texmf-dist/tex/generic/babel-english/british.ldf
 Language: british 2017/06/06 v3.3r English support from the babel system
  (c:/texlive/2025/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
- (c:/texlive/2025/texmf-dist/tex/generic/babel/locale/en/babel-british.tex
-Package babel Info: Importing font and identification data for british
-(babel)             from babel-en-GB.ini. Reported on input line 12.
-)
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
 (babel)             (\language22). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 (babel)             (\language22). Reported on input line 108.
-)) (c:/texlive/2025/texmf-dist/tex/generic/babel-polish/polish.ldf
-Language: polish 2022/03/12 1.3 Babel support for Polish
- (c:/texlive/2025/texmf-dist/tex/generic/babel/locale/pl/babel-polish.tex
+))
 Package babel Info: Importing font and identification data for polish
-(babel)             from babel-pl.ini. Reported on input line 12.
-)
+(babel)             from babel-pl.ini. Reported on input line 4320.
+ (c:/texlive/2025/texmf-dist/tex/generic/babel-polish/polish.ldf
+Language: polish 2022/03/12 1.3 Babel support for Polish
 Package babel Info: Making " an active character on input line 101.
 )) (c:/texlive/2025/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
@@ -240,7 +238,7 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
  (c:/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen167
 \Gin@req@width=\dimen168
@@ -275,7 +273,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count304
 ) (c:/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count305
 ) (c:/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
@@ -892,17 +890,17 @@ File: biblatex.cfg
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Document encoding is UTF8 ....
  (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-08-13 L3 programming layer (loader) 
+Package: expl3 2025-11-14 L3 programming layer (loader) 
  (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count491
 ))
 Package biblatex Info: ... and expl3
-(biblatex)             2025-08-13 L3 programming layer (loader) 
+(biblatex)             2025-11-14 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
  (c:/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (c:/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2024-08-16 L3 Experimental document command parser
+Package: xparse 2025-10-09 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 )) (c:/texlive/2025/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
@@ -946,22 +944,29 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \lst@lineno=\count501
 \lst@maxwidth=\dimen327
  (c:/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
-File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 ) (c:/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 \c@lstnumber=\count502
 \lst@skipnumbers=\count503
 \lst@framebox=\box71
 ) (c:/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2024/09/23 1.10c listings configuration
+File: listings.cfg 2025/11/14 1.11b listings configuration
 ))
-Package: listings 2024/09/23 1.10c (Carsten Heinz)
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'polish'.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 391.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
+(c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (./main.aux
 Package babel Info: 'polish' activates 'polish' shorthands.
@@ -1123,22 +1128,14 @@ File: politechnika_sl_logo_bw_pion_pl.pdf Graphic file (type pdf)
 <use politechnika_sl_logo_bw_pion_pl.pdf>
 Package pdftex.def Info: politechnika_sl_logo_bw_pion_pl.pdf  used on input line 418.
 (pdftex.def)             Requested size: 142.26378pt x 182.80913pt.
-
-
-[1
+ [1
 
 
 
-{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./politechnika_sl_logo_bw_pion_pl.pdf>]
-
-[2
+{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./politechnika_sl_logo_bw_pion_pl.pdf>] [2
 
 
-]
-
-[3]
-
-[4
+] [3] [4
 
 ] (./main.toc
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 10.
@@ -1170,44 +1167,33 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-[5]
-
-[6])
+) [5] [6])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
-
-
-[7]
-
-[8
+ [7] [8
 
 ]
 Rozdzia\l  1.
-
-
 [1
 
 
 ]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[2]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 550.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 554.
  (c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[2{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 Package babel Info: 'polish' activates 'polish' shorthands.
-(babel)             Reported on input line 567.
+(babel)             Reported on input line 589.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1215,8 +1201,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-
+[3]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1225,49 +1210,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [4]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[5]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[6
+Rozdzia\l  2.
+[5
 
 ]
-Rozdzia\l  2.
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[6]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [7]
 
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[8]
+[8
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
+]
+Rozdzia\l  3.
 [9]
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1276,13 +1250,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10]
-Rozdzia\l  3.
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[11
-
-]
-
+[11]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1292,7 +1267,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [12]
 
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -1301,39 +1275,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [13]
 
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[14]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[15]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[16
+[14
 
 ]
 Rozdzia\l  4.
+[15]
+Overfull \hbox (3.59369pt too wide) in paragraph at lines 910--911
+[]\T1/lmr/m/n/12 automatycznej we-ry-fi-ka-cji kom-pa-ty-bil-no-±ci, obej-mu-j¡-cej wszyst-kie po-wszechne znane
+ []
 
 
-[17]
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
+[16]
+<obrazki/diagram.png, id=455, 654.445pt x 754.82pt>
+File: obrazki/diagram.png Graphic file (type png)
+<use obrazki/diagram.png>
+Package pdftex.def Info: obrazki/diagram.png  used on input line 941.
+(pdftex.def)             Requested size: 455.24411pt x 525.06487pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[17 <./obrazki/diagram.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1342,12 +1320,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [18]
-Overfull \hbox (3.59369pt too wide) in paragraph at lines 894--895
-[]\T1/lmr/m/n/12 automatycznej we-ry-fi-ka-cji kom-pa-ty-bil-no-±ci, obej-mu-j¡-cej wszyst-kie po-wszechne znane
- []
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1356,13 +1328,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [19]
-<obrazki/diagram.png, id=468, 654.445pt x 754.82pt>
-File: obrazki/diagram.png Graphic file (type png)
-<use obrazki/diagram.png>
-Package pdftex.def Info: obrazki/diagram.png  used on input line 923.
-(pdftex.def)             Requested size: 455.24411pt x 525.06487pt.
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1370,8 +1335,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[20 <./obrazki/diagram.png>]
-
+[20]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1381,7 +1345,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [21]
 
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -1389,7 +1352,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [22]
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1399,7 +1361,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [23]
 
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -1407,6 +1368,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [24]
+<obrazki/erd.jpg, id=504, 1509.64pt x 995.72pt>
+File: obrazki/erd.jpg Graphic file (type jpg)
+<use obrazki/erd.jpg>
+Package pdftex.def Info: obrazki/erd.jpg  used on input line 1114.
+(pdftex.def)             Requested size: 455.24411pt x 300.26804pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1415,8 +1381,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25]
-
+[25 <./obrazki/erd.jpg>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1426,7 +1391,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [26]
 
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -1434,13 +1398,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [27]
-<obrazki/erd.jpg, id=516, 1509.64pt x 995.72pt>
-File: obrazki/erd.jpg Graphic file (type jpg)
-<use obrazki/erd.jpg>
-Package pdftex.def Info: obrazki/erd.jpg  used on input line 1094.
-(pdftex.def)             Requested size: 455.24411pt x 300.26804pt.
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1448,8 +1405,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[28 <./obrazki/erd.jpg>]
-
+[28]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1458,12 +1414,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [29]
-<obrazki/tabela_produkty.png, id=527, 157.33781pt x 109.91063pt>
-File: obrazki/tabela_produkty.png Graphic file (type png)
-<use obrazki/tabela_produkty.png>
-Package pdftex.def Info: obrazki/tabela_produkty.png  used on input line 1153.
-(pdftex.def)             Requested size: 455.24411pt x 318.06679pt.
-
+Overfull \hbox (22.47972pt too wide) in paragraph at lines 1354--1357
+\T1/lmr/m/n/12 ty-fi-ka-cji ko-szyka w sys-te-mie oraz sta-nowi pod-staw¦ po-wi¡-za« z ta-bel¡ Ko-szyk_Produkty. 
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1472,13 +1425,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[30 <./obrazki/tabela_produkty.png>]
-<obrazki/tabela_klienci.png, id=535, 240.14719pt x 177.66376pt>
-File: obrazki/tabela_klienci.png Graphic file (type png)
-<use obrazki/tabela_klienci.png>
-Package pdftex.def Info: obrazki/tabela_klienci.png  used on input line 1163.
-(pdftex.def)             Requested size: 455.24411pt x 336.82454pt.
-
+[30]
+Overfull \hbox (1.2051pt too wide) in paragraph at lines 1419--1422
+[]\T1/lmr/m/n/12 Atrybut data_zakonczenia prze-cho-wuje dat¦ za-ko«-cze-nia re-ali-za-cji za-mó-wie-nia. Pole
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1487,14 +1437,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[31 <./obrazki/tabela_klienci.png>]
-<obrazki/tabela_koszyk.png, id=543, 222.8325pt x 123.46124pt>
-File: obrazki/tabela_koszyk.png Graphic file (type png)
-<use obrazki/tabela_koszyk.png>
-Package pdftex.def Info: obrazki/tabela_koszyk.png  used on input line 1172.
-(pdftex.def)             Requested size: 455.24411pt x 252.25128pt.
-
-
+[31]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1502,14 +1445,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32 <./obrazki/tabela_koszyk.png>]
-<obrazki/tabela_zamowienia.png, id=551, 218.31563pt x 161.85469pt>
-File: obrazki/tabela_zamowienia.png Graphic file (type png)
-<use obrazki/tabela_zamowienia.png>
-Package pdftex.def Info: obrazki/tabela_zamowienia.png  used on input line 1181.
-(pdftex.def)             Requested size: 455.24411pt x 337.5117pt.
-
-
+[32]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1517,14 +1453,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[33 <./obrazki/tabela_zamowienia.png>]
-<obrazki/tabela_zestawy.png, id=559, 184.43906pt x 112.92188pt>
-File: obrazki/tabela_zestawy.png Graphic file (type png)
-<use obrazki/tabela_zestawy.png>
-Package pdftex.def Info: obrazki/tabela_zestawy.png  used on input line 1190.
-(pdftex.def)             Requested size: 455.24411pt x 278.72174pt.
-
-
+[33]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1532,14 +1461,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[34 <./obrazki/tabela_zestawy.png>]
-<obrazki/tabela_gpu.png, id=567, 212.29312pt x 231.86626pt>
-File: obrazki/tabela_gpu.png Graphic file (type png)
-<use obrazki/tabela_gpu.png>
-Package pdftex.def Info: obrazki/tabela_gpu.png  used on input line 1198.
-(pdftex.def)             Requested size: 455.24411pt x 497.24318pt.
-
-
+[34]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1547,14 +1469,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[35 <./obrazki/tabela_gpu.png>]
-<obrazki/tabela_cpu.png, id=576, 186.6975pt x 197.23688pt>
-File: obrazki/tabela_cpu.png Graphic file (type png)
-<use obrazki/tabela_cpu.png>
-Package pdftex.def Info: obrazki/tabela_cpu.png  used on input line 1207.
-(pdftex.def)             Requested size: 455.24411pt x 480.9653pt.
-
-
+[35]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1562,8 +1477,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[36 <./obrazki/tabela_cpu.png>]
-
+[36]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1572,11 +1486,36 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [37]
-<obrazki/tabela_mobo.png, id=590, 237.88875pt x 322.20375pt>
-File: obrazki/tabela_mobo.png Graphic file (type png)
-<use obrazki/tabela_mobo.png>
-Package pdftex.def Info: obrazki/tabela_mobo.png  used on input line 1217.
-(pdftex.def)             Requested size: 455.24411pt x 616.6281pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[38]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[39]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[40]
+Overfull \hbox (2.92676pt too wide) in paragraph at lines 1921--1924
+[]\T1/lmr/m/n/12 Atrybut in-ter-fejs prze-cho-wuje in-for-ma-cj¦ o za-sto-so-wa-nym in-ter-fej-sie, ta-kim jak SATA
+ []
+
+
+Underfull \vbox (badness 1303) has occurred while \output is active []
 
 
 
@@ -1586,14 +1525,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[38 <./obrazki/tabela_mobo.png>]
-<obrazki/tabela_ram.png, id=597, 194.97844pt x 182.18062pt>
-File: obrazki/tabela_ram.png Graphic file (type png)
-<use obrazki/tabela_ram.png>
-Package pdftex.def Info: obrazki/tabela_ram.png  used on input line 1226.
-(pdftex.def)             Requested size: 455.24411pt x 425.38077pt.
-
-
+[41]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1601,144 +1533,64 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[39 <./obrazki/tabela_ram.png>]
-<obrazki/tabela_psu.png, id=605, 178.41656pt x 126.4725pt>
-File: obrazki/tabela_psu.png Graphic file (type png)
-<use obrazki/tabela_psu.png>
-Package pdftex.def Info: obrazki/tabela_psu.png  used on input line 1235.
-(pdftex.def)             Requested size: 455.24411pt x 322.72252pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[40 <./obrazki/tabela_psu.png>]
-<obrazki/tabela_cooler.png, id=613, 217.5628pt x 146.04562pt>
-File: obrazki/tabela_cooler.png Graphic file (type png)
-<use obrazki/tabela_cooler.png>
-Package pdftex.def Info: obrazki/tabela_cooler.png  used on input line 1244.
-(pdftex.def)             Requested size: 455.24411pt x 305.6396pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[41 <./obrazki/tabela_cooler.png>]
-<obrazki/tabela_dysk.png, id=622, 219.82124pt x 162.6075pt>
-File: obrazki/tabela_dysk.png Graphic file (type png)
-<use obrazki/tabela_dysk.png>
-Package pdftex.def Info: obrazki/tabela_dysk.png  used on input line 1253.
-(pdftex.def)             Requested size: 455.24411pt x 336.7666pt.
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[42 <./obrazki/tabela_dysk.png>]
+[42]
 Rozdzia\l  5.
 
-Underfull \hbox (badness 4353) in paragraph at lines 1362--1362
-[]\T1/lmr/m/n/12 Ryzen 5 7600 +
+Overfull \hbox (0.40167pt too wide) in paragraph at lines 1995--2012
+\T1/lmr/m/n/12 po-praw-no-±ci ko-mu-ni-ka-cji po-mi¦-dzy fron-ten-dem a bac-ken-dem. Prze-pro-wa-dzone te-sty miaªy
  []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1364--1365
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \hbox (badness 3989) in paragraph at lines 1366--1366
-[]\T1/lmr/m/n/12 RAM DDR5 +
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1366--1367
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1368--1368
-[]\T1/lmr/m/n/12 RTX 4070 (330
- []
-
-
-Underfull \hbox (badness 7151) in paragraph at lines 1368--1368
-\T1/lmr/m/n/12 mm) + obu-dowa
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1368--1369
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1370--1370
-[]\T1/lmr/m/n/12 Zasilacz +
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1370--1371
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1372--1372
-[]\T1/lmr/m/n/12 Niezgodne typy
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1372--1373
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1374--1374
-[]\T1/lmr/m/n/12 Zestaw kom-
- []
-
-
-Underfull \hbox (badness 4634) in paragraph at lines 1374--1374
-[]\T1/lmr/m/n/12 CPU + GPU +
- []
-
-
-Underfull \hbox (badness 1596) in paragraph at lines 1374--1374
-\T1/lmr/m/n/12 RAM + Mobo +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1376--1376
-[]\T1/lmr/m/n/12 3 nie-zgod-no-±ci
- []
-
-
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 1376--1377
-[]\T1/lmr/m/n/12 Niekompatybilne| 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 [43
 
 ]
-Overfull \vbox (7.96297pt too high) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 2116--2116
+[]\T1/lmr/m/n/12 Konfiguracja po-
+ []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 2119--2119
+[]\T1/lmr/m/n/12 Niezgodny
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2119--2119
+\T1/lmr/m/n/12 soc-ket CPU--
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2124--2124
+[]\T1/lmr/m/n/12 Niezgodny
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2125--2125
+[]\T1/lmr/m/n/12 RAM DDR5 +
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2129--2129
+[]\T1/lmr/m/n/12 Zbyt dªuga
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2139--2139
+[]\T1/lmr/m/n/12 Zgodne chªo-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2140--2140
+[]\T1/lmr/m/n/12 CPU + CO-OLER
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2141--2141
+[]\T1/lmr/m/n/12 Konfiguracja po-
+ []
+
+
+Underfull \hbox (badness 7344) in paragraph at lines 2146--2146
+[]\T1/lmr/m/n/12 Rejestracja za-ko«-
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1748,6 +1600,88 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [44]
+Underfull \hbox (badness 4353) in paragraph at lines 2172--2172
+[]\T1/lmr/m/n/12 Ryzen 5 7600 +
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2174--2175
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \hbox (badness 3989) in paragraph at lines 2176--2176
+[]\T1/lmr/m/n/12 RAM DDR5 +
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2176--2177
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2178--2178
+[]\T1/lmr/m/n/12 RTX 4070 (330
+ []
+
+
+Underfull \hbox (badness 7151) in paragraph at lines 2178--2178
+\T1/lmr/m/n/12 mm) + obu-dowa
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2178--2179
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2180--2180
+[]\T1/lmr/m/n/12 Zasilacz +
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2180--2181
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2182--2182
+[]\T1/lmr/m/n/12 Niezgodne typy
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2182--2183
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2184--2184
+[]\T1/lmr/m/n/12 Zestaw kom-
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 2184--2184
+[]\T1/lmr/m/n/12 CPU + GPU +
+ []
+
+
+Underfull \hbox (badness 1596) in paragraph at lines 2184--2184
+\T1/lmr/m/n/12 RAM + Mobo +
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2186--2186
+[]\T1/lmr/m/n/12 3 nie-zgod-no-±ci
+ []
+
+
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2186--2187
+[]\T1/lmr/m/n/12 Niekompatybilne| 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1756,8 +1690,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[45]
-
+[45{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1765,14 +1698,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[46
+[46]
 
-]
-Rozdzia\l  6.
-
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [47]
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1783,20 +1717,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [48
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1456.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Overfull \hbox (3.65848pt too wide) in paragraph at lines 1457--1457
-[]\T1/lmr/m/it/12 X-kom - sklep kom-pu-te-rowy\T1/lmr/m/n/12 . 2025. \T1/lmr/m/sc/12 url\T1/lmr/m/n/12 : []$\T1/lmtt/m/n/12 https : / / www . x -[] kom . pl/$[] \T1/lmr/m/n/12 (do-st¦p 17.11.2025). 
+Rozdzia\l  6.
+
+Overfull \hbox (3.82913pt too wide) in paragraph at lines 2299--2305
+[]\T1/lmr/m/n/12 Otrzymane re-zul-taty na-le»y oce-ni¢ po-zy-tyw-nie. Za-im-ple-men-to-wany sys-tem dziaªa zgod-
  []
 
-
-
-[49
-
-
-]
+[49]
+Overfull \hbox (15.96951pt too wide) in paragraph at lines 2343--2348
+\T1/lmr/m/n/12 pu-te-ro-wych. Opra-co-wane roz-wi¡-za-nie ª¡-czy funk-cjo-nal-no-±ci ty-powe dla sys-te-mów e-commerce
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1805,18 +1735,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[50
+[50]
 
-]
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [51]
 
-[52]
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[52
+
+]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2363.
+ (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Overfull \hbox (3.65848pt too wide) in paragraph at lines 2364--2364
+[]\T1/lmr/m/it/12 X-kom - sklep kom-pu-te-rowy\T1/lmr/m/n/12 . 2025. \T1/lmr/m/sc/12 url\T1/lmr/m/n/12 : []$\T1/lmtt/m/n/12 https : / / www . x -[] kom . pl/$[] \T1/lmr/m/n/12 (do-st¦p 17.11.2025). 
+ []
 
 [53
 
-]
 
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1824,12 +1773,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[54]
+[54
 
-[55
+] [55] [56] [57
 
 ]
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1837,34 +1785,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[56
+[58] [59
 
 ]
-Overfull \hbox (2.38579pt too wide) in paragraph at lines 1534--1535
-[]\T1/lmr/m/n/12 film po-ka-zu-j¡cy dzia-ªa-nie opra-co-wa-nego opro-gra-mo-wa-nia lub za-pro-jek-to-wa-nego i wy-
- []
-
-
-
-[57]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[58
-
-] (./main.lof)
-\tf@lof=\write7
-\openout7 = `main.lof'.
-
-
-
-[59]
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1874,36 +1797,63 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [60
 
+]
+Overfull \hbox (2.38579pt too wide) in paragraph at lines 2441--2442
+[]\T1/lmr/m/n/12 film po-ka-zu-j¡cy dzia-ªa-nie opra-co-wa-nego opro-gra-mo-wa-nia lub za-pro-jek-to-wa-nego i wy-
+ []
+
+[61]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[62
+
+] (./main.lof)
+\tf@lof=\write7
+\openout7 = `main.lof'.
+
+ [63]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[64
+
 ] (./main.lot)
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
-
-
-[61] (./main.aux)
+ [65] (./main.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-14>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FCE675CFACF716B53E102634B52ADACA;11526.
+(rerunfilecheck)             Checksum: 9D5094E5983865C308236F2ECD02172F;11526.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45512 strings out of 467800
- 993115 string characters out of 5436062
- 1760959 words of memory out of 5000000
- 73288 multiletter control sequences out of 15000+600000
- 691566 words of font info for 77 fonts, out of 8000000 for 9000
+ 45543 strings out of 467538
+ 991437 string characters out of 5423724
+ 1764282 words of memory out of 5000000
+ 73471 multiletter control sequences out of 15000+600000
+ 692462 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,11n,91p,1902b,3638s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (69 pages, 656925 bytes).
+ 84i,12n,104p,1923b,3644s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on main.pdf (73 pages, 583450 bytes).
 PDF statistics:
- 826 PDF objects out of 1000 (max. 8388607)
- 701 compressed objects within 8 object streams
- 186 named destinations out of 1000 (max. 500000)
- 600 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 967 PDF objects out of 1000 (max. 8388607)
+ 859 compressed objects within 9 object streams
+ 294 named destinations out of 1000 (max. 500000)
+ 540 words of extra memory for PDF output out of 10000 (max. 10000000)
 
