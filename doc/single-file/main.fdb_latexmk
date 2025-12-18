@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex main"] 1765979658.75164 "main.aux" "main.bbl" "main" 1765980036.0349 0
+["bibtex main"] 1766061453.6175 "main.aux" "main.bbl" "main" 1766061463.522 0
   "./biblio.bib" 1765874252 2240 be6460c82a9b7b2a04186209bfb5dc5a ""
-  "./main-blx.bib" 1765980032 343 343e095b1185c652a393dea4f8685441 ""
+  "./main-blx.bib" 1766061459 343 343e095b1185c652a393dea4f8685441 ""
   "c:/texlive/2025/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1765875490 65510 9a2a51799b543ff279b8ea2dd91ec499 ""
-  "main.aux" 1765980032 17377 645fc6c608c42bc2a27d92a95539b2f7 "pdflatex"
+  "main.aux" 1766061459 17440 7b4c956c0de5e67462433c2d8270c3d1 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1765980028.94983 "c:/Users/p.kupczyk/Desktop/inz/J4R0/doc/single-file/main.tex" "main.pdf" "main" 1765980036.04121 0
-  "c:/Users/p.kupczyk/Desktop/inz/J4R0/doc/single-file/main.tex" 1765980027 117409 09287568ab210d89f8eecfdb98e2f013 ""
+["pdflatex"] 1766061454.54231 "c:/Users/p.kupczyk/Desktop/inz/J4R0/doc/single-file/main.tex" "main.pdf" "main" 1766061463.52781 0
+  "c:/Users/p.kupczyk/Desktop/inz/J4R0/doc/single-file/main.tex" 1766061445 117896 b2c786060f7fc4762233c28b5e459449 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1765885181 2375 baa924870cfb487815765f9094cf3728 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1765885181 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc" 1765885181 3031 6c4d3515bf7115d8518af1c9ab97ca44 ""
@@ -274,14 +274,14 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1765896695 5587484 30eee748fa419a911c40b0c750dd21ba ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1765896989 3635700 849ba14e65f5a9e69957422c753b68ee ""
   "c:/texlive/2025/texmf.cnf" 1765896662 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1765980032 17377 645fc6c608c42bc2a27d92a95539b2f7 "pdflatex"
-  "main.bbl" 1765979659 2063 c82856c0833a95e3a6af3220c116e913 "bibtex main"
-  "main.lof" 1765980032 2016 439dae64c2929abaf87dd9e5082ed156 "pdflatex"
-  "main.lot" 1765980032 3301 7068ec0b8983e6e627a6ad066a2c01c5 "pdflatex"
-  "main.out" 1765980032 11526 9d5094e5983865c308236f2ecd02172f "pdflatex"
-  "main.run.xml" 1765980032 2613 b0aada028a7f8702b3b5fdf798159577 "pdflatex"
-  "main.tex" 1765980027 117409 09287568ab210d89f8eecfdb98e2f013 ""
-  "main.toc" 1765980032 8329 a9f12b8003871fbc9ef3a4e53b7da0b8 "pdflatex"
+  "main.aux" 1766061459 17440 7b4c956c0de5e67462433c2d8270c3d1 "pdflatex"
+  "main.bbl" 1766061454 2063 c82856c0833a95e3a6af3220c116e913 "bibtex main"
+  "main.lof" 1766061459 2122 e41c6437ceff4635d957e05e2cfdb843 "pdflatex"
+  "main.lot" 1766061459 3301 631226b4136735eeac5d35ab729a9c4e "pdflatex"
+  "main.out" 1766061459 10767 1c62b8290936cd7c3685c0a24d0e248f "pdflatex"
+  "main.run.xml" 1766061459 2613 b0aada028a7f8702b3b5fdf798159577 "pdflatex"
+  "main.tex" 1766061445 117896 b2c786060f7fc4762233c28b5e459449 ""
+  "main.toc" 1766061459 8245 1d6b2fce8187b3b62a72bd464ae045c1 "pdflatex"
   "obrazki/diagram.png" 1765874253 69129 7a85cc7690ffceff211308c4abaf7e02 ""
   "obrazki/erd.jpg" 1765874253 211643 5034e26e31561cc08b74342a766f45a5 ""
   "politechnika_sl_logo_bw_pion_pl.pdf" 1765874253 22633 c6320640bafa38d406e62eed6fafdfbd ""

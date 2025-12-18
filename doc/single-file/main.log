@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.16)  17 DEC 2025 15:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.12.16)  18 DEC 2025 13:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1123,7 +1123,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmss on input line 41
  (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<politechnika_sl_logo_bw_pion_pl.pdf, id=264, 179.67125pt x 230.8625pt>
+<politechnika_sl_logo_bw_pion_pl.pdf, id=248, 179.67125pt x 230.8625pt>
 File: politechnika_sl_logo_bw_pion_pl.pdf Graphic file (type pdf)
 <use politechnika_sl_logo_bw_pion_pl.pdf>
 Package pdftex.def Info: politechnika_sl_logo_bw_pion_pl.pdf  used on input line 418.
@@ -1167,15 +1167,14 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [5] [6])
+) [5])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [7] [8
-
-]
+ [6]
 Rozdzia\l  1.
 [1
+
 
 
 ]
@@ -1286,7 +1285,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Rozdzia\l  4.
 [15]
-Overfull \hbox (3.59369pt too wide) in paragraph at lines 910--911
+Overfull \hbox (3.59369pt too wide) in paragraph at lines 911--912
 []\T1/lmr/m/n/12 automatycznej we-ry-fi-ka-cji kom-pa-ty-bil-no-±ci, obej-mu-j¡-cej wszyst-kie po-wszechne znane
  []
 
@@ -1298,12 +1297,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [16]
-<obrazki/diagram.png, id=455, 654.445pt x 754.82pt>
+<obrazki/diagram.png, id=430, 654.445pt x 754.82pt>
 File: obrazki/diagram.png Graphic file (type png)
 <use obrazki/diagram.png>
-Package pdftex.def Info: obrazki/diagram.png  used on input line 941.
+Package pdftex.def Info: obrazki/diagram.png  used on input line 943.
 (pdftex.def)             Requested size: 455.24411pt x 525.06487pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1311,7 +1313,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[17 <./obrazki/diagram.png>]
+[17]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1319,7 +1321,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[18]
+[18 <./obrazki/diagram.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1368,10 +1370,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [24]
-<obrazki/erd.jpg, id=504, 1509.64pt x 995.72pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[25]
+<obrazki/erd.jpg, id=484, 1509.64pt x 995.72pt>
 File: obrazki/erd.jpg Graphic file (type jpg)
 <use obrazki/erd.jpg>
-Package pdftex.def Info: obrazki/erd.jpg  used on input line 1114.
+Package pdftex.def Info: obrazki/erd.jpg  used on input line 1116.
 (pdftex.def)             Requested size: 455.24411pt x 300.26804pt.
 
 
@@ -1381,15 +1391,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25 <./obrazki/erd.jpg>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[26]
+[26 <./obrazki/erd.jpg>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1414,7 +1416,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [29]
-Overfull \hbox (22.47972pt too wide) in paragraph at lines 1354--1357
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[30]
+Overfull \hbox (22.47972pt too wide) in paragraph at lines 1355--1358
 \T1/lmr/m/n/12 ty-fi-ka-cji ko-szyka w sys-te-mie oraz sta-nowi pod-staw¦ po-wi¡-za« z ta-bel¡ Ko-szyk_Produkty. 
  []
 
@@ -1425,19 +1435,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[30]
-Overfull \hbox (1.2051pt too wide) in paragraph at lines 1419--1422
+[31]
+Overfull \hbox (1.2051pt too wide) in paragraph at lines 1420--1423
 []\T1/lmr/m/n/12 Atrybut data_zakonczenia prze-cho-wuje dat¦ za-ko«-cze-nia re-ali-za-cji za-mó-wie-nia. Pole
  []
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[31]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1510,7 +1512,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [40]
-Overfull \hbox (2.92676pt too wide) in paragraph at lines 1921--1924
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[41]
+Overfull \hbox (2.92676pt too wide) in paragraph at lines 1922--1925
 []\T1/lmr/m/n/12 Atrybut in-ter-fejs prze-cho-wuje in-for-ma-cj¦ o za-sto-so-wa-nym in-ter-fej-sie, ta-kim jak SATA
  []
 
@@ -1525,7 +1535,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[41]
+[42]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1533,62 +1543,70 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[42]
+[43]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[44
+
+]
 Rozdzia\l  5.
 
-Overfull \hbox (0.40167pt too wide) in paragraph at lines 1995--2012
+Overfull \hbox (0.40167pt too wide) in paragraph at lines 1996--2013
 \T1/lmr/m/n/12 po-praw-no-±ci ko-mu-ni-ka-cji po-mi¦-dzy fron-ten-dem a bac-ken-dem. Prze-pro-wa-dzone te-sty miaªy
  []
 
-[43
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 2116--2116
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 2117--2117
 []\T1/lmr/m/n/12 Konfiguracja po-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2119--2119
+Underfull \hbox (badness 10000) in paragraph at lines 2120--2120
 []\T1/lmr/m/n/12 Niezgodny
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2119--2119
+Underfull \hbox (badness 10000) in paragraph at lines 2120--2120
 \T1/lmr/m/n/12 soc-ket CPU--
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2124--2124
+Underfull \hbox (badness 10000) in paragraph at lines 2125--2125
 []\T1/lmr/m/n/12 Niezgodny
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2125--2125
+Underfull \hbox (badness 10000) in paragraph at lines 2126--2126
 []\T1/lmr/m/n/12 RAM DDR5 +
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2129--2129
+Underfull \hbox (badness 10000) in paragraph at lines 2130--2130
 []\T1/lmr/m/n/12 Zbyt dªuga
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2139--2139
+Underfull \hbox (badness 10000) in paragraph at lines 2140--2140
 []\T1/lmr/m/n/12 Zgodne chªo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2140--2140
+Underfull \hbox (badness 10000) in paragraph at lines 2141--2141
 []\T1/lmr/m/n/12 CPU + CO-OLER
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2141--2141
+Underfull \hbox (badness 10000) in paragraph at lines 2142--2142
 []\T1/lmr/m/n/12 Konfiguracja po-
  []
 
 
-Underfull \hbox (badness 7344) in paragraph at lines 2146--2146
+Underfull \hbox (badness 7344) in paragraph at lines 2147--2147
 []\T1/lmr/m/n/12 Rejestracja za-ko«-
  []
 
@@ -1599,83 +1617,83 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[44]
-Underfull \hbox (badness 4353) in paragraph at lines 2172--2172
+[46]
+Underfull \hbox (badness 4353) in paragraph at lines 2173--2173
 []\T1/lmr/m/n/12 Ryzen 5 7600 +
  []
 
 
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 2174--2175
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2175--2176
 []\T1/lmr/m/n/12 Niekompatybilne| 
  []
 
 
-Underfull \hbox (badness 3989) in paragraph at lines 2176--2176
+Underfull \hbox (badness 3989) in paragraph at lines 2177--2177
 []\T1/lmr/m/n/12 RAM DDR5 +
  []
 
 
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 2176--2177
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2177--2178
 []\T1/lmr/m/n/12 Niekompatybilne| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2178--2178
+Underfull \hbox (badness 10000) in paragraph at lines 2179--2179
 []\T1/lmr/m/n/12 RTX 4070 (330
  []
 
 
-Underfull \hbox (badness 7151) in paragraph at lines 2178--2178
+Underfull \hbox (badness 7151) in paragraph at lines 2179--2179
 \T1/lmr/m/n/12 mm) + obu-dowa
  []
 
 
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 2178--2179
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2179--2180
 []\T1/lmr/m/n/12 Niekompatybilne| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2180--2180
+Underfull \hbox (badness 10000) in paragraph at lines 2181--2181
 []\T1/lmr/m/n/12 Zasilacz +
  []
 
 
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 2180--2181
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2181--2182
 []\T1/lmr/m/n/12 Niekompatybilne| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2182--2182
+Underfull \hbox (badness 10000) in paragraph at lines 2183--2183
 []\T1/lmr/m/n/12 Niezgodne typy
  []
 
 
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 2182--2183
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2183--2184
 []\T1/lmr/m/n/12 Niekompatybilne| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2184--2184
+Underfull \hbox (badness 10000) in paragraph at lines 2185--2185
 []\T1/lmr/m/n/12 Zestaw kom-
  []
 
 
-Underfull \hbox (badness 4634) in paragraph at lines 2184--2184
+Underfull \hbox (badness 4634) in paragraph at lines 2185--2185
 []\T1/lmr/m/n/12 CPU + GPU +
  []
 
 
-Underfull \hbox (badness 1596) in paragraph at lines 2184--2184
+Underfull \hbox (badness 1596) in paragraph at lines 2185--2185
 \T1/lmr/m/n/12 RAM + Mobo +
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2186--2186
+Underfull \hbox (badness 10000) in paragraph at lines 2187--2187
 []\T1/lmr/m/n/12 3 nie-zgod-no-±ci
  []
 
 
-Overfull \hbox (6.82162pt too wide) in paragraph at lines 2186--2187
+Overfull \hbox (6.82162pt too wide) in paragraph at lines 2187--2188
 []\T1/lmr/m/n/12 Niekompatybilne| 
  []
 
@@ -1690,7 +1708,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[45{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+[47{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1698,7 +1716,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[46]
+[48]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1706,7 +1724,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[47]
+[49]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1714,17 +1732,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[48
+[50
 
 ]
 Rozdzia\l  6.
 
-Overfull \hbox (3.82913pt too wide) in paragraph at lines 2299--2305
+Overfull \hbox (3.82913pt too wide) in paragraph at lines 2300--2306
 []\T1/lmr/m/n/12 Otrzymane re-zul-taty na-le»y oce-ni¢ po-zy-tyw-nie. Za-im-ple-men-to-wany sys-tem dziaªa zgod-
  []
 
-[49]
-Overfull \hbox (15.96951pt too wide) in paragraph at lines 2343--2348
+[51]
+Overfull \hbox (15.96951pt too wide) in paragraph at lines 2344--2349
 \T1/lmr/m/n/12 pu-te-ro-wych. Opra-co-wane roz-wi¡-za-nie ª¡-czy funk-cjo-nal-no-±ci ty-powe dla sys-te-mów e-commerce
  []
 
@@ -1735,7 +1753,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[50]
+[52]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1743,29 +1761,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[51]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[52
-
-]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2363.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Overfull \hbox (3.65848pt too wide) in paragraph at lines 2364--2364
-[]\T1/lmr/m/it/12 X-kom - sklep kom-pu-te-rowy\T1/lmr/m/n/12 . 2025. \T1/lmr/m/sc/12 url\T1/lmr/m/n/12 : []$\T1/lmtt/m/n/12 https : / / www . x -[] kom . pl/$[] \T1/lmr/m/n/12 (do-st¦p 17.11.2025). 
- []
-
-[53
-
-
-]
+[53]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1775,34 +1771,41 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [54
 
-] [55] [56] [57
-
 ]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[58] [59
-
-]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[60
-
-]
-Overfull \hbox (2.38579pt too wide) in paragraph at lines 2441--2442
-[]\T1/lmr/m/n/12 film po-ka-zu-j¡cy dzia-ªa-nie opra-co-wa-nego opro-gra-mo-wa-nia lub za-pro-jek-to-wa-nego i wy-
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2364.
+ (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Overfull \hbox (3.65848pt too wide) in paragraph at lines 2365--2365
+[]\T1/lmr/m/it/12 X-kom - sklep kom-pu-te-rowy\T1/lmr/m/n/12 . 2025. \T1/lmr/m/sc/12 url\T1/lmr/m/n/12 : []$\T1/lmtt/m/n/12 https : / / www . x -[] kom . pl/$[] \T1/lmr/m/n/12 (do-st¦p 17.11.2025). 
  []
 
-[61]
+[55
+
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[56
+
+] [57] [58] [59
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[60] [61
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1812,11 +1815,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [62
 
-] (./main.lof)
-\tf@lof=\write7
-\openout7 = `main.lof'.
+]
+Overfull \hbox (2.38579pt too wide) in paragraph at lines 2442--2443
+[]\T1/lmr/m/n/12 film po-ka-zu-j¡cy dzia-ªa-nie opra-co-wa-nego opro-gra-mo-wa-nia lub za-pro-jek-to-wa-nego i wy-
+ []
 
- [63]
+[63]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1826,34 +1830,48 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [64
 
+] (./main.lof)
+\tf@lof=\write7
+\openout7 = `main.lof'.
+
+ [65]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[66
+
 ] (./main.lot)
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- [65] (./main.aux)
+ [67] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9D5094E5983865C308236F2ECD02172F;11526.
+(rerunfilecheck)             Checksum: 1C62B8290936CD7C3685C0A24D0E248F;10767.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45543 strings out of 467538
- 991437 string characters out of 5423724
- 1764282 words of memory out of 5000000
- 73471 multiletter control sequences out of 15000+600000
+ 45539 strings out of 467538
+ 991342 string characters out of 5423724
+ 1764276 words of memory out of 5000000
+ 73467 multiletter control sequences out of 15000+600000
  692462 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,104p,1923b,3644s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (73 pages, 583450 bytes).
+Output written on main.pdf (73 pages, 583435 bytes).
 PDF statistics:
- 967 PDF objects out of 1000 (max. 8388607)
- 859 compressed objects within 9 object streams
+ 952 PDF objects out of 1000 (max. 8388607)
+ 844 compressed objects within 9 object streams
  294 named destinations out of 1000 (max. 500000)
- 540 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 508 words of extra memory for PDF output out of 10000 (max. 10000000)
 

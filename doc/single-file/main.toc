@@ -7,19 +7,19 @@
 \babel@toc {polish}{}\relax 
 \thispagestyle {empty}
 \contentsline {chapter}{\numberline {1}Wstęp}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Wprowadzenie w problem}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.1}Wprowadzenie do problemu}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Osadzenie problemu w dziedzinie}{1}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Cel pracy}{1}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Zakres pracy}{2}{section.1.4}%
+\contentsline {section}{\numberline {1.4}Zakres prac}{2}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Zwięzła charakterystyka rozdziałów}{3}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Wkład autora}{4}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Analiza problemu oraz przegląd dostępnych rozwiązań}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Sformułowanie problemu}{5}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Istota kompatybilności}{5}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Niska dostępność narzędzi do weryfikacji kompatybilności}{5}{subsection.2.1.2}%
+\contentsline {subsubsection}{Istota kompatybilności}{5}{section*.8}%
+\contentsline {subsubsection}{Niska dostępność narzędzi do weryfikacji kompatybilności}{5}{section*.9}%
 \contentsline {section}{\numberline {2.2}Analiza istniejących rozwiązań w najpopularniejszych sklepach na polskim rynku}{6}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Morele.net}{6}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}X-kom.pl}{6}{subsection.2.2.2}%
+\contentsline {subsubsection}{Morele.net}{6}{section*.10}%
+\contentsline {subsubsection}{X-kom.pl}{6}{section*.11}%
 \contentsline {section}{\numberline {2.3}Porównanie istniejących rozwiązań z rozwiązaniem inżynierskim}{6}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Wymagania i narzędzia}{9}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Wymagania funkcjonalne}{9}{section.3.1}%
@@ -36,54 +36,54 @@
 \contentsline {subsection}{\numberline {4.1.2}Innowacyjność systemu}{16}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2}Architektura systemu}{17}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Schemat ideowy}{17}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Frontend}{18}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Backend}{19}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Baza danych}{20}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Infrastruktura chmurowa}{21}{subsection.4.2.5}%
-\contentsline {subsubsection}{Azure Static Web App}{22}{section*.9}%
-\contentsline {subsubsection}{Azure App Service}{22}{section*.10}%
-\contentsline {subsubsection}{Azure Database for PostgreSQL}{23}{section*.11}%
-\contentsline {subsubsection}{Azure Monitor}{23}{section*.12}%
-\contentsline {subsubsection}{Koszty i optymalizacja}{23}{section*.13}%
-\contentsline {subsubsection}{Architektura logiczna}{24}{section*.14}%
-\contentsline {section}{\numberline {4.3}Baza danych}{25}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Model danych - ERD}{25}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Opis najważniejszych encji}{28}{subsection.4.3.2}%
-\contentsline {subsubsection}{Tabela produkty}{28}{section*.16}%
-\contentsline {subsubsection}{Tabela Klienci}{29}{section*.18}%
-\contentsline {subsubsection}{Tabela Koszyk}{30}{section*.20}%
-\contentsline {subsubsection}{Tabela Zamówienia}{31}{section*.22}%
-\contentsline {subsubsection}{Tabela Zestawy}{32}{section*.24}%
-\contentsline {subsubsection}{Tabela GPU}{33}{section*.26}%
-\contentsline {subsubsection}{Tabela CPU}{35}{section*.28}%
-\contentsline {subsubsection}{Tabela MOBO}{36}{section*.30}%
-\contentsline {subsubsection}{Tabela RAM}{37}{section*.32}%
-\contentsline {subsubsection}{Tabela PSU}{39}{section*.34}%
-\contentsline {subsubsection}{Tabela Cooler}{40}{section*.36}%
-\contentsline {subsubsection}{Tabela Dysk}{41}{section*.38}%
-\contentsline {section}{\numberline {4.4}Komponenty i moduły systemu}{42}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Moduł kompatybilności podzespołów}{42}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Moduł logiki rozmytej}{42}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Moduł zarządzania koszykiem i zamówieniami}{42}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}Najważniejsze algorytmy}{42}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Diagramy UML}{42}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Szczegóły implementacji wybranych elementów}{42}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Weryfikacja i walidacja}{43}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Cel weryfikacji systemu}{43}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Metody testowania}{43}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Organizacja eksperymentów}{44}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Przypadki testowe}{45}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Wyniki testów}{46}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Wykryte i usunięte błędy}{46}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Ocena poprawności działania systemu}{47}{section.5.7}%
-\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{49}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Realizacja celów pracy}{49}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Ocena otrzymanych rezultatów}{49}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Trudności napotkane podczas realizacji}{50}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Możliwe kierunki dalszego rozwoju}{50}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Wnioski końcowe}{50}{section.6.5}%
-\contentsline {chapter}{Bibliografia}{53}{section*.42}%
-\contentsline {chapter}{Spis skrótów i symboli}{57}{appendix*.44}%
+\contentsline {subsection}{\numberline {4.2.2}Frontend}{19}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Backend}{20}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Baza danych}{21}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Infrastruktura chmurowa}{22}{subsection.4.2.5}%
+\contentsline {subsubsection}{Azure Static Web App}{23}{section*.13}%
+\contentsline {subsubsection}{Azure App Service}{23}{section*.14}%
+\contentsline {subsubsection}{Azure Database for PostgreSQL}{24}{section*.15}%
+\contentsline {subsubsection}{Azure Monitor}{24}{section*.16}%
+\contentsline {subsubsection}{Koszty i optymalizacja}{24}{section*.17}%
+\contentsline {subsubsection}{Architektura logiczna}{25}{section*.18}%
+\contentsline {section}{\numberline {4.3}Baza danych}{26}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Model danych - ERD}{26}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Opis najważniejszych encji}{29}{subsection.4.3.2}%
+\contentsline {subsubsection}{Tabela produkty}{29}{section*.20}%
+\contentsline {subsubsection}{Tabela Klienci}{30}{section*.22}%
+\contentsline {subsubsection}{Tabela Koszyk}{31}{section*.24}%
+\contentsline {subsubsection}{Tabela Zamówienia}{32}{section*.26}%
+\contentsline {subsubsection}{Tabela Zestawy}{33}{section*.28}%
+\contentsline {subsubsection}{Tabela GPU}{34}{section*.30}%
+\contentsline {subsubsection}{Tabela CPU}{36}{section*.32}%
+\contentsline {subsubsection}{Tabela MOBO}{37}{section*.34}%
+\contentsline {subsubsection}{Tabela RAM}{38}{section*.36}%
+\contentsline {subsubsection}{Tabela PSU}{40}{section*.38}%
+\contentsline {subsubsection}{Tabela Cooler}{41}{section*.40}%
+\contentsline {subsubsection}{Tabela Dysk}{42}{section*.42}%
+\contentsline {section}{\numberline {4.4}Komponenty i moduły systemu}{43}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Moduł kompatybilności podzespołów}{43}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Moduł logiki rozmytej}{43}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Moduł zarządzania koszykiem i zamówieniami}{43}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Najważniejsze algorytmy}{43}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Diagramy UML}{43}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Szczegóły implementacji wybranych elementów}{43}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Weryfikacja i walidacja}{45}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Cel weryfikacji systemu}{45}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Metody testowania}{45}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Organizacja eksperymentów}{46}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Przypadki testowe}{47}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Wyniki testów}{48}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Wykryte i usunięte błędy}{48}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Ocena poprawności działania systemu}{49}{section.5.7}%
+\contentsline {chapter}{\numberline {6}Podsumowanie i wnioski}{51}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Realizacja celów pracy}{51}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Ocena otrzymanych rezultatów}{51}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Trudności napotkane podczas realizacji}{52}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Możliwe kierunki dalszego rozwoju}{52}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Wnioski końcowe}{52}{section.6.5}%
+\contentsline {chapter}{Bibliografia}{55}{section*.46}%
+\contentsline {chapter}{Spis skrótów i symboli}{59}{appendix*.48}%
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
@@ -132,7 +132,7 @@
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
-\contentsline {chapter}{Źródła}{59}{appendix*.45}%
-\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{61}{appendix*.46}%
-\contentsline {chapter}{Spis rysunków}{63}{appendix*.47}%
-\contentsline {chapter}{Spis tabel}{65}{appendix*.48}%
+\contentsline {chapter}{Źródła}{61}{appendix*.49}%
+\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{63}{appendix*.50}%
+\contentsline {chapter}{Spis rysunków}{65}{appendix*.51}%
+\contentsline {chapter}{Spis tabel}{67}{appendix*.52}%

@@ -525,8 +525,8 @@ escapeinside={@*}{*@},%
 % TODO
 \chapter{Wstęp}
 \label{ch:wstep}
-Celem niniejszego rozdziału jest wprowadzenie do tematyki pracy inżynierskiej, 
-przedstawienie motywacji podjęcia tematu oraz zarysowanie problemu, którego 
+Niniejszy rozdział stanowi wprowadzenie do tematyki pracy inżynierskiej.
+Przedstawiono w nim motywy realizacji tematu oraz zarys problemu, którego 
 rozwiązanie stanowi przedmiot dalszych rozważań. W rozdziale określono również 
 zakres pracy oraz jej główne cele.
 %%\begin{itemize}
@@ -538,30 +538,30 @@ zakres pracy oraz jej główne cele.
 %%\item jednoznaczne określenie wkładu autora, w przypadku prac wieloosobowych – tabela z autorstwem poszczególnych elementów pracy
 %%\end{itemize}
 
-\section{Wprowadzenie w problem}
-Sklepy komputerowe zazwyczaj posiadają swój własny sklep internetowy, oferujący możliwość zakupów części indywidualnie, jak i gotowych zestawów PC. Odpowiedni dobór komponentów jest najistotniejszą częscią procesu projetkowania własnego stanowiska, a pomimo tego najwięksi sprzedawcy nie oferują możliwości sprawdzania kompatybilności wybranych produktów. Dlatego projekt ma na celu stworzenie prostej i intuicyjnej strony internetowej, która zaoferuje przystępną formę weryfikacji poprawności wyboru komponentów z katalogu oraz finalnie dodanie kompatybilnego zestawu do koszyka użytkownika. 
+\section{Wprowadzenie do problemu}
+Sklepy komputerowe zazwyczaj posiadają swój własny sklep internetowy, oferujący możliwość zakupów części indywidualnie, jak i gotowych zestawów PC. Odpowiedni dobór komponentów jest najistotniejszą częscią procesu projetkowania własnego stanowiska, a pomimo tego najwięksi sprzedawcy nie oferują możliwości sprawdzania kompatybilności wybranych produktów. Dlatego projekt ma na celu utworzenie prostego i intuicyjnego systemu internetowego, który zaoferuje przystępną formę weryfikacji poprawności wyboru komponentów z katalogu oraz finalnie dodanie kompatybilnego zestawu do koszyka użytkownika. 
 
 \section{Osadzenie problemu w dziedzinie}
 Projekt osadzony jest w dziedzinie inżynierii oprogramowania, projektowania baz danych oraz systemów e-commerce. Praca obejmuje zagadnienia relacyjności baz danych, budowy warstwy komunikacyjnej backendu, implementacji logiki aplikacji pod kątem biznesowym oraz wdrożenie interfejsu frontendowego.
 
 \section{Cel pracy}
 
-Celem pracy jest zaprojektowanie i zaimplementowanie aplikacji webowej, która będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwi realizację zamównienia. 
+Celem pracy jest zaprojektowanie i zaimplementowanie systemu webowego, który będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwi realizację zamównienia. 
 \vspace{0.5cm}
 \\
 Idące za tym cele to:
 \begin{itemize} 
-	\item stworzenie relacyjnej bazy danych, odpowiadającej potrzebom sklepu internetowego,
+	\item projekt i utworzenie relacyjnej bazy danych, odpowiadającej potrzebom sklepu internetowego,
 	\item zaprojektowanie i implementacja backendu, odpowiedzialnego za komunikację i logikę aplkacji, 
 	\item wdrożenie przejrzystego frontendu, będącego interfejsem klienta,
-	\item stworzenie grupy zasobów w środowisku chmurowym Azure (baza danych jako storage, aplikacja jako kontener).
+	\item utworzenie grupy zasobów w środowisku chmurowym Azure (baza danych jako storage, aplikacja jako kontener).
 \end{itemize}
-\section{Zakres pracy}
-Zakres pracy nad projektem obejmuje:
+\section{Zakres prac}
+Zakres prac nad projektem obejmuje:
 \begin{itemize}
 	\item projekt relacyjnej bazy danych w Oracle SQL Developer.
-	\item utworzenie testowego serwera PostgreSQL, wprowadzenie gotowych danych o produktach do bazy danych,
-	\item stworzenie użytkowników oraz nadanie odpowiednich uprawnień każdemu z nich,
+	\item utworzenie środowiska testowego serwera PostgreSQL, wprowadzenie gotowych danych o produktach do bazy danych,
+	\item utworzenie użytkowników oraz nadanie odpowiednich uprawnień każdemu z nich,
 	\item implementację backendu w języku Python, implementacja API z wykorzystaniem frameworka FastAPI, umożliwiając integrację z bazą danych w celu zarządzania produktami i zamówieniami,
 	\item projekt interfejsu użytkownika, stworzenie frontendu używając HTML, CSS oraz JavaScript,
 	\item projekt kreatora zestawów komputerowych, zaimplementowanego z uwzględnieniem logik rozmytej, używając Reacta, Typescript, Node.js,
@@ -570,7 +570,7 @@ Zakres pracy nad projektem obejmuje:
 \end{itemize}
 \newpage
 \section{Zwięzła charakterystyka rozdziałów}
-
+W podrozdziale zaprezentowana została struktura części pisemnej pracy.
 \begin{itemize}
     \item \textbf{Rozdział 1} - zawiera wprowadzenie do tematyki pracy, przedstawia problem nieintuicyjnego doboru kompatybilnych podzespołów komputerowych, definiuje cel i zakres pracy oraz opisuje autorski wkład w projekt.
 
@@ -610,20 +610,21 @@ ograniczenia, które stanowiły podstawę do zaprojektowania własnego rozwiąza
 %%jak i pojedyncze symbole $x$ i $y$  składa się w trybie matematycznym.
 
 \section{Sformułowanie problemu}
-\subsection{Istota kompatybilności}
+
+\subsubsection{Istota kompatybilności}
 Na rynku znajduje się szeroka gama komponentów komputerowych, która nieustannie poszerza się o nowe produkty. Różnice pomiędzy poszczególnymi modelami dotyczą chociażby wymiarów fizycznych, dostępnych złączy, technologi socketów, minimalnej mocy zasilacza, aż do wymogów software'owych. Odpowiedni dobór części jest pierwszym krokiem do realizacji poprawnie funkcjonującego stanowiska komputerowego, gdyż dowolna pomyłka może prowadzić do braku możliwości fizycznego montażu lub niewłaściwej i nieciągłej pracy urządzenia. Nawet minimalne niezgodności mogą być przyczyną poważnej awarii, która może przyczynić się do strat finansowych, spowodowanych utratą danych, przerwaniem trwałości usług lub całkowitym uszkodzeniem sprzętu.
 
-\subsection{Niska dostępność narzędzi do weryfikacji kompatybilności}
+\subsubsection{Niska dostępność narzędzi do weryfikacji kompatybilności}
 
 Aktualnie na polskim rynku sklepów komputerowych brakuje narzędzi umożliwiających użytkownikowi samodzielną i automatyczną weryfikację kompatybilności wybranych podzespołów. Większość sprzedawców oferuje wyłącznie gotowe zestawy komputerowe, które zapewniają pełną funkcjonalność, jednak często nie umożliwiają ich łatwej rozbudowy ani wymiany poszczególnych elementów na nowsze modele. W efekcie zaprojektowanie stanowiska w pełni odpowiadającego potrzebom użytkownika staje się utrudnione i może wymagać konsultacji ze specjalistą, co generuje dodatkowe koszty oraz wydłuża czas realizacji zamówienia.
 
 \section{Analiza istniejących rozwiązań w najpopularniejszych sklepach na polskim rynku}
-
-\subsection{Morele.net}
+Spośród wielu istniejących rozwiązań dostępnych na polskim rynku wybrano dwa, których poziom zaawansowania jest najwyższy i nie odbiega zbytnio od tego przyjętego przez autora.
+\subsubsection{Morele.net}
 
 Spośród przeanalizowanych platform sprzedażowych polskich sprzedawców, pod względem technicznym najlepiej zaprojektowanym rozwiązaniem okazał się konfigurator zestawów PC dostępny w sklepie Morele\cite{morele}. Narzędzie oferuje intuicyjny interfejs oraz możliwość wyboru szerokiej gamy podzespołów. Kluczowym ograniczeniem jest jednak brak automatycznej weryfikacji kompatybilności, gdzie w przypadku błędnie skonfigurowanego zestawu jedynie pracownik sklepu może ewentualnie skontaktować się z użytkownikiem. W praktyce znacząco opóźnia to proces realizacji zamówienia i niesie ryzyko zakupu podzespołów, które nie będą ze sobą wzajemnie kompatybilne. Dodatkowo konfigurator nie wykorzystuje logiki rozmytej przy sugerowaniu komponentów.
 
-\subsection{X-kom.pl}
+\subsubsection{X-kom.pl}
 
 Drugim pod względem funkcjonalności rozwiązaniem jest konfigurator oraz oferta gotowych zestawów sklepu X-kom\cite{xkom}. Platforma udostępnia czytelny interfejs oraz rekomendowane zestawy komputerowe, które zazwyczaj umożliwiają późniejszą rozbudowę. W porównaniu do Morele\cite{morele}, użytkownik ma tutaj jeszcze mniejszą możliwość samodzielnego projektowania konfiguracji, ponieważ wybór ogranicza się do kilku lub kilkunastu proponowanych zestawów. Brak szczegółowej analizy potrzeb użytkownika oraz ograniczona liczba wariantów utrudniają złożenie w pełni dostosowanego zamówienia. Podobnie jak w przypadku Morele, sklep nie wykorzystuje logiki rozmytej w mechanizmach komponowania zestawów.
 
@@ -667,9 +668,9 @@ W odróżnieniu od popularnych serwisów takich jak Morele.net\cite{morele} czy 
 % TODO
 \chapter{Wymagania i narzędzia}
 \label{ch:wymagania-i-narzedzia}
-Celem niniejszego rozdziału jest określenie wymagań funkcjonalnych i 
-niefunkcjonalnych projektowanego systemu oraz przedstawienie technologii i 
-narzędzi wykorzystanych podczas realizacji pracy. Zdefiniowane wymagania 
+W rodziale tym określone zostały wymagania funkcjonalne i 
+niefunkcjonalne projektowanego systemu oraz przedstawienio technologie i 
+narzędzia wykorzystane podczas realizacji pracy. Zdefiniowane wymagania 
 stanowią podstawę do dalszego projektowania architektury systemu.
 
 %\begin{itemize}
@@ -720,7 +721,7 @@ Wymagania niefunkcjonalne opisują właściwości jakościowe systemu, które wp
 
 \section{Przypadki użycia}
 
-Najważniejsze przypadki użycia systemu obejmują:
+Najważniejsze przypadki użycia systemu obejmują następujące scenariusze:
 
 \begin{itemize}
     \item „Użytkownik rejestruje nowe konto"
@@ -736,7 +737,7 @@ Najważniejsze przypadki użycia systemu obejmują:
 \newpage
 \section{Narzędzia i technologie}
 
-Realizacja systemu wymagała zastosowania nowoczesnych technologii backendowych, frontendowych oraz narzędzi modelowania. Wszystkie przedstawiono poniżej.
+Realizacja systemu wymagała zastosowania nowoczesnych technologii backendowych, frontendowych oraz narzędzi modelowania. Wszystkie zastosowane narzędzia i technologio przedstawiono w kolejnych podrozdziałach.
 \subsection{Frontend}
 
 \begin{itemize}
@@ -842,7 +843,7 @@ Takie podejście umożliwiło równoległe rozwijanie bazy danych, logiki serwer
 \chapter{Specyfikacja wewnętrzna}
 \label{ch:05}
 Celem niniejszego rozdziału jest przedstawienie projektu oraz architektury 
-zaprojektowanego systemu. Omówiono strukturę aplikacji, podział na warstwy, 
+zaprojektowanego systemu. Zaprezentowano w nim strukturę systemu, podział na warstwy, 
 model danych, architekturę backendu i frontendu oraz zastosowane rozwiązania 
 techniczne.
 
@@ -891,10 +892,10 @@ techniczne.
 %\end{figure}
 \section{Przedstawienie idei systemu}
 
-Aplikacja powstała jako odpowiedź na nieustannie poszerzający się rynek podzespołów komputerowych, pełniąc funkcję inteligentnego asystenta przy kompletowaniu osobistego zestawu PC. Implementacja logiki rozmytej miała na celu ułatwienie nawet początkującym użytkowikom skuteczne przejście przez ten proces, uwzględniając ich potrzeby takie jak wydajność, energooszczędność czy odpowiedni koszt. System łączy intuicyjny interfejs, znany z innych serwisów internetowcyh, z zaawansowanymi mechanizmami wspomagającymi, zaprojektowanymi konkretnie pod potrzeby klientów.
+System jest odpowiedzią na nieustannie poszerzający się rynek podzespołów komputerowych, pełniąc funkcję inteligentnego asystenta przy kompletowaniu osobistego zestawu PC. Implementacja logiki rozmytej miała na celu ułatwienie nawet początkującym użytkowikom skuteczne przejście przez ten proces, uwzględniając ich potrzeby takie jak wydajność, energooszczędność czy odpowiedni koszt. System łączy intuicyjny interfejs, znany z innych serwisów internetowcyh, z zaawansowanymi mechanizmami wspomagającymi, zaprojektowanymi konkretnie pod potrzeby klientów.
 
 \subsection{Cel powstania aplikacji}
-Celem powstania aplikacji było stworzenie i następne wdrożenie systemu webowego, mającego za zadanie uproszczenie samodzielnego składania zestawów komputerowych poprzez inteligentną asekurację podczas tego procesu. Jego celem jest eliminacja jak potencjalnie jak największej ilości błędów po stronie użytkowików. \\
+Celem systemu było uproszczenie samodzielnego składania zestawów komputerowych poprzez inteligentną asekurację podczas tego procesu. Jego celem jest eliminacja jak potencjalnie jak największej liczby błędów po stronie użytkowików. \\
 Aplikację projektowano z myślą o:
 \begin{itemize}
     \item intuicyjnym wyborze komponetów z katalogu,
@@ -904,8 +905,8 @@ Aplikację projektowano z myślą o:
 \end{itemize}
 \newpage
 \subsection{Innowacyjność systemu}
-Aplikacja powstała jako inteligenty kreator zestawów komputerowych, składający się z mechanizmów weryfikacji oraz wspomagania decyzji, podczas gdy podobnych rozwiązań nie sposób znaleźć w najpopularniejszych polskich sklepach komputerowych. \\
-Innowacyjność aplikacji wynika z:
+System powstał jako inteligenty kreator zestawów komputerowych, składający się z mechanizmów weryfikacji oraz wspomagania decyzji, podczas gdy podobnych rozwiązań nie sposób znaleźć w najpopularniejszych polskich sklepach komputerowych. \\
+Innowacyjność systemu wynika z:
 \begin{itemize}
     \item automatycznej weryfikacji kompatybilności, obejmującej wszystkie powszechne znane parametry, takie jak:
     \begin{itemize}
@@ -933,11 +934,12 @@ Innowacyjność aplikacji wynika z:
 % Cel modułów, przepływ danych w systemie.
 \newpage
 \section{Architektura systemu}
-Sekcja ta skupia się na szczegółowej analizie projektu architektury schematu, przedstawiając schemat ideowy, analizując każdy z modułów aplikacji.
+Sekcja ta skupia się na szczegółowej analizie projektu architektury schematu, przedstawiając schemat ideowy oraz analizując każdy z modułów systemu.
 \subsection{Schemat ideowy}
-
+Na rysunku przedstawiono schemat ideowy działania systemu teleinforamtycznego, każdy z komponentów przedstawiony na schemacie został szczegółowo opisany w rodziałach (napisac jakie numery odwolac sie)
 \begin{figure}[H]
     \centering
+    \caption{Struktura tabeli Koszyk}
     \includegraphics[width=\textwidth]{obrazki/diagram.png}
     \caption{Schemat działania aplikacji}
 \end{figure}
@@ -1134,7 +1136,6 @@ odpowiadających konkretnym kategoriom sprzętu: CPU, GPU, RAM, MOBO, PSU,
 COOLER, DYSK oraz CASE. Każda z tych tabel posiada klucz obcy wskazujący na 
 rekord w tabeli Produkty, co pozwala uniknąć redundancji danych oraz ułatwia 
 zarządzanie wspólnymi atrybutami produktów.
-\vspace{0.5cm}
 \\
 Relacje związane z procesem zakupowym odwzorowane są poprzez tabele Klienci, 
 Koszyk, Zamówienia oraz Zestawy. Każdy klient może posiadać wiele koszyków, 
@@ -1179,7 +1180,7 @@ Opis przeznaczenia encji:
     \item Tabela Koszyk\_Produkty jest tabelą pośredniczącą realizującą relację
     wiele-do-wielu pomiędzy tabelami Koszyki oraz Produkty. Przechowuje
     identyfikatory koszyka i produktu wraz z informacją o aktualnie przechowywanej liczbie sztuk danego
-    produktu . Rozwiązanie to umożliwia elastyczne i dynamiczne zarządzanie zawartością
+    produktu. Rozwiązanie to umożliwia elastyczne i dynamiczne zarządzanie zawartością
     koszyka.
 
     \item Tabela Zamówienia przechowuje informacje o zamówieniach złożonych przez
@@ -1189,7 +1190,7 @@ Opis przeznaczenia encji:
 
     \item Tabela Zamówienia\_Produkty realizuje relację wiele-do-wielu pomiędzy
     tabelami Zamówienia oraz Produkty. Przechowuje informacje o produktach
-    wchodzących w skład zamówienia oraz ich ilościach, umożliwiając poprawne
+    wchodzących w skład zamówienia oraz ich liczbach, umożliwiając poprawne
     odwzorowanie struktury zamówienia.
 
     \item Tabela Zestawy przechowuje konfiguracje zestawów komputerowych tworzone
@@ -1993,7 +1994,7 @@ funkcjonalnych, potwierdzające spełnienie założonych wymagań projektowych.
 % - stabilność backendu i frontendu.
 
 Celem weryfikacji systemu było sprawdzenie poprawności działania zaprojektowanej
-aplikacji oraz ocena stopnia spełnienia założonych wymagań funkcjonalnych.
+systemu oraz ocena stopnia spełnienia założonych wymagań funkcjonalnych.
 Proces testowania miał na celu potwierdzenie, że wszystkie kluczowe moduły
 systemu działają zgodnie z przyjętymi założeniami projektowymi.
 \vspace{0.5cm}
