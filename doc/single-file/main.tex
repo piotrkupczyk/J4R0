@@ -126,6 +126,7 @@
 \usepackage{xstring}
 \usepackage{ifthen}
 \usepackage{float}
+\usepackage{adjustbox}
 
 
 
@@ -741,26 +742,36 @@ Realizacja systemu wymagała zastosowania nowoczesnych technologii backendowych,
 \subsection{Frontend}
 
 \begin{itemize}
-    \item \textbf{React} - biblioteka wykorzystywana do tworzenia interaktywnych interfejsów użytkownika.
-    \item \textbf{TypeScript} - rozszerzenie JavaScript umożliwiające statyczne typowanie.
-    \item \textbf{Vite} - bundler odpowiedzialny za budowanie i szybkie uruchamianie aplikacji.
-    \item \textbf{Tailwind CSS} - framework ułatwiający projektowanie responsywnego interfejsu.
-    \item \textbf{Node.js} - środowisko wykonawcze dla narzędzi JavaScript.
-    \item \textbf{npm} - menedżer pakietów odpowiedzialny za instalację zależności.
-    \item \textbf{ESLint} - narzędzie do analizy i kontroli jakości kodu TypeScript i JavaScript.
+    \item \textbf{React}~\cite{react} - biblioteka wykorzystywana do tworzenia interaktywnych interfejsów użytkownika.
+    \item \textbf{TypeScript}~\cite{typescript} – rozszerzenie JavaScript umożliwiające statyczne typowanie.
+    \item \textbf{Vite}~\cite{vite} – bundler odpowiedzialny za budowanie i szybkie uruchamianie aplikacji.
+    \item \textbf{Tailwind CSS}~\cite{tailwind} – framework ułatwiający projektowanie responsywnego interfejsu.
+    \item \textbf{Node.js}~\cite{nodejs} – środowisko wykonawcze dla narzędzi JavaScript.
+    \item \textbf{npm}~\cite{npm} – menedżer pakietów odpowiedzialny za instalację zależności.
+    \item \textbf{ESLint}~\cite{eslint} – narzędzie do analizy i kontroli jakości kodu TypeScript i JavaScript.
 \end{itemize}
 
 \subsection{Backend}
 
 \begin{itemize}
-    \item \textbf{Python 3} - język implementacji warstwy serwerowej.
-    \item \textbf{FastAPI} - framework umożliwiający tworzenie wydajnego REST API.
-    \item \textbf{SQLAlchemy} - ORM realizujący komunikację z bazą danych.
-    \item \textbf{PostgreSQL} - relacyjna baza danych przechowująca informacje o produktach i zamówieniach.
-    \item \textbf{psycopg2} - sterownik PostgreSQL wykorzystywany do komunikacji z bazą.
-    \item \textbf{Pydantic} - walidacja modeli danych wykorzystywana przez FastAPI.
-    \item \textbf{Uvicorn} - serwer ASGI obsługujący zapytania HTTP.
+    \item \textbf{Python 3}~\cite{python} – język implementacji warstwy serwerowej.
+    \item \textbf{FastAPI}~\cite{fastapi} – framework umożliwiający tworzenie wydajnego REST API.
+    \item \textbf{SQLAlchemy}~\cite{sqlalchemy} – ORM realizujący komunikację z bazą danych.
+    \item \textbf{PostgreSQL}~\cite{postgresql} – relacyjna baza danych przechowująca informacje o produktach i zamówieniach.
+    \item \textbf{psycopg2}~\cite{psycopg2} – sterownik PostgreSQL wykorzystywany do komunikacji z bazą.
+    \item \textbf{Pydantic}~\cite{pydantic} – walidacja modeli danych wykorzystywana przez FastAPI.
+    \item \textbf{Uvicorn}~\cite{uvicorn} – serwer ASGI obsługujący zapytania HTTP.
 \end{itemize}
+
+\subsection{Modelowanie i narzędzia wspomagające}
+
+\begin{itemize}
+    \item \textbf{Oracle SQL Developer Data Modeler}~\cite{oracle_datamodeler} – narzędzie użyte do projektowania modelu ERD bazy danych.
+    \item \textbf{Git}~\cite{git} – system kontroli wersji.
+    \item \textbf{GitHub}~\cite{github} – repozytorium kodu oraz platforma do zarządzania wersjami projektu.
+    \item \textbf{Microsoft Azure}~\cite{azure} – środowisko do wdrożenia i hostowania bazy danych.
+\end{itemize}
+
 
 
 
@@ -786,6 +797,313 @@ Prace nad projektem prowadzono w sposób iteracyjny, bazując na podejściu zbli
 \end{itemize}
 
 Takie podejście umożliwiło równoległe rozwijanie bazy danych, logiki serwera i interfejsu użytkownika, a także szybkie reagowanie na pojawiające się problemy i dostosowywanie projektu do bieżących potrzeb oraz wyzwań.
+
+\chapter{Specyfikacja zewnętrzna}
+\label{ch:04}
+Celem niniejszego rozdziału jest przedstawienie specyfikacji zewnętrznej
+zaprojektowanego systemu. Rozdział opisuje wymagania niezbędne do uruchomienia
+aplikacji, sposób jej instalacji oraz obsługi, a także role użytkowników i
+aspekty związane z bezpieczeństwem. Przedstawiono również przykładowe scenariusze
+korzystania z systemu z perspektywy użytkownika końcowego.
+
+% \begin{itemize}
+% \item  wymagania sprzętowe i programowe
+% \item  sposób instalacji
+% \item  sposób aktywacji
+% \item  kategorie użytkowników
+% \item  sposób obsługi
+% \item  administracja systemem
+% \item  kwestie bezpieczeństwa
+% \item  przykład działania
+% \item  scenariusze korzystania z systemu (ilustrowane zrzutami z ekranu lub generowanymi dokumentami)
+% \end{itemize}
+\section{Sposób instalacji systemu}
+
+System może zostać uruchomiony zarówno w środowisku lokalnym, jak i w środowisku
+chmurowym. W niniejszej sekcji przedstawiono sposób instalacji oraz uruchomienia
+aplikacji w obu wariantach.
+
+\subsubsection{Uruchomienie systemu w środowisku lokalnym}
+
+Uruchomienie systemu w środowisku lokalnym polega na lokalnym uruchomieniu warstwy
+frontendowej oraz backendowej aplikacji. W tym wariancie użytkownik końcowy
+korzysta z systemu za pośrednictwem przeglądarki internetowej, natomiast połączenie
+z bazą danych konfigurowane jest poprzez odpowiednie parametry w pliku
+konfiguracyjnym aplikacji.
+
+W przypadku uruchomienia lokalnego wymagane jest posiadanie na komputerze
+zainstalowanego interpretera języka Python, środowiska Node.js oraz nowoczesnej
+przeglądarki internetowej. Warstwa frontendowa aplikacji budowana jest lokalnie
+przy użyciu skryptów środowiska Node.js, a następnie udostępniana jako aplikacja
+webowa dostępna pod adresem \texttt{127.0.0.1}. Backend systemu uruchamiany jest
+jako serwer aplikacyjny w języku Python, który realizuje logikę biznesową oraz
+komunikację z bazą danych.
+
+Domyślnie baza danych systemu hostowana jest w środowisku chmurowym, jednak w
+wariancie lokalnym możliwe jest również podłączenie do innej instancji bazy danych
+poprzez zmianę adresu IP oraz parametrów połączenia w pliku konfiguracyjnym
+aplikacji. Takie rozwiązanie umożliwia elastyczne testowanie systemu bez
+konieczności utrzymywania lokalnej instancji bazy danych.
+
+\subsubsection{Uruchomienie systemu w środowisku chmurowym Azure}
+
+Alternatywnie system może zostać uruchomiony w całości w środowisku chmurowym
+Microsoft Azure. W tym wariancie baza danych została wdrożona jako usługa Azure
+Database for PostgreSQL, natomiast warstwa backendowa aplikacji uruchamiana jest
+jako usługa serwerowa w ramach platformy Azure.
+
+Proces wdrożenia obejmuje utworzenie odpowiednich zasobów chmurowych, takich jak
+instancja bazy danych oraz środowisko uruchomieniowe dla aplikacji backendowej.
+Po zakończeniu procesu wdrożenia system dostępny jest publicznie poprzez
+przeglądarkę internetową, bez konieczności instalacji dodatkowego oprogramowania
+po stronie użytkownika.
+
+Takie podejście umożliwia uruchomienie aplikacji w środowisku zbliżonym do
+produkcyjnego oraz weryfikację poprawności jej działania w warunkach
+rzeczywistych.
+
+\section{Kategorie użytkowników}
+
+Zaprojektowany system przewiduje istnienie kilku kategorii użytkowników,
+różniących się zakresem dostępnych funkcjonalności. Podział na role użytkowników
+umożliwia logiczne rozgraniczenie uprawnień oraz odpowiednie zarządzanie dostępem
+do poszczególnych elementów systemu.
+
+Role użytkowników zostały zdefiniowane w następujący sposób:
+\begin{itemize}
+    \item Podstawową kategorią użytkowników są użytkownicy niezalogowani, którzy mają
+możliwość przeglądania katalogu dostępnych produktów oraz zapoznania się z
+funkcjonalnością systemu. Użytkownicy ci nie posiadają jednak możliwości
+zapisywania zestawów ani realizacji zamówień.
+    \item Drugą kategorią są użytkownicy zarejestrowani. Po zalogowaniu uzyskują oni dostęp
+do rozszerzonej funkcjonalności systemu, obejmującej możliwość tworzenia i
+zapisywania zestawów komputerowych, dodawania produktów do koszyka oraz składania
+zamówień. Dane użytkowników są przechowywane w bazie danych systemu.
+    \item System przewiduje również istnienie roli administracyjnej, przeznaczonej do
+zarządzania zawartością systemu oraz jego konfiguracją. Rola administratora
+wykorzystywana jest w celach zarządzania danymi systemowymi, takimi jak katalog
+produktów oraz struktura bazy danych, i jest ograniczona do właściciela systemu.
+\end{itemize}
+
+Zastosowany podział na kategorie użytkowników pozwala na zachowanie porządku w
+strukturze systemu oraz stanowi podstawę do dalszej rozbudowy aplikacji w
+przyszłości.
+
+\section{Sposób obsługi systemu}
+
+Obsługa systemu została zaprojektowana w sposób intuicyjny i niewymagający
+specjalistycznej wiedzy technicznej. Podstawowe etapy korzystania z systemu
+przedstawiono poniżej:
+
+\begin{itemize}
+    \item Użytkownik uruchamia aplikację za pośrednictwem przeglądarki
+    internetowej i uzyskuje dostęp do strony głównej systemu.
+
+    \item System umożliwia przeglądanie katalogu dostępnych komponentów
+    komputerowych oraz ich filtrowanie zgodnie z preferencjami użytkownika.
+
+    \item Użytkownik przechodzi do kreatora zestawów komputerowych, w którym
+    dodaje kolejne podzespoły do konfigurowanego zestawu.
+
+    \item Podczas konfiguracji kreator na bieżąco analizuje zgodność wybieranych
+    komponentów z wcześniej dodanymi elementami zestawu.
+
+    \item W przypadku wykrycia niezgodności technicznej dalsza realizacja
+    konfiguracji zostaje zablokowana, a użytkownik otrzymuje czytelny komunikat
+    informujący o przyczynie problemu.
+
+    \item Kreator uniemożliwia utworzenie zestawu niekompatybilnego technicznie,
+    co eliminuje ryzyko popełnienia błędu przez użytkownika.
+
+    \item Po skompletowaniu poprawnego zestawu użytkownik może zapisać
+    konfigurację lub dodać ją do koszyka.
+
+    \item Ostatnim etapem jest realizacja zamówienia, obejmująca podsumowanie
+    wybranych komponentów oraz zatwierdzenie zamówienia.
+\end{itemize}
+
+\section{Administracja systemem}
+
+Administracja systemem obejmuje czynności związane z zarządzaniem konfiguracją
+oraz danymi aplikacji. Funkcje administracyjne są ograniczone i przeznaczone do
+użytku przez właściciela systemu.
+
+Zakres administracji systemem obejmuje w szczególności:
+
+\begin{itemize}
+    \item zarządzanie katalogiem produktów oraz ich parametrami technicznymi
+    przechowywanymi w bazie danych,
+
+    \item nadzór nad poprawnością struktury danych oraz spójnością informacji
+    wykorzystywanych przez mechanizm weryfikacji kompatybilności,
+
+    \item aktualizację danych konfiguracyjnych systemu, w tym parametrów
+    połączenia z bazą danych,
+
+    \item kontrolę poprawności działania aplikacji backendowej oraz jej
+    komunikacji z warstwą frontendową,
+
+    \item wykonywanie czynności administracyjnych związanych z utrzymaniem
+    systemu w środowisku lokalnym lub chmurowym.
+\end{itemize}
+
+\section{Kwestie bezpieczeństwa}
+
+W trakcie projektowania systemu uwzględniono podstawowe aspekty bezpieczeństwa,
+mające na celu ochronę danych użytkowników oraz zapewnienie poprawnego i
+przewidywalnego działania aplikacji.
+
+Najważniejsze zagadnienia związane z bezpieczeństwem systemu obejmują:
+
+\begin{itemize}
+    \item przechowywanie danych użytkowników w relacyjnej bazie danych z
+    zachowaniem integralności i spójności informacji,
+
+    \item hasła użytkowników przechowywane są w bazie danych w postaci skrótów
+    kryptograficznych wygenerowanych z wykorzystaniem algorytmu bcrypt, co
+    uniemożliwia ich odtworzenie w postaci jawnej,
+
+    \item walidację danych przekazywanych pomiędzy frontendem a backendem w celu
+    ograniczenia ryzyka wprowadzenia niepoprawnych danych,
+
+    \item ograniczenie dostępu do funkcji administracyjnych wyłącznie do roli
+    administratora systemu,
+
+    \item brak przechowywania wrażliwych danych po stronie klienta.
+\end{itemize}
+
+\section{Scenariusze korzystania z systemu}
+
+W niniejszej sekcji przedstawiono przykładowe scenariusze korzystania z systemu z
+perspektywy użytkownika końcowego. Scenariusze ilustrują działanie kluczowych
+funkcjonalności aplikacji, w tym przeglądanie katalogu produktów, filtrowanie
+komponentów, zarządzanie koszykiem, proces logowania oraz działanie kreatora
+zestawów komputerowych. Każdy scenariusz został zilustrowany odpowiednimi
+zrzutami ekranu przedstawiającymi rzeczywiste działanie systemu.
+
+\subsection{Scenariusz 1: Przeglądanie katalogu komponentów}
+
+Użytkownik uruchamia aplikację i uzyskuje dostęp do strony głównej systemu, na
+której możliwe jest przeglądanie katalogu dostępnych komponentów komputerowych
+oraz zapoznanie się z ich podstawowymi parametrami technicznymi i ceną.
+
+Na rysunku~\ref{fig:glowna} przedstawiono widok strony głównej aplikacji wraz z
+listą dostępnych produktów.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/glowna.png}
+    \caption{Widok strony głównej aplikacji}
+    \label{fig:glowna}
+\end{figure}
+
+\subsection{Scenariusz 2: Filtrowanie oraz wybór produktów}
+
+Użytkownik korzysta z dostępnych mechanizmów filtrowania produktów, takich jak
+typ komponentu, producent lub parametry techniczne, w celu zawężenia listy
+wyświetlanych elementów. Następnie wybiera interesujący go produkt z
+przefiltrowanej listy.
+
+Proces filtrowania produktów przedstawiono na
+rysunku~\ref{fig:filtrowanie}, natomiast wybór z komponentów z pośród przefiltrowanej listy na rysunku~\ref{fig:wybieranie}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/filtruje.png}
+    \caption{Filtrowanie produktów z katalogu}
+    \label{fig:filtrowanie}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/wybiera.png}
+    \caption{Wybór produktów z przefiltrowanego katalogu}
+    \label{fig:wybieranie}
+\end{figure}
+
+\subsection{Scenariusz 3: Dodawanie produktów do koszyka}
+
+Po wybraniu produktu użytkownik dodaje go do koszyka za pomocą odpowiedniego
+przycisku dostępnego w widoku produktu. System zapisuje wybrany element w
+koszyku oraz wyświetla komunikat potwierdzający poprawne wykonanie operacji.
+
+Na rysunku~\ref{fig:koszyk} przedstawiono widok koszyka zawierającego dodane
+produkty.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/koszyk.png}
+    \caption{Widok koszyka użytkownika z dodanymi produktami}
+    \label{fig:koszyk}
+\end{figure}
+
+\subsection{Scenariusz 4: Poprawne logowanie użytkownika}
+
+Użytkownik przechodzi do widoku logowania i wprowadza poprawne dane
+uwierzytelniające. Po ich weryfikacji system umożliwia dostęp do funkcji
+wymagających autoryzacji, takich jak zapis zestawu czy zarządzanie koszykiem.
+
+Widok poprawnego procesu logowania przedstawiono na
+rysunku~\ref{fig:logowanie_poprawne}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/loguje1.png}
+    \caption{Poprawne logowanie użytkownika}
+    \label{fig:logowanie_poprawne}
+\end{figure}
+
+\subsection{Scenariusz 5: Niepoprawne logowanie użytkownika}
+
+W przypadku wprowadzenia niepoprawnych danych logowania system odrzuca próbę
+uwierzytelnienia i wyświetla stosowny komunikat informujący o błędzie.
+
+Sytuację tę przedstawiono na rysunku~\ref{fig:logowanie_bledne}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/loguje2.png}
+    \caption{Komunikat o niepoprawnych danych logowania}
+    \label{fig:logowanie_bledne}
+\end{figure}
+
+\subsection{Scenariusz 6: Utworzenie kompatybilnego zestawu komputerowego}
+
+Użytkownik przechodzi do kreatora zestawów komputerowych i wybiera kompatybilne
+podzespoły, takie jak procesor, płyta główna, pamięć RAM oraz pozostałe elementy
+konfiguracji. System na bieżąco weryfikuje zgodność techniczną wybieranych
+komponentów.
+
+Po skompletowaniu poprawnego zestawu użytkownik może zapisać konfigurację lub
+dodać ją do koszyka. Widok poprawnie skonfigurowanego zestawu przedstawiono na
+rysunku~\ref{fig:zestaw_poprawny}.
+
+\newpage
+\begin{figure}[H]
+    \centering
+  \includegraphics[width=\textwidth]{obrazki/sprawdza1.png}
+    \caption{Widok kreatora zestawów komputerowych}
+    \label{fig:zestaw_poprawny}
+\end{figure}
+
+\newpage
+\subsection{Scenariusz 7: Próba utworzenia niekompatybilnego zestawu}
+
+W tym scenariuszu użytkownik próbuje skonfigurować zestaw komputerowy zawierający
+niezgodne technicznie podzespoły, na przykład procesor oraz płytę główną
+obsługujące różne typy gniazd.
+
+System wykrywa niezgodność i blokuje możliwość zapisania konfiguracji,
+wyświetlając komunikat informujący o przyczynie problemu, co przedstawiono na
+rysunku~\ref{fig:zestaw_bledny}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/sprawdza2.png}
+    \caption{Komunikat o niezgodności podzespołów}
+    \label{fig:zestaw_bledny}
+\end{figure}
+
 
 
 
@@ -932,17 +1250,39 @@ Innowacyjność systemu wynika z:
 % Ogólna idea działania – logika rozmyta, weryfikacja kompatybilności,
 % wspieranie użytkownika w budowie zestawów PC.
 % Cel modułów, przepływ danych w systemie.
-\newpage
 \section{Architektura systemu}
-Sekcja ta skupia się na szczegółowej analizie projektu architektury schematu, przedstawiając schemat ideowy oraz analizując każdy z modułów systemu.
+
+Sekcja ta skupia się na szczegółowej analizie architektury systemu
+teleinformatycznego, przedstawiając schemat ideowy działania aplikacji oraz
+omawiając sposób współpracy poszczególnych komponentów systemu.
+
 \subsection{Schemat ideowy}
-Na rysunku przedstawiono schemat ideowy działania systemu teleinforamtycznego, każdy z komponentów przedstawiony na schemacie został szczegółowo opisany w rodziałach (napisac jakie numery odwolac sie)
+
+Na rysunku~\ref{fig:schemat_architektury} przedstawiono schemat ideowy działania
+zaprojektowanego systemu. Diagram obrazuje podział aplikacji na warstwę
+frontendową, backendową oraz warstwę bazy danych, a także sposób komunikacji
+pomiędzy tymi elementami.
+
+Warstwa frontendowa odpowiedzialna jest za interakcję z użytkownikiem oraz
+prezentację danych i została szczegółowo opisana w rozdziale~3. Warstwa
+backendowa realizuje logikę biznesową systemu, w tym mechanizmy weryfikacji
+kompatybilności podzespołów, obsługę koszyka oraz proces uwierzytelniania
+użytkowników, co omówiono w rozdziale~5. Struktura oraz projekt bazy danych,
+stanowiącej centralny element przechowywania informacji, zostały przedstawione w
+rozdziale~4.
+
+Schemat ideowy pozwala na całościowe spojrzenie na architekturę systemu oraz
+ułatwia zrozumienie zależności pomiędzy poszczególnymi modułami aplikacji, które
+zostały szczegółowo omówione w kolejnych częściach pracy.
+
+\newpage
 \begin{figure}[H]
     \centering
-    \caption{Struktura tabeli Koszyk}
     \includegraphics[width=\textwidth]{obrazki/diagram.png}
-    \caption{Schemat działania aplikacji}
+    \caption{Schemat ideowy działania aplikacji}
+    \label{fig:schemat_architektury}
 \end{figure}
+
 
 
 % Diagram architektury (rysunek).
@@ -1940,32 +2280,185 @@ Poniżej przedstawiono opis poszczególnych pól tabeli DYSK:
 
 \section{Komponenty i moduły systemu}
 
+System został zaprojektowany w sposób modułowy, co umożliwia jego czytelną
+strukturę oraz łatwą rozbudowę w przyszłości. Poszczególne moduły realizują
+konkretne zadania funkcjonalne systemu, a ich współdziałanie odbywa się
+po stronie backendu aplikacji.
+
 \subsection{Moduł kompatybilności podzespołów}
-% Jak sprawdzana jest zgodność: socket, DDR, TDP, format, VRM, chłodzenie.
-% Kolejność weryfikacji.
+
+Moduł kompatybilności podzespołów odpowiada za weryfikację technicznej zgodności
+komponentów wybieranych przez użytkownika podczas budowy zestawu komputerowego.
+Proces weryfikacji realizowany jest etapowo, zgodnie z określoną kolejnością
+reguł.
+
+\begin{verbatim}
+def check_cpu_mobo(cpu, motherboard):
+    return cpu.socket == motherboard.socket
+\end{verbatim}
+
+Pierwszym etapem weryfikacji jest sprawdzenie zgodności gniazda procesora z
+gniazdem płyty głównej. Jest to kluczowa reguła kompatybilności, bez której dalsza
+konfiguracja zestawu nie jest możliwa.
+
+\begin{verbatim}
+def check_ram_ddr(ram, motherboard):
+    return ram.ddr_type == motherboard.ddr_type
+\end{verbatim}
+
+Kolejnym krokiem jest sprawdzenie zgodności standardu pamięci RAM z płytą główną.
+Moduł analizuje typ pamięci DDR oraz obsługiwany standard przez płytę główną.
+
+\begin{verbatim}
+def check_power(cpu, gpu, psu):
+    total_power = cpu.tdp + gpu.tdp
+    return psu.power >= total_power
+\end{verbatim}
+
+Dodatkowo weryfikowane jest zapotrzebowanie energetyczne zestawu w odniesieniu do
+mocy zasilacza. W przypadku wykrycia niezgodności system blokuje możliwość
+zapisania zestawu.
 
 \subsection{Moduł logiki rozmytej}
-% Opis funkcji przynależności,
-% Kategorie: budżetowy / wydajny / energooszczędny,
-% Zastosowanie logiki rozmytej do klasyfikacji zestawu.
+
+Moduł logiki rozmytej został zastosowany w celu elastycznej klasyfikacji zestawów
+komputerowych do określonych kategorii użytkowych. W przeciwieństwie do klasycznych
+algorytmów decyzyjnych opartych na ostrych progach, zaproponowane rozwiązanie
+umożliwia ocenę konfiguracji w sposób niebinarny, z uwzględnieniem stopnia
+dopasowania zestawu do poszczególnych kategorii.
+
+Podstawą działania modułu są funkcje przynależności zbiorów rozmytych, opisujące
+takie cechy zestawu jak łączna cena, wydajność oraz zapotrzebowanie energetyczne.
+Do opisu przynależności zastosowano trapezoidalną funkcję przynależności, która
+umożliwia płynne przejście pomiędzy stanami częściowej i pełnej przynależności.
+
+\begin{verbatim}
+def trapezoidal_membership(x, a, x1, x2, b):
+    if x <= a or x >= b:
+        return 0.0
+    elif a < x < x1:
+        return (x - a) / (x1 - a)
+    elif x1 <= x <= x2:
+        return 1.0
+    elif x2 < x < b:
+        return (b - x) / (b - x2)
+    else:
+        return 0.0
+\end{verbatim}
+
+Na podstawie obliczonych stopni przynależności realizowany jest proces
+wnioskowania rozmytego typu Mamdaniego, w którym operator minimum pełni rolę
+koniunkcji logicznej. Wyniki poszczególnych reguł są następnie agregowane, a
+ostateczna klasyfikacja zestawu wyznaczana jest na podstawie kategorii o
+najwyższym stopniu dopasowania.
+
+\begin{verbatim}
+def classify_build_fuzzy(price, performance, power):
+    mu_budget = trapezoidal_membership(price, 0, 1500, 3000, 5000)
+    mu_performance = trapezoidal_membership(performance, 50, 70, 90, 100)
+    mu_energy = trapezoidal_membership(power, 0, 200, 400, 700)
+
+    score_budget = min(mu_budget, 1 - mu_energy)
+    score_performance = min(mu_performance, mu_energy)
+    score_energy = min(1 - mu_performance, mu_energy)
+
+    scores = {
+        "budzetowy": score_budget,
+        "wydajny": score_performance,
+        "energooszczedny": score_energy
+    }
+
+    return max(scores, key=scores.get), scores
+\end{verbatim}
+
+Zastosowane podejście pozwala na uwzględnienie przypadków pośrednich, w których
+zestaw komputerowy nie spełnia jednoznacznie kryteriów jednej kategorii.
+Dzięki temu system generuje bardziej realistyczne i użyteczne rekomendacje,
+zwiększając jakość wsparcia decyzyjnego dla użytkownika końcowego.
+
+Zależność pomiędzy wartością analizowanej cechy a stopniem jej przynależności do
+zbioru rozmytego opisano następującą zależnością:
+
+\[
+\mu(x)=
+\begin{cases}
+0 & x \le a \\
+\dfrac{x-a}{x_1-a} & a < x < x_1 \\
+1 & x_1 \le x \le x_2 \\
+\dfrac{b-x}{b-x_2} & x_2 < x < b \\
+0 & x \ge b
+\end{cases}
+\]
 
 \subsection{Moduł zarządzania koszykiem i zamówieniami}
-% Dodawanie, modyfikacja, finalizacja,
-% przepływ danych.
+
+Moduł zarządzania koszykiem odpowiada za obsługę procesów związanych z
+gromadzeniem produktów wybranych przez użytkownika oraz przygotowaniem ich do
+realizacji zamówienia.
+
+\begin{verbatim}
+@router.post("/cart/add")
+def add_to_cart(product_id: int, quantity: int = 1):
+    item = get_cart_item(product_id)
+    if item:
+        item.quantity += quantity
+    else:
+        create_cart_item(product_id, quantity)
+\end{verbatim}
+
+System umożliwia dodawanie produktów do koszyka oraz automatyczne zwiększanie
+ilości w przypadku ponownego dodania tego samego produktu.
+
+\begin{verbatim}
+@router.get("/cart")
+def get_cart():
+    return fetch_cart_items()
+\end{verbatim}
+
+Zawartość koszyka może zostać pobrana w dowolnym momencie, co pozwala na bieżące
+wyświetlanie aktualnego stanu koszyka w interfejsie użytkownika.
+
+\begin{verbatim}
+@router.delete("/cart/clear")
+def clear_cart():
+    remove_all_items()
+\end{verbatim}
+
+Moduł umożliwia również całkowite wyczyszczenie koszyka, na przykład po
+zakończeniu procesu zakupowego.
 
 \section{Najważniejsze algorytmy}
-% Algorytm sprawdzania kompatybilności (pseudokod / schemat blokowy)
-% Algorytm klasyfikacji logiką rozmytą
 
-\section{Diagramy UML}
-% Use Case (opcjonalnie – masz już w R3)
-% Sequence diagram (np. „budowa zestawu i weryfikacja”)
-% Class diagram (opcjonalnie)
+Jednym z kluczowych algorytmów systemu jest algorytm sprawdzania kompatybilności
+podzespołów. Algorytm działa sekwencyjnie i przerywa działanie w momencie
+wykrycia pierwszej niezgodności.
 
-\section{Szczegóły implementacji wybranych elementów}
-% Kod / fragmenty implementacji (krótko)
-% Architektura folderów backendu i frontendu
-% Wzorce projektowe (jeśli używasz np. repository pattern)
+\begin{verbatim}
+def check_compatibility(components):
+    if not check_cpu_mobo(components["cpu"], components["mobo"]):
+        return False
+    if not check_ram_ddr(components["ram"], components["mobo"]):
+        return False
+    if not check_power(components["cpu"], components["gpu"], components["psu"]):
+        return False
+    return True
+\end{verbatim}
+
+Takie podejście umożliwia szybkie wykrycie błędów konfiguracji oraz czytelne
+wskazanie przyczyny problemu użytkownikowi.
+
+\begin{verbatim}
+@router.post("/builder/save")
+def save_build(components: list):
+    if not check_compatibility(components):
+        raise HTTPException(status_code=400)
+    save_to_database(components)
+\end{verbatim}
+
+Fragment kodu odpowiada za zapis zestawu komputerowego po wcześniejszej
+weryfikacji kompatybilności. Zastosowane rozwiązanie zapewnia, że do bazy danych
+trafiają wyłącznie poprawne technicznie konfiguracje.
+
 
 \newpage
 
@@ -2400,18 +2893,18 @@ stanowić podstawę do dalszego rozwoju i wdrożeń.
 
 
 % TODO
-\chapter{Źródła}
+% \chapter{Źródła}
 
-Jeżeli w pracy konieczne jest umieszczenie długich fragmentów kodu źródłowego, należy je przenieść w to miejsce.
+% Jeżeli w pracy konieczne jest umieszczenie długich fragmentów kodu źródłowego, należy je przenieść w to miejsce.
 
-\begin{lstlisting}
-if (_nClusters < 1)
-	throw std::string ("unknown number of clusters");
-if (_nIterations < 1 and _epsilon < 0)
-	throw std::string ("You should set a maximal number of iteration or minimal difference -- epsilon.");
-if (_nIterations > 0 and _epsilon > 0)
-	throw std::string ("Both number of iterations and minimal epsilon set -- you should set either number of iterations or minimal epsilon.");
-\end{lstlisting}
+% \begin{lstlisting}
+% if (_nClusters < 1)
+% 	throw std::string ("unknown number of clusters");
+% if (_nIterations < 1 and _epsilon < 0)
+% 	throw std::string ("You should set a maximal number of iteration or minimal difference -- epsilon.");
+% if (_nIterations > 0 and _epsilon > 0)
+% 	throw std::string ("Both number of iterations and minimal epsilon set -- you should set either number of iterations or minimal epsilon.");
+% \end{lstlisting}
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -2432,16 +2925,16 @@ if (_nIterations > 0 and _epsilon > 0)
 
 
 % TODO
-\chapter{Lista dodatkowych plików, uzupełniających tekst pracy} 
+% \chapter{Lista dodatkowych plików, uzupełniających tekst pracy} 
 
 
-W systemie do pracy dołączono dodatkowe pliki zawierające:
-\begin{itemize}
-\item źródła programu,
-\item dane testowe,
-\item film pokazujący działanie opracowanego oprogramowania lub zaprojektowanego i~wykonanego urządzenia,
-\item itp.
-\end{itemize}
+% W systemie do pracy dołączono dodatkowe pliki zawierające:
+% \begin{itemize}
+% \item źródła programu,
+% \item dane testowe,
+% \item film pokazujący działanie opracowanego oprogramowania lub zaprojektowanego i~wykonanego urządzenia,
+% \item itp.
+% \end{itemize}
 
 
 \listoffigures

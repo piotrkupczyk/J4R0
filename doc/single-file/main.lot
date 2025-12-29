@@ -9,70 +9,69 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Struktura tabeli Produkty}}{29}{table.caption.21}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Struktura tabeli Klienci}}{30}{table.caption.23}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Struktura tabeli Koszyk}}{31}{table.caption.25}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Struktura tabeli Zamówienia}}{32}{table.caption.27}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Struktura tabeli Zestawy}}{33}{table.caption.29}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Struktura tabeli GPU}}{34}{table.caption.31}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Struktura tabeli CPU}}{36}{table.caption.33}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Struktura tabeli MOBO}}{37}{table.caption.35}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces Struktura tabeli RAM}}{39}{table.caption.37}%
-\contentsline {table}{\numberline {4.10}{\ignorespaces Struktura tabeli PSU}}{40}{table.caption.39}%
-\contentsline {table}{\numberline {4.11}{\ignorespaces Struktura tabeli COOLER}}{41}{table.caption.41}%
-\contentsline {table}{\numberline {4.12}{\ignorespaces Struktura tabeli DYSK}}{42}{table.caption.43}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Przykładowe przypadki testowe systemu}}{47}{table.caption.44}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Przykładowe wyniki testów kompatybilności zestawów komputerowych.}}{48}{table.caption.45}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Struktura tabeli Produkty}}{39}{table.caption.31}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Struktura tabeli Klienci}}{40}{table.caption.33}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Struktura tabeli Koszyk}}{41}{table.caption.35}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Struktura tabeli Zamówienia}}{42}{table.caption.37}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Struktura tabeli Zestawy}}{43}{table.caption.39}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces Struktura tabeli GPU}}{44}{table.caption.41}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Struktura tabeli CPU}}{46}{table.caption.43}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces Struktura tabeli MOBO}}{47}{table.caption.45}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces Struktura tabeli RAM}}{49}{table.caption.47}%
+\contentsline {table}{\numberline {5.10}{\ignorespaces Struktura tabeli PSU}}{50}{table.caption.49}%
+\contentsline {table}{\numberline {5.11}{\ignorespaces Struktura tabeli COOLER}}{51}{table.caption.51}%
+\contentsline {table}{\numberline {5.12}{\ignorespaces Struktura tabeli DYSK}}{52}{table.caption.53}%
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
+\contentsline {table}{\numberline {6.1}{\ignorespaces Przykładowe przypadki testowe systemu}}{59}{table.caption.54}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Przykładowe wyniki testów kompatybilności zestawów komputerowych.}}{60}{table.caption.55}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 

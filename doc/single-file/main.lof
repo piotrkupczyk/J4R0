@@ -9,9 +9,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Struktura tabeli Koszyk}}{18}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Schemat działania aplikacji}}{18}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Diagram ERD bazy danych}}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Widok strony głównej aplikacji}}{19}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Filtrowanie produktów z katalogu}}{20}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Wybór produktów z przefiltrowanego katalogu}}{20}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Widok koszyka użytkownika z dodanymi produktami}}{21}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Poprawne logowanie użytkownika}}{21}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Komunikat o niepoprawnych danych logowania}}{22}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Widok kreatora zestawów komputerowych}}{23}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Komunikat o niezgodności podzespołów}}{24}{figure.caption.21}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Schemat ideowy działania aplikacji}}{28}{figure.caption.22}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Diagram ERD bazy danych}}{36}{figure.caption.29}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
@@ -63,5 +71,3 @@
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
-\addvspace {10\p@ }
-\addvspace {10\p@ }
