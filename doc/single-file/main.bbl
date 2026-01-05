@@ -17,6 +17,76 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global/global}
+  \entry{eslint}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{title}{ESLint - Find and fix problems in your JavaScript code}
+    \verb{url}
+    \verb https://eslint.org/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{01}
+    \field{urlmonth}{02}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{fastapi}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{FastAPI - High performance, easy to learn, fast to code}
+    \verb{url}
+    \verb https://fastapi.tiangolo.com/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{05}
+    \field{urlmonth}{02}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{git}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Git - Distributed Version Control System}
+    \verb{url}
+    \verb https://git-scm.com/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{12}
+    \field{urlmonth}{01}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{github}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{GitHub - Where the world builds software}
+    \verb{url}
+    \verb https://github.com/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{14}
+    \field{urlmonth}{01}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{azure}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{Microsoft Azure - Cloud Computing Services}
+    \verb{url}
+    \verb https://azure.microsoft.com/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{08}
+    \field{urlmonth}{02}
+    \field{urlyear}{2025}
+  \endentry
+
   \entry{azure_mig}{online}{}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{M}
@@ -46,6 +116,49 @@
     \field{urlyear}{2025}
   \endentry
 
+  \entry{nodejs}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{Node.js - JavaScript runtime}
+    \verb{url}
+    \verb https://nodejs.org/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{20}
+    \field{urlmonth}{01}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{npm}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{npm - Node Package Manager}
+    \verb{url}
+    \verb https://www.npmjs.com/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{22}
+    \field{urlmonth}{01}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{oracle_datamodeler}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{title}{Oracle SQL Developer Data Modeler}
+    \verb{url}
+    \verb https://www.oracle.com/database/sqldeveloper/technologies/sql-data-mo
+    \verb deler/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{30}
+    \field{urlmonth}{01}
+    \field{urlyear}{2025}
+  \endentry
+
   \entry{pc_git}{online}{}{}
     \field{labeltitlesource}{title}
     \field{sortinit}{P}
@@ -57,6 +170,146 @@
     \field{year}{2025}
     \field{urlday}{11}
     \field{urlmonth}{09}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{postgresql}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{PostgreSQL - The World's Most Advanced Open Source Relational Database}
+    \verb{url}
+    \verb https://www.postgresql.org/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{18}
+    \field{urlmonth}{01}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{psycopg2}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{psycopg2 - PostgreSQL adapter for Python}
+    \verb{url}
+    \verb https://www.psycopg.org/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{25}
+    \field{urlmonth}{01}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{pydantic}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{Pydantic - Data validation using Python type hints}
+    \verb{url}
+    \verb https://docs.pydantic.dev/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{04}
+    \field{urlmonth}{02}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{python}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{Python Programming Language}
+    \verb{url}
+    \verb https://www.python.org/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{15}
+    \field{urlmonth}{01}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{react}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{React - A JavaScript library for building user interfaces}
+    \verb{url}
+    \verb https://react.dev/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{12}
+    \field{urlmonth}{02}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{sqlalchemy}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{SQLAlchemy - The Python SQL Toolkit and ORM}
+    \verb{url}
+    \verb https://www.sqlalchemy.org/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{06}
+    \field{urlmonth}{02}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{tailwind}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{Tailwind CSS - A Utility-First CSS Framework}
+    \verb{url}
+    \verb https://tailwindcss.com/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{07}
+    \field{urlmonth}{02}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{typescript}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{TypeScript - Typed JavaScript at Any Scale}
+    \verb{url}
+    \verb https://www.typescriptlang.org/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{28}
+    \field{urlmonth}{01}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{uvicorn}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{U}
+    \field{sortinithash}{U}
+    \field{title}{Uvicorn - A lightning-fast ASGI server}
+    \verb{url}
+    \verb https://www.uvicorn.org/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{02}
+    \field{urlmonth}{02}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{vite}{online}{}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \field{title}{Vite - Next Generation Frontend Tooling}
+    \verb{url}
+    \verb https://vitejs.dev/
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{03}
+    \field{urlmonth}{02}
     \field{urlyear}{2025}
   \endentry
 

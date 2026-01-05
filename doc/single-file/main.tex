@@ -86,8 +86,8 @@
 \newcommand{\Supervisor}{dr hab. inż. Bożena Małysiak-Mrozek}     % dane promotora (bez $\langle$ i $\rangle$)
 \newcommand{\Title}{System wspomagający inteligentne składanie zestawów komputerowych}           % tytuł pracy po polsku
 \newcommand{\TitleAlt}{A system supporting intelligent assembly of computer sets}                     % thesis title in English
-\newcommand{\Program}{Teleinformatyka S1}            % kierunek studiów  (bez $\langle$ i $\rangle$)
-\newcommand{\Specialisation}{Brak}     % specjalność  (bez $\langle$ i $\rangle$)
+\newcommand{\Program}{Teleinformatyka}            % kierunek studiów  (bez $\langle$ i $\rangle$)
+% \newcommand{\Specialisation}{Brak}     % specjalność  (bez $\langle$ i $\rangle$)
 \newcommand{\Departament}{Systemów Rozproszonych i Urządzeń Informatyki}        % katedra promotora  (bez $\langle$ i $\rangle$)
 
 % Jeżeli został wyznaczony promotor pomocniczy lub opiekun, proszę go/ją wpisać ...
@@ -437,7 +437,7 @@ escapeinside={@*}{*@},%
  
 	{\large{\bfseries \LeftProgram:} \Program\par} 
 	
-	{\large{\bfseries \LeftSpecialisation:} \Specialisation\par} 
+	%%{\large{\bfseries \LeftSpecialisation:} \Specialisation\par} 
 	 		
 	\vfill  \vfill 	\vfill 	\vfill 	\vfill 	\vfill 	\vfill  
 	 
@@ -485,10 +485,10 @@ escapeinside={@*}{*@},%
 \Title
 
 \subsubsection*{Streszczenie}  
-(Streszczenie pracy – odpowiednie pole w systemie APD powinno zawierać kopię tego streszczenia.)
+Celem pracy było zaprojektowanie i zaimplementowanie inteligentnego systemu webowego wspomagającego składanie zestawów komputerowych z wykorzystaniem logiki rozmytej. Opracowana aplikacja umożliwia dobór kompatybilnych komponentów PC, weryfikując m.in. zgodność gniazda procesora, standardu pamięci RAM, wymagania energetyczne oraz dopasowanie rozmiarów karty graficznej i układu chłodzenia. Architektura systemu obejmuje front-end webowy (React, TypeScript, Tailwind CSS) komunikujący się przez API REST z backendem (Python, FastAPI, SQLAlchemy) korzystającym z bazy danych PostgreSQL, a rozwiązanie zostało wdrożone w chmurze Microsoft Azure. W systemie zastosowano elementy logiki rozmytej do klasyfikacji proponowanych konfiguracji komputerowych (np. budżetowych, energooszczędnych) na podstawie wielu parametrów jednocześnie. System ułatwia użytkownikom efektywne komponowanie technicznie zgodnych i dopasowanych do potrzeb zestawów PC.
 
 \subsubsection*{Słowa kluczowe} 
-(2-5 slow (fraz) kluczowych, oddzielonych przecinkami)
+aplikacja webowa, system wspomagania decyzji, konfiguracja zestawów komputerowych, kompatybilność podzespołów komputerowych, logika rozmyta, Python, aplikacje chmurowe, architektura klient–serwer, baza danych relacyjna
 
 \subsubsection*{Thesis title} 
 \begin{otherlanguage}{british}
@@ -497,11 +497,11 @@ escapeinside={@*}{*@},%
 
 \subsubsection*{Abstract} 
 \begin{otherlanguage}{british}
-(Thesis abstract – to be copied into an appropriate field during an electronic submission – in English.)
+The aim of this thesis was to design and implement an intelligent web-based system to assist in assembling custom computer sets using fuzzy logic. The developed application allows users to select compatible PC components by verifying, among others, CPU socket compatibility, RAM standards, power requirements, and ensuring components fit within the PC case dimensions. The system’s architecture consists of a web front end (React, TypeScript, Tailwind CSS) communicating via a REST API with a back end (Python, FastAPI, SQLAlchemy) that utilizes a PostgreSQL database, and the solution is deployed on the Microsoft Azure cloud infrastructure. The system applies fuzzy logic techniques to classify proposed computer configurations (e.g., budget or energy-efficient builds) based on multiple criteria simultaneously. The system helps users efficiently compose PC sets that are technically compatible and tailored to their needs.
 \end{otherlanguage}
 \subsubsection*{Key words}  
 \begin{otherlanguage}{british}
-(2-5 keywords, separated by commas)
+web application, decision support system, computer system configuration, hardware compatibility, fuzzy logic, Python, cloud applications, client-server architecture, relational database
 \end{otherlanguage}
 
 
@@ -540,14 +540,14 @@ zakres pracy oraz jej główne cele.
 %%\end{itemize}
 
 \section{Wprowadzenie do problemu}
-Sklepy komputerowe zazwyczaj posiadają swój własny sklep internetowy, oferujący możliwość zakupów części indywidualnie, jak i gotowych zestawów PC. Odpowiedni dobór komponentów jest najistotniejszą częscią procesu projetkowania własnego stanowiska, a pomimo tego najwięksi sprzedawcy nie oferują możliwości sprawdzania kompatybilności wybranych produktów. Dlatego projekt ma na celu utworzenie prostego i intuicyjnego systemu internetowego, który zaoferuje przystępną formę weryfikacji poprawności wyboru komponentów z katalogu oraz finalnie dodanie kompatybilnego zestawu do koszyka użytkownika. 
+Sklepy komputerowe zazwyczaj posiadają swój własny sklep internetowy, oferujący możliwość zakupów części indywidualnie, jak i gotowych zestawów PC. Odpowiedni dobór komponentów jest istotną częscią procesu projetkowania własnego stanowiska, a pomimo tego najwięksi sprzedawcy nie oferują możliwości sprawdzania kompatybilności wybranych produktów. Dlatego projekt ma na celu utworzenie prostego i intuicyjnego systemu internetowego, który zaoferuje przystępną formę weryfikacji poprawności wyboru komponentów z katalogu oraz finalnie dodanie kompatybilnego zestawu do koszyka użytkownika. 
 
 \section{Osadzenie problemu w dziedzinie}
 Projekt osadzony jest w dziedzinie inżynierii oprogramowania, projektowania baz danych oraz systemów e-commerce. Praca obejmuje zagadnienia relacyjności baz danych, budowy warstwy komunikacyjnej backendu, implementacji logiki aplikacji pod kątem biznesowym oraz wdrożenie interfejsu frontendowego.
 
 \section{Cel pracy}
 
-Celem pracy jest zaprojektowanie i zaimplementowanie systemu webowego, który będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy aktualne zamówienie jest wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwi realizację zamównienia. 
+Celem pracy jest zaprojektowanie i zaimplementowanie systemu webowego, który będzie pełnić funkcję inteligentnego kreatora zestawów komputerowych. System będzie dawać użytkownikowi możliwosć wybrania dowolnych produktów z katalogu, sprawdzenie czy  aktualne komponenty znajdujące się na liście są wzajemnie kompatybilne, a gdy weryfikacja zakończy się pomyślnie, umożliwi realizację zamównienia na kompatybilny zestaw. 
 \vspace{0.5cm}
 \\
 Idące za tym cele to:
@@ -562,7 +562,7 @@ Zakres prac nad projektem obejmuje:
 \begin{itemize}
 	\item projekt relacyjnej bazy danych w Oracle SQL Developer.
 	\item utworzenie środowiska testowego serwera PostgreSQL, wprowadzenie gotowych danych o produktach do bazy danych,
-	\item utworzenie użytkowników oraz nadanie odpowiednich uprawnień każdemu z nich,
+	\item utworzenie testowych użytkowników oraz nadanie odpowiednich uprawnień każdemu z nich,
 	\item implementację backendu w języku Python, implementacja API z wykorzystaniem frameworka FastAPI, umożliwiając integrację z bazą danych w celu zarządzania produktami i zamówieniami,
 	\item projekt interfejsu użytkownika, stworzenie frontendu używając HTML, CSS oraz JavaScript,
 	\item projekt kreatora zestawów komputerowych, zaimplementowanego z uwzględnieniem logik rozmytej, używając Reacta, Typescript, Node.js,
@@ -570,26 +570,55 @@ Zakres prac nad projektem obejmuje:
 	
 \end{itemize}
 \newpage
-\section{Zwięzła charakterystyka rozdziałów}
-W podrozdziale zaprezentowana została struktura części pisemnej pracy.
+\section{Charakterystyka rozdziałów}
+Sekcja opiusje każdy z rozdziałów pracy inżynierskiej, krótko charakteryzując przeznaczenie każdego z nich.
 \begin{itemize}
     \item \textbf{Rozdział 1} - zawiera wprowadzenie do tematyki pracy, przedstawia problem nieintuicyjnego doboru kompatybilnych podzespołów komputerowych, definiuje cel i zakres pracy oraz opisuje autorski wkład w projekt.
 
     \item \textbf{Rozdział 2} - obejmuje analizę tematu, w tym istotę kompatybilności sprzętowej, przegląd istniejących rozwiązań wykorzystywanych przez popularne sklepy komputerowe oraz porównanie ich funkcjonalności z zaprojektowanym systemem. Przybliża problematykę całej pracy.
 
     \item \textbf{Rozdział 3} - przedstawia wymagania funkcjonalne i niefunkcjonalne systemu, przypadki użycia, zastosowane narzędzia i technologie oraz metodykę pracy przyjętą podczas implementacji. Przedstawia kompletną listę dobranych technologii i rozwiązań.
+    \item \textbf{Rozdział 4} - obejmuje wymagania niezbędne do uruchomienia aplikacji, przedstawia sposób uruchomienia systemu. Przedstawia również scenariusze korzystania z systemu z perspektywy użytkownika końcowego.
+    \item \textbf{Rozdział 5} - stanowi część projektową, zawierającą architekturę systemu, opisanie każdego filaru aplikacji webowej, model danych wraz z diagramem ERD, opis struktury bazy danych, szczegółową analizę encji oraz omówienie kluczowych modułów, takich jak moduł weryfikacji kompatybilności i logiki rozmytej.
 
-    \item \textbf{Rozdział 4} - stanowi część projektową, zawierającą architekturę systemu, opisanie każdego filaru aplikacji webowej, model danych wraz z diagramem ERD, opis struktury bazy danych, szczegółową analizę encji oraz omówienie kluczowych modułów, takich jak moduł weryfikacji kompatybilności i logiki rozmytej.
+    \item \textbf{Rozdział 6} - prezentuje proces weryfikacji i walidacji systemu, zawierając opis sposobu testowania, organizacji eksperymentów, przypadków testowych oraz analizę wykrytych błędów i wyników testów. Analizuje skuteczność działania oprogramowania, porównując otrzymywane wyniki z założeniami.
 
-    \item \textbf{Rozdział 5} - prezentuje proces weryfikacji i walidacji systemu, zawierając opis sposobu testowania, organizacji eksperymentów, przypadków testowych oraz analizę wykrytych błędów i wyników testów. Analizuje skuteczność działania oprogramowania, porównując otrzymywane wyniki z założeniami.
-
-    \item \textbf{Rozdział 6} - zawiera podsumowanie uzyskanych rezultatów, ocenę stopnia realizacji celów pracy oraz wskazuje możliwe kierunki dalszego rozwoju systemu. Podsumowuje i ocenia skuteczność podjętych działań, analizuje koszty poniesione poczas realizacji, szczegołowo ocenia dobór technologii.
+    \item \textbf{Rozdział 7} - zawiera podsumowanie uzyskanych rezultatów, ocenę stopnia realizacji celów pracy oraz wskazuje możliwe kierunki dalszego rozwoju systemu. Podsumowuje i ocenia skuteczność podjętych działań, analizuje koszty poniesione poczas realizacji, szczegołowo ocenia dobór technologii.
 \end{itemize}
 
 
 \newpage
 \section{Wkład autora}
-Autor samodzielnie opracował wszystkie elementy projektu, zaczynając od zaplanowania funkcjonalności oraz wyborze technologii. Następnym krokiem było zaprojektowanie relacyjnej bazy danych w Oracle SQL Developer, gdzie utworzył on testowy serwer PostgreSQL wraz z użytkownikami oraz nadał odpowiednie uprawnienia każdemu z nich. Przy użyciu frameworku FastAPI przygotowany został backend w języku Python, odpowiadający za komunikację z bazą danych oraz za logikę całej aplikacji, umożliwiając weryfikację kompatybilności zestawów komputerowych. Autor utworzył interaktywny frontend, który umożliwia graficzne korzystanie z aplikacji, zapewniając łatwość użytkowania zarówno dla doświadczonych, jak i początkujących inżynierów sprzętu, poprzez stosowanie logiki rozmytej. Korzystając z akademickiej subskrypcji Microsoft Azure autor używając otrzymanych kredytów samodzielnie realizuje hosting, administrację, testowanie CI/CD, konteneryzację oraz wirtualizację aplikacji webowej, czyniąc ją w pełni używalną w publicznej sieci internet. Dokumentacja przygotowana do projektu, dokument inzynierski oraz wszystkie opisy dostępne w projekcie zostały samodzielnie, szczegółowo opracowane w ramach projektu inzynierskiego "System wspomagający inteligentne składanie zestawów komputerowych".
+Na potrzeby realizacji projektu prace rozpoczęto od analizy problemu oraz
+zaplanowania funkcjonalności systemu, a następnie od doboru technologii
+odpowiednich do jego implementacji. Kolejnym etapem było zaprojektowanie
+relacyjnej bazy danych przy użyciu narzędzia Oracle SQL Developer Data Modeler,
+co umożliwiło utworzenie logicznego modelu danych oraz przygotowanie struktury
+tabel.
+
+Na podstawie zaprojektowanego modelu utworzono testową instancję bazy danych
+PostgreSQL, wraz z konfiguracją użytkowników oraz nadaniem odpowiednich
+uprawnień dostępowych. Następnie, przy wykorzystaniu frameworka FastAPI,
+zaimplementowano warstwę backendową w języku Python, odpowiedzialną za
+komunikację z bazą danych oraz realizację logiki biznesowej systemu, w tym
+mechanizmów weryfikacji kompatybilności zestawów komputerowych.
+
+Równolegle opracowano warstwę frontendową aplikacji, zapewniającą interaktywny i
+intuicyjny interfejs użytkownika. Zastosowane rozwiązania umożliwiają wygodne
+korzystanie z systemu zarówno przez użytkowników zaawansowanych, jak i osoby
+mniej doświadczone, wspierając proces doboru komponentów m.in. poprzez
+zastosowanie elementów logiki rozmytej.
+
+W ramach akademickiej subskrypcji platformy Microsoft Azure zrealizowano proces hostingu aplikacji, jej administracji oraz testowania,
+obejmujący m.in. zagadnienia związane z konteneryzacją, wirtualizacją oraz
+automatyzacją procesów wdrożeniowych. Dzięki temu system został przygotowany do
+działania w środowisku zbliżonym do produkcyjnego oraz udostępniony w publicznej
+sieci internetowej.
+
+Całość dokumentacji projektowej, w tym niniejsza praca inżynierska oraz opisy
+techniczne systemu, została opracowana samodzielnie w ramach realizacji projektu
+inżynierskiego pt. „System wspomagający inteligentne składanie zestawów
+komputerowych”.
 
 \chapter{Analiza problemu oraz przegląd dostępnych rozwiązań}
 Celem niniejszego rozdziału jest analiza problemu będącego przedmiotem pracy 
@@ -613,7 +642,7 @@ ograniczenia, które stanowiły podstawę do zaprojektowania własnego rozwiąza
 \section{Sformułowanie problemu}
 
 \subsubsection{Istota kompatybilności}
-Na rynku znajduje się szeroka gama komponentów komputerowych, która nieustannie poszerza się o nowe produkty. Różnice pomiędzy poszczególnymi modelami dotyczą chociażby wymiarów fizycznych, dostępnych złączy, technologi socketów, minimalnej mocy zasilacza, aż do wymogów software'owych. Odpowiedni dobór części jest pierwszym krokiem do realizacji poprawnie funkcjonującego stanowiska komputerowego, gdyż dowolna pomyłka może prowadzić do braku możliwości fizycznego montażu lub niewłaściwej i nieciągłej pracy urządzenia. Nawet minimalne niezgodności mogą być przyczyną poważnej awarii, która może przyczynić się do strat finansowych, spowodowanych utratą danych, przerwaniem trwałości usług lub całkowitym uszkodzeniem sprzętu.
+Na rynku znajduje się szeroka gama komponentów komputerowych, która nieustannie poszerza się o nowe produkty. Różnice pomiędzy poszczególnymi modelami dotyczą przykładowo wymiarów fizycznych, dostępnych złączy, technologi socketów, czy minimalnej mocy zasilacza. Odpowiedni dobór części jest kluczowy do realizacji poprawnie funkcjonującego stanowiska komputerowego, gdyż dowolna niekompatybilność może prowadzić do braku możliwości fizycznego montażu lub niewłaściwej i nieciągłej pracy urządzenia. Nawet minimalne niezgodności mogą być przyczyną poważnej awarii, która może przyczynić się do strat finansowych, spowodowanych utratą danych, przerwaniem trwałości usług lub całkowitym uszkodzeniem sprzętu.
 
 \subsubsection{Niska dostępność narzędzi do weryfikacji kompatybilności}
 
@@ -637,17 +666,192 @@ Pierwszą i najważniejszą funkcjonalnością wyróżniającą opracowane rozwi
 \\
 Aplikacja dokonuje szczegółowej analizy technicznej wszystkich wybranych komponentów, co przekłada się na sprawdzanie i weryfikowanie:
 \begin{itemize}
-    \item zgodności procesora i płyty głównej pod względem zastosowanego gniazda socket'u,
-    \item typu pamięci RAM oraz jej zgodności ze standardem płyty głównej,
-    \item maksymalnej obsługiwanej częstotliwość i pojemność modułów pamięci,
-    \item parametrów energetycznych, takich jak zapotrzebowanie na moc (TDP) oraz wydajności i maksymalnej dostarczanej mocy zasilacza,
-    \item wymiarów i formatów kart graficznych oraz obudowy,
+    \item zgodności procesora i płyty głównej pod względem zastosowanego socket'u,
+    \item generację pamięci RAM oraz jej zgodności ze standardem płyty głównej,
+    \item maksymalnej obsługiwanej częstotliwość i pojemność modułów pamięci RAM,
+    \item parametrów energetycznych, takich jak zapotrzebowanie na moc oraz wydajności i maksymalnej dostarczanej mocy zasilacza,
+    \item wymiarów kart graficznych oraz obudowy,
     \item zgodności chłodzenia procesora z wybranym gniazdem i limitem wysokości w obudowie.
 \end{itemize}
 
-W odróżnieniu od popularnych serwisów takich jak Morele.net\cite{morele} czy X-kom\cite{xkom}, które nie oferują pełnej automatycznej weryfikacji kompatybilności, system analizuje wszystkie istotne zależności pomiędzy podzespołami. Dzięki temu użytkownik nie jest narażony na ryzyko zakupu części wzajemnie niekompatybilnych, a proces konfiguracji zestawu przebiega szybciej, sprawniej i bez konieczności konsultacji ze specjalistą. Zastosowanie logiki rozmytej pozwala ponadto na ocenę zestawów zarazem pod kątem poprawności technicznej, lecz także ich dopasowania do ogólnych kategorii takich jak budżet, wydajność czy energooszczędność.
+W odróżnieniu od popularnych serwisów takich jak Morele.net\cite{morele} czy X-kom\cite{xkom}, które nie oferują pełnej automatycznej weryfikacji kompatybilności, system analizuje wszystkie istotne zależności pomiędzy podzespołami. Dzięki temu użytkownik nie jest narażony na ryzyko zakupu części wzajemnie niekompatybilnych, a proces konfiguracji zestawu przebiega szybciej, sprawniej i bez konieczności konsultacji ze specjalistą. Zastosowanie logiki rozmytej pozwala ponadto na uproszczenie docelowej kategoryzacji i oceny elementów dla użytkownika, bazując na dużej ilości danych wejściowych.
+
+\section{Logika rozmyta w systemach wspomagania decyzji}
+
+Logika rozmyta stanowi rozszerzenie klasycznej logiki
+dwuwartościowej, w której każda zmienna może przyjmować jedynie wartości
+prawda lub fałsz. W odróżnieniu od podejścia klasycznego, logika rozmyta
+umożliwia modelowanie pojęć nieostrych oraz opis zjawisk, które nie mogą być
+jednoznacznie sklasyfikowane. Z tego względu znajduje ona szerokie zastosowanie
+w systemach wspomagania decyzji, w szczególności w obszarach, gdzie występują
+kryteria jakościowe oraz subiektywne.
+
+Podstawowym pojęciem logiki rozmytej jest zbiór rozmyty, w którym elementy
+należą do zbioru z określonym stopniem przynależności, przyjmującym wartości
+z przedziału od 0 do 1. Stopień ten określany jest za pomocą funkcji
+przynależności, która opisuje, w jakim stopniu dana wartość spełnia określone
+kryterium, na przykład „wysoka wydajność”, „niski pobór energii” lub „niska
+cena”.
+
+W kontekście systemów konfigurujących zestawy komputerowe logika rozmyta
+pozwala na bardziej elastyczną ocenę parametrów technicznych podzespołów,
+takich jak wydajność procesora, zapotrzebowanie energetyczne czy cena zestawu.
+Zamiast sztywnych progów decyzyjnych możliwe jest stopniowe przypisywanie
+konfiguracji do określonych kategorii, takich jak zestaw budżetowy, wydajny
+lub energooszczędny.
+
+Proces wnioskowania w logice rozmytej składa się z kilku etapów:
+\begin{itemize}
+    \item rozmywania
+(dopasowania wartości wejściowych do zbiorów rozmytych), 
+    \item zastosowania reguł
+rozmytych oraz wyostrzania, czyli przekształcenia wyniku rozmytego do postaci
+wartości jednoznacznej. 
+\end{itemize} Dzięki temu możliwe jest uzyskanie końcowej oceny
+zestawu komputerowego w sposób zbliżony do ludzkiego procesu podejmowania
+decyzji.
+
+Zastosowanie logiki rozmytej w niniejszym projekcie umożliwia klasyfikację
+zestawów komputerowych na podstawie wielu kryteriów jednocześnie, bez
+konieczności stosowania sztywnych warunków granicznych. Takie podejście
+zwiększa elastyczność systemu oraz poprawia jego użyteczność z perspektywy
+użytkownika końcowego.
+Na rysunku~\ref{fig:fuzzy_cena} przedstawiono przykładowe funkcje przynależności
+logiki rozmytej wykorzystywane do oceny kategorii cenowej zestawu komputerowego.
+Zastosowanie takich funkcji pozwala na płynne przejścia pomiędzy kategoriami
+oraz odwzorowanie nieostrych granic decyzyjnych.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.9\textwidth,
+    height=6cm,
+    xmin=0, xmax=10000,
+    ymin=0, ymax=1.05,
+    xlabel={Cena zestawu [zł]},
+    ylabel={Stopień przynależności $\mu(x)$},
+    xtick={0,2000,4000,6000,8000,10000},
+    scaled x ticks=false,
+    tick label style={/pgf/number format/fixed},
+    grid=both,
+    axis lines=left,
+    legend style={at={(0.5,-0.25)}, anchor=north, legend columns=3}
+]
+
+% Budżetowy — linia ciągła + kółka
+\addplot[thick, solid, mark=o, mark size=2pt] 
+coordinates {(0,0) (2000,0) (3000,1) (4500,0) (10000,0)};
+\addlegendentry{Budżetowy}
+
+% Średni — kreskowana + kwadraty
+\addplot[thick, dashed, mark=square*, mark size=2pt]
+coordinates {(0,0) (3500,0) (5500,1) (7500,0) (10000,0)};
+\addlegendentry{Średni}
+
+% Premium — kropkowana + trójkąty
+\addplot[thick, dotted, mark=triangle*, mark size=2pt]
+coordinates {(0,0) (6500,0) (8000,1) (10000,1)};
+\addlegendentry{Premium}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Przykładowe funkcje przynależności dla kategorii cenowych zestawu komputerowego}
+\label{fig:fuzzy_cena}
+\end{figure}
+Zastosowanie logiki rozmytej w niniejszym projekcie umożliwia
+pomocniczą, wielokryterialną ocenę zestawu komputerowego
+oraz jego przypisanie do określonej kategorii opisowej.
+Uzyskana klasyfikacja stanowi dodatkową informację wspierającą
+analizę wybranej konfiguracji, bez narzucania jednoznacznych
+decyzji dotyczących doboru komponentów.
 
 
+
+\section{Architektura systemu teleinformatycznego aplikacji webowej}
+Współczesne systemy teleinformatyczne realizujące funkcje dostępne przez sieć Internet
+projektowane są często jako aplikacje webowe o architekturze klient-serwer.
+W takim modelu logicznym systemu warstwa kliencka, uruchamiana po stronie użytkownika
+końcowego (najczęściej w przeglądarce internetowej), odpowiada za prezentację danych
+oraz inicjowanie żądań, natomiast warstwa serwerowa realizuje przetwarzanie danych,
+logikę aplikacyjną oraz dostęp do zasobów trwałych.
+Komunikacja pomiędzy warstwami odbywa się z wykorzystaniem protokołu HTTP
+oraz jednoznacznie zdefiniowanych interfejsów programistycznych API.
+
+Z punktu widzenia projektowania systemów teleinformatycznych istotną cechą tej architektury
+jest separacja funkcjonalna warstw systemu, polegająca na rozdzieleniu odpowiedzialności
+pomiędzy warstwę prezentacji, warstwę logiki aplikacyjnej oraz warstwę danych.
+Rozdzielenie to umożliwia niezależne projektowanie, implementację oraz testowanie
+poszczególnych komponentów systemu, a także ogranicza propagację zmian pomiędzy warstwami
+w trakcie dalszego rozwoju rozwiązania.
+
+Warstwa kliencka systemu realizuje funkcje interakcji z użytkownikiem oraz wizualizacji
+wyników przetwarzania, natomiast serwer aplikacyjny odpowiada za obsługę żądań,
+walidację danych wejściowych, realizację przypadków użycia oraz komunikację z relacyjną
+bazą danych. Przyjęcie architektury bezstanowej (ang. \english{stateless}),
+charakterystycznej dla podejścia REST, oznacza brak przechowywania stanu sesji użytkownika
+po stronie serwera pomiędzy kolejnymi żądaniami.
+Stan konwersacji utrzymywany jest po stronie klienta lub przekazywany jawnie w ramach
+każdego żądania, co umożliwia równoległe przetwarzanie zapytań przez wiele instancji serwera.
+
+\section{Środowisko chmurowe jako środowisko wykonawcze systemu}
+Systemy teleinformatyczne realizujące usługi dostępne w trybie ciągłym
+projektowane są z założeniem ich uruchamiania w rozproszonym środowisku
+obliczeniowym. W przypadku aplikacji webowych rolę takiego środowiska
+pełnią platformy chmurowe, które dostarczają zasoby obliczeniowe, pamięciowe
+oraz sieciowe w postaci zwirtualizowanej infrastruktury. Środowisko chmurowe
+stanowi warstwę wykonawczą systemu, w której uruchamiane są komponenty
+aplikacyjne, usługi bazodanowe oraz elementy infrastruktury sieciowej.
+
+Z punktu widzenia architektury systemu teleinformatycznego istotnym aspektem
+jest separacja warstwy aplikacyjnej od warstwy infrastrukturalnej.
+Warstwa infrastrukturalna obejmuje zasoby obliczeniowe (np. maszyny wirtualne
+lub kontenery), system operacyjny, sieć wirtualną oraz mechanizmy kontroli
+dostępu. Warstwa aplikacyjna obejmuje uruchomione instancje serwera aplikacyjnego,
+usługi pośredniczące oraz bazę danych. Taki podział umożliwia niezależne
+zarządzanie konfiguracją infrastruktury oraz logiką aplikacyjną systemu.
+
+Istotnym elementem środowiska chmurowego jest również zapewnienie ciągłości
+działania systemu w przypadku awarii pojedynczych komponentów.
+W architekturze rozproszonej awaria instancji aplikacji nie powoduje
+zatrzymania działania całego systemu, pod warunkiem istnienia innych
+aktywnych instancji zdolnych do obsługi ruchu. Mechanizmy monitorowania
+stanu usług oraz automatycznego ponownego uruchamiania komponentów
+stanowią integralną część środowiska wykonawczego systemu.
+
+W kontekście bezpieczeństwa środowisko chmurowe wymusza jednoznaczne
+określenie granic odpowiedzialności pomiędzy aplikacją a infrastrukturą.
+Do zadań warstwy infrastrukturalnej należy m.in:
+\begin{itemize}
+\item udostępnienie zwirtualizowanych zasobów obliczeniowych dla komponentów systemu,
+\item zapewnienie środowiska uruchomieniowego dla instancji serwera aplikacyjnego,
+\item realizacja mechanizmów routingu oraz przekazywania ruchu sieciowego do usług backendowych,
+\item równoważenie obciążenia pomiędzy wieloma instancjami komponentów serwerowych,
+\item izolacja zasobów infrastrukturalnych poszczególnych komponentów systemu,
+\item monitorowanie dostępności instancji oraz stanu zasobów infrastrukturalnych,
+\item automatyczne ponowne uruchamianie instancji w przypadku wykrycia awarii,
+\item zapewnienie ciągłości działania systemu przy częściowej niedostępności zasobów,
+\item zarządzanie konfiguracją środowiska uruchomieniowego aplikacji,
+\item kontrola dostępu do zasobów infrastrukturalnych,
+\item separacja środowisk uruchomieniowych (np. deweloperskiego i produkcyjnego),
+\item udostępnienie usług sieciowych niezbędnych do komunikacji komponentów systemu.
+\end{itemize}
+Przyjęcie środowiska chmurowego jako platformy wykonawczej stanowi
+spójny element architektury teleinformatycznej systemu.
+
+\subsection{Bezpieczeństwo systemu}
+Bezpieczeństwo systemu teleinformatycznego stanowi istotny aspekt jego projektowania
+i realizacji, w szczególności w przypadku aplikacji webowych przetwarzających dane
+użytkowników. W architekturze klient-serwerowej zagadnienia bezpieczeństwa obejmują
+zarówno ochronę transmisji danych pomiędzy komponentami systemu, jak i zabezpieczenie
+danych przechowywanych w warstwie serwerowej.
+
+W niniejszym systemie przyjęto podejście polegające na oddzieleniu mechanizmów
+uwierzytelniania i autoryzacji od logiki biznesowej aplikacji. Dane uwierzytelniające
+użytkowników nie są przechowywane w postaci jawnej, lecz w formie skrótów kryptograficznych.
+Do tego celu stosowany jest algorytm bcrypt, który wykorzystuje mechanizm soli oraz
+parametryzowany koszt obliczeniowy, co ogranicza skuteczność ataków typu brute force
+oraz słownikowych w przypadku uzyskania nieautoryzowanego dostępu do bazy danych.
 
 %\begin{Definition}\label{def:1}
 %Definicja to zdanie (lub układ zdań) odpowiadające na pytanie o strukturze „co to jest a?”. Definicja normalna jest zdaniem złożonym z 2 członów: definiowanego (łac. definiendum) i definiującego (łac. definiens), połączonych spójnikiem definicyjnym („jest to”, „to tyle, co” itp.). 
@@ -669,7 +873,7 @@ W odróżnieniu od popularnych serwisów takich jak Morele.net\cite{morele} czy 
 % TODO
 \chapter{Wymagania i narzędzia}
 \label{ch:wymagania-i-narzedzia}
-W rodziale tym określone zostały wymagania funkcjonalne i 
+W rodziale określone zostały wymagania funkcjonalne i 
 niefunkcjonalne projektowanego systemu oraz przedstawienio technologie i 
 narzędzia wykorzystane podczas realizacji pracy. Zdefiniowane wymagania 
 stanowią podstawę do dalszego projektowania architektury systemu.
@@ -685,7 +889,7 @@ stanowią podstawę do dalszego projektowania architektury systemu.
 
 \section{Wymagania funkcjonalne}
 
-Wymagania funkcjonalne określają zachowania oraz funkcje, jakie system powinien realizować. Na podstawie analizy problemu oraz specyficznych potrzeb użytkowników wyodrębniono następujący zbiór wymagań:
+Wymagania funkcjonalne określają zachowania oraz funkcje, jakie system powinien realizować. Na podstawie analizy problemu wyodrębniono następujący zbiór wymagań:
 
 \begin{itemize}
     \item rejestracja oraz logowanie użytkowników,
@@ -695,13 +899,12 @@ Wymagania funkcjonalne określają zachowania oraz funkcje, jakie system powinie
     \begin{itemize}
         \item zgodność gniazda procesora,
         \item typ pamięci RAM,
-        \item kompatybilność częstotliwości i pojemności pamięci,
-        \item TDP procesora oraz wymagania energetyczne,
-        \item dopasowanie komponentów do obudowy,
+        \item kompatybilność częstotliwości i pojemności pamięci RAM,
+        \item wymagania energetyczne,
+        \item dopasowanie komponentów do rozmiarów obudowy,
         \item kompatybilność układów chłodzenia.
     \end{itemize}
     \item wykorzystanie logiki rozmytej do klasyfikacji zestawów pod konkretne kategorie (np. budżetowy, wydajny, energooszczędny),
-    \item generowanie gotowych konfiguracji na podstawie wybranych komponentów,
     \item dodawanie produktów oraz pełnych zestawów do koszyka,
     \item modyfikacja zawartości koszyka oraz finalizacja zamówienia.
 \end{itemize}
@@ -711,16 +914,15 @@ Wymagania funkcjonalne określają zachowania oraz funkcje, jakie system powinie
 Wymagania niefunkcjonalne opisują właściwości jakościowe systemu, które wpływają na komfort użytkowania, bezpieczeństwo oraz niezawodność.
 
 \begin{itemize}
-    \item \textbf{Wydajność}: czas odpowiedzi API nie powinien przekraczać 1 sekundy przy standardowym obciążeniu.
     \item \textbf{Skalowalność}: system powinien umożliwiać uruchomienie w środowisku chmurowym Microsoft Azure.
-    \item \textbf{Bezpieczeństwo}: hasła użytkowników muszą być przechowywane w formie zaszyfrowanej (bcrypt).
+    \item \textbf{Bezpieczeństwo}: hasła użytkowników muszą być przechowywane w formie zaszyfrowanej.
     \item \textbf{Niezawodność}: system powinien obsługiwać błędy kompatybilności w sposób kontrolowany i komunikatywny.
     \item \textbf{Użyteczność}: interfejs użytkownika powinien być przejrzysty, responsywny i intuicyjny.
-    \item \textbf{Przenośność}: frontend uruchamiany w dowolnej nowoczesnej przeglądarce; backend kompatybilny z systemami Linux i Windows.
+    \item \textbf{Przenośność}:  frontend oparty na technologii webowej dostosowanej do najpopularniejszych przeglądarek.
     \item \textbf{Wysoka dostępność}: system powinien być dostępny w sposób ciągły i niesustanny.
 \end{itemize}
 
-\section{Przypadki użycia}
+\section{Przykładowe scanariusze użycia systemu}
 
 Najważniejsze przypadki użycia systemu obejmują następujące scenariusze:
 
@@ -738,7 +940,7 @@ Najważniejsze przypadki użycia systemu obejmują następujące scenariusze:
 \newpage
 \section{Narzędzia i technologie}
 
-Realizacja systemu wymagała zastosowania nowoczesnych technologii backendowych, frontendowych oraz narzędzi modelowania. Wszystkie zastosowane narzędzia i technologio przedstawiono w kolejnych podrozdziałach.
+Realizacja projektu wymagała zastosowania nowoczesnych technologii backendowych, frontendowych oraz narzędzi modelowania. Wszystkie zastosowane narzędzia i technologie przedstawiono w kolejnych podrozdziałach.
 \subsection{Frontend}
 
 \begin{itemize}
@@ -772,21 +974,9 @@ Realizacja systemu wymagała zastosowania nowoczesnych technologii backendowych,
     \item \textbf{Microsoft Azure}~\cite{azure} – środowisko do wdrożenia i hostowania bazy danych.
 \end{itemize}
 
-
-
-
-\subsection{Modelowanie i narzędzia wspomagające}
-
-\begin{itemize}
-    \item \textbf{Oracle SQL Developer Data Modeler} - narzędzie użyte do projektowania modelu ERD bazy danych.
-    \item \textbf{Git} - system kontroli wersji.
-    \item \textbf{GitHub} - repozytorium kodu oraz platforma do zarządzania wersjami projektu.
-    \item \textbf{Microsoft Azure} - środowisko do wdrożenia i hostowania bazy danych.
-\end{itemize}
-
 \section{Metodyka pracy}
 
-Prace nad projektem prowadzono w sposób iteracyjny, bazując na podejściu zbliżonym do metodyki Agile. Każdy cykl rozwoju obejmował:
+Prace nad projektem prowadzono w sposób iteracyjny. Każdy cykl rozwoju obejmował:
 
 \begin{itemize}
     \item analizę oraz doprecyzowanie wymagań pod standardy rynkowe,
@@ -823,7 +1013,7 @@ System może zostać uruchomiony zarówno w środowisku lokalnym, jak i w środo
 chmurowym. W niniejszej sekcji przedstawiono sposób instalacji oraz uruchomienia
 aplikacji w obu wariantach.
 
-\subsubsection{Uruchomienie systemu w środowisku lokalnym}
+\subsection{Uruchomienie systemu w środowisku lokalnym}
 
 Uruchomienie systemu w środowisku lokalnym polega na lokalnym uruchomieniu warstwy
 frontendowej oraz backendowej aplikacji. W tym wariancie użytkownik końcowy
@@ -835,7 +1025,7 @@ W przypadku uruchomienia lokalnego wymagane jest posiadanie na komputerze
 zainstalowanego interpretera języka Python, środowiska Node.js oraz nowoczesnej
 przeglądarki internetowej. Warstwa frontendowa aplikacji budowana jest lokalnie
 przy użyciu skryptów środowiska Node.js, a następnie udostępniana jako aplikacja
-webowa dostępna pod adresem \texttt{127.0.0.1}. Backend systemu uruchamiany jest
+webowa dostępna pod adresem lokalnym \texttt{127.0.0.1}. Backend systemu uruchamiany jest
 jako serwer aplikacyjny w języku Python, który realizuje logikę biznesową oraz
 komunikację z bazą danych.
 
@@ -845,7 +1035,7 @@ poprzez zmianę adresu IP oraz parametrów połączenia w pliku konfiguracyjnym
 aplikacji. Takie rozwiązanie umożliwia elastyczne testowanie systemu bez
 konieczności utrzymywania lokalnej instancji bazy danych.
 
-\subsubsection{Uruchomienie systemu w środowisku chmurowym Azure}
+\subsection{Uruchomienie systemu w środowisku chmurowym Azure}
 
 Alternatywnie system może zostać uruchomiony w całości w środowisku chmurowym
 Microsoft Azure. W tym wariancie baza danych została wdrożona jako usługa Azure
@@ -879,10 +1069,7 @@ zapisywania zestawów ani realizacji zamówień.
 do rozszerzonej funkcjonalności systemu, obejmującej możliwość tworzenia i
 zapisywania zestawów komputerowych, dodawania produktów do koszyka oraz składania
 zamówień. Dane użytkowników są przechowywane w bazie danych systemu.
-    \item System przewiduje również istnienie roli administracyjnej, przeznaczonej do
-zarządzania zawartością systemu oraz jego konfiguracją. Rola administratora
-wykorzystywana jest w celach zarządzania danymi systemowymi, takimi jak katalog
-produktów oraz struktura bazy danych, i jest ograniczona do właściciela systemu.
+    
 \end{itemize}
 
 Zastosowany podział na kategorie użytkowników pozwala na zachowanie porządku w
@@ -1023,7 +1210,7 @@ rysunku~\ref{fig:filtrowanie}, natomiast wybór z komponentów z pośród przefi
 
 \subsection{Scenariusz 3: Dodawanie produktów do koszyka}
 
-Po wybraniu produktu użytkownik dodaje go do koszyka za pomocą odpowiedniego
+Po wybraniu produktu użytkownik dodaje go do koszyka za pomocą 
 przycisku dostępnego w widoku produktu. System zapisuje wybrany element w
 koszyku oraz wyświetla komunikat potwierdzający poprawne wykonanie operacji.
 
@@ -1210,10 +1397,10 @@ techniczne.
 %\end{figure}
 \section{Przedstawienie idei systemu}
 
-System jest odpowiedzią na nieustannie poszerzający się rynek podzespołów komputerowych, pełniąc funkcję inteligentnego asystenta przy kompletowaniu osobistego zestawu PC. Implementacja logiki rozmytej miała na celu ułatwienie nawet początkującym użytkowikom skuteczne przejście przez ten proces, uwzględniając ich potrzeby takie jak wydajność, energooszczędność czy odpowiedni koszt. System łączy intuicyjny interfejs, znany z innych serwisów internetowcyh, z zaawansowanymi mechanizmami wspomagającymi, zaprojektowanymi konkretnie pod potrzeby klientów.
+System jest odpowiedzią na nieustannie poszerzający się rynek podzespołów komputerowych, pełniąc funkcję inteligentnego asystenta przy kompletowaniu osobistego zestawu komputerowego. Implementacja logiki rozmytej miała na celu ułatwienie nawet nieposiadającym specjalistycznej wiedzy użtykownikom skuteczne przejście przez ten proces, uwzględniając ich potrzeby takie jak wydajność, energooszczędność czy odpowiedni koszt. System łączy intuicyjny interfejs, znany z innych serwisów internetowcyh, z zaawansowanymi mechanizmami wspomagającymi, zaprojektowanymi konkretnie pod potrzeby klientów.
 
 \subsection{Cel powstania aplikacji}
-Celem systemu było uproszczenie samodzielnego składania zestawów komputerowych poprzez inteligentną asekurację podczas tego procesu. Jego celem jest eliminacja jak potencjalnie jak największej liczby błędów po stronie użytkowików. \\
+Celem systemu było uproszczenie samodzielnego składania zestawów komputerowych poprzez inteligentną asekurację podczas tego procesu. Jego celem jest eliminacja potencjalnych błędów po stronie użytkowików. \\
 Aplikację projektowano z myślą o:
 \begin{itemize}
     \item intuicyjnym wyborze komponetów z katalogu,
@@ -1223,7 +1410,7 @@ Aplikację projektowano z myślą o:
 \end{itemize}
 \newpage
 \subsection{Innowacyjność systemu}
-System powstał jako inteligenty kreator zestawów komputerowych, składający się z mechanizmów weryfikacji oraz wspomagania decyzji, podczas gdy podobnych rozwiązań nie sposób znaleźć w najpopularniejszych polskich sklepach komputerowych. \\
+System powstał jako inteligenty kreator zestawów komputerowych, składający się z mechanizmów weryfikacji oraz wspomagania decyzji, z intencją udoskonalenia mechanizmów najpopularniejszych polskich sklepów komputerowych. \\
 Innowacyjność systemu wynika z:
 \begin{itemize}
     \item automatycznej weryfikacji kompatybilności, obejmującej wszystkie powszechne znane parametry, takie jak:
@@ -1238,7 +1425,6 @@ Innowacyjność systemu wynika z:
     \item zastosowania logiki rozmytej, umożliwiającej dobranie odpowiedniego zestawu pod indywidualne potrzeby, dzieląc je na:
     \begin{itemize}
         \item budżet,
-        \item wydajność,
         \item energooszczędność,
         \item przeznaczenie.
     \end{itemize}
@@ -1291,7 +1477,7 @@ zostały szczegółowo omówione w kolejnych częściach pracy.
 % Wdrożenie: Azure (baza, hosting).
 \newpage
 \subsection{Frontend}
-Frontend aplikacji pełni ważną funkcję w funckjonowaniu każdego systemu, ponieważ odpowiada za prezentację danych dostarczonych z backendu. Projekt wykorzystuje nowoczesne technologie React, TypeScript oraz Vite, zapewniając innowacyjność, wydajność oraz skalowalność.
+Frontend aplikacji pełni ważną funkcję w funckjonowaniu każdego systemu, ponieważ odpowiada za dostęp użytkownika do funkcjonalności oferowanych przez backend. Projekt wykorzystuje nowoczesne technologie React, TypeScript oraz Vite, zapewniając innowacyjność, wydajność oraz skalowalność.
 Inteligentny kreator zestawów komputerowych to jednostronicowy typ aplikacji webowej, dzięki czemu przełączanie widoku następuje dynamicznie bez konieczności ponownego ładowania zasobów. Takie rozwiązanie gwarantuje wysoką wydajność, prostotę oraz komfort użytkowania.
 \\ Zadania realizowane przez interfejs:
 \begin{itemize}
@@ -1303,10 +1489,10 @@ Inteligentny kreator zestawów komputerowych to jednostronicowy typ aplikacji we
     \item wykonywanie zapytań REST API do backendu w celu weryfikacji danych i aktualizacji stanu aplikacji.
 \end{itemize}
 
-Za wygląd zgodny ze standardami rynkowymi odpowiedzialny jest Tailwind CSS, gwarantując responwyność i estetykę rozwiązania. Framework umożliwia konfigurację i nadawanie stylów bezpośrednio w komponentach poprzez gotowe klasy utility. Takie rozwiązanie zapewnia intuicyjne i dynamiczne UI. Za komunikację z backendem odpowiada REST API poprzez zapytania realizowane biblioteką fetch API. Każda interakcja ze stroną powoduje wywołanie właściwego endpoint'u, co dynamicznie aktualizuje stan aplikacji, w tym bazę danych. Projekt wdrożony został w chmurze Microsoft Azure, jako Azure Static Web App, pełniącej rolę hostingu. Takie rozwiązanie umożliwia automatyzację CI/CD, co przekłada się na bezproblemowość i stabilność. Całość stacku techologicznego zapewnia wysoką dostępność aplikacji oraz łatwość korzystania i zarządzania.\\
+Za wygląd zgodny ze standardami rynkowymi odpowiedzialny jest Tailwind CSS, gwarantując responwyność i estetykę rozwiązania. Framework umożliwia konfigurację i nadawanie stylów bezpośrednio w komponentach poprzez gotowe klasy utility. Takie rozwiązanie zapewnia intuicyjne i dynamiczne UI. Za komunikację z backendem odpowiada REST API poprzez zapytania realizowane biblioteką fetch API. Każda interakcja ze stroną powoduje wywołanie właściwego endpoint'u, co dynamicznie aktualizuje stan aplikacji, w tym bazę danych. Projekt wdrożony został w chmurze Microsoft Azure, jako Azure Static Web App, pełniącej rolę hostingu. Całość stacku techologicznego zapewnia wysoką dostępność aplikacji oraz łatwość korzystania i zarządzania.\\
 Projekt frontendu powstał z myślą o:
 \begin{itemize}
-    \item przejrzystości interfejsu,
+    \item przejrzystości interfejsu, 
     \item prostocie korzystania,
     \item szybkości działania.
 \end{itemize}  
@@ -1320,20 +1506,20 @@ Takie podejście powoduje, że aplikacja jest łatwa w utrzymaniu, skalowalna, w
 % Moduł użytkownika
 % Moduł kompatybilności
 % Moduł koszyka / zamówień
-Backend, jako jeden z filarów każdej aplikacji, odpowiada za logikę projektu, przetwarzanie danych oraz za kluczową komunikację kodu z bazą danych. Implementacja w języku Python, z wykorzystaniem frameworka FastAPI zapewnia nowoczesność i wydajność usług sieciowych, gwarantując przejrzystość, skalowalność oraz integralność z frontendem. Backend pełni funckję warstwy pośredniczącej pomiędzy interfejsem a bazą danych, gdzie żądania od strony użytkownika są nieustannie przetwarzane, a następnie przekazywane do odpowiednich modułów. Zwracana odpowiedź, w formacie JSON, umożliwia płynną komunikację w architekturze aplikacji.
+Backend odpowiada za logikę projektu, przetwarzanie danych oraz za kluczową komunikację kodu z bazą danych. Implementacja w języku Python, z wykorzystaniem frameworka FastAPI zapewnia nowoczesność i wydajność usług sieciowych, gwarantując przejrzystość, skalowalność oraz integralność z frontendem. Backend pełni funckję pośrednika pomiędzy interfejsem użytkownika a bazą danych, gdzie żądania od strony użytkownika są nieustannie przetwarzane, a następnie przekazywane do odpowiednich modułów. Zwracana odpowiedź, w formacie JSON, umożliwia płynną komunikację w architekturze aplikacji.
 \\
 Struktura omawianej warstwy zawiera następujące moduły funckjonalne:
 \begin{itemize}
     \item moduł autoryzacji i uwierzytelniania - odpowiada za rejestrację, logowanie i odpowiednie weryfikowanie danych użytkownika. Wykorzystuje algorytm bcrypt do zapewnienia bezpieczeństwa haseł,
-    \item moduł zarządzania użytkownikami - umożliwia monitorowanie historii zamówień,
+    \item moduł zarządzania użytkownikami - odpowiada za rejestracje i logowanie, co bezpośrednio umożliwia monitorowanie historii zamówień, poprzez tworzenie identyfikatora każdego klienta,
     \item moduł katalogu produktów - umożlliwia przeglądanie oferty sklepu, pobieranie listy części, filtrowanie i sortowanie,
-    \item moduł kreatora - zapewnia możliwość zbierania danych o wybranych komponentach, gromadząc je w strukturze lokalnej sesji użytkownika, pozwalając na transport informacji z oferty do kreatora,
+    \item moduł kreatora - odpowiada za dobór wzajmenie kompatybilnych komponentów, umożliwia utworzenie listy częśći komputerowych,
     \item moduł weryfikacji kompatybilności - odpowiada za porówywanie parametrów elementów zestawu, analizując zgodność pomiędzy nimi, stanowiąc rdzeń i główną funckjonalność projektu,
     \item moduł logiki rozmytej - odpowiedzialny jest za klasyfikację zestawu do jednej z kategorii,
     \item moduł koszyka i zamówień - zadaniem tego modułu jest dodawanie elementów do koszyka, nieustanne monitorowanie jego stanu i modyfikowanie zawartości.
 \end{itemize}
 
-Komunikacja pomiędzy backendem a bazą danych zaprojektowana została przy pomocy SQLAlchemy, który pełni funckję warstwy ORM. Takie rozwiązanie zapewnia odwzorowanie struktury tabel w postaci obiektów, znacząco ułatwiając implementację logiki, minimalizując ryzyko błędów oraz zwiększająć bezpieczeństwo. Operacje wykonywane w ten sposób określamy jako bezpieczne i atomowe. Wdrożenie w postaci Azure App Service, zapewnia skalowalność, prostotę utrzymania oraz wysoką dostępność, co jest niezwykle istotne podczas projektowania aplikacji przeznaczonej dla klientów. Uruchamianie nowych wersji odbywa się automatycznie poprzez mechanizm stałej implementacji i stałego dostarczania, znanego szerzej jako CI/CD.
+Komunikacja pomiędzy backendem a bazą danych zaprojektowana została przy pomocy SQLAlchemy, który pełni funckję warstwy między kodem aplikacji, a relacyjną bazą danych (warstwa ORM). Takie rozwiązanie zapewnia odwzorowanie struktury tabel w postaci obiektów, znacząco ułatwiając implementację logiki, minimalizując ryzyko błędów oraz zwiększająć bezpieczeństwo. Operacje wykonywane w ten sposób określamy jako bezpieczne i atomowe. Wdrożenie w postaci Azure App Service, zapewnia skalowalność, prostotę utrzymania oraz wysoką dostępność, co jest niezwykle istotne podczas projektowania aplikacji przeznaczonej dla klientów. 
 
 \newpage
 
@@ -1356,7 +1542,7 @@ Realiazcja tej części projektu w sposób opisany powyżej stanowi stabilną i 
 Baza danych jest fundamentem każdej aplikacji biznesowej, gdyż odpowiedzialna jest za trwałe przechowywanie informacji o użytkownikach, produktach oraz zamówieniach. Zaprojektowana została  w oparciu o zasady normalizacji oraz analizę charakterystycznych właściwości komponentów, zapewniając integralność danych oraz efektywne weryfikowanie kompatybilności elementów.
 \vspace{0.5cm}
 \\
-Model i schemat danych zaprojektowany został przy uzyciu Oracle SQL Developer Data Modeler, co umożliwiło utworzenie diagramu ERD oraz autmatyczne wygenerowanie definicji tabel. Wyeksportowana baza jako plik DDL wdrożona została do środowiska DataGrip, w którym wypełniono ją przygotowanymi INSERT'ami, zaciągniętymi z publicznego repozetorium komponentów\cite{pc_git}, w celu implementacji danych produktów. System operował w oparciu o PostgreSQL, pełniacy funkcję środowiska testowego wykorzystywanego do sprawnego implementowania backendu i modułów logiki. Gdy projekt przeszedł do etapu wdrożenia produkcyjnego, baza danych została zmigrowana do chmury Microsoft Azure, korzystając z gotowych poleceń podanych w dokumentacji Microsoft Azure\cite{azure_mig}. Przeniesiona struktura zaimplementowana została jako Azure PostgreSQL Database, co dzięki funkcjonalności grupowania zasobów Azure zapewnia integrację z produkcyjną wersją backendu uruchomioną w Azure App Service.
+Model i schemat danych zaprojektowany został przy uzyciu Oracle SQL Developer Data Modeler, co umożliwiło utworzenie diagramu ERD oraz autmatyczne wygenerowanie definicji tabel. Wyeksportowana baza jako plik DDL wdrożona została do środowiska DataGrip, w którym wypełniono ją przygotowanymi danymi części komputerowych, pochodzącymi z publicznego repozetorium komponentów\cite{pc_git}, w celu implementacji danych produktów. System operował w oparciu o PostgreSQL, pełniacy funkcję środowiska testowego wykorzystywanego do sprawnego implementowania backendu i modułów logiki. Gdy projekt przeszedł do etapu wdrożenia produkcyjnego, baza danych została zmigrowana do chmury Microsoft Azure, korzystając z gotowych poleceń podanych w dokumentacji Microsoft Azure\cite{azure_mig}. Przeniesiona struktura zaimplementowana została jako Azure PostgreSQL Database, co dzięki funkcjonalności grupowania zasobów Azure zapewnia integrację z produkcyjną wersją backendu uruchomioną w Azure App Service.
 \newpage
 Baza Danych spełnia wymagi trzeciej postaci normalnej (3NF), co oznacza, że nie zawiera redundancji danych, wszystkie atrybuty niekluczowe są w pełni zależne od klucza głównego właściwych tabel. Właściwość ta pozwala na:
 \begin{itemize}
@@ -1373,79 +1559,77 @@ W celu przechowywania wielu komponentów w jednym zestawie, koszyku lub zamówie
 \vspace{0.5cm}
 \\
 Dzięki zastosowaniu odpowiednich narzędzi, normalizacji oraz chmurowej infrastruktury Azure, baza danych stanowi stabilny i skalowalny fundament systemu, wspierający zarówno logikę kompatybilności, jak i zarządzanie koszykami, zamówieniami oraz zestawami użytkowników.
-\subsection{Infrastruktura chmurowa}
-Wybór infranstruktury chmurowej jest podstawowym aspketem każdego nastawionego na wysoką dostepność projektu. Chmura Microsoft Azure gwarantuje skalowalność i bezpieczne środowisko, umożliwiając integrację z poszczególnymi komponentami systemu oraz automatyzację wdrażania kolejnych części aplikacji.
-
-Organizację pracy znacząco upraszcza ulokowanie środowiska produkcyjnego w oparciu o grupę zasobów Azure, która zbiera całość w jednej strukturze administracyjnej. Takie rozwiązanie gwarantuje intuicyjne i kontrolowane zarządzanie usługami, co pozwala nieprzerwanie monitorować zużycie zasobów oraz koszty serwisu.
 \newpage
-Projekt operował na kredytach Azure o równowartości 100 USD, przyznanych przez Microsoft w ramach programu Azure for Students, pozwalając na wdrożenie aplikacji bez generowania dodatkowych kosztów. Środki te umożliwiły
-uruchomienie wszystkich wymaganych usług, takich jak:
+\subsection{Infrastruktura chmurowa}
+Wybór infrastruktury chmurowej jest kluczowym aspektem każdego projektu nastawionego na wysoką dostępność. Platforma Microsoft Azure gwarantuje skalowalność i bezpieczne środowisko, umożliwiając integrację z poszczególnymi komponentami systemu oraz automatyzację wdrażania kolejnych części aplikacji. Organizację pracy znacząco upraszcza ulokowanie środowiska produkcyjnego w ramach grupy zasobów Azure, która zbiera całość elementów w jednej strukturze administracyjnej. Takie rozwiązanie gwarantuje intuicyjne i kontrolowane zarządzanie usługami, co pozwala na ciągłe monitorowanie zużycia zasobów oraz kosztów utrzymania serwisu.
+
+Projekt został uruchomiony z wykorzystaniem kredytu Azure o równowartości 100 USD, przyznanego przez Microsoft w ramach programu Azure for Students. Umożliwiło to wdrożenie aplikacji bez generowania dodatkowych kosztów w początkowym okresie. Przyznane środki pozwoliły na uruchomienie wszystkich wymaganych usług, takich jak:
 \begin{itemize}
-    \item Azure App Service,
-    \item Azure Static Web App,
-    \item Azure Database for PostgreSQL.
+    \item Azure Static Web App – hosting warstwy frontendu,
+    \item Azure App Service – hosting warstwy backendu,
+    \item Azure Database for PostgreSQL – baza danych dla aplikacji.
+
 \end{itemize}
 
 \subsubsection{Azure Static Web App}
-Warstwa frontend'u zaimplementowana została w usłudze Static Web Apps, co umożliwiło prezentowanie strony w sieci Internet. Usługa ta obsługuje:
-\begin{itemize}
-    \item automatyzację CI/CD,
-    \item integrację z backendem.
-\end{itemize}
-\vspace{0.5cm}
-Stanowi to lekkie, skalowalne rozwiązanie, zapewniając obsługę wielu użytkowników jednocześnie.
+Warstwa frontendu została zaimplementowana w usłudze Azure Static Web Apps, co umożliwiło udostępnienie strony internetowej użytkownikom. Usługa ta obsługuje natywną integrację z warstwą backend.
+
+Jest to lekkie i skalowalne rozwiązanie, zapewniające obsługę wielu użytkowników jednocześnie. Dzięki wykorzystaniu Azure Static Web App wdrożenie frontendu było proste, a publikacja zmian – zautomatyzowana.
+
 \subsubsection{Azure App Service}
-Warstwa backend'u została wdrożona przy użyciu usługi App Service. Oparty na frameworku'u FastAPI i języku Python osadzona została jako aplikacja, działając na serwerze automatyzowanym przez usługi Azure, zapewniając dzięki temu:
+Warstwa backendu została wdrożona z użyciem usługi Azure App Service. Aplikacja oparta na frameworku FastAPI (w języku Python) została uruchomiona na platformie zarządzanej przez Azure, co zapewniło:
 \begin{itemize}
     \item uproszczone wdrażanie aktualizacji,
-    \item zarządzanie środowiskiem wykonawczym,
+    \item łatwe zarządzanie środowiskiem wykonawczym,
     \item integrację z usługami monitorującymi Azure,
-    \item stabilność,
-    \item wysoką dostępność.
-\end{itemize}
-\vspace{0.5cm}
-Takie rozwiązanie uodparnia backend na obciążenia i znacząco redukuje wkład użytkownika w administrację w czasie rzeczywistym.
-\subsubsection{Azure Database for PostgreSQL}
-Dane o podzespołach przetrzymywane są w usłudze Azure Database for PostgreSQL, zapewniając środowisko do zarządzania relacyjnymi bazami danych. Wdrożenie polegało na zmigrowaniu bazy PostgreSQL do Azure \cite{azure_mig}, obejmując elementy takie jak:
-\begin{itemize}
-    \item eskport struktury i danych,
-    \item dostosowanie typów danych,
-    \item weryfikację integralności.
+    \item stabilność działania i wysoką dostępność
 \end{itemize}
 
-Rozwiązanie to zapewnia dostęp do bazy z dowolnego urządzenia, gwarantując elastyczność pracy i wysoką niezawodność. Przetrzymywanie danych w chmurze daje możliwość elastycznego dostępu do danych zależnie od potrzeb, redukując koszty utrzymania. 
+Takie rozwiązanie zwiększyło odporność backendu na duże obciążenia i znacząco zredukowało konieczność ręcznej administracji w czasie działania systemu (większość zadań infrastrukturalnych jest automatyzowana przez platformę Azure).
+
+\subsubsection{Azure Database for PostgreSQL}
+Dane aplikacji przechowywane są w zarządzanej bazie danych Azure Database for PostgreSQL, która zapewnia środowisko do wygodnego zarządzania relacyjną bazą danych. Wdrożenie bazy danych polegało na migracji istniejącej bazy PostgreSQL do platformy Azure, co obejmowało:
+
+\begin{itemize}
+    \item eksport struktury i danych ze środowiska lokalnego,
+    \item dostosowanie typów danych do wymogów Azure,
+    \item weryfikację integralności po migracji.
+\end{itemize}
+
+
+Takie rozwiązanie gwarantuje wysoką niezawodność oraz elastyczny dostęp do danych z dowolnego miejsca. Przechowywanie danych w chmurze umożliwia skalowanie i dostęp do bazy w zależności od potrzeb, jednocześnie redukując koszty oraz obciążenia związane z utrzymywaniem własnej infrastruktury serwerowej.
 
 \subsubsection{Azure Monitor}
-Aplikacja jest monitorowana w czasie rzeczywistym za pomocą usług:
-\begin{itemize}
-    \item Azure Monitor,
-    \item Aplication Insights.
-\end{itemize}
-Takie rozwiązanie umożliwia nieustanne wykrywanie problemów, reagowanie na zwiększony ruch oraz automatyzację dopasowywania zasobów do aktualnych potrzeb.
+Aplikacja była monitorowana w czasie rzeczywistym za pomocą usług Azure Monitor oraz Application Insights. Pozwoliło to na bieżące wykrywanie ewentualnych problemów, reagowanie na zwiększony ruch oraz automatyczne dopasowywanie zasobów do aktualnych potrzeb. Dzięki tym narzędziom zespół mógł szybko identyfikować wąskie gardła i zapewnić stabilne działanie systemu w trakcie trwania projektu.
 
 \subsubsection{Koszty i optymalizacja}
-W trakcie wdrażania przeanalizowany został potencjalny koszt utrzymania aplikacji, dobierając odpowiednie rozwiązania, o możliwie niskich paramterach z uwagi na niski poziom ruchu na stronie. Wprowadzone modyfikacje nie mają wpływu na funkcjonalność, pozwalają one na oszczędność środków, których zużycie nawet na średnich komponentach przekracza założony budżet. Wybrane do tego zostały następujące rozwiązania:
+Na etapie wdrażania przeanalizowano potencjalne koszty utrzymania aplikacji i dobrano rozwiązania o możliwie najniższych parametrach, odpowiednie do spodziewanie niewielkiego ruchu. Wprowadzone ograniczenia nie wpłynęły negatywnie na funkcjonalność systemu, a pozwoliły zaoszczędzić środki – wykorzystanie nawet średniej klasy komponentów mogłoby przekroczyć założony budżet. Zastosowano następujące działania optymalizacyjne:
+
 \begin{itemize}
-    \item wybranie maszyny wirtualnej o najniższych możliwych parametrach,
-    \item ustawienie automatycznego usypiania systemu w przypadku ruchu poniżej progu zdefiniowanego ręcznie,
-    \item ograniczenie ruchu sieciowego do testowej podsieci wirutalnej.
+    \item wybór najniższych dostępnych planów usług (o minimalnych parametrach wydajności) dla hostingu,
+    \item włączenie automatycznego wstrzymywania działania aplikacji przy minimalnym ruchu (poniżej zdefiniowanego progu),
+    \item ograniczenie ruchu sieciowego wyłącznie do testowej podsieci wirtualnej.
 \end{itemize}
 
-W ten sposób możliwe stało się zmieszczenie w oferowanych przez Microsoft kredytach, ale również przygotowało projekt do ewentualnych przyszłych modyfikacji.
-\subsubsection{Architektura logiczna}
-Infrastruktura została umieszczona w jednej grupie zasobów, umożliwiając spójne zarządzanie, wzajemny dostęp do zasobów oraz przystępną modyfikacje pojedyńczych modułów.
-Działanie infrastruktury przebiega w następujący sposób:
-\begin{itemize}
-    \item połączenie użytkownika z frontendem (Static Web App),
-    \item komunikacja na linii frontend - backend (RestAPI),
-    \item komunikacja na linii backend - Baza PostgreSQL,
-    \item monitorowanie komponentów, zwracanie dedykowanych logów, które analizowane przez Azure Monitor dostosowywują parametry aplikacji.
-\end{itemize}
-Taki sposób implementacji zapewnia wysoką wydajność, stabilność, skalowalność oraz integralność, czyniąc aplikację gotową do działania w produkcyjnym środowisku.
-\newpage
+Dzięki powyższym zabiegom uruchomienie wszystkich niezbędnych usług udało się zrealizować w ramach przyznanego limitu 100 USD. Po wyczerpaniu kredytu Azure dalsze utrzymanie pełnej infrastruktury okazało się jednak niemożliwe - warstwa frontendowa aplikacji (Azure Static Web App) została wyłączona i strona nie jest już dostępna online. Baza danych (Azure Database for PostgreSQL) pozostała natomiast aktywna i wciąż można uzyskać do niej zdalny dostęp.
+
 \section{Baza danych}
+Sekcja ta przedstawia kompletny opis struktury bazy danych zastosowanej w projekcie.
+Model danych został opracowany w postaci diagramu encji-związków (ERD), który obrazuje
+wszystkie kluczowe encje systemu, relacje pomiędzy nimi oraz podstawową logikę
+przetwarzania i przechowywania danych.
+Diagram ERD, przedstawiony na rysunku \ref{fig:erd}, stanowi formalną reprezentację
+projektu logicznego bazy danych. Uwzględnia on zarówno encje odpowiadające
+podstawowym obiektom domenowym systemu, jak i encje pomocnicze, służące do
+realizacji relacji typu M:N, normalizacji danych oraz zapewnienia
+spójności referencyjnej.
+Zaprojektowana struktura bazy danych umożliwia jednoznaczne odwzorowanie procesów
+zachodzących w systemie, w szczególności w zakresie konfiguracji zestawów
+komputerowych, weryfikacji kompatybilności podzespołów oraz obsługi danych
+użytkowników i zamówień. Zastosowane klucze główne i obce pozwalają na zachowanie
+integralności danych oraz wspierają efektywne wykonywanie zapytań w warstwie
+aplikacyjnej.
 
-Sekcja ta przedstawia kompletny opis bazy danych użytej w projekcie, opisując szczegółowo wszystkie jej encje, zależności i logikę.
 % Opis danych wykorzystywanych w systemie
 % Główne encje: procesory, płyty główne, GPU, RAM, zasilacze...
 
@@ -1453,14 +1637,18 @@ Sekcja ta przedstawia kompletny opis bazy danych użytej w projekcie, opisując 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{obrazki/erd.jpg} % tu ścieżka do Twojego pliku
+    \includegraphics[
+        angle=90,
+        width=\paperheight,
+        height=\paperwidth,
+        keepaspectratio
+    ]{obrazki/erd.jpg}
     \caption{Diagram ERD bazy danych}
     \label{fig:erd}
 \end{figure}
 
 Na rysunku przedstawiono diagram ERD bazy danych systemu sklepu komputerowego 
-z kreatorem zestawów PC. Model odzwierciedla główne obszary funkcjonalne:
-aplikacji
+z kreatorem zestawów PC. Model odzwierciedla główne obszary funkcjonalne aplikacji takie jak:
 \begin{itemize}
     \item zarządzanie klientami,
     \item zarządzanie produktami,
@@ -1867,7 +2055,7 @@ Poniżej przedstawiono opis poszczególnych pól tabeli GPU:
     ta wykorzystywana jest podczas filtrowania oraz prezentacji produktów.
 
     \item Atrybut vram przechowuje pojemność pamięci graficznej karty. Parametr ten
-    ma istotne znaczenie przy ocenie wydajności zestawu komputerowego.
+    ma istotne znaczenie przy ocenie zestawu.
 
     \item Atrybut gddr określa typ zastosowanej pamięci graficznej, na przykład
     GDDR6 lub GDDR6X.
@@ -2389,7 +2577,19 @@ zbioru rozmytego opisano następującą zależnością:
 0 & x \ge b
 \end{cases}
 \]
-
+gdzie:
+\begin{itemize}
+    \item $x$ – wartość analizowanej cechy wejściowej, na przykład znormalizowana
+    cena zestawu komputerowego,
+    \item $a$ – dolna granica przedziału, dla której stopień przynależności do
+    zbioru rozmytego wynosi $0$,
+    \item $x_1$ – punkt, w którym funkcja przynależności osiąga wartość maksymalną
+    $1$,
+    \item $x_2$ – punkt, do którego stopień przynależności utrzymuje wartość
+    maksymalną $1$,
+    \item $b$ – górna granica przedziału, po przekroczeniu której stopień
+    przynależności ponownie przyjmuje wartość $0$.
+\end{itemize}
 \subsection{Moduł zarządzania koszykiem i zamówieniami}
 
 Moduł zarządzania koszykiem odpowiada za obsługę procesów związanych z
@@ -2430,7 +2630,7 @@ zakończeniu procesu zakupowego.
 \section{Najważniejsze algorytmy}
 
 Jednym z kluczowych algorytmów systemu jest algorytm sprawdzania kompatybilności
-podzespołów. Algorytm działa sekwencyjnie i przerywa działanie w momencie
+podzespołów. Algorytm jest wykonywany sekwencyjnie i przerywa działanie w momencie
 wykrycia pierwszej niezgodności.
 
 \begin{verbatim}
@@ -2457,10 +2657,122 @@ def save_build(components: list):
 
 Fragment kodu odpowiada za zapis zestawu komputerowego po wcześniejszej
 weryfikacji kompatybilności. Zastosowane rozwiązanie zapewnia, że do bazy danych
-trafiają wyłącznie poprawne technicznie konfiguracje.
+przekazywane są wyłącznie poprawne technicznie konfiguracje.
 
 
-\newpage
+\section{Diagramy UML i realizacja przypadków użycia}
+
+W niniejszej sekcji przedstawiono diagramy UML w postaci diagramów sekwencji,
+które ilustrują realizację kluczowych przypadków użycia systemu opisanych w
+rozdziale 3.3. Diagramy te prezentują szczegółowy przepływ danych pomiędzy
+użytkownikiem, warstwą frontendową, backendowym API oraz bazą danych, co pozwala
+na analizę dynamiki działania systemu.
+
+\subsection{Rejestracja użytkownika}
+
+Proces rejestracji nowego użytkownika przedstawiono na rysunku~\ref{fig:rejestracja}.
+Użytkownik inicjuje proces rejestracji poprzez interfejs frontendowy, wprowadzając
+wymagane dane rejestracyjne. Dane te są następnie przekazywane do backendowego API,
+gdzie wykonywana jest walidacja danych wejściowych oraz sprawdzenie, czy konto o
+podanym adresie e-mail już istnieje w bazie danych.
+
+W przypadku braku istniejącego konta następuje zapis nowego użytkownika w bazie
+danych oraz zwrócenie komunikatu o poprawnej rejestracji. W przeciwnym przypadku
+system zwraca informację o błędzie, co zapobiega duplikacji kont użytkowników.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/rejestracja.png}
+    \caption{Diagram sekwencji procesu rejestracji użytkownika}
+    \label{fig:rejestracja}
+\end{figure}
+
+\subsection{Logowanie użytkownika}
+
+Diagram sekwencji logowania użytkownika przedstawiono na rysunku~\ref{fig:logowanie}.
+Proces rozpoczyna się od wprowadzenia przez użytkownika danych uwierzytelniających
+w interfejsie frontendowym. Backend API dokonuje walidacji danych oraz pobiera
+informacje o użytkowniku z bazy danych na podstawie adresu e-mail.
+
+W przypadku poprawnej weryfikacji hasła system generuje token sesyjny, który
+umożliwia dalsze korzystanie z funkcjonalności aplikacji. W sytuacji podania
+niepoprawnych danych uwierzytelniających użytkownik otrzymuje komunikat o błędzie.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/logowanie.png}
+    \caption{Diagram sekwencji procesu logowania użytkownika}
+    \label{fig:logowanie}
+\end{figure}
+
+\subsection{Wyświetlanie katalogu komponentów}
+
+Proces pobierania oraz wyświetlania listy dostępnych komponentów komputerowych
+zaprezentowano na rysunku~\ref{fig:wyswietlanie}. Po wejściu użytkownika na stronę
+główną aplikacji frontend wysyła zapytanie do backendowego API w celu pobrania
+aktualnej listy komponentów.
+
+Backend przygotowuje odpowiednie zapytanie do bazy danych, a następnie zwraca
+zestaw danych, który jest prezentowany użytkownikowi w formie katalogu produktów.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/wyswietlanie.png}
+    \caption{Diagram sekwencji wyświetlania katalogu komponentów}
+    \label{fig:wyswietlanie}
+\end{figure}
+
+\subsection{Budowa zestawu komputerowego}
+
+Proces budowy zestawu komputerowego w kreatorze PC przedstawiono na
+rysunku~\ref{fig:budowanie}. Użytkownik wybiera komponenty z listy dostępnych
+produktów, a frontend przesyła informacje o aktualnej konfiguracji do backendu.
+
+System na bieżąco aktualizuje konfigurację zestawu, umożliwiając użytkownikowi
+modyfikację wyboru podzespołów oraz dalszą analizę kompletności zestawu.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/budowanie.png}
+    \caption{Diagram sekwencji procesu budowy zestawu komputerowego}
+    \label{fig:budowanie}
+\end{figure}
+
+\subsection{Weryfikacja kompatybilności zestawu}
+
+Diagram sekwencji weryfikacji kompatybilności zestawu komputerowego przedstawiono
+na rysunku~\ref{fig:kompatybilnosc}. Po zainicjowaniu sprawdzenia przez użytkownika
+frontend przekazuje aktualną konfigurację zestawu do backendowego API.
+
+Backend pobiera wymagane parametry komponentów z bazy danych i wykonuje analizę
+kompatybilności, uwzględniając m.in. zgodność gniazd, typ pamięci RAM oraz wymagania
+energetyczne. Wynik analizy przekazywany jest użytkownikowi w postaci komunikatu
+informującego o zgodności lub wykrytych niezgodnościach.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/kompatyblinosc.png}
+    \caption{Diagram sekwencji weryfikacji kompatybilności zestawu}
+    \label{fig:kompatybilnosc}
+\end{figure}
+
+\subsection{Dodanie zestawu do koszyka}
+
+Proces dodawania zestawu komputerowego do koszyka przedstawiono na
+rysunku~\ref{fig:koszyk}. Po zakończeniu konfiguracji użytkownik inicjuje operację
+dodania zestawu do koszyka. Frontend wysyła odpowiednie żądanie do backendowego API,
+które zapisuje zestaw w bazie danych.
+
+Po pomyślnym zapisie użytkownik otrzymuje potwierdzenie dodania zestawu do koszyka,
+co umożliwia dalszą realizację procesu zakupowego.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{obrazki/koszykuml.png}
+    \caption{Diagram sekwencji dodawania zestawu do koszyka}
+    \label{fig:koszyk}
+\end{figure}
+
 
 
 % TODO
@@ -2488,7 +2800,7 @@ funkcjonalnych, potwierdzające spełnienie założonych wymagań projektowych.
 
 Celem weryfikacji systemu było sprawdzenie poprawności działania zaprojektowanej
 systemu oraz ocena stopnia spełnienia założonych wymagań funkcjonalnych.
-Proces testowania miał na celu potwierdzenie, że wszystkie kluczowe moduły
+Proces testowania miał na celu weryfikację, czy wszystkie kluczowe moduły
 systemu działają zgodnie z przyjętymi założeniami projektowymi.
 \vspace{0.5cm}
 \\
@@ -2525,7 +2837,7 @@ komputerowych. Scenariusze testowe odzwierciedlały rzeczywiste działania
 użytkownika, takie jak dobór podzespołów, modyfikacja zestawu oraz próba
 utworzenia konfiguracji niezgodnej technicznie.
 
-Testowanie realizowane było w sposób manualny poprzez interfejs użytkownika
+Testowanie realizowane było w sposób manualny wykorzystując interfejs użytkownika
 aplikacji. Takie podejście pozwoliło na jednoczesną weryfikację poprawności
 logiki biznesowej systemu oraz oceny działania warstwy frontendowej i
 backendowej podczas typowego użytkowania aplikacji.
@@ -2542,7 +2854,7 @@ backendowej podczas typowego użytkowania aplikacji.
 % Jak wyglądało środowisko testowe:
 % - Azure (baza),
 % - lokalny backend / production build frontendu.
-Eksperymenty testowe zostały przeprowadzone w kontrolowanym środowisku testowym,
+Testy zostały przeprowadzone w kontrolowanym środowisku testowym,
 które umożliwiało weryfikację poprawności działania wszystkich kluczowych
 funkcjonalności systemu. Testy obejmowały zarówno warstwę frontendową, jak i
 backendową aplikacji oraz ich współpracę z bazą danych.
@@ -2594,9 +2906,12 @@ zarówno konfiguracje poprawne, jak i niepoprawne, w celu sprawdzenia reakcji
 systemu na różne scenariusze użytkowania.
 \vspace{0.5cm}
 \\
-Testy skoncentrowane były głównie na mechanizmie weryfikacji kompatybilności
-podzespołów komputerowych, poprawności obsługi procesów użytkownika oraz
-realizacji podstawowych funkcjonalności aplikacji.
+Testy skoncentrowane były na weryfikacji mechanizmu sprawdzania kompatybilności
+podzespołów komputerowych, poprawności obsługi procesów użytkownika oraz realizacji
+podstawowych funkcjonalności aplikacji. Testowanie systemu miało charakter ręcznych
+testów funkcjonalnych, przeprowadzanych w środowisku deweloperskim.
+
+
 \begin{table}[H]
 \centering
 \caption{Przykładowe przypadki testowe systemu}
@@ -2864,31 +3179,23 @@ stanowić podstawę do dalszego rozwoju i wdrożeń.
 \begin{itemize}
 
 \item[API] interfejs programistyczny aplikacji (ang. \english{Application Programming Interface})
-\item[ASGI] asynchroniczny interfejs serwera aplikacji (ang. \english{Asynchronous Server Gateway Interface})
-\item[ATX] standard rozmiaru płyt głównych i obudów komputerowych (ang. \english{Advanced Technology eXtended})
 \item[CPU] procesor centralny (ang. \english{Central Processing Unit})
 \item[CRUD] podstawowe operacje na danych: tworzenie, odczyt, modyfikacja, usuwanie (ang. \english{Create, Read, Update, Delete})
-\item[CSS] kaskadowe arkusze stylów (ang. \english{Cascading Style Sheets})
-\item[DDR] standard pamięci RAM \english{(Double Data Rate)}
-\item[ERD] diagram związków encji (ang. \english{Entity–Relationship Diagram})
+\item[ERD] diagram związków encji (ang. \english{Entity--Relationship Diagram})
 \item[GPU] procesor graficzny (ang. \english{Graphics Processing Unit})
-\item[HTML] język znaczników stron WWW (ang. \english{HyperText Markup Language})
-\item[HTTP] protokół komunikacji klient-serwer (ang. \english{HyperText Transfer Protocol})
+\item[HTTP] protokół komunikacji klient--serwer (ang. \english{HyperText Transfer Protocol})
 \item[JSON] format danych tekstowych (ang. \english{JavaScript Object Notation})
-\item[ORM] mapowanie obiektowo-relacyjne (ang. \english{Object–Relational Mapping})
-\item[PSU] zasilacz komputerowy (ang. \english{Power Supply Unit})
+\item[ORM] mapowanie obiektowo--relacyjne (ang. \english{Object--Relational Mapping})
 \item[RAM] pamięć operacyjna (ang. \english{Random Access Memory})
 \item[REST] styl architektury usług sieciowych (ang. \english{Representational State Transfer})
 \item[SQL] język zapytań do baz danych (ang. \english{Structured Query Language})
 \item[SSD] dysk półprzewodnikowy (ang. \english{Solid State Drive})
 \item[TDP] maksymalna ilość ciepła odprowadzana przez układ (ang. \english{Thermal Design Power})
-\item[TS] język programowania TypeScript (ang. \english{TypeScript})
 \item[UI] interfejs użytkownika (ang. \english{User Interface})
 \item[UML] zunifikowany język modelowania (ang. \english{Unified Modeling Language})
-\item[URL] adres zasobu internetowego (ang. \english{Uniform Resource Locator})
-\item[WWW] ogólnoświatowa sieć internetowa (ang. \english{World Wide Web})
 
 \end{itemize}
+
 
 
 
